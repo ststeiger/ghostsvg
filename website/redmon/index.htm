@@ -70,8 +70,12 @@ your language.
   the "Prompt for filename" dialog will appear on the console or first
   session, not the current session.  If you know how to set the session
   for displaying windows, please send me email.
-<li> Writing files to network shares may not work.
+<li> Writing files to network shares may not work.  Using "Run as user"
+ may fix this.
 <li> Environment variables are not replaced in the program arguments.
+ One workaround may be to use the command interpreter as the 
+ redirection program, "/c file.bat" as the arguments, 
+ then use %REDMON_USER% etc. within the batch file.
 <li> Windows 2000 and XP have a job name as the document title, 
  not the original document name.  This is not something that can be 
  fixed in RedMon.
@@ -118,6 +122,6 @@ how to set up a Magicfilter.
 
 <p><hr>
 <a href="../gsview/rjl.htm">Russell Lang</a><br>
-2003-02-12
+2003-07-11
 </body>
 </html>
