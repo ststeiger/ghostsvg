@@ -11,21 +11,25 @@ h1,h2,h3,h4,h5,h6
 {
   font-family: sans-serif;
   color: #000080;
+  background-color: white;
 }
 
 tt
 {
   color: rgb(40%,24%,24%);
+  background-color: white;
 }
 
 a > tt, a > b > tt
 {
   color: blue;
+  background-color: white;
 }
 
 a
 {
   color: blue;
+  background-color: white;
   visited { color: rgb(60%,0%,30%); }
 }
 
@@ -37,10 +41,11 @@ a.offsite
 a:visited
 {
   color: rgb(60%,0%,30%);
+  background-color: white;
 }
 
-a: hover, a:active, a:focus
+a:hover, a:active, a:focus
 {
-  background: #FFFFAA;
+  background-color: #FFFFAA;
 }
 
