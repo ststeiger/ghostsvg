@@ -58,7 +58,12 @@ class CGSSharedLib
 		
 		void					Open();
 		void					Close();
-		int						Init(int argc = 0, ...);
+		int						Init();
+		
+		void					FreeArgumentList();
+		void					SetDefaultArgumentList();
+		void					SetArgumentList(int argc, ...);
+		void					AppendArgumentList(int argc, ...);
 		
 		int						Reset();
 		void					Exit(int err=0);

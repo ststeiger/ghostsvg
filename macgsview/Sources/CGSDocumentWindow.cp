@@ -850,6 +850,8 @@ CGSDocumentWindow::RenderContent()
 	mView->SetResolution((float) mZoom / 100.0 * 72.0);
 	mView->SetAntiAliasing(CGSApplication::GetPreferences()->GetAntiAliasing());
 	mView->SetDrawBuffered(CGSApplication::GetPreferences()->GetDrawBuffered());
+	mView->SetTransparency(CGSApplication::GetPreferences()->GetTextTransparency(),
+						   CGSApplication::GetPreferences()->GetGraphicsTransparency());
 	mView->SetUseExternalFonts(CGSApplication::GetPreferences()->GetUseExternalFonts());
 	switch (CGSApplication::GetPreferences()->GetColorDepth()) {
 		case kBlackWhite:		mView->SetColorDepth(1);	break;

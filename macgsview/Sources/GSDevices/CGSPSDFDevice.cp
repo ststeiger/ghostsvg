@@ -64,3 +64,26 @@ CGSPSDFDevice::HandleRenderingPanel(GSExportPanelMode inMode, LView* inView, Mes
 }
 
 
+
+// ---------------------------------------------------------------------------
+//	€ SetupDevice
+// ---------------------------------------------------------------------------
+
+int
+CGSPSDFDevice::SetupDevice()
+{
+	return inherited::SetupDevice();
+}
+
+
+
+// ---------------------------------------------------------------------------
+//	€ SubmitDeviceParameters
+// ---------------------------------------------------------------------------
+
+void
+CGSPSDFDevice::SubmitDeviceParameters()
+{
+	inherited::SubmitDeviceParameters();
+}
+

@@ -94,9 +94,10 @@ CGSDevice::CGSDevice(CGSDocument* inDocument)
 	
 	int err = mDLL->Init();
 	if (err) {
-		// error, caller has to test if GetDLL() return 0
+		// error, caller has to test if GetDLL() returns 0
 		delete mDLL;
 		mDLL = 0;
+		ErrorDialog(err);
 	}
 }
 
@@ -276,7 +277,7 @@ CGSDevice::RenderPageThread(int inFirstPage, int inLastPage)
 	}
 	
 	if (mDeviceIsExporting && mDocument->GetToolbar()) {
-		mDocument->GetToolbar()->SetStatusText(LStr255(kSTRListToolbar, kToolbarScanningPSStr));
+		mDocument->GetToolbar()->SetStatusText(LStr255(kSTRListToolbar, kToolbarExportingStr));
 		mDocument->GetToolbar()->SetProgressMinMax(mFirstPage, mLastPage);
 		mDocument->GetToolbar()->ShowProgressBar();
 		mDocument->GetToolbar()->ShowStatusText();
@@ -563,11 +564,11 @@ CGSDevice::SubmitDeviceParameters()
 	GetDLL()->ExecStr(paramStr);
 	sprintf(paramStr, "/HWResolution [%f %f]\n", mHWResolution.h, mHWResolution.v);
 	GetDLL()->ExecStr(paramStr);
-/*	sprintf(paramStr, "/TextAlphaBits %d\n", mTextAlphaBits);
+	sprintf(paramStr, "/TextAlphaBits %d\n", mTextAlphaBits);
 	GetDLL()->ExecStr(paramStr);
 	sprintf(paramStr, "/GraphicsAlphaBits %d\n", mGraphicsAlphaBits);
 	GetDLL()->ExecStr(paramStr);
-*/	
+	
 	if (mDeviceIsExporting) {
 		GetDLL()->ExecStr("/OutputFile (");
 		GetDLL()->ExecStr(mOutputFilePath);
@@ -1080,7 +1081,7 @@ CGSDevice::HandleRenderingPanel(GSExportPanelMode inMode, LView* inView, Message
 	
 	static LEditText		*resField;
 	
-	static short			lastResolution = 72;
+	static short			lastResolution = 144;
 	
 	if (inMode == GSExportPanelSetup) {
 		resField	= dynamic_cast<LEditText*> (inView->FindPaneByID(kExportRenderingResolution));
@@ -1151,16 +1152,6 @@ CGSDevice::ErrorDialog(int inError)
 		return true;
 	}
 	
-	char		filePath[256];
-	LStr255		fileName, gsVersion;
-	
-	mDocument->GetFilePath(filePath);
-	fileName = filePath;
-	fileName.Remove(0, fileName.ReverseFind("\p:"));
-	
-	gsVersion = GetDLL()->revision;
-	gsVersion.Insert("\p.", 2);
-	
 	SInt16					itemHit;
 	AlertStdAlertParamRec	alertParam;
 	
@@ -1174,18 +1165,30 @@ CGSDevice::ErrorDialog(int inError)
 	alertParam.cancelButton		= kAlertStdAlertCancelButton;
 	alertParam.position			= kWindowDefaultPosition;
 	
-	short	errStrNr;
-	if (inError == -25)		// VMError
-		errStrNr = kNotEnoughMemErrorStr;
-	else					// other PS-Error
-		errStrNr = kPostScriptErrorStr;
 	
 	if (UAppleEventsMgr::InteractWithUser() == noErr) {
 		::ThreadBeginCritical();
 		UDesktop::Deactivate();
-		::ParamText("\p", gsVersion, LStr255((short) inError), fileName);
-		::StandardAlert(kAlertCautionAlert, LStr255(kSTRListGeneral, errStrNr),
-						nil, &alertParam, &itemHit);
+		
+		if (inError == -25) {		// VMError
+			::StandardAlert(kAlertCautionAlert, LStr255(kSTRListGeneral, kNotEnoughMemErrorStr),
+							nil, &alertParam, &itemHit);
+		} else {					// other PS-Error
+			static char		filePath[256];
+			static LStr255	fileName, gsVersion;
+			
+			mDocument->GetFilePath(filePath);
+			fileName = filePath;
+			fileName.Remove(0, fileName.ReverseFind("\p:"));
+	
+			gsVersion = GetDLL()->revision;
+			gsVersion.Insert("\p.", 2);
+			
+			::ParamText("\p", gsVersion, LStr255((short) inError), fileName);
+			::StandardAlert(kAlertCautionAlert, LStr255(kSTRListGeneral, kPostScriptErrorStr),
+							nil, &alertParam, &itemHit);
+		}
+		
 		UDesktop::Activate();
 		::ThreadEndCritical();
 	}

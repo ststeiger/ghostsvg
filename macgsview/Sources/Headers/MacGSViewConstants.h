@@ -254,6 +254,12 @@ const PaneIDT	kPrefsDisplayColorDepth				=	'ClDp';
 const PaneIDT	kPrefsDisplayDefaultZoom			=	'DfZm';
 const PaneIDT	kPrefsDisplayAntiAliasing			=	'AnAl';
 const PaneIDT	kPrefsDisplayDrawBuffered			=	'DrBf';
+const PaneIDT	kPrefsDisplayGraphicsAlphaBits1		=	'AGr1';
+const PaneIDT	kPrefsDisplayGraphicsAlphaBits2		=	'AGr2';
+const PaneIDT	kPrefsDisplayGraphicsAlphaBits4		=	'AGr4';
+const PaneIDT	kPrefsDisplayTextAlphaBits1			=	'ATx1';
+const PaneIDT	kPrefsDisplayTextAlphaBits2			=	'ATx2';
+const PaneIDT	kPrefsDisplayTextAlphaBits4			=	'ATx4';
 
 const PaneIDT	kPrefsDisplayUseExternalFonts		=	'UsXF';
 

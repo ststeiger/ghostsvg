@@ -45,7 +45,7 @@
 
 
 const unsigned char *PrefsFileName	= LStr255(kSTRListGeneral, kPrefsFileNameStr);
-const int kCGSPreferencesVersion = 1002;	// currently implemented prefs struct version
+const int kCGSPreferencesVersion = 1003;	// currently implemented prefs struct version
 
 
 
@@ -218,6 +218,9 @@ CGSPreferences::SetDefaultValues()
 	mPrefs.drawBuffered				= true;
 	mPrefs.defaultZoomMenuItem		= zoomFitWidth;
 	
+	mPrefs.graphicsTransparency		= 1;
+	mPrefs.textTransparency			= 4;
+	
 	// fonts settings
 	mPrefs.useExternalFonts			= false;
 	
@@ -358,12 +361,20 @@ CGSPreferences::HandleDisplayPanel(GSPrefsPanelMode inMode, LView* inView, Messa
 	
 	static LPopupButton		*colDepthMenu, *defaultZoomMenu;
 	static LCheckBox		*antiAliasBox, *bufferedBox;
+	static LRadioButton		*graphicsAlphaBits1, *graphicsAlphaBits2, *graphicsAlphaBits4,
+							*textAlphaBits1, *textAlphaBits2, *textAlphaBits4;
 	
 	if (inMode == GSPrefsPanelSetup) {
 		colDepthMenu = dynamic_cast<LPopupButton*> (inView->FindPaneByID(kPrefsDisplayColorDepth));
 		antiAliasBox = dynamic_cast<LCheckBox*> (inView->FindPaneByID(kPrefsDisplayAntiAliasing));
 		bufferedBox = dynamic_cast<LCheckBox*> (inView->FindPaneByID(kPrefsDisplayDrawBuffered));
 		defaultZoomMenu = dynamic_cast<LPopupButton*> (inView->FindPaneByID(kPrefsDisplayDefaultZoom));
+		graphicsAlphaBits1 = dynamic_cast<LRadioButton*> (inView->FindPaneByID(kPrefsDisplayGraphicsAlphaBits1));
+		graphicsAlphaBits2 = dynamic_cast<LRadioButton*> (inView->FindPaneByID(kPrefsDisplayGraphicsAlphaBits2));
+		graphicsAlphaBits4 = dynamic_cast<LRadioButton*> (inView->FindPaneByID(kPrefsDisplayGraphicsAlphaBits4));
+		textAlphaBits1 = dynamic_cast<LRadioButton*> (inView->FindPaneByID(kPrefsDisplayTextAlphaBits1));
+		textAlphaBits2 = dynamic_cast<LRadioButton*> (inView->FindPaneByID(kPrefsDisplayTextAlphaBits2));
+		textAlphaBits4 = dynamic_cast<LRadioButton*> (inView->FindPaneByID(kPrefsDisplayTextAlphaBits4));
 		
 		// remove last menu item from zoom menu (other zoom)
 		defaultZoomMenu->DeleteMenuItem(zoomToValue);
@@ -372,13 +383,38 @@ CGSPreferences::HandleDisplayPanel(GSPrefsPanelMode inMode, LView* inView, Messa
 		defaultZoomMenu->SetCurrentMenuItem(mPrefs.defaultZoomMenuItem);
 		antiAliasBox->SetValue(mPrefs.antiAliasing);
 		bufferedBox->SetValue(mPrefs.drawBuffered);
+		
+		graphicsAlphaBits1->SetValue(false);
+		graphicsAlphaBits2->SetValue(false);
+		graphicsAlphaBits4->SetValue(false);
+		switch(mPrefs.graphicsTransparency) {
+			case 1: graphicsAlphaBits1->SetValue(true); break;
+			case 2: graphicsAlphaBits2->SetValue(true); break;
+			case 4: graphicsAlphaBits4->SetValue(true); break;
+		}
+		
+		textAlphaBits1->SetValue(false);
+		textAlphaBits2->SetValue(false);
+		textAlphaBits4->SetValue(false);
+		switch(mPrefs.textTransparency) {
+			case 1: textAlphaBits1->SetValue(true); break;
+			case 2: textAlphaBits2->SetValue(true); break;
+			case 4: textAlphaBits4->SetValue(true); break;
+		}
 	} else if (inMode == GSPrefsPanelAccept) {
 		mPrefs.colorDepth = (ColorDepth) colDepthMenu->GetCurrentMenuItem();
 		mPrefs.defaultZoomMenuItem = defaultZoomMenu->GetCurrentMenuItem();
 		mPrefs.antiAliasing = antiAliasBox->GetValue();
 		mPrefs.drawBuffered = bufferedBox->GetValue();
+		
+		if (graphicsAlphaBits1->GetValue())			mPrefs.graphicsTransparency = 1;
+		else if (graphicsAlphaBits2->GetValue())	mPrefs.graphicsTransparency = 2;
+		else if (graphicsAlphaBits4->GetValue())	mPrefs.graphicsTransparency = 4;
+		
+		if (textAlphaBits1->GetValue())			mPrefs.textTransparency = 1;
+		else if (textAlphaBits2->GetValue())	mPrefs.textTransparency = 2;
+		else if (textAlphaBits4->GetValue())	mPrefs.textTransparency = 4;
 	}
-	
 }
 
 

@@ -80,14 +80,8 @@ CGSSharedLib::~CGSSharedLib()
 	if (mFileBuffer)
 		free(mFileBuffer);
 	
-	if (mArgumentList) {
-		int	i = 0;
-		while (mArgumentList[i]) {
-			free(mArgumentList[i]);
-			i++;
-		}
-		free(mArgumentList);
-	}
+	if (mArgumentList)
+		FreeArgumentList();
 	
 	// unload library
 	Close();
@@ -184,7 +178,7 @@ CGSSharedLib::Close()
 //	ExecStr() can be used. Is done automatically whenever needed.
 
 int
-CGSSharedLib::Init(int inArgc, ...)
+CGSSharedLib::Init()
 {
 	if (mLibID == 0) {
 		// we don't have a connection to the lib, perhaps not enough memory
@@ -196,57 +190,120 @@ CGSSharedLib::Init(int inArgc, ...)
 		return -1;
 	}
 	
-	int		errCode;
-	
-	if (mArgumentList == 0) {
-		mArgumentList = (char**) malloc(sizeof(char*) * 100);
-		
-		mArgumentList[mArgumentCount] = (char*) malloc(100);
-		strcpy(mArgumentList[mArgumentCount++], "MacGSView");
-	#if PP_Debug
-	#else	
-		mArgumentList[mArgumentCount] = (char*) malloc(100);
-		strcpy(mArgumentList[mArgumentCount++], "-q");
-	#endif	
-		mArgumentList[mArgumentCount] = (char*) malloc(100);
-		strcpy(mArgumentList[mArgumentCount++], "-dNOPAUSE");
-		
-		mArgumentList[mArgumentCount] = (char*) malloc(100);
-		strcpy(mArgumentList[mArgumentCount++], "-dNODISPLAY");
-		
-		mArgumentList[mArgumentCount] = (char*) malloc(100);
-		strcpy(mArgumentList[mArgumentCount++], "-dFIXEDRESOLUTION");
-		
-		mArgumentList[mArgumentCount] = (char*) malloc(100);
-		strcpy(mArgumentList[mArgumentCount++], "-dFIXEDMEDIA");
-		
-		if (inArgc > 0) {
-			va_list argPtr;
-			
-			va_start(argPtr, inArgc);
-			for (int i=0; i<inArgc; i++) {
-				mArgumentList[mArgumentCount] = (char*) malloc(100);
-				strcpy(mArgumentList[mArgumentCount++], va_arg(argPtr, char*));
-			}
-		}
-		
-		mArgumentList[mArgumentCount] = NULL;
-	}
+	if (mArgumentList == 0)
+		SetDefaultArgumentList();
 	
 	if (mIsInitialized) {	// exit library first if initialized
 		GSExecuteEnd();
 		GSExit();
 	}
 	
+	int		errCode;
+	
 	if ((errCode = GSInit(Callback, (HWND) this, mArgumentCount, mArgumentList)) != 0)
-		return -1;
+		return errCode;
 	if ((errCode = GSExecuteBegin()) != 0)
-		return -1;
+		return errCode;
 	
 	mIsInitialized	= true;
 	
 	return 0;	// everything went fine, we can start to send commands
 }
+
+
+
+// ---------------------------------------------------------------------------
+//	€ FreeArgumentList
+// ---------------------------------------------------------------------------
+//	frees mArgumentList
+
+void
+CGSSharedLib::FreeArgumentList()
+{
+	if (mArgumentList) {
+		int	i = 0;
+		while (mArgumentList[i]) {
+			free(mArgumentList[i]);
+			i++;
+		}
+		free(mArgumentList);
+	}
+	
+	mArgumentList = 0;
+	mArgumentCount = 0;
+}
+
+
+
+// ---------------------------------------------------------------------------
+//	€ SetDefaultArgumentList
+// ---------------------------------------------------------------------------
+//	sets mArgumentList to default values
+
+void
+CGSSharedLib::SetDefaultArgumentList()
+{
+#if PP_Debug
+	SetArgumentList(5, "MacGSView", "-dNOPAUSE", "-dNODISPLAY", "-dFIXEDRESOLUTION",
+					   "-dFIXEDMEDIA");
+#else
+	SetArgumentList(6, "MacGSView", "-q", "-dNOPAUSE", "-dNODISPLAY", "-dFIXEDRESOLUTION",
+					   "-dFIXEDMEDIA");
+#endif
+}
+
+
+
+// ---------------------------------------------------------------------------
+//	€ SetArgumentList
+// ---------------------------------------------------------------------------
+//	sets mArgumentList to submitted values
+
+void
+CGSSharedLib::SetArgumentList(int argc, ...)
+{
+	if (argc > 0) {
+		if (mArgumentList)
+			FreeArgumentList();
+		
+		va_list argPtr;
+		va_start(argPtr, argc);
+		mArgumentList = (char**) malloc(sizeof(char*) * 100);
+		for (int i=0; i<argc; i++) {
+			mArgumentList[mArgumentCount] = (char*) malloc(100);
+			strcpy(mArgumentList[mArgumentCount++], va_arg(argPtr, char*));
+		}
+		
+		mArgumentList[mArgumentCount] = NULL;
+	}
+}
+
+
+
+// ---------------------------------------------------------------------------
+//	€ AppendArgumentList
+// ---------------------------------------------------------------------------
+//	appends submitted values to mArgumentList
+
+void
+CGSSharedLib::AppendArgumentList(int argc, ...)
+{
+	if (argc > 0) {
+		va_list argPtr;
+		va_start(argPtr, argc);
+		
+		if (mArgumentList == 0)
+			mArgumentList = (char**) malloc(sizeof(char*) * 100);
+		
+		for (int i=0; i<argc; i++) {
+			mArgumentList[mArgumentCount] = (char*) malloc(100);
+			strcpy(mArgumentList[mArgumentCount++], va_arg(argPtr, char*));
+		}
+		
+		mArgumentList[mArgumentCount] = NULL;
+	}
+}
+
 
 
 // ---------------------------------------------------------------------------
@@ -496,7 +553,7 @@ CGSSharedLib::Callback(int message, char *str, unsigned long count)
 				return 1;
 			} else {
 				static UInt32	lastYieldTicks = 0;
-				if ((::TickCount() - lastYieldTicks) > 5) {
+				if ((::TickCount() - lastYieldTicks) > 10) {
 					lastYieldTicks = ::TickCount();
 					::YieldToAnyThread();
 				}

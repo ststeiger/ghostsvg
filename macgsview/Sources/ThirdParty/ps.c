@@ -1160,7 +1160,9 @@ continuepage:
 	section_len += line_len;
     }
     doc->endtrailer = position;
-    doc->lentrailer = section_len - line_len;
+/* changed by Bernd Heller, 2000 */
+	doc->lentrailer = doc->endtrailer - doc->begintrailer;
+/*    doc->lentrailer = section_len - line_len;*/
 
 #if 0
     section_len = line_len;
@@ -1362,22 +1364,14 @@ readline(char *line, int size, FILE *fp, unsigned long enddoseps, long *position
 	/*********************************************************/
 	/* inserted by Bernd Heller								 */
 	{
-#if 0
-		// yield every 10000 lines
-		static UInt32 lines = 0;
-		if (lines++ > 10000) {
-			::YieldToAnyThread();
-			lines = 0;
-		}
-#else
-		// yield every 6 ticks (1/10th second)
+		// yield every 20 ticks
+		static bool flag = false;
 		static UInt32 lastticks = 0, newticks = 0;
 		newticks = ::TickCount();
 		if ((newticks - lastticks) > 20) {
 			lastticks = newticks;
 			::YieldToAnyThread();
 		}
-#endif
 	}
 	/*********************************************************/
 	
@@ -1391,15 +1385,16 @@ readline(char *line, int size, FILE *fp, unsigned long enddoseps, long *position
     
 	/*********************************************************/
 	/* changed by Bernd Heller								 */
-/*    cp = fgets(line, size, fp);
+#if 0
+    cp = fgets(line, size, fp);
     *line_count += 1;
     if (cp == NULL) line[0] = '\0';
-    *line_len = strlen(line);*/
-	
+    *line_len = strlen(line);
+#else	
 	*line_count += 1;
 	cp = psfgetslen(line, size, fp, line_len);
 	if (cp == NULL) line[0] = '\0';
-	
+#endif	
 	/*********************************************************/
     
 #if defined(__TURBOC__) || defined(OS2)
@@ -1772,12 +1767,10 @@ psfgets(char *s, int n, FILE *stream)
 char *
 psfgetslen(char *s, int n, FILE *stream, unsigned int *read)
 {
-/*
-    return fgets(s, n, stream);
-*/
     int ch = 0;
     char *p;
     p = s;
+    *read = 0;
     while ( (--n > 0)  && ((ch = fgetc(stream)) != EOF) ) {
 	*p++ = (char)ch;
 	if (ch == '\n')

@@ -43,4 +43,3 @@ CGSPDFDevice::CGSPDFDevice(CGSDocument* inDocument)
 	mFileCreator	= 'CARO';
 }
 
-
