@@ -187,8 +187,8 @@ def main():
 
     SUBJECT = specs[0] # the directory can stand for the module name
     # add whitelist keyword
-    fnord = open('fnord')
-    if fnord:
+    if os.path.exists('fnord'):
+        fnord = open('fnord')
         fnord_keyword = fnord.readline()
         fnord_keyword.strip()
         fnord.close()
