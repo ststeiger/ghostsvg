@@ -34,9 +34,12 @@ class CGSPSDFDevice : public CGSDevice
 {
 	public:
 							CGSPSDFDevice(CGSDocument* inDocument);
-		
+							
 	protected:
 		virtual void		HandleRenderingPanel(GSExportPanelMode inMode, LView* inView, MessageT inMsg);
+		
+		virtual void		SubmitDeviceParameters();
+		virtual int			SetupDevice();
 };
 
 #endif _H_CGSPSDFDevice

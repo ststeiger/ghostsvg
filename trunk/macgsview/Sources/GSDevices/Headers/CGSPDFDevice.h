@@ -34,6 +34,7 @@ class CGSPDFDevice : public CGSPSDFDevice
 {
 	public:
 							CGSPDFDevice(CGSDocument* inDocument=0);
+							
 };
 
 #endif _H_CGSPDFDevice

@@ -98,7 +98,8 @@ CGSASCIIDevice::SetupDevice()
 		return -1;
 	
 	// re-init dll
-	int err = GetDLL()->Init(2, "-dNOBIND", "-dWRITESYSTEMDICT");
+	GetDLL()->AppendArgumentList(2, "-dNOBIND", "-dWRITESYSTEMDICT");
+	int err = GetDLL()->Init();
 	if (err) {
 		ErrorDialog(err);
 	}

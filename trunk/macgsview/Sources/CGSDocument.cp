@@ -69,8 +69,9 @@
 
 
 
-SInt32			CGSDocument::sSaveDialogFileTypeNr = 1;
-OSType			CGSDocument::sSaveDialogFileType = 0;
+SInt32			CGSDocument::sSaveDialogFileTypeNr = 9;		// PDF
+OSType			CGSDocument::sSaveDialogFileType = kCGSSaveFormatPDF;
+
 TPPrDlg			CGSDocument::sPrintDialog = 0;
 short			CGSDocument::sPrintDialogFirstItem = 0;
 PItemUPP		CGSDocument::sPrintItemProc = 0;
@@ -91,7 +92,7 @@ CGSDocument::CGSDocument(LCommander *inSuper, FSSpec *inFileSpec, bool inAutoCre
 	mFileAlias		= 0;
 	mDocumentInfo	= 0;
 	mPrintRecordH	= 0;
-	mIsPDF			= 0;
+	mIsPDF			= false;
 	mWindow			= 0;
 	
 	SetExportDevice(0);
@@ -108,8 +109,10 @@ CGSDocument::CGSDocument(LCommander *inSuper, FSSpec *inFileSpec, bool inAutoCre
 	mFile = new LFile(*inFileSpec);
 	mFileAlias = mFile->MakeAlias();	// create an alias to the file
 	
-	::NewThread(kCooperativeThread, sOpenFile, this, 0, kNewSuspend, nil, &mOpenThread);
+	::ThreadBeginCritical();
+	::NewThread(kCooperativeThread, CGSDocument::sOpenFile, this, 0, kNewSuspend, nil, &mOpenThread);
 	::SetThreadState(mOpenThread, kReadyThreadState, kNoThreadID);
+	::ThreadEndCritical();
 	::YieldToThread(mOpenThread);
 }
 
@@ -128,9 +131,11 @@ CGSDocument::~CGSDocument()
 			GetToolbar()->SetStatusText(LStr255(kSTRListToolbar, kToolbarAbortingStr));
 			GetToolbar()->SetProgress(-1);
 		}
-		GetExportDevice()->GetDLL()->Abort();
-		while (GetExportDevice())
-			::YieldToAnyThread();
+		if (GetExportDevice()->GetDLL()) {
+			GetExportDevice()->GetDLL()->Abort();
+			while (GetExportDevice())
+				::YieldToAnyThread();
+		}
 	}
 	
 	if (mFileAlias)
@@ -248,6 +253,12 @@ CGSDocument::sOpenFile(void *arg)
 	obj->OpenFile();
 	obj->mOpenThread = 0;
 	
+/*	::YieldToThread(0);	// needed to let LEventDispatcher execute, otherwise an ActivateEvent
+						// will be dispatched to the already deleted window
+	
+	if (!obj->mDocumentReady)
+		obj->Close();
+*/	
 	return 0;
 }
 
@@ -288,7 +299,6 @@ CGSDocument::OpenFile()
 			((CGSDocumentWindow*) mWindow)->GetToolbar()->ShowProgressBar();
 		}
 		if (ScanPDFFile()) {		// not able to create mDocumentInfo?
-			Close();		// clean up
 			// error dialog!
 			return;
 		}
@@ -304,7 +314,6 @@ CGSDocument::OpenFile()
 			((CGSDocumentWindow*) mWindow)->GetToolbar()->ShowProgressBar();
 		}
 		if (ScanPSFile()) {	// not able to create mDocumentInfo?
-			Close();	// clean up
 			// error dialog!
 			return;
 		}
@@ -323,7 +332,7 @@ CGSDocument::OpenFile()
 		alertParam.helpButton    = false;
 		alertParam.filterProc    = NewModalFilterProc(UModalAlerts::GetModalEventFilter());
 		alertParam.defaultText   = (unsigned char *) kAlertDefaultOKText;
-		alertParam.cancelText    = (unsigned char *) kAlertDefaultCancelText;
+		alertParam.cancelText    = nil;
 		alertParam.otherText     = nil;
 		alertParam.defaultButton = kAlertStdAlertOKButton;
 		alertParam.cancelButton  = kAlertStdAlertCancelButton;
@@ -339,11 +348,6 @@ CGSDocument::OpenFile()
 		}
 		
 		::DisposeRoutineDescriptor(alertParam.filterProc);
-		
-		if (itemHit == kAlertStdAlertCancelButton) {
-			Close();
-			return;
-		}
 	}
 	
 	StartRepeating();
@@ -388,7 +392,7 @@ CGSDocument::ScanPDFFile()
 	}
 	
 	sprintf(paramStr, "/PDFname (%s) def /DSCname (%s) def (pdf2dsc.ps) runlibfile\n",
-			tempStr, tempFilePath, tempStr);
+			tempStr, tempFilePath);
 	err = conversionLib.ExecStr(paramStr);
 	
 	err = ScanPSFile(&theDscFile);
@@ -446,12 +450,33 @@ CGSDocument::ScanPSFile(FSSpecPtr inFileSpecPtr)
 		mDocumentInfo->pages[0].begin	= 0;
 		mDocumentInfo->pages[0].end		= mDocumentInfo->pages->len;
 	} else if (IsEPS() && (mDocumentInfo->numpages == 0)) {
+		// we change mDocumentInfo to make the EPS appear as a one-page ps document
 		mDocumentInfo->numpages = 1;
 		mDocumentInfo->pages = (page *) malloc(sizeof(page));
 		memset((void *) mDocumentInfo->pages, 0, sizeof(page));
 		mDocumentInfo->pages[0].len		= fileLength;
 		mDocumentInfo->pages[0].begin	= 0;
 		mDocumentInfo->pages[0].end		= mDocumentInfo->pages[0].len;
+		
+		mDocumentInfo->beginheader   =
+		mDocumentInfo->endheader     =
+		mDocumentInfo->lenheader     = 0;
+		
+		mDocumentInfo->begindefaults =
+		mDocumentInfo->enddefaults   =
+		mDocumentInfo->lendefaults   = 0;
+		
+		mDocumentInfo->beginprolog   =
+		mDocumentInfo->endprolog     =
+		mDocumentInfo->lenprolog     = 0;
+		
+		mDocumentInfo->beginsetup    =
+		mDocumentInfo->endsetup      =
+		mDocumentInfo->lensetup      = 0;
+		
+		mDocumentInfo->begintrailer  =
+		mDocumentInfo->endtrailer    =
+		mDocumentInfo->lentrailer    = 0;
 	} else if (mDocumentInfo->numpages == 0) {
 		mDocumentInfo->pages = (page *) malloc(sizeof(page));
 		memset((void *) mDocumentInfo->pages, 0, sizeof(page));
@@ -570,6 +595,11 @@ Boolean
 CGSDocument::DoSaveAs(FSSpec& inFSSpec, OSType inType, bool inThreaded)
 {
 	SetExportDevice(CGSDocument::CreateDeviceFromSaveFormat(inType));
+	
+	if (GetExportDevice() && !GetExportDevice()->GetDLL()) {
+		delete GetExportDevice();
+		SetExportDevice(0);
+	}
 	
 	if (GetExportDevice() && GetExportDevice()->GetDLL()) {
 		GetExportDevice()->SetDocument(this);
@@ -958,6 +988,8 @@ CGSDocument::DoPrint()
 				printDevice.SetHalftoneScreen(printPrefs->halftoneSettings.frequency,
 											  printPrefs->halftoneSettings.angle,
 											  printPrefs->halftoneSettings.spotType);
+			} else {
+				printDevice.SetUseHalftoneScreen(false);
 			}
 			
 			float	pageSizeX, pageSizeY;

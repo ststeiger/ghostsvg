@@ -86,6 +86,9 @@ typedef struct {
 	bool			drawBuffered;
 	SInt16			defaultZoomMenuItem;
 	
+	SInt16			graphicsTransparency;
+	SInt16			textTransparency;
+	
 	bool			useExternalFonts;
 	
 	bool			useStandardPageSize;
@@ -134,6 +137,8 @@ class CGSPreferences : public LPreferencesFile, LCommander
 		bool				GetAntiAliasing()			{ return mPrefs.antiAliasing; }
 		bool				GetDrawBuffered()			{ return mPrefs.drawBuffered; }
 		SInt16				GetDefaultZoomMenuItem()	{ return mPrefs.defaultZoomMenuItem; }
+		SInt16				GetGraphicsTransparency()	{ return mPrefs.graphicsTransparency; }
+		SInt16				GetTextTransparency()		{ return mPrefs.textTransparency; }
 		
 		bool				GetUseExternalFonts()		{ return mPrefs.useExternalFonts; }
 		

@@ -71,5 +71,3 @@ CGSBMPDevice::HandleRenderingPanel(GSExportPanelMode inMode, LView* inView, Mess
 		}
 	}
 }
-
-

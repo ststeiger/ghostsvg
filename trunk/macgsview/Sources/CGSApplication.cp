@@ -137,10 +137,10 @@ const CommandT	cmd_DoTest						= FOUR_CHAR_CODE('teSt');
 
 
 // Init static members
-CGSApplication*		CGSApplication::sAppInstance(0);
-OSType				CGSApplication::sOpenDialogFileType(0);
-OSType				CGSApplication::sConvertDialogFileType(0);
-SInt32				CGSApplication::sConvertDialogFileTypeNr(1);
+CGSApplication*		CGSApplication::sAppInstance = 0;
+OSType				CGSApplication::sOpenDialogFileType = 0;
+OSType				CGSApplication::sConvertDialogFileType = kCGSSaveFormatPDF;
+SInt32				CGSApplication::sConvertDialogFileTypeNr = 9;		// PDF
 
 // ===========================================================================
 //	€ main
@@ -444,22 +444,37 @@ CGSApplication::ShowAboutBox()
 {
 	StDialogHandler	theHandler(PPob_AboutBoxDialog, this);
 	LWindow*		theDialog = theHandler.GetDialog();
-/*	
+	
 	// enter ghostscript version
 	CGSSharedLib	lib;
 	LStaticText		*versText = dynamic_cast<LStaticText*> (theDialog->FindPaneByID(kAboutBoxGSVersion));
 	LStr255			versStr;
+	long			majorVersion = lib.revision/100,
+					minorVersion = lib.revision - majorVersion*100;
+	short			year = lib.revisiondate/10000,
+					month = (lib.revisiondate - year*10000) / 100,
+					day = lib.revisiondate - year*10000 - month*100;
+	
+	DateTimeRec		revisionDate = {year, month, day, 0, 0, 0, 0};
+	unsigned long	revisionDateSeconds;
+	Str255			revisionDateStr;
+	
+	::DateToSeconds(&revisionDate, &revisionDateSeconds);
+	DateString(revisionDateSeconds, shortDate, revisionDateStr, NULL);
 	
 	versStr  = lib.product;
 	versStr += " Version ";
-	versStr += lib.revision;
+	versStr += majorVersion;
+	versStr += ".";
+	if (minorVersion < 10)	versStr += "0";
+	versStr += minorVersion;
 	versStr += " (";
-	versStr += lib.revisiondate;
+	versStr += revisionDateStr;
 	versStr += ")\r";
 	versStr += lib.copyright;
 	
 	versText->SetText(versStr);
-*/	
+	
 	theDialog->Show();
 	
 	while (true) {

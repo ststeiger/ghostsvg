@@ -362,6 +362,8 @@ CGSMacDevice::PrintNonDSCDocument(THPrint inPrintRecordH)
 			SetHalftoneScreen(printPrefs->halftoneSettings.frequency,
 							  printPrefs->halftoneSettings.angle,
 							  printPrefs->halftoneSettings.spotType);
+		} else {
+			SetUseHalftoneScreen(false);
 		}
 		
 		RenderPage(kSubmitWholeDocument);
@@ -387,15 +389,6 @@ CGSMacDevice::SetupDevice()
 	GetDLL()->ExecStr("mark\n");
 	SubmitDeviceParameters();
 	return GetDLL()->ExecStr("0 .getdevice copydevice putdeviceprops setdevice\n");
-	
-/*	GetDLL()->ExecStr("<< ");
-	
-	SubmitDeviceParameters();
-	
-	GetDLL()->ExecStr("/OutputDevice /");
-	GetDLL()->ExecStr(mDeviceName);
-	
-	return GetDLL()->ExecStr(" >> setpagedevice\n");*/
 }
 
 
