@@ -30,7 +30,6 @@ a
 {
   color: blue;
   background-color: white;
-  visited { color: rgb(60%,0%,30%); }
 }
 
 a.offsite
