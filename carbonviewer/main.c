@@ -21,7 +21,7 @@
 
 #define mbar_id 128
 
-
+#define IGNORE_SYNC
 
 void init();
 void makemenu();
@@ -87,13 +87,12 @@ static void draw_image(WindowRef window)
 	Rect		bounds;
 	PixMapHandle	offpix, onpix;
 	QDErr		err;
-	int			i;
 	
 	GetGWorld(&saveport, &savedevice);
 	onport = GetWindowPort(window);
-	
 	onpix = GetPortPixMap(onport);
-	GetPixBounds(onpix, &bounds);
+	
+	GetPortBounds(onport, &bounds);
 	err = NewGWorld(&offworld, 32, &bounds, NULL, NULL, 0);
 	SetGWorld(offworld, NULL);
 	
@@ -104,7 +103,8 @@ static void draw_image(WindowRef window)
 	UnlockPixels(offpix);
 	
 	SetGWorld(saveport, savedevice);
-	SetPort(onport);
+    SetPortWindowPort(window);
+    	
 	LockPixels(offpix);
 	CopyBits((BitMap*)*offpix, (BitMap*)*onpix,
 			&bounds, &bounds, srcCopy, NULL);
@@ -126,19 +126,16 @@ static int update_doc_window(cv_doc_t *doc)
 	offpix = GetGWorldPixMap(doc->pages->image);
 	SetRect(&pagebounds, 0, 0, doc->pages->width, doc->pages->height);
 	
-	BeginUpdate(doc->window);
-	
-	GetWindowBounds(doc->window, kWindowContentRgn, &bounds);
-	onport = GetWindowPort(doc->window);	
+	onport = GetWindowPort(doc->window);
+	GetPortBounds(onport, &bounds);
+	SetPortWindowPort(doc->window);
+
 	onpix = GetPortPixMap(onport);
-	
-	SetPort(onport);
+		
 	LockPixels(offpix);
 	CopyBits((BitMap*)*offpix, (BitMap*)*onpix,
 			&pagebounds, &bounds, srcCopy, NULL);
 	UnlockPixels(offpix);
-
-	EndUpdate(doc->window);
 				
 	SetGWorld(saveport, savedevice);
 
@@ -200,16 +197,22 @@ static int display_size(void *handle, void *device, int width, int height,
 static int display_sync(void *handle, void *device)
 {
 	cv_doc_t *doc = handle;
-	Rect bounds;
-	int err = 0;
-	
+	int err = 0;	
+
+#ifdef IGNORE_SYNC	
+	fprintf(stderr, "display_sync called (handle 0x%08x) (IGNORED)\n", handle);
+#else
 	fprintf(stderr, "display_sync called (handle 0x%08x)\n", handle);
-#if 0	
+
 	err = cv_copy_page(handle);
 	
-	GetWindowBounds(doc->window, kWindowContentRgn, &bounds);
-	InvalWindowRect(doc->window, &bounds);
-	
+	{
+		Rect bounds;
+
+		GetWindowBounds(doc->window, kWindowContentRgn, &bounds);
+		InvalWindowRect(doc->window, &bounds);
+	}
+
 	update_doc_window(doc);
 #endif
 	return err;
@@ -218,7 +221,6 @@ static int display_sync(void *handle, void *device)
 static int display_page(void *handle, void *device, int copies, int flush)
 {
 	cv_doc_t *doc = handle;
-	Rect bounds;
 	int err;
 	
 	doc->num_pages++;
