@@ -18,6 +18,16 @@ ghostscript.com
 <p> Welcome to www.ghostscript.com, the news and community site for Ghostscript.
  </p>
 
+<p> <strong>Obtaining the latest version:</strong> </p>
+
+<blockquote>
+
+<p> The latest freely available (AFPL) release of ghostscript is
+available <a href="doc/AFPL/index.htm">here</a>. </p>
+
+<p> The latest GPL release is available <a href="doc/gnu/">here</a>. </p>
+
+</blockquote>
 
 <p> <strong>Other Ghostscript resources:</strong> </p>
 
@@ -31,7 +41,8 @@ ghostscript.com
 
 <p> <a href="http://www.sourceforge.net/projects/ghostscript/">Sourceforge project page</a> </p>
 
-<p> <a href="http://www.artifex.com/pages/licensing.html">Licensing info from Artifex</a> </p>
+<p> <a href="http://www.artifex.com/licensing/index.htm">Licensing info
+from Artifex</a> </p>
 
 </blockquote>
 
