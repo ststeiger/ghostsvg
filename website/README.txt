@@ -13,5 +13,9 @@ Within the website, link to the index.htm file in a
 directory where possible so that the links work when
 the pages are on a hard disk or CD.
 
+The doc/ tree is generally maintained by checking out the
+new files from cvs by their release tag. Versions from before
+ghostscript was in cvs are kept explicitly in the website module.
+
 Russell Lang
 2001-03-29
