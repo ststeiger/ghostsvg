@@ -1,7 +1,8 @@
 <page>
  <title>Login</title>
 
-  <p> Login. </p>
+  <p> Please login if you have an account.
+		   Otherwise, feel free to <a href="/acct/new.html">create a new account</a>.  </p>
 
   <form method="POST" action="loginsub.html">
    <p> User name: <br/>
@@ -10,7 +11,7 @@
    <p> Passphrase: <br/>
     <input name="pass" size="20" type="password"/> 
    </p>
-   <input type="submit" value="Submit"/>
+   <input type="submit" value="Login"/>
   </form>
 </page>
 
