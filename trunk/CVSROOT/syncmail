@@ -184,7 +184,16 @@ def main():
     #SUBJECT = args[0]
     specs = string.split(args[0])
     del args[0]
+
     SUBJECT = specs[0] # the directory can stand for the module name
+    # add whitelist keyword
+    fnord = open('fnord')
+    if fnord:
+        fnord_keyword = fnord.readline()
+        fnord_keyword.strip()
+        fnord.close()
+    if fnord_keyword:
+        SUBJECT = SUBJECT + ' (' + fnord_keyword + ')'
 
     # The remaining args should be the email addresses
     if not args:
