@@ -14,6 +14,12 @@ This file contains information about known bugs,
 and workarounds or fixes when available.
 </p>
 <ul>
+<li><i>(2001-11-25)</i><a href="#20011125">
+  (4.1) "gsview /E filename" doesn't work.
+  </a>
+<li><i>(2001-11-24)</i><a href="#20011124">
+  (4.1) GSview Linux in German shows some Spanish text.
+  </a>
 <li><i>(2001-06-10)</i><a href="#20010610">
   (4.0) DOS EPS file is invalid if adding TIFF preview and EPS omits trailer.
   </a>
@@ -31,6 +37,30 @@ and workarounds or fixes when available.
 There are no known bugs in GSview 4.0.
 </p>
 -->
+
+<p>
+<a name="20011125"><i>(2001-11-25)</i></a>
+</p>
+<p>
+<b>Problem:</b>
+  (4.1) "gsview /E filename" doesn't work.
+</p>
+<p>
+<b>Workaround:</b>
+  Use GSview 4.0.
+</p>
+
+<p>
+<a name="20011123"><i>(2001-11-23)</i></a>
+</p>
+<p>
+<b>Problem:</b>
+  (4.1) GSview Linux in German shows some Spanish text.
+</p>
+<p>
+<b>Workaround:</b>
+  Look at src/gvxinit.c lines 858-859.  Fix the typo and recompile.
+</p>
 
 <p>
 <a name="20010610"><i>(2001-06-10)</i></a>
@@ -53,7 +83,7 @@ There are no known bugs in GSview 4.0.
 </p>
 <p>
 <b>Workaround:</b>
- Use GSview 4.01 beta.
+ Use GSview 4.1.
 </p>
 <hr>
 
@@ -62,7 +92,7 @@ There are no known bugs in GSview 4.0.
 &nbsp; &nbsp;
 <a href="index.htm">Back</a>
 &nbsp; &nbsp; &nbsp; &nbsp;
-Last updated 2001-08-07.
+Last updated 2001-11-26.
 </body>
 
 </html>
