@@ -79,26 +79,27 @@ fixes a problem with spaces in the Ghostscript path, as documented in
 <A HREF="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/aladdin/gs510/gswin32c.txt">
 gswin32c.txt</A>.  This is fixed in Aladdin Ghostscript 5.50.
 
-<!--
 <H1>Beta version</H1>
 <p>
-Beta test version 1.34 is available from
-<A HREF="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/redmon134b.zip">
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/redmon134b.zip</A>.
+Beta test version 1.6 is available from
+<A HREF="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/redmon16b.zip">
+ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/redmon16b.zip</A>.
 </p>
 <p>
-This includes a new "Prompt for filename" output method
-which can be used for a PDF writer based on RedMon and
-Ghostscript.
+Most of the changes are internal - there has been a major 
+reorganisation of the code to allow parts of RedMon to be 
+reused in other port monitors.
+Changes that should be visible are the addition of the
+environment variables REDMON_SESSIONID (for Windows Terminal
+Server) and REDMON_FILENAME.  When replacing %d with the
+name of the document, RedMon now removes characters that
+are invalid for use in a filename.
+Attempting to print to a RedMon port from a printer 
+with bi-directional support enabled will now always fail.
 </p>
 <p>
-RedMon now runs as a native Windows 2000 port monitor.
-Please test this and send reports to the author.
+The beta version will expire on 31 December 2001.
 </p>
-<p>
-The beta version will expire on 30 June 2000.
-</p>
--->
 
 <H1>Non-Windows equivalents</H1>
 RedMon is only available for Windows 95 and NT.
@@ -112,6 +113,6 @@ how to set up a Magicfilter.
 
 <P><HR>
 <A HREF="../gsview/rjl.htm">Russell Lang</A><BR>
-2000-06-21
+2001-09-30
 </BODY>
 </HTML>
