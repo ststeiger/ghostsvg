@@ -1,0 +1,450 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+<TITLE>Printer Compatibility</TITLE>
+</HEAD>
+
+<BODY>
+<H1><IMG SRC="pics/ghost64.gif" ALT="" WIDTH=56 HEIGHT=64> Printer Compatibility</H1>
+This page is a list of Ghostscript printer devices and
+the printers with which they are compatible.
+The format is:
+<UL>
+<LI> Ghostscript device   (notes)
+  <BR>Compatible Printer (GS version tested) limitations/test notes
+  <BR>Another compatible printer (GS version tested) limitations/test notes
+</UL>
+
+As you can see, this page is a bit short on detail.
+I need your help to add more detail.  If you know of
+a printer that does not have a specific Ghostscript device
+but does work with a related device, please send the
+details to <A HREF="mailto:gsview@ghostgum.com.au">Russell Lang</A>
+so they can be added to this page.
+Please don't send mail asking if a printer is compatible with a 
+Ghostscript device because you will only be referred to this page.
+<P>
+<B>
+Disclaimer:  the information on this page may not be correct.
+</B>
+<P>
+See also the list of 
+<A HREF="aladdin/devices.html">available devices</A>
+and <A HREF="aladdin/doc/Devices.htm">Devices.htm</A>
+
+<HR>
+<UL>
+<LI> bj10e
+  <BR>Canon BubbleJet BJ10e       <!-- devs.mak -->
+  <BR>Canon BubbleJet BJ20 (5.10)        
+    <!-- Josef.Puehringer@POBoxes.com (Josef Puehringer) -->
+<LI> bj200
+  <BR>Canon BubbleJet BJ200       <!-- devs.mak -->
+  <BR>Canon BubbleJet BJC-210 (4.01)
+      <I><B>B/W only</B></I>
+      <!-- heimann@gctech.fr -->
+  <BR>Canon BubbleJet BJC-240 (3.33, 4.03)
+      <I><B>B/W only</B></I>
+      <!-- mikefulb@nando.net, msf@redhat.com (Michael Fulbright) -->
+  <BR>Canon BubbleJet BJC-250 (5.10)
+      <I><B>B/W only</B></I>
+      <!-- habiger@neurop2.ruhr-uni-bochum.de (Marc Habiger> -->
+  <BR>Canon BubbleJet BJC-70 (5.10)
+      <I><B>B/W only</B></I>
+      <!-- roar@link.no (Roar Pettersen) -->
+<LI> bjc600
+  <BR>Canon BubbleJet BJC-600     <!-- devs.mak -->
+  <BR>Canon BubbleJet BJC-610 (3.53) 
+      <I><B>360dpi only, B/W &amp; colour</B></I>.
+      See <A HREF="aladdin/relnotes/gs403/bjc610.txt">bjc610 fix</A>.
+      <!-- anlauf@crunch.ikp.physik.th-darmstadt.de (Harald Anlauf) -->
+  <BR>Canon BJC-50 (5.10)
+      B/W OK.  Colour not tested.
+      <!-- daved@physiol.usyd.edu.au (Dave Davey) -->
+  <BR>Canon BJC-70 (5.01)
+      <!-- sharppen@primenet.com (Val) -->
+  <BR>Canon BJC-80 (5.10)
+      <!-- daved@physiol.usyd.edu.au (Dave Davey) -->
+  <BR>Canon BJC-210 (5.10)
+      <I><B>Colour.  Use bj200 for B/W</B></I>
+      <!-- jenkins@fram.nrsc.no (Alastair Jenkins) -->
+  <BR>Canon BJC-240 (5.01)
+      <I><B>Colour.  Use bj200 for B/W</B></I>
+      <!-- starcmn@cs.tu-berlin.de (Frank Reimann) -->
+  <BR>Canon BJC-250 (5.50)
+	<!-- alfanog@tin.it (Alonso) -->
+  <BR>Canon BubbleJet BJC-1000
+      B/W OK.  Colour not tested.
+      <!-- mbrown@paperweight.978.org (Michael F. Brown) -->
+  <BR>Canon BubbleJet BJC-2000
+      Colour and margins OK.
+	<!-- emmanuel.benoit@libertsurf.fr (Emmanuel Benoit) -->
+  <BR>Canon BubbleJet BJC-4000    <!-- devs.mak -->
+  <BR>Canon BubbleJet BJC-4100 (4.01)
+      <I><B>no colour</B></I>.
+      <!-- marcello@cat.cbpf.br (Marcello Vianna) -->
+      For colour, use BJSETUP.EXE and the Epson LQ driver <B>epson</B>.
+      See <A HREF="http://www.magmacom.com/~russrite/Canon_Drivers/">
+	 Russ Wright's Canon Printer Support Page</A>.
+      <!-- russrite@magmacom.com (Russ Wright) -->
+  <BR>Canon BubbleJet BJC-4200 (5.03)
+      Colour works.
+      <!-- risacher@worldnet.att.net (Dan Risacher) -->
+  <BR>Canon BubbleJet BJC-4300 (5.10)
+      Colour works,
+      <!-- rcb23@dana.ucc.nau.edu (RianBogle) -->
+      but not with photo colour cartridge (BC-22e).
+      <!-- bartolo@ieee.org (Anton Bartolo) -->
+  <BR>Canon BubbleJet BJC-4550 (3.33, 4.01, 5.03)
+      <I><B>colour doesn't work in 3.33, but does in 4.01</B></I>
+      <!-- hsub@geocities.com (Barnett Hsu> -->
+      In 5.03, colour only works for 24 and 32 bit/pixel.  
+      Monochrome doesn't work.
+      Maximum width is limited to 8.5 inches.
+      <!-- aviaggio@super.zippo.com <Alex Viaggio> -->
+  <BR>Canon BubbleJet BJC-6000 (4.03)
+      <!-- phma@oltronics.net (Pierre Abbat) -->
+      360dpi, 24bit/pixel.  Does not do CCMMYK (photo inks).
+      Colours look better with gamma correction.
+  <BR>Canon MultiPASS C2500 colour printer/fax/copier (3.53) 
+      <I><B>360x360dpi, B/W &amp; colour,</B> PRINTER button must be engaged</I>
+      <!-- ???? -->
+<LI> bjc800
+  <BR>Canon BubbleJet BJC-800     <!-- devs.mak -->
+  <BR>Canon BubbleJet BJC-7000
+      <I><B>Colour.</B></I>
+      <!-- with -r600x600  (not possible -->
+      <!-- bernd.paysan@muenchen.org (Bernd Paysan) -->
+  <BR>Canon BubbleJet BJC-4300 (5.10)
+      Colour works,
+      but not with photo colour cartridge (BC-22e).
+      <!-- bartolo@ieee.org (Anton Bartolo) -->
+  <BR>Canon BubbleJet BJC-4650 (5.10)
+      Only works with 300dpi in colour.  A3 printer.  
+      <!-- ruhwinkel@fh-muenster.de (Klaus Ruhwinkel) -->
+<LI> deskjet
+  <BR>HP DeskJet (3.33)           <!-- devs.mak --> 
+  <BR>HP DeskJet Plus (3.33)      <!-- devs.mak --> 
+  <BR>In GS 3.53 to GS 4.01, these don't work.  Apply the
+  <A HREF="aladdin/relnotes/gs403/djet.txt">DeskJet Patch</A>.  It is unknown if
+  this patch breaks other DeskJet printers.
+<LI> djet500
+  <BR>HP DeskJet 500 (3.53)       <!-- devs.mak --> 
+  <BR>HP DeskJet Portable (4.01)  <!-- gsview@ghostgum.com.au -->
+  <BR>HP OfficeJet 590 (5.50)  <!-- gsview@ghostgum.com.au -->
+<LI> cdj500
+  <BR>HP DeskJet 400 (5.10)
+      <I><B>B/W </B></I>
+      <!-- mikefulb@nando.net, msf@redhat.com (Michael Fulbright) -->
+      <I><B>and Colour.</B></I>
+      You must swap cartridges to print in colour.
+      <!-- sxw@dcs.ed.ac.uk (Simon Wilkinson)  -->
+  <BR>HP DeskJet 500C (3.53)      <!-- devs.mak --> 
+  <BR>HP DeskJet 540C (3.53)      <!-- devs.mak -->
+  <BR>HP DeskJet 690C (4.03)
+      <I><B>1bit/pixel and 32bit/pixel</B></I>
+      <!-- sah@dsri.dk (Soeren Hattel) -->
+      cdj550 is probably better.
+  <BR>HP DeskJet 693C (4.03)
+      <I><B>For Colour.  Use cdjmono for B/W.</B></I>
+      <!-- chuckr@eng.umd.edu (Chuck Robey) -->
+      cdj550 is probably better.
+  <BR>May work with other HP Colour DeskJet printers that use a 
+      CMY (no black) ink cartridge.
+      See <A HREF="aladdin/doc/Devices.htm">Devices.htm</A>
+<LI> cdj550
+  <BR>HP DeskJet 550C (3.53)      <!-- devs.mak --> 
+  <BR>HP DeskJet 560C (3.53)      <!-- devs.mak --> 
+  <BR>HP DeskJet 600  (5.10) 
+      <I><B>black (1bit/pixel) and colour (32bit/pixel)</B></I> 
+      <!-- aebolzan@isis.unlp.edu.ar (Augstin E. Bolzan) --> 
+      <!-- hdace@woods.bch.uct.ac.za (Hal) --> 
+  <BR>HP DeskJet 660C (3.53)      <!-- ehedman@abo.fi --> 
+  <BR>HP DeskJet 660C (5.10)      
+      <!-- Jeff_Wieland@ces.purdue.edu (Jeff Wieland) --> 
+  <BR>HP DeskJet 682C (4.01)      
+      <!-- bbum@friday.com (Bill Bumgarner) -->
+      Use gamma=0.3
+  <BR>HP DeskJet 683C (3.33, 4.03)
+      <!-- mikefulb@nando.net, msf@redhat.com (Michael Fulbright) -->
+  <BR>HP DeskJet 693C (4.03)
+      <I><B>24bit/pixel</B></I>
+      Is this a CMY or a CMYK printer?  Probably CMYK in which
+      case 32bit/pixel can be used.
+      <!-- matthewp@mail.idt.net (Matthew O. Persico) -->
+  <BR>HP DeskJet 694C (5.03)
+      <I><B>Works in colour.</B></I>  690C, 692C, 693C and 694C 
+      are all software variations.
+      <!-- robert.schaefer@bellhow.com (Bob Schaefer) -->
+  <BR>HP DeskJet 695C (5.50)
+      <I><B>Works in colour.</B></I>  
+      <!-- klaumikli@cityweb.de (Klaumi> -->
+  <BR>HP DeskJet 850 (3.53) <I><B>300dpi CMYK (32bit/pixel)</B></I>     
+      <!-- carlmk@unidhp.uni-c.dk (Mogens Kjaer) --> 
+  See also cdj850.
+  <BR>HP DeskJet 870Cse (4.03) <I><B>(16 or 32 bits/pixel)</B></I>
+      Use ljet4 device for B/W.
+      <!-- This printer didn't work with cdj850 device. -->
+      <!-- wongj@ATS.ORST.EDU (John Wong, Oregon State University) -->
+      See also cdj850.  <!-- aflundi@sandia.gov (Alan F Lundin) -->
+  <BR>HP DeskJet 895Cxi (5.03, 5.50) 
+      Does not work with cdj850.
+      <!-- xfb52@dial.pipex.com (Alex Zbyslaw) -->
+  <BR>HP DeskJet 970 (5.50)
+      Some pages contain small black boxes, lines or missing characters.
+	<!-- ernst@jollem.com (Ernst de Haan) -->
+  <BR>HP OfficeJet 590 (5.50)  
+      <!-- gsview@ghostgum.com.au -->
+  <BR>Olivetti jp450 (5.50)  
+      <!-- TomFrancart@cyberdude.com (Tom Francart) -->
+  <BR>Xerox XJ6C (5.50)  
+      <!-- vuksan@veus.hr (Vladimir Vuksan) -->
+  <BR>May work with other HP Colour DeskJet printers that use a 
+      CMYK ink cartridge.  
+      See <A HREF="aladdin/doc/Devices.htm">Devices.htm</A>
+  <BR>Any printer that works with this device will probably work
+      in black and white with djet500 and cdjmono.
+<LI> cdj850
+  <BR>HP DeskJet 850
+  <BR>HP DeskJet 855
+  <BR>HP DeskJet 870Cse (4.03)
+  <BR>HP DeskJet 870Cxi (4.03)
+      <!-- aflundi@sandia.gov (Alan F Lundin) -->
+  <BR>HP DeskJet 890C (5.10)      
+      <!-- Jeff_Wieland@ces.purdue.edu (Jeff Wieland) --> 
+  <BR>HP DeskJet 672C (5.03) <I><B>Can't print B/W text</B></I>
+      Prints B/W OK with cdj550.
+      This may also apply to any HP 67x printer.
+  <BR>HP DeskJet 680 (5.01)
+      <!-- uli@erdw.ethz.ch (Uli Wortmann) --> 
+  <BR>HP DeskJet 1100C (5.10)
+     <B><I>A3, with JetDirect card, B/W and images</I></B>
+      <!-- uli@erdw.ethz.ch (Uli Wortmann) --> 
+  <BR> This is not part of the standard distribution.
+     Information about this driver is available from
+     <A HREF="http://www.erdw.ethz.ch/~bonk/bonk.html">
+	http://www.erdw.ethz.ch/~bonk/bonk.html</A>.
+     The sources are available from 
+     <A HREF="http://www.erdw.ethz.ch/~bonk/software.html">
+	http://www.erdw.ethz.ch/~bonk/software.html</A>.
+     Also available is a description of how to
+     <A HREF="http://www.erdw.ethz.ch/~bonk/hp850/margin.html">adjust the margins</A>.
+   <!-- uli@erdw.ethz.ch (Uli Wortmann) --> 
+   <BR>
+   Send bug reports for this driver to 
+    <A HREF="mailto:uli@erdw.ethz.ch">uli@erdw.ethz.ch</A>
+   <BR>
+   See also <A HREF="aladdin/os2.html">OS/2 Ghostscript</A>
+<LI> cdeskjet (3bit/pixel colour)
+  <BR>HP DeskJet 500C (3.53)      <!-- devs.mak --> 
+  <BR>This is the same as -sDEVICE=cdj500 -dBitsPerPixel=3
+<LI> cdjcolor (24bit/pixel colour with Floyd-Steinberg dithering)
+  <BR>See cdj500
+  <BR>This is the same as -sDEVICE=cdj500 -dBitsPerPixel=24
+<LI> cdjmono (printing black only)
+  <BR>HP DeskJet 500C (3.53)      <!-- devs.mak --> 
+  <BR>HP DeskJet 510  (3.53)      <!-- devs.mak --> 
+  <BR>HP DeskJet 520  (3.53)      <!-- devs.mak --> 
+  <BR>HP DeskJet 540C (3.53)      <!-- devs.mak --> 
+  <BR>HP DeskJet 693C (4.03)
+      <!-- chuckr@eng.umd.edu (Chuck Robey) -->
+  <BR>This is the same as -sDEVICE=cdj500 -dBitsPerPixel=1
+<LI> epsonc
+  <BR>Fujitsu DL-1100
+	<!-- rjobin@infoteck.qc.ca (Richard) -->
+  <BR>Fujitsu DL-2400
+	<!-- weshenfelder@usa.net (Rick Weshenfelder) -->
+<LI> hl7x0
+  <BR> Brother HL 720 (6.0) <!-- contrib.mak -->
+  <BR> Brother HL 730 (6.0) <!-- contrib.mak -->
+  <BR> Do not use hl7x0 with PCL compliant Brother HL 760.  Use ljet4.
+<LI> laserjet
+  <BR>Bull Compuprint Pagemaster 415
+      <!-- andras@universe.serc.rmit.edu.au (Andras Gefferth) -->
+<LI> lbp8
+  <BR>Canon LBP4+
+     Works but very slowly.  
+	<!-- fiesser@gmx.net (Andreas Fiesser) -->
+     Try lips 3.
+<LI> lips3
+  <BR>Canon LBP4+
+	<!-- Michael_Kuckein@physik.tu-muenchen.de (Michael Kuckein) -->
+     <b>Also reported to print unwanted header and trailer.</b>
+	<!-- fiesser@gmx.net (Andreas Fiesser) -->
+<LI> lj4dith
+  <BR>HP DeskJet 600 (3.53)
+      <!-- wolle@uni-paderborn.de (Wolfgang Mettbach) -->
+<LI> ljet2
+  <BR>HP LaserJet II (5.10) <!-- devs.mak -->
+  <BR>Xerox 4030 (5.10)
+	<!-- weshenfelder@usa.net (Rick Weshenfelder) -->
+<LI> ljet3
+  <BR>Tandy LP800 (5.10)
+  With LaserJet III emulation.
+	<!-- weshenfelder@usa.net (Rick Weshenfelder) -->
+<LI> ljet4
+  <BR>Brother HL-660 (5.10)
+      <!-- rodsmith@linc.cis.upenn.edu (Rod Smith) -->
+  <BR>Brother HL-760 (3.33)
+      <I><B>600dpi</B></I>
+      <!-- jim@aguazul.demon.co.uk (Jim Peters) -->
+  <BR>Epson EPL5700 (5.50)
+	300dpi OK.  
+	600dpi has some minor glitches (misplaced characters and smudgey dots).
+  	Doesn't work with lj4dith at all.
+	<!-- djenkins@enterprise.net (Dean Jenkins) -->
+  <BR>HP DeskJet 600 (3.53) <I><B>margins wrong</B></I>   
+      <!-- wolle@uni-paderborn.de (Wolfgang Mettbach) -->
+  <BR>HP DeskJet 870Cse (4.03)
+      <!-- markgray@postoffice.ptd.net -->
+  <BR>HP LaserJet 5 (4.01)
+      <I><B>300dpi or 600dpi</B></I>
+      <!-- cbbrowne@unicomp.net -->
+  <BR>HP LaserJet 5L (4.03)
+      <I><B>300dpi or 600dpi</B></I>
+      Margins wrong in GS 3.33.  Correct in GS 4.03.
+      <!-- mccune@mcs.anl.gov (William W. McCune) -->
+  <BR>HP LaserJet 6L (5.10)
+      <I><B>600dpi</B></I>
+      Left margin needs to be adjusted (+5pt).
+      <!-- schott@otto.mpimf-heidelberg.mpg.de (Markus) -->
+  <BR>HP LaserJet 1100 (5.50)
+      <!-- zucker@mcmaster.ca (Jeffrey Zucker) -->
+      600dpi OK.
+      <!-- andras@universe.serc.rmit.edu.au (Andras Gefferth) -->
+  <BR>IBM Network Printer 17 (5.50)
+	<!-- karstens@us.ibm.com (Chris Karstens) -->
+  <BR>IBM/Lexmark 4029 (5.10)
+      Margins wrong.
+      <!-- pcooley@mail.sjcsf.edu (Paul B. Cooley) -->
+  <BR>Lexmark Optra E+ (5.03)
+      <!-- rodsmith@linc.cis.upenn.edu (Rod Smith) -->
+  <BR>Lexmark Optra SC 1275 (5.50) B/W only.
+	<!-- karstens@us.ibm.com (Chris Karstens) -->
+  <BR>Oki OL410ex LED printer (4.03)
+      <I><B>300dpi or 600dpi</B></I>
+      <!-- mcs@post5.tele.dk (Mikkel C. Simonsen) -->
+
+<LI> ljetplus
+  <BR>HP LaserJet Plus (5.10) <!-- devs.mak -->
+  <BR>Canon Laser LBP-600 (5.50)
+	<!-- henrypan@ozemail.com.au (Henry Pan) -->
+  <BR>NEC SuperScript 860 (5.10)
+      <!-- blagoev@physics.bc.edu (Krastan Blagoev) -->
+
+<LI> pjxl300
+  <BR>HP PaintJet XL300           <!-- devs.mak -->
+  <BR>HP DeskJet 600 (3.53) <I><B>300dpi OK, 600 dpi is very slow</B></I>   
+	<!-- wolle@uni-paderborn.de (Wolfgang Mettbach) -->
+  <BR>HP DeskJet 1200C (3.53)
+	<!-- reka@uni-paderborn.de (Rene Karges) -->
+  <BR>HP DeskJet 1600C (4.03)
+    <I><B>24bit/pixel</B></I>. 
+    -dShingling=2 -dDepletion=1 -dPrintQuality=1 
+    <!-- fox@cs.nyu.edu (David Fox) -->
+<LI> r4081
+  <BR>Ricoh 4081 laser printer (3.53)   <!-- devs.mak -->
+  <BR>Ricoh 6000 laser printer (3.53)   
+	<!-- lion@ukrv.de (Klaus Girschick) -->
+<LI> stcolor
+  <BR>Epson Stylus Color (3.53)   <!-- devs.mak -->
+  <BR>Epson Stylus Color II (3.53)  <I><B>-r360 -dMicroweave</B></I>
+        See <A HREF="aladdin/doc/Devices.htm">Devices.htm</A>.
+<!-- 	and
+        <A HREF="http://www.isisnet.com/bdavidson/gs_stc.FAQ.html">
+            GS stcolor FAQ</A> -->
+        <!-- ptanner@prairienet.org (Paul R Tanner) -->
+  <BR>Epson Stylus 400 (5.10)
+	<I><B>-r360 is OK.  For -r720, use -dSoftweave</B></I>
+      <!-- rodsmith@linc.cis.upenn.edu (Rod Smith) -->
+  <BR>Epson Stylus 500 (4.03)  <I><B>-r360 or -r720, -dMicroweave</B></I>
+<!--
+	See also the notes by 
+	<A HREF="http://www.pe.net/~williams/">Alan Williams</A>
+	on GS and this printer.
+-->
+        <!-- alanjohn@mail.ucr.edu (Alan Williams) -->
+      (Doesn't work with 3.33.)
+      <!-- mikefulb@nando.net, msf@redhat.com (Michael Fulbright) -->
+  <BR>Epson Stylus 600 (5.10)
+	<I><B>-r360 and -r720, -dMicroweave and -dSoftweave</B></I>
+        <!-- wagnerlu@oclc.org (Lukas Wagner) -->
+  <BR>Epson Stylus 800 (3.53)  <I><B>-sModel=st800</B></I>
+        <!-- gunther@e-technik.uni-rostock.de (Klaus-Gunther Hess) -->
+  <BR>A page on using the Stylus Printer under Linux has been
+     written by <A HREF="http://eunuchs.org/epson/index.html">
+     Michael Holve</A>
+  <BR>See also the <B>uniprint</B> device.
+<LI> uniprint
+  <BR> See the Ghostscript file <A HREF="aladdin/doc/Devices.htm">Devices.htm</A>
+  This unified printer driver included in GS 5.10 comes with 
+  configuration files for 
+    <UL>
+    <LI> Canon BJC 610
+    <LI> HP DeskJet 550C
+    <LI> NEC P2X
+    <LI> Epson Stylus Color
+    <LI> Epson Stylus Color II
+    <LI> Epson Stylus Color 500
+    <LI> Epson Stylus Color 600
+    <LI> Epson Stylus Color 800
+    <LI> Epson Stylus Color 1520
+    <LI> SUN rasterfile
+    </UL>
+  <BR>Canon BJC-210 (5.10)
+      <I><B>Colour.  Use bjc610 configuration files</B></I>
+      <!-- jenkins@fram.nrsc.no (Alastair Jenkins) -->
+  <BR>Epson Stylus Color 640 (5.50)
+	Use stc600pl.upp.
+	<!-- andy@cathcart.sysc.pdx.edu (Andy Fraser) -->
+  <BR>Epson Stylus Color 740 (5.50)
+      Use <B>Epson Stylus Color 500</B> configuration files
+	<!-- cgos@usa.nt (Chris) -->
+      or <B>Any Epson Stylus Color, 360x360Dpi</B>
+	<!-- tplate@ibm.net (Tony Plate) -->
+</UL>
+
+A driver for the HP DeskJet 500, 500C, 510, 520, 540, 550C, 
+560C, 850C, 855C printers and some other PCL3 printers is
+available from 
+<A HREF="ftp://ftp.sbs.de/pub/graphics/ghostscript/pcl3/pcl3.html">
+ ftp://ftp.sbs.de/pub/graphics/ghostscript/pcl3/pcl3.html</A>.
+This was written by Martin Lottermoser.
+
+<P>
+The HP DeskJet 720C, 722C, 820C and 1000C are PPA printers.
+<!-- tvz@Princeton.EDU (Timothy Van Zandt) -->
+They will not work with the PCL drivers above.
+You are expected to use PPA printers with a special Windows printer driver.
+You might be able to use the Ghostscript mswinpr2 device which is
+only available under Windows and talks to the Windows printer driver.
+(HP DeskJet 720C and 722C printers appear to work with mswinpr2).
+Another alternative is to use the test software
+<a href="gsview/gsprint.html">gsprint</a>.
+A PPA driver for the HP820C does exist for Ghostscript.
+It was written without access to documentation.
+See
+<A HREF="ftp://ftp.ig.utexas.edu/outgoing/scottk/820C/">
+  ftp://ftp.ig.utexas.edu/outgoing/scottk/820C/</A>
+<BR>
+For information on the PPA protocols, see 
+<A HREF="http://www.httptech.com/ppa/">
+  Tim Norman's description</A>.
+<BR>
+It has  been reported that the HP DeskJet 1000C printer works with
+the cdj550 device under Windows 95.  This works only under Windows 95 
+because the Windows 95 printer driver includes a PCL interpreter.  
+This would not work under DOS or Unix because the printer 
+does not contain a PCL interpreter.
+
+
+<HR>
+<A HREF="index.html"><IMG SRC="pics/ghome.gif" ALT="Home"></A>
+<HR>
+Updated 2000-03-17
+by <A HREF="rjl.html">Russell Lang</A>
+
+</BODY>
+
+</HTML>
