@@ -1,0 +1,558 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>GSview Readme</title>
+</head>
+<body>
+<h1>
+<table width="100%" border="0">
+<tr><th align="center" bgcolor="#80FF80"><font size="6">
+GSview Readme
+</font>
+</table>
+</h1>
+<p>
+GSview 3.3 - PostScript previewer.  Needs Ghostscript 6.
+<br>
+Release date: 2000-07-01
+</p>
+<h2>
+Table of contents
+</h2>
+<ul>
+<li><a href="#Overview">Overview</a>
+<li><a href="#Installation">Installation</a>
+<li><a href="#Compilation">Compilation</a>
+<li><a href="#Bugs">Bugs</a>
+<li><a href="#Updates">Updates</a>
+<li><a href="#ObtainGS">Obtaining Ghostscript</a>
+<li><a href="#Copyright">Copyright, Licensing and Registration</a>
+<li><a href="#Other">Other Useful Programs</a>
+<li><a href="#Acknowledgements">Acknowledgements</a>
+</ul>
+
+<h2>
+<a name="Overview"></a>
+Overview
+</h2>
+<p>
+GSview is a graphical interface for Ghostscript under MS-Windows
+or OS/2.  Ghostscript is an interpreter for the PostScript page 
+description language used by laser printers.
+For documents following the Adobe PostScript Document Structuring 
+Conventions, GSview allows selected pages to be viewed or printed.
+GSview requires <a href="#ObtainGS">Ghostscript 4.03 - 6.99</a>.
+</p>
+<p>
+Features include:
+</p>
+<ul>
+ <li> Display and print PostScript and PDF files.
+ <li> View pages in arbitrary order (Next, Previous, Goto).
+ <li> Page size and Orientation are automatically selected from 
+   DSC comments or can be selected using the menu.
+ <li> Print selected pages using Ghostscript.
+ <li> Convert pages to bitmap, PDF or PostScript.
+ <li> Selectable display resolution, depth, alpha.
+ <li> Single button zoom.
+ <li> Extract selected pages to another file.
+ <li> Copy display bitmap to clipboard.
+ <li> Save clipboard bitmap as BMP file.
+ <li> Add bitmap or user preview to EPS file 
+   (Interchange, TIFF or Windows Metafile)
+ <li> Graphically select and show bounding box for EPS file.
+ <li> Extract bitmap preview or PostScript from DOS EPS file.
+ <li> Extract text or search for text.
+ <li> Can read gzip and bzip2 compressed PostScript and PDF files.
+ <li> On-line help.
+ <li> Win32 and OS/2 executables. Older versions support Win16.
+ <li> Can be run directly off a CD-ROM.
+ <li> English, German, French, Italian and Spanish languages.
+ <li> Per user initialisation files for Windows.
+ <li> Includes setup program.
+ <li> Free (Aladdin Free Public Licence).
+ <li> Works with Aladdin Ghostscript 4.03 - 6.99 (GSview checks the
+   Ghostscript version number).
+</ul>
+<p>
+Changes in version 3.3:
+</p>
+<ul>
+ <li> Improved Windows printing.
+ <li> New parser for Document Structuring Conventions.
+ <li> Spanish translation.
+ <li> GSview can be registered.
+ <li> Command line utility <b>gsprint</b> for printing
+    to Windows GDI printers.
+ <li> A handful of bug fixes.
+ <li> See gvcnews.txt in the GSview sources for more detailed change
+   notes.
+</ul>
+<p>
+GSview was written by Russell Lang at Ghostgum Software Pty Ltd.
+</p>
+
+<h2>
+<a name="Installation"></a>
+Installation
+</h2>
+<p>
+First uninstall any previous versions of GSview.
+</p>
+<h3>
+Win32
+</h3>
+<p>
+  Obtain GSview (gsv33w32.exe) from 
+</p>
+  <blockquote>
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get33.html">
+    http://www.cs.wisc.edu/~ghost/gsview/get33.html
+    </a>
+  </blockquote>
+<p>
+  Obtain Aladdin Ghostscript 6.01 (gs601w32.exe) from
+</p>
+  <blockquote>
+    <a href="http://www.cs.wisc.edu/~ghost/aladdin/get601.html">
+    http://www.cs.wisc.edu/~ghost/aladdin/get601.html
+    </a>
+  </blockquote>
+<p>
+  Install the Aladdin Ghostscript self extracting archive gs601w32.exe
+  (or a later version).
+  Install the GSview self extracting archive gsv33w32.exe.
+  Run GSview.
+</p>
+<h4>
+Win32 location details
+</h4>
+<p>
+  By default, GSview is installed in the directory 
+  <tt>c:\Ghostgum</tt>, which creates the sub-directories
+  <tt>c:\Ghostgum\gsview</tt>, <tt>c:\Ghostgum\pstotext</tt> and 
+  <tt>c:\Ghostgum\pstoedit</tt>.  The GSview executable is 
+  <tt>c:\Ghostgum\gsview\gsview32.exe</tt>.
+</p>
+<p>
+  By default, Aladdin Ghostscript is installed in the directory 
+  <tt>c:\Aladdin</tt>, which creates the sub-directories
+  <tt>c:\Aladdin\gsN.NN</tt> and <tt>c:\Aladdin\fonts</tt>.
+  The Aladdin Ghostscript executables are
+  <tt>c:\Aladdin\gsN.NN\gswin32c.exe</tt> for console mode and
+  <tt>c:\Aladdin\gsN.NN\gswin32.exe</tt> for windowing mode.
+</p>
+<p>
+  GSview normally locates Aladdin Ghostscript using registry 
+  entries created by the Aladdin Ghostscript setup program.  
+  If these do not exist, GSview will assume that Ghostscript 
+  is in an adjacent directory to GSview, usually 
+  <tt>c:\Ghostgum\gsN.NN</tt> and <tt>c:\Ghostgum\fonts</tt>.
+</p>
+
+<h3>
+OS/2
+</h3>
+<p>
+  Obtain GSview (gsv33os2.zip) from
+</p>
+  <blockquote>
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get33.html">
+    http://www.cs.wisc.edu/~ghost/gsview/get33.html
+    </a>
+  </blockquote>
+<p>
+  Obtain Aladdin Ghostscript 6.01 (gs601os2.zip) from
+</p>
+  <blockquote>
+    <a href="http://www.cs.wisc.edu/~ghost/aladdin/get601.html">
+    http://www.cs.wisc.edu/~ghost/aladdin/get601.html
+    </a>
+  </blockquote>
+
+<p>
+  <a href="http://www.info-zip.org/pub/infozip/">Unzip</a>
+  GSview to a temporary directory, place gs601os2.zip (or a later 
+  version) in the same directory, and then run os2setup.exe.
+</p>
+ 
+<p>
+  If you do not already have EMX installed on your system, you will 
+  also need to obtain the EMX Run Time library, emxrt.zip,
+  from one of
+</p>
+  <blockquote>
+    <a href="ftp://ftp-os2.cdrom.com/pub/os2/emx09d/emxrt.zip">
+    ftp://ftp-os2.cdrom.com/pub/os2/emx09d/emxrt.zip
+    </a>
+    <br>
+    <a href="ftp://ftp-os2.nmsu.edu/pub/os2/dev/emx/v0.9d/emxrt.zip">
+    ftp://ftp-os2.nmsu.edu/pub/os2/dev/emx/v0.9d/emxrt.zip
+    </a>
+  </blockquote>
+<p>
+  If GSview refuses to run at all, make sure you do not have
+  an old version of the emx DLL on your system.
+</p>
+ 
+<p>
+  GSview (gvpm.exe) will run under OS/2 2.1 and OS/2 Warp. 
+</p>
+
+<h3>
+Win16
+</h3>
+<p>
+  Use the older GSview 2.7 and Aladdin Ghostscript 4.03.
+</p>
+
+<h3>
+Win32s
+</h3>
+<p>
+  For MS-Windows 3.1, it is recommended that you use the
+  Win32 version.  You must have Win32s installed before
+  installing GSview.  See 
+    <a href="http://www.microsoft.com/">
+    http://www.microsoft.com/</a>
+  or
+    <a href="ftp://ftp.microsoft.com/softlib/mslfiles/PW1118.EXE">
+    ftp://ftp.microsoft.com/softlib/mslfiles/PW1118.EXE</a>.
+  GSview and Ghostscript will not work with some versions
+  of Win32s.  If it doesn't work with your version, try 
+  updating to a later version of Win32s.  Some computers
+  will work with Win32s v1.15, others will not.
+</p>
+
+<p>
+  For Win32s, you will need to manually install both 
+  GSview and Aladdin Ghostscript.  The included setup
+  programs will not run under Win32s.  The self extracting
+  archives can be unpacked with Info-ZIP 
+    <a href="http://www.info-zip.org/pub/infozip/">unzip</a>.
+</p>
+
+
+<h3>General</h3>
+<p>
+Make sure that the zip/exe files are transferred in binary mode.
+</p>
+
+<p>
+The Ghostscript fonts are used by Ghostscript alone.  Your system 
+Fonts folder will not be modified.
+</p>
+
+<p>
+If you don't like automatic installation programs, it is 
+possible to install GSview and Ghostscript manually.
+For Ghostscript, read the file
+    <a href="http://www.cs.wisc.edu/~ghost/aladdin/doc/Install.htm">
+    gsN.NN\doc\Install.htm.
+    </a>
+For GSview, read the file
+    <a href="gsviewen.hlp">
+    gsviewen.hlp
+    </a>
+</p>
+
+<p>
+If you wish to use install GSview without any prompts, give
+a destination directory on the command line.  For example:
+</p>
+  <blockquote>
+  setup c:\ghostgum
+  </blockquote>
+<p>
+This will not prompt for a destination directory and will
+overwrite files without asking.
+</p>
+
+<p>
+Configuration of GSview will occur the first time it is run.
+</p>
+
+<p>
+See the 
+    <a href="gsviewen.hlp">
+    on-line help 
+    </a>
+for more details.
+The 'Common Problems' topic is worth reading if GSview won't work.
+</p>
+
+<h2>
+<a name="Compilation"></a>
+Compilation
+</h2>
+<p>
+To compile GSview for Windows you need MS Visual C++ 5.0 (and
+Borland C++ 4.5 for one 16-bit module).
+For MSVC++, copy gvwinvc.mak to Makefile,  edit Makefile to set 
+VCVER and DEVBASE as required, then type 'nmake'. 
+
+Borland C++ 4.5 (for 16-bit code) and Borland C++Builder 4 
+will compile most of GSview, but you will need to hand modify
+some files.
+For Borland C++, copy gvwin.mak to Makefile,  edit Makefile to set 
+COMPBASE as required, then type 'make'. 
+</p>
+
+<p>
+To compile GSview for OS/2 you need IBM NMAKE.EXE and EMX/GCC 0.9d.
+To create the GSview online help you need the IBM toolkit.
+Copy gvpm.mak to Makefile and edit COMPBASE and EMXPATH as required.
+Type 'nmake'
+</p>
+
+<h2>
+<a name="Bugs"></a>
+Bugs
+</h2>
+<p>
+Send bug reports to Russell Lang at Ghostgum Software Pty Ltd, 
+<tt>gsview</tt> <b>at</b> <tt>ghostgum.com.au</tt>. 
+When reporting bugs, please include the version number and date of 
+GSview (from the Help | About box), the version number of Ghostscript, 
+and the exact wording of any error messages.
+The text in the "Ghostscript Messages" dialog can be copied 
+to the clipboard and pasted as text (not bitmap please!) into 
+an email message.
+Do not send me large files (>100k bytes) unless requested.
+If you get a SYS3175 or GPF, please send the address of the GPF - I can 
+use this to help locate the bug.
+Please distinguish between bugs in GSview and bugs in Ghostscript,
+by making sure that the problem only occurs when using GSview,
+and not when using Ghostscript alone.
+Don't expect a fast response - the work I'm paid to do has a higher
+priority.
+For a list of known bugs, see
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/bugs.html">
+    http://www.cs.wisc.edu/~ghost/gsview/bugs.html
+    </a>
+</p>
+
+<h2>
+<a name="Updates"></a>
+Updates
+</h2>
+<p>
+A World Wide Web home page for Ghostscript, Ghostview and GSview is at
+    <a href="http://www.cs.wisc.edu/~ghost/">
+    http://www.cs.wisc.edu/~ghost/
+    </a>
+</p>
+
+<p>
+The latest version of GSview should be available from
+    <a href="ftp://ftp.cs.wisc.edu/ghost/ghostgum/">
+    ftp://ftp.cs.wisc.edu/ghost/ghostgum/gsview*.zip
+    </a>
+or by mail (see next section) on a CD-ROM.
+</p>
+
+<h2>
+<a name="ObtainGS"></a>
+Obtaining Ghostscript
+</h2>
+<p>
+Ghostscript can be downloaded from the Internet, or obtained on
+<a href="cdorder.txt">CD-ROM</a>.
+</p>
+
+<p>
+To download, go to the <a href="http://www.cs.wisc.edu/~ghost/">
+Ghostscript home page</a>
+then follow the link to <b>Obtaining Aladdin Ghostscript</b>.
+</p>
+
+<p>
+To obtain the latest version of GSview and Aladdin Ghostscript
+on CD-ROM, send the <a href="cdorder.txt">order form</a>
+and payment to the address on the order form.
+Payment may be credit card or cheque for USD$50 drawn on a 
+USA bank or equivalent drawn on your local bank.
+For surface delivery within Australia, send a cheque for AUD$60 
+drawn on an Australian bank.
+</p>
+
+<p>
+The CD-ROM (actually a CD-R) will contain ready to run 
+and ready to install copies of GSview and Aladdin Ghostscript for 
+Windows and OS/2, plus a number of other PostScript utilities.
+The CD-ROM will be dispatched by air-mail.  
+This offer is valid until 31 December 2000.  If this date has
+passed, send mail to 
+<tt>gsview</tt> <b>at</b> <tt>ghostgum.com.au</tt>. 
+to find out if the offer is still valid.
+For more details see the page
+    <a href="http://www.cs.wisc.edu/~ghost/cd.html">
+    http://www.cs.wisc.edu/~ghost/cd.html
+    </a>
+
+<h2>
+<a name="Copyright"></a>
+Copyright, Licensing and Registration
+</h2>
+<p>
+GSview is copyright by Ghostgum Software Pty Ltd.
+GSview is distributed with the Aladdin Free Public Licence.
+This licence is contained in the file 
+    <a href="LICENCE">
+    LICENCE
+    </a>.
+The Aladdin Free Public Licence does not require any payment to the author;
+however the author would welcome any registrations of GSview to cover costs 
+and time involved in developing and maintaining GSview.  
+</p>
+
+<p>
+The registration fee is currently AUD$40.
+GSview can be <a href="http://www.ghostgum.com.au/">registered online</a>
+at <a href="http://www.ghostgum.com.au/">http://www.ghostgum.com.au/</a>
+or by faxing or mailing the <a href="regorder.txt">registration form</a>.
+Ghostgum Software prefers that you use the online registration.
+</p>
+
+<p>
+The postal address for Ghostgum Software is:
+</p>
+  <blockquote>
+    Russell Lang
+    <br>
+    Ghostgum Software Pty Ltd
+    <br>
+    218 Gallaghers Rd
+    <br>
+    GLEN WAVERLEY  VIC  3150
+    <br>
+    AUSTRALIA
+  </blockquote>
+
+<p>
+GSview uses Ghostscript to display the contents of the PostScript
+files.  Ghostscript is a separate program from GSview; it is
+written and owned by Aladdin Enterprises, not by Ghostgum
+Software Pty Ltd.
+</p>
+
+<p>
+Aladdin Ghostscript comes with a licence that is more restrictive than 
+the GNU Licence; in particular, it restricts the distribution of
+Aladdin Ghostscript in commercial contexts.  Please see the file PUBLIC
+that accompanies Aladdin Ghostscript for more details.  
+</p>
+
+<p>
+GSview uses pstotext in an external DLL. pstotext was written by 
+Andrew Birrell and Paul McJones.  It is
+  Copyright (C) 1995-1996, Digital Equipment Corporation.
+See the licence in pstotext.txt or pstotext.zip for more details.
+If you do not agree to the pstotext licence, delete pstotext.zip,
+pstotxt2.dll and pstotxt3.dll.
+  See 
+    <a href="http://www.research.digital.com/SRC/virtualpaper/pstotext.html">
+    http://www.research.digital.com/SRC/virtualpaper/pstotext.html
+    </a>
+</p>
+
+<p>
+GSview can convert PostScript or PDF file to an editable vector
+using pstoedit in an external DLL.  
+pstoedit is Copyright by Wolfgang Glunz and is licensed with
+the GNU Public Licence (GPL).  Binaries are included in
+GSview with the permission of Wolfgang Glunz.
+The home page of pstoedit is
+  <a href="http://www.geocities.com/SiliconValley/Network/1958/pstoedit/index.html">
+  http://www.geocities.com/SiliconValley/Network/1958/pstoedit/index.html
+  </a>.  
+Source code can be obtained from this site.
+The <a href="../pstoedit/pstoedit.htm">manual for pstoedit</a> 
+is included with GSview.
+</p>
+
+<p>
+GSview uses zlib 1.0.4 in an external DLL.  zlib is
+  Copyright (C) 1995-1996 Jean-loup Gailly and Mark Adler.
+  See 
+    <a href="http://www.info-zip.org/pub/infozip/zlib/">
+    http://www.info-zip.org/pub/infozip/zlib/
+    </a>
+</p>
+
+<p>
+GSview uses bzip2 in an external DLL.  bzip2 is 
+ Copyright 1996-2000 by Julian Seward.  
+ See 
+    <a href="http://sourceware.cygnus.com/bzip2/index.html">
+    http://sourceware.cygnus.com/bzip2/index.html
+    </a>
+</p>
+
+<p>
+The installation programs may use an 
+<a href="http://www.info-zip.org/pub/infozip/">unzip</a>
+decompression library (DLL)
+by the Info-ZIP group.  The original sources are freely available
+from 
+    <a href="ftp://ftp.freesoftware.com/pub/infozip/">
+    ftp://ftp.freesoftware.com/pub/infozip/
+    </a>
+</p>
+
+<h2>
+<a name="Other"></a>
+Other Useful Programs
+</h2>
+<p>
+<a href="gsprint.htm">GSPRINT</a> is a command line tool
+for printing using Windows GDI printer drivers. 
+</p>
+
+<p>
+<a href="epstool.htm">EPSTOOL</a> is a command line tool
+for adding and removing previews from EPS files.
+</p>
+
+<h2>
+<a name="Acknowledgements"></a>
+Acknowledgements
+</h2>
+<p>
+L. Peter Deutsch, for writing Ghostscript and for making changes to 
+Ghostscript to support GSview.
+</p>
+
+<p>
+Tim Theisen, who wrote Ghostview for X11 which provided the inspiration
+for GSview.
+</p>
+
+<p>
+Paul McJones and Andrew Birrell of DEC, for making pstotext available 
+and making changes to it for use with GSview.
+</p>
+
+<p>
+Thomas Pfeiffer and Mrs. Stefanie Kolweyh for translating GSview into 
+German/Deutsch.
+</p>
+
+<p>
+Cyrille Chevallet for translating GSview into French/Français.
+</p>
+
+<p>
+Antonio Guadagnin for translating GSview into Italian/Italiano.
+</p>
+
+<p>
+Pascual Lucas for translating GSview into Spanish/Español.
+</p>
+
+<h2>
+<a name="End of Readme"></a>
+End of Readme
+</h2>
+</body>
+</html>

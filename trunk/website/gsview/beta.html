@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+
+<head>
+<meta name="ROBOTS" content="NOINDEX">
+<title>GSview BETA</title>
+</head>
+
+<body>
+<h1><img src="../pics/gsview2.gif" alt=""> GSview BETA</h1>
+<p>
+The latest release version is <a href="get34.html">GSview 3.4</a>.
+</p>
+<p>
+There are no beta versions of GSview currently available.
+</p>
+<p>
+GSview 3.32 alpha test is available as source code, Win32 binary and
+<b>Linux/X11</b> binary.
+The version numbering is confusing.  Version 3.32 is later code
+than 3.4.
+</p>
+<p>
+GSview 3.32 alpha can be found in 
+<tt>
+<a href="ftp://ftp.cs.wisc.edu/ghost/ghostgum/beta/">
+ftp://ftp.cs.wisc.edu/ghost/ghostgum/beta/
+</a>
+</tt>
+</p>
+
+<h2>X11</h2>
+<p>
+These are some notes on the current state of X11 GSview.
+</p>
+<p>
+This is alpha code.  
+X11 GSview is written by a novice at X Windows programming.
+It might have serious problems.  
+The GTK+ toolkit is used for most of the graphical interface,
+with a small amount of Xlib for interfacing with Ghostscript.
+</p>
+
+<h3>
+Compilation
+</h3>
+To compile GSview for Linux/X11 you need gcc and the GTK+ 1.2 toolkit.
+Unzip the gsv331src.zip, to produce three other zip files.
+Unzip these, converting the line endings:
+<br><tt>unzip -a src.zip</tt>
+<br>
+Change to the <tt>src</tt> subdirectory and copy 
+<tt>gvx.mak</tt> to <tt>makefile</tt>.
+Run <tt>make</tt>.
+To install, run <tt>make install</tt>
+</p>
+
+<h3>
+Installation
+</h3>
+<p>
+Copy <tt>gsview</tt> to a directory on your search path.
+Copy <tt>gvxen.htm</tt>, <tt>gvxfr.htm</tt> and <tt>printer.ini</tt> 
+to <tt>/usr/share/gsview</tt>.
+GSview stores configuration information in <tt>$HOME/.gsviewrc</tt>.
+</p>
+
+<h3>
+Unimplemented features
+</h3>
+<p>
+Highest priority first
+</p>
+<ul>
+<li> Many accelerator keys don't work.
+      The GtkItemFactory ignores some accelerators, including
+      '+', '-', ',', '.', ' ', '\h'.
+<li> Help uses HTML and netscape.
+    Gnome Help Browser is not used because it doesn't
+    support #topic on the command line.  For example:
+      gnome-help-browser file:/path/gsview.htm#Page_Size
+    If you know of a way to tell the Gnome Help Browser to
+    jump to a particular topic, particularly without opening
+    another copy of the browser, please let me know.
+<li> Keyboard movement between widgets
+<li> Convert to vector format
+<li> Full screen not implemented.
+<li> Clipboard operations
+<li> Sounds
+</ul>
+<p>
+
+<h3>
+Known problems
+</h3>
+<ul>
+<li> "Media | Display Settings | Draw Method" should be set
+   to pixmap (the default) or backing pixmap.  The setting
+   backing storage doesn't work properly - it does draw, 
+   but my X server is ignoring the request to provide
+   backing storage for the window.  I don't know if other
+   X servers will behave the same way.
+<li> Fit window doesn't get the correct dimension of the scrolled window
+     client area, so the resize is slightly wrong.
+   At the moment we use the size of the scroll window less the two
+   two scroll bars.
+<li> GSview still includes lots of debugging code.
+</ul>
+
+<h3>
+Requests
+</h3>
+<p>
+Suggestions from GTK+ programmers about how to improve GSview.
+</p>
+<p>
+Bug reports.  Use "gsview -d9" to get debugging messages on stdout.
+</p>
+
+
+<h2>Win32</h2>
+GSview 3.32 alpha for Win32 is available from
+<a href="ftp://ftp.cs.wisc.edu/ghost/ghostgum/beta/gsview332a_w32.exe">
+ftp://ftp.cs.wisc.edu/ghost/ghostgum/beta/gsview332a_w32.exe</a>.
+<p>
+You will also need 
+<a href="../aladdin/get601.html">
+Aladdin Ghostscript 6.01
+</a>.
+<p>
+Changes in this version are:
+<ul>
+ <li> Button bar has moved.
+ <li> DSC parser rewritten again.
+ <li> Bug fixes:
+ <ul>
+    <li>pdfmark was wrong for link with dashed border.
+    <li>"gsview /F filename" didn't print any pages.
+    <li>Advanced PS print options were not saved correctly.
+    <li>Pressing F4 when in fullscreen mode brought up overlapped
+        window and left it in front.
+ </ul>
+</ul>
+
+<!--
+<h2>OS/2</h2>
+GSview 2.93 beta for OS/2 is available from
+<a href="ftp://ftp.cs.wisc.edu/ghost/ghostgum/beta/gsview294b_os2.zip">
+ftp://ftp.cs.wisc.edu/ghost/ghostgum/beta/gsview294b_os2.zip</a>
+(844021 bytes).
+<p>
+You will also need 
+<a href="../aladdin/get601.html">
+Aladdin Ghostscript 6.01
+</a>.
+-->
+
+<h2>General</h2>
+This beta will expire at the end of September 2000
+<p>
+Please report any problems with this archive to
+<a href="../rjl.html">Russell Lang</a>.
+
+
+<hr>
+<a href="../index.html"><img src="../pics/ghome.gif" alt="Home"></a>
+<hr>
+Updated 2000-07-29 by <a href="../rjl.html">Russell Lang</a>
+
+</BODY>
+
+</HTML>
