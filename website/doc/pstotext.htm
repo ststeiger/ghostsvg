@@ -8,6 +8,37 @@
 
 <BODY>
 <H1>pstotext - extracting plain text from PostScript</H1>
+<hr>
+<p>
+pstotext is still available from 
+<a href="http://www.research.compaq.com/SRC/virtualpaper/pstotext.html">
+DEC/Compaq/HP</a>, 
+but the original authors no longer work there and they are 
+no longer maintaining it.  
+</p>
+<p>
+An updated version,
+<a 
+href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/contrib/pstotext-1.9.tar.gz">
+pstotext 1.9</a>, is available from this site.
+Changes are:
+</p>
+<ul>
+<li> Work with Ghostscript 6.0.
+<li> Recognise excessive space in "ashow" as being a word separator, 
+ as found output from groff 1.08.  
+ Also fixed fixed widthshow and awidthshow.
+<li> Add xshow, yshow and xyshow.
+<li> Uses ANSI prototypes.  These are now required, not optional.
+<li> Fixes a number of compiler warnings.
+<li> Add -output to Windows and OS/2 executables, and insert
+  line breaks and form feeds in pstotext output.
+</ul>
+<p>
+2004-01-13, Ghostgum Software Pty Ltd.
+</p>
+
+
 <HR>
 <P>
 Newsgroups: <A HREF="news:comp.text.pdf">comp.text.pdf</A>,<A HREF="news:comp.lang.postscript">comp.lang.postscript</A><BR>
