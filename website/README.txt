@@ -9,6 +9,9 @@ doc/AFPL/N.NN/* which use their own gs.css.
 
 Where possible, please use short 8.3 filenames so that these 
 pages can also be accessed when written on an ISO9660 CD.
+Within the website, link to the index.htm file in a 
+directory where possible so that the links work when
+the pages are on a hard disk or CD.
 
 Russell Lang
-2000-12-23
+2001-03-29
