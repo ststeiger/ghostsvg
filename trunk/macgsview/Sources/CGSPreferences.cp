@@ -104,8 +104,8 @@ CGSPreferences::GetDefaultPageSize(float& outWidth, float& outHeight)
 SInt16
 CGSPreferences::Load()
 {
-	OpenOrCreateResourceFork(smSystemScript, LFileTypeList::GetProcessSignature(),
-							 'pref', fsRdWrPerm );
+	OpenOrCreateResourceFork(fsRdWrPerm, LFileTypeList::GetProcessSignature(),
+							 'pref', smSystemScript );
 	
 	Handle prefsHandle = ::Get1Resource('pref', 128);
 	
@@ -141,8 +141,8 @@ CGSPreferences::Save()
 	// enter print record
 	mPrefs.printSettings.printRecord = **mPrintRecordH;
 	
-	OpenOrCreateResourceFork(smSystemScript, LFileTypeList::GetProcessSignature(),
-							 'pref', fsRdWrPerm );
+	OpenOrCreateResourceFork(fsRdWrPerm, LFileTypeList::GetProcessSignature(),
+							 'pref', smSystemScript );
 	
 	Handle prefsHandle = ::Get1Resource('pref', 128);
 	
