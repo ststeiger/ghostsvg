@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+<TITLE>GSview Common Problems</TITLE>
+</HEAD>
+
+<BODY>
+<H1><IMG SRC="../pics/gsview.gif"> GSview Common Problems</H1>
+<HR>
+<P>
+The two most common problems with GSview 1.4 and earlier are
+<DL>
+<DT> <B>Can't run gswin</B> or <B>Can't run gsos2</B>
+<DD>
+ GSview requires a suitable version of Ghostscript (gsos2.exe for OS/2,
+ gswin.exe or gswin32.exe for MS-Windows).
+ This error message occurs if you don't have Ghostscript,
+ or if GSview can't find Ghostscript.
+
+ From the GSview menu select <B>Options</B> | <B>Ghostscript Command</B>
+ and enter the correct executable path and include path for Ghostscript.
+ For example: <BR>
+  <PRE>c:\gs\gswin.exe -Ic:\gs;c:\gs\fonts;c:\psfonts</PRE>
+
+ You must set the include path for Ghostscript using either the
+ <B>-I</B> command or the <B>GS_LIB</B> environment variable.
+<P>
+<DT> <B>Ghostscript starts and then immediately exits with error code 1</B>
+<DD>
+ First read the error message in the Ghostscript window.
+
+ Ghostscript probably couldn't find its initialisation files.
+ Set the Ghostscript include path by adding <B>-Idirectory</B> to the
+ command in <B>Options</B> | <B>Ghostscript Command</B>, where <B>directory</B>
+ includes the name of the directory that contains the Ghostscript
+ initialisation files,
+</DL>
+
+Other common problems are described in the GSview on-line help.
+This is available for <A HREF="os2help.html"> OS/2</A> and 
+<A HREF="winhelp.html"> MS-Windows</A>.
+<P>
+See also the list of <A HREF="bugs.html">known GSview bugs</A>.
+
+<HR>
+<A HREF="../index.html"><IMG SRC="../pics/ghome.gif" ALT="Home"></A>
+<A HREF="index.html"><IMG SRC="../pics/gback.gif" ALT="Back"></A>
+</BODY>
+
+</HTML>
