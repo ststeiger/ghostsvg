@@ -14,8 +14,9 @@ directory where possible so that the links work when
 the pages are on a hard disk or CD.
 
 The doc/ tree is generally maintained by checking out the
-new files from cvs by their release tag. Versions from before
-ghostscript was in cvs are kept explicitly in the website module.
+new files from cvs by their release tag, removing
+the CVS subdirectory so they can updated, 
+then adding them to cvs.
 To checkout the documentation files by their release tag:
 cd doc/AFPL
 cvs -z3 co -r gs7_03 -d 7.03 gs/doc
@@ -26,4 +27,4 @@ cvs -z3 co -d cvs gs/doc
 cd ..
 
 Russell Lang
-2001-10-27
+2002-05-08
