@@ -10,109 +10,95 @@
 <body>
 <h1><img src="../images/gsview2.gif" alt=""> GSview BETA</h1>
 <p>
-The latest release version is <a href="get45.htm">GSview 4.5</a>.
-</p>
-<p>
-There are no beta versions of GSview currently available.
+The latest release version is <a href="get45.htm">GSview 4.6</a>.
 </p>
 <!--
 <p>
-GSview 4.42 beta test is now available.
+There are no beta versions of GSview currently available.
+</p>
+-->
+<p>
+GSview 4.61 beta test is now available.
 This includes Windows, OS/2 and Linux executables.
 The major changes are:
 </p>
 <ul>
- <li> Fix Page Offset when printing.
- <li> Fix slow behaviour when displaying on remote X11 server.
- <li> Fix crash in X11 version when the LANG environment variable is not set.
- <li> Redisplay files correctly after they are changed.
- <li> Find pstoedit using registry information.
- <li> A few other minor bug fixes.
+ <li> The print/convert options "Fixed Page Size" and "Shrink to fit page"
+   now work with recent versions of Ghostscript.
+ <li> On Windows with multiple monitors, put the main window
+   and dialog boxes on the same monitor.
+ <li> Use the correct code page for translations.
+ <li> Fixed bug with grestoreall leaving a blank page.
+ <li> Allow the maximum user defined page size to
+   be changed by editing the INI file.
+ <li> The old epstool is not included.
+  Epstool is now available as a separate package.
+ <li> gsprint can now specify horizontal or vertical duplex orientation.
 </ul>
 <p>
-GSview 4.42 beta can be found in 
+GSview 4.61 beta can be found in 
 <a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/">
 ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/</a>
 </p>
 
+<p>
+Please test with AFPL Ghostscript 8.33 beta, or earlier versions.
+</p>
 
 <h2>Linux</h2>
 <p>
 Sources are available at
-<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.42beta.tar.gz">
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.42beta.tar.gz</a>.
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.61beta.tar.gz">
+ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.61beta.tar.gz</a>.
 </p>
 
 <p>
 A tar file containing a precompiled gsview executable is available in
-<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.42beta.i386.tar.gz">
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.42beta.i386.tar.gz</a>.
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.61beta.i386.tar.gz">
+ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.61beta.i386.tar.gz</a>.
 </p>
 
 <p>
-There are no RPMs at this stage.
-RPM is available in
-<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.32-1.i386.rpm">
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsview-4.32-1.i386.rpm</a>.
+There are no precompiled RPMs.
+Try <b><tt>rpmbuild -ta gsview-4.61beta.tar.gz</tt></b>.
 </p>
 
 <p>
-You will also need 
-GNU Ghostscript 7.05 or
-<a href="../doc/AFPL/get811.htm">
-AFPL Ghostscript 8.11
-</a>.
-In particular, you need to install both the ghostscript executable and
-shared library.  
-These are available in
-<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/gs811/ghostscript-8.11.i386.tar.gz">ghostscript-8.11.i386.tar.gz</a>.
+GSview requires both the ghostscript executable and shared library.
 </p>
 
 
 <h2>Win32</h2>
 <p>
-GSview 4.42 beta for Win32 is available from
-<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv442w32.exe">
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv442w32.exe</a>.
-</p>
-<p>
-You will also need 
-Ghostscript 7.04,
-<a href="../doc/AFPL/get811.htm">8.11</a> 
-or later.
+GSview 4.61 beta for Win32 is available from
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv461w32.exe">
+ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv461w32.exe</a>.
 </p>
 
 <h2>OS/2</h2>
 <p>
-GSview 4.42 beta for OS/2 is available from
-<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv442os2.zip">
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv442os2.zip</a>
-</p>
-<p>
-You will also need 
-Ghostscript 7.04,
-<a href="../doc/AFPL/get811.htm">8.11</a> 
-or later.
+GSview 4.61 beta for OS/2 is available from
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv461os2.zip">
+ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv461os2.zip</a>
 </p>
 
 <h2>General</h2>
 <p>
 Sources are in 
-<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv442src.zip">
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv442src.zip</a>.
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv461src.zip">
+ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/gsv461src.zip</a>.
 </p>
 
-This beta will expire at the end of November 2003.
+This beta will expire at the end of January 2005.
 <p>
 Please report any problems with this archive to
 <a href="rjl.htm">Russell Lang</a>.
--->
 
 
 <hr>
 <a href="../index.htm">Home</a>
 <hr>
-Updated 2003-10-18 by <a href="rjl.htm">Russell Lang</a>
+Updated 2004-11-27 by <a href="rjl.htm">Russell Lang</a>
 
 </BODY>
 
