@@ -15,7 +15,7 @@ Seitenbeschreibungssprache PostScript, die vor allem Laserdrucker nutzen.
 entwickelten PostScript Document Structuring Conventions 
 (DSC-Konventionen) entsprechen, auf dem Bildschirm dargestellt und auf 
 einen Drucker ausgegeben werden. 
-Die Version GSview 4.3 erfordert Ghostscript in der Version 7.04 - 8.09. 
+Die Version GSview 4.4 erfordert Ghostscript in der Version 7.04 - 8.99. 
 <p>
 <a href="#Installation">Installation</a><br>
 <a href="#Registrierung">Registrierung</a><br>
@@ -51,7 +51,7 @@ Ghostscript muss gesondert installiert werden.
 Hilfethema <a href="#Manuelle_Installation">Manuelle Installation</a>. 
 <p>Die Konfiguration findet beim ersten Start von GSview statt. 
 Wenn Sie die Konfiguration sp&#228;ter &#228;ndern wollen, verwenden Sie 
-<a href="#Optionen">Optionen</a> | <a href="#Leichte_Konfiguration">Leichte Konfiguration</a> oder 
+<a href="#Optionen">Optionen</a> | <a href="#Einfache_Konfiguration">Einfache Konfiguration</a> oder 
 <a href="#Optionen">Optionen</a> | <a href="#Fortgeschrittene_Konfiguration">Fortgeschrittene Konfiguration</a>. 
 <p>Siehe auch <a href="#Optionen">Optionen</a> | <a href="#Sprache">Sprache</a>. 
 <p>
@@ -153,14 +153,14 @@ und printer.ini
 in das Verzeichnis <b>c:\ghostgum\gsview</b>. 
 <p>Starten Sie das Programm GSview und w&#228;hlen Sie die passende Ghostscript- 
 Version (i.allg. die neueste).  F&#252;r sp&#228;tere &#196;nderungen w&#228;hlen Sie 
-<a href="#Optionen">Optionen</a> | <a href="#Leichte_Konfiguration">Leichte Konfiguration</a>. 
+<a href="#Optionen">Optionen</a> | <a href="#Einfache_Konfiguration">Einfache Konfiguration</a>. 
 <p>F&#252;r mehr Kontrolle &#252;ber die Konfiguration siehe 
 <a href="#Fortgeschrittene_manuelle_Installation">Fortgeschrittene manuelle Installation</a>. 
 <p>
 <p>
 <hr>
 <h2><a name="Fortgeschrittene_manuelle_Installation">Fortgeschrittene manuelle Installation</a></h2>
-Anstatt den Men&#252;punkt <a href="#Optionen">Optionen</a> | <a href="#Leichte_Konfiguration">Leichte Konfiguration</a> zu w&#228;hlen, 
+Anstatt den Men&#252;punkt <a href="#Optionen">Optionen</a> | <a href="#Einfache_Konfiguration">Einfache Konfiguration</a> zu w&#228;hlen, 
 verwenden Sie <a href="#Optionen">Optionen</a> | <a href="#Fortgeschrittene_Konfiguration">Fortgeschrittene Konfiguration</a>. 
 <p>Geben Sie zuerst korrekte Werte in die drei Textfelder ein (s. 
 <a href="#Fortgeschrittene_Konfiguration">Fortgeschrittene Konfiguration</a>). 
@@ -203,11 +203,11 @@ gespeichert.
 Existiert ein Nutzerprofilverzeichnis, welches aber schreibgesch&#252;tzt ist, 
 wird es Probleme bei der Nutzung von GSview geben. 
 <p>Wenn Sie es verhindern wollen, da&#223; das Installationsprogramm beim ersten Start 
-von Gsview oder bei Updates von Gsview, dann sollten Sie eine INI Datei in das 
-GSview Verzeichnis kopieren. 
+von Gsview oder bei Updates von Gsview <a href="#Einfache_Konfiguration">Einfache Konfiguration</a> anzeigt, dann  
+sollten Sie eine INI Datei in das GSview Verzeichnis kopieren. 
 <b>Bei zuk&#252;nftigen Updates kann es jedoch erforderlich sein, diese Datei wieder 
 zu entfernen.</b> 
-Sie sollte nur jene Eintr&#228;ge enthalten, die in der Benutzerkonfiguration 
+Diese sollte nur jene Eintr&#228;ge enthalten, die in der Benutzerkonfiguration 
 &#252;berschrieben werden sollen. 
 Die vorgeschlagene Methode ist zuerst Gsview zu installieren und dann zu 
 konfigurieren. 
@@ -217,12 +217,12 @@ aus dem Systemverzeichnis oder dem
 Benutzerprofil-Verzeichnis in das GSview Verzeichnis und entfernen Sie alle 
 Eintr&#228;ge bis auf: 
 <pre>
- [Options]
- Version=4.3
- GSversion=704
+ [GSview-4.4]
+ Version=4.4
+ GSversion=800
  Configured=1
- GhostscriptDLL=E:\gs\gs7.04\bin\gsdll32.dll
- GhostscriptInclude=E:\gs\gs7.04\lib;E:\gs\fonts
+ GhostscriptDLL=E:\gs\gs8.00\bin\gsdll32.dll
+ GhostscriptInclude=E:\gs\gs8.00\lib;E:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
 </pre>
 <p>Wenn ein Benutzer GSview startet, dann wird normalerweise seine INI Datei benutzt. 
@@ -237,6 +237,9 @@ Wenn Sie dieses Verhalten &#228;ndern m&#246;chten, so w&#228;hlen Sie
 <p>4. Programmmanagergruppen / Startmen&#252;eintr&#228;ge / Programmobjekte werden NICHT 
 ver&#228;ndert. Wenn Sie dieses Verhalten &#228;ndern m&#246;chten, so w&#228;hlen Sie 
 <a href="#Optionen">Optionen</a> | <a href="#Fortgeschrittene_Konfiguration">Fortgeschrittene Konfiguration</a>. 
+<p>Wenn Sie unter Windows NT4/2000 installieren und "All Nutzer" w&#228;hlen, 
+dann schreibt das Installationsprogramm die gsview32.ini in Ihr GSview- 
+Verzeichnis. Sie m&#252;ssen vorher Ghostscript installiert haben. 
 <p>Wenn ein Benutzer das GSview-Deinstallationsprogramm aufruft, versucht dieses 
 GSview und Ghostscript im Netzwerk zu l&#246;schen.  Stellen Sie deshalb sicher, da&#223; 
 die Verzeichnisse von GSview und Ghostscript vor Benutzern schreibgesch&#252;tzt sind. 
@@ -697,21 +700,21 @@ gedruckt.
 <p>
 <hr>
 <h2><a name="Einstellung">Einstellung</a></h2>
-Im Dialogfeld <b>Druckereinstellungen</b> befindet sich die Schaltfl&#228;che 
-<b>Einstellung</b>, mit der Sie f&#252;r einige Druckertreiber spezielle 
+Im Dialogfeld <b>Druckereinstellung</b> befindet sich die Schaltfl&#228;che 
+<b>Einstellung</b>, mit der Sie f&#252;r einige Ger&#228;tetreiber spezielle 
 Einstellungen vornehmen und einen Seitenversatz bestimmen k&#246;nnen. 
-<p>F&#252;r jeden Druckertyp kann ein Seitenversatz definiert werden. 
+<p>F&#252;r jeden Ger&#228;tetyp kann ein Seitenversatz definiert werden. 
 Dieser dient dazu, Abweichungen zwischen dem Original eines 
-Ghostscript-Ausgabeger&#228;tes und einem anderen Drucker zu korrigieren. 
-Durch Erh&#246;hen des X-Wertes wird ein Bild z.B. weiter nach rechts 
-verschoben. Durch Verringern des Y-Wertes wird ein Bild z.B. weiter 
+Ghostscript-Drucker und einem anderen Drucker zu korrigieren. 
+Durch Erh&#246;hen des X-Wertes wird ein Bild nach rechts 
+verschoben. Durch Erh&#246;hen des Y-Wertes wird ein Bild 
 nach unten verschoben. 
 <p>Die Schaltfl&#228;che <b>Einstellung</b> wird im allgemeinen daf&#252;r verwendet, 
-BitsperPixel f&#252;r einen Farbdrucker festzulegen, andere Farben auszuw&#228;hlen 
-oder eine Korrektur der Zeichendichte vorzunehmen. 
-<p>Die <b>Einstellungen</b> m&#252;ssen f&#252;r jeden Drucker vorgenommen werden. Wenn Sie 
-den Wert der <b>BitsPerPixel</b> bei einem Drucker &#228;ndern, bleiben die 
-Einstellungen f&#252;r andere Drucker von dieser &#196;nderung unber&#252;hrt. 
+BitsperPixel f&#252;r einen Farbdrucker festzulegen oder andere Farb- oder 
+Dichtekorrekturen vorzunehmen. 
+<p>Die Einstellungen m&#252;ssen f&#252;r jedes Ger&#228;t gesondert vorgenommen werden.  
+Wenn Sie den Wert der <b>BitsPerPixel</b> f&#252;r ein Ger&#228;t &#228;ndern, bleiben die 
+Einstellungen f&#252;r andere Ger&#228;te von dieser &#196;nderung unber&#252;hrt. 
 <p>Wenn Sie im Dialogfeld <b>Einstellung</b> die Schaltfl&#228;che <b>OK</b> anklicken, 
 werden die Einstellungen in die Datei 
 gsview32.ini 
@@ -719,16 +722,16 @@ geschrieben.
 <p>In GSview finden Sie einige vordefinierte Einstellungen, die allerdings 
 nicht immer mit den Einstellungen in Ghostscript &#252;bereinstimmen. 
 &#220;ber die Schaltfl&#228;chen <b>Bearbeiten </b>und <b>Neu</b> k&#246;nnen Sie die Einstellungen 
-f&#252;r den jeweiligen Drucker neu definieren bzw. ver&#228;ndern. 
+f&#252;r das jeweilige Ger&#228;t neu definieren bzw. ver&#228;ndern. 
 Siehe hierzu auch das Hilfethema <a href="#Einstellung_bearbeiten">Einstellung bearbeiten</a>. 
 <p>
 <a href="#Einstellung_bearbeiten">Einstellung bearbeiten</a><br>
 <p>
 <hr>
 <h3><a name="Einstellung_bearbeiten">Einstellung bearbeiten</a></h3>
-Nicht jeder Drucker unterst&#252;tzt die Verwendung dieser optionalen 
-<a href="#Einstellung">Einstellung</a>. Um herauszufinden, welcher Drucker die Funktion 
-<a href="#Einstellung">Einstellung</a> unterst&#252;tzt und welche <a href="#Einstellung">Einstellung</a> von welchem Drucker 
+Nicht jedes Ger&#228;t unterst&#252;tzt die Verwendung dieser optionalen 
+<a href="#Einstellung">Einstellung</a>. Um herauszufinden, welches Ger&#228;t die Funktion 
+<a href="#Einstellung">Einstellung</a> unterst&#252;tzt und welche <a href="#Einstellung">Einstellung</a> von welchem Ger&#228;t 
 erkannt wird, lesen Sie die Ghostscript-Datei "devices.txt" oder schauen 
 Sie im Ghostscript Source Code nach. 
 <p>Es gibt zwei M&#246;glichkeiten, neue Einstellungen zu definieren oder die 
@@ -751,7 +754,7 @@ aus, klicken auf die Schaltfl&#228;che <a href="#Zwischenablage">Bearbeiten</a> 
 Schaltfl&#228;che <b>L&#246;schen</b>. 
 <p>2. M&#246;glichkeit: 
 Editieren Sie die GSview INI-Datei. 
-<p>F&#252;r jeden Drucker mu&#223; die Datei 
+<p>F&#252;r jedes Ger&#228;t mu&#223; die Datei 
 gsview32.ini 
 in diesem Fall um zwei Sektionen erg&#228;nzt werden. 
 Das folgende Beispiel verdeutlicht, wie die Datei f&#252;r den cdjcolor-Treiber 
@@ -1075,21 +1078,17 @@ PostScript hat. Dies ist allerdings nicht w&#252;nschenswert.
 Sie k&#246;nnen eine Postscript oder PDF Datei in ein editierbares 
 Vektorformat konvertieren, indem Sie das Programm <b>pstoedit</b> 
 von Wolfgang Glunz benutzen. 
-<b>pstoedit</b> unterliegt der GNU Public Licence. 
-Bin&#228;rdateien sind mit der Erlaubnis von Wolfgang Glunz in GSview 
-enthalten. Eine Kommandozeilenversion <b>pstoedit.exe</b> und das Handbuch 
-<b>pstoedit.htm</b> sind im Verzeichnis 
-pstoedit 
-enthalten. 
-Die Homepage von pstoedit ist 
+<b>pstoedit</b> unterliegt der GNU Public Licence und ist nicht in GSview 
+enthalten.  Es muss gesondert von der pstoedit-Homepage 
 <pre>
- http://www.geocities.com/SiliconValley/Network/1958/pstoedit/
+ http://www.pstoedit.net/pstoedit 
 </pre>
-<p>Wegen Updates von pstoedit sehen Sie auf der Homepage nach oder auf 
+<p>oder von 
 <pre>
  http://www.cs.wisc.edu/~ghost/gsview/pstoedit.htm
 </pre>
-<p><b>pstoedit</b> kann innerhalb von GSview aufgerufen werden, benutzen Sie 
+<p>geladen werden. 
+<p>Um <b>pstoedit</b> innerhalb von GSview zu benutzen, verwenden Sie 
 <b>Bearbeiten | Konvertierung in Vektor Format</b>. 
 Es werden 3 Dialogboxen angezeigt. 
 <p>Der erste Dialog ist f&#252;r die pstoedit Einstellungen. 
@@ -1314,7 +1313,7 @@ bet&#228;tigt wird.
 <h1><a name="Optionen">Optionen</a></h1>
 Das Men&#252; <b>Optionen</b> enth&#228;lt die folgenden Befehle: 
 <p>
-<a href="#Leichte_Konfiguration">Leichte Konfiguration</a><br>
+<a href="#Einfache_Konfiguration">Einfache Konfiguration</a><br>
 <a href="#Fortgeschrittene_Konfiguration">Fortgeschrittene Konfiguration</a><br>
 <a href="#Kl&#228nge">Kl&#228nge</a><br>
 <a href="#Ma&#223einheiten">Ma&#223einheiten</a><br>
@@ -1333,15 +1332,15 @@ Das Men&#252; <b>Optionen</b> enth&#228;lt die folgenden Befehle:
 <a href="#Zeige_Bounding_Box">Zeige Bounding Box</a><br>
 <p>
 <hr>
-<h2><a name="Leichte_Konfiguration">Leichte Konfiguration</a></h2>
-Die leichte Konfiguration erlaubt die Auswahl der zu verwendenden 
+<h2><a name="Einfache_Konfiguration">Einfache Konfiguration</a></h2>
+Die einfache Konfiguration erlaubt die Auswahl der zu verwendenden 
 Ghostscript-Version. Es wird davon ausgegangen, dass Sie bereits 
 Aladdin oder AFPL Ghostscript 5.50 oder neuer installiert haben. 
 Haben Sie Ghostscript noch nicht installiert, lesen Sie in 
 <a href="#Beschaffung_von_Ghostscript">Beschaffung von Ghostscript</a> nach. 
 F&#252;r weitere Konfigurationseinstellungen von GSview, siehe 
 <a href="#Fortgeschrittene_Konfiguration">Fortgeschrittene Konfiguration</a>. 
-<p>Leichte Konfiguration stellt korrekte Pfade f&#252;r Ghostscript ein und 
+<p>Einfache Konfiguration stellt korrekte Pfade f&#252;r Ghostscript ein und 
 kopiert eine Druckerstandardeinstellungen in die INI-Datei. 
 <p>Die Registry oder das Start-Menu werden nicht ge&#228;ndert. 
 <p>
@@ -1898,7 +1897,7 @@ Einige Beispiele sind:
 <pre>
  gsview -s dateiname.ps
  gsview -sLPT3: dateiname.ps
- gsview -s"HP DeskJet Portable" dateiname.ps
+ gsview "-sHP DeskJet Portable" dateiname.ps
 </pre>
 <p><b>-e</b> verwendet DDE um eine Datei in einem bestehenden GSview zu &#246;ffnen oder,  
 wenn GSview noch nicht l&#223;uft, in in einem neuen Fenster: 
@@ -1924,8 +1923,6 @@ Es werden folgende XTYP_EXECUTE-Befehle erkannt:
  [GoBack()]
  [GotoPage(5)]
  [ShowWindow(nCmdShow)]
- [Minimise()]
- [Maximise()]
  [Command("command line")]
 </pre>
 <p>Der [Command()]-Befehl versteht nur "dateiname" oder "/P dateiname". 

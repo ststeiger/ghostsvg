@@ -13,7 +13,7 @@ Ghostscript is an interpreter for the PostScript page description language
 used by laser printers. 
 For documents following the Adobe PostScript Document Structuring 
 Conventions, GSview allows selected pages to be viewed or printed. 
-GSview 4.3 requires Ghostscript 7.04 - 8.09. 
+GSview 4.4 requires Ghostscript 7.04 - 8.99. 
 <p>
 <a href="#Installation">Installation</a><br>
 <a href="#Registration">Registration</a><br>
@@ -160,12 +160,12 @@ Copy gsview32.ini or gvpm.ini from the system directory or your
 user profile directory to the GSview directory, then edit it to 
 remove all entries except for: 
 <pre>
- [Options]
- Version=4.3
- GSversion=704
+ [GSview-4.4]
+ Version=4.4
+ GSversion=800
  Configured=1
- GhostscriptDLL=e:\gs\gs7.04\bin\gsdll32.dll
- GhostscriptInclude=e:\gs\gs7.04\lib;e:\gs\fonts
+ GhostscriptDLL=e:\gs\gs8.00\bin\gsdll32.dll
+ GhostscriptInclude=e:\gs\gs8.00\lib;e:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
 </pre>
 <p>When a user starts GSview, their INI file will normally be used. 
@@ -1396,6 +1396,11 @@ occurs in the display driver, then try explicitly using the
 GpiDrawBits or WinDrawBitmap method. 
 <p>If you have bugs in your display driver, please complain to 
 the company that wrote it. 
+<p>Another alternative is to install the video package made by SDD  
+(Scitech Display Doctor). 
+<pre>
+ http://www.scitechsoft.com/products/enterprise/sdd_home.html
+</pre>
 <p>
 <a href="#Zoom">Zoom</a><br>
 <p>
