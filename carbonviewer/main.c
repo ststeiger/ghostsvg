@@ -68,51 +68,6 @@ static WindowRef makewindow()
 	return window;
 }
 
-static void draw_hello()
-{
-	Rect frame;
-	
-	SetRect(&frame, 10, 50, 50, 100);
-	FrameRect(&frame);
-	
-	MoveTo(10, 120);
-	DrawString("\pHello, sailor.");
-}
-
-static void draw_image(WindowRef window)
-{
-	GWorldPtr	offworld;
-	CGrafPtr	onport, saveport;
-	GDHandle	savedevice;
-	Rect		bounds;
-	PixMapHandle	offpix, onpix;
-	QDErr		err;
-	
-	GetGWorld(&saveport, &savedevice);
-	onport = GetWindowPort(window);
-	onpix = GetPortPixMap(onport);
-	
-	GetPortBounds(onport, &bounds);
-	err = NewGWorld(&offworld, 32, &bounds, NULL, NULL, 0);
-	SetGWorld(offworld, NULL);
-	
-	offpix = GetGWorldPixMap(offworld);
-	LockPixels(offpix);
-	EraseRect(&bounds);
-	draw_hello();
-	UnlockPixels(offpix);
-	
-	SetGWorld(saveport, savedevice);
-    SetPortWindowPort(window);
-    	
-	LockPixels(offpix);
-	CopyBits((BitMap*)*offpix, (BitMap*)*onpix,
-			&bounds, &bounds, srcCopy, NULL);
-	UnlockPixels(offpix);
-	
-	DisposeGWorld(offworld);
-	SetGWorld(saveport, savedevice);
-}
 
 static int update_doc_window(cv_doc_t *doc)
 {
@@ -141,6 +96,7 @@ static int update_doc_window(cv_doc_t *doc)
 
 	return 0;
 }
+
 
 static int gscallback_stdin(void *instance, char *buf, int len)
 {
@@ -257,9 +213,6 @@ int main(int argc, char *argv[])
 	init();
 		
 	window = makewindow();
-
-	//draw_hello();
-	draw_image(window);
 		
 	gs = cv_load_gs();
 	if (gs == NULL) {
@@ -268,27 +221,6 @@ int main(int argc, char *argv[])
 	err = gs->new_instance(&this_gs, NULL);
 	if (err < 0) return 1;
 	//gs->set_stdio(this_gs, &gscallback_stdin, &gscallback_stdout, &gscallback_stdout);
-
-#if 0	
-	{
-		int gs_argc = 10;
-		char *gs_argv[] = {
-			"carbonviewer",
-			"-q",
-			"-dSAFER",
-			"-dBATCH",
-			"-dNOPAUSE",
-			"-sDEVICE=pnggray",
-			"-sOutputFile=out.png",
-			"-dGraphicsAlphaBits=4",
-			"-dTextAlphaBits=4",
-			"tiger.eps"
-		};
-		
-		err = gs->init_with_args(this_gs, gs_argc, gs_argv);
-		gs->exit(this_gs);
-	}
-#endif
 
     {
     	/* arguments to pass the the gs library */
