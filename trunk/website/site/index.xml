@@ -1,0 +1,57 @@
+<page raw="yes"><title>
+Advogato
+</title>
+
+<table width="100%"><tr valign="center"><td>
+<h1><img src="http://beta.gimp.org/~raph/advogato-rodent.gif" width="300" height="100" alt="Advogato"/></h1>
+</td>
+<td align="right">
+<sitemap/>
+</td></tr>
+</table>
+
+<table width="99%" cellpadding="0" cellspacing="10" border="0">
+<tr><td valign="top">
+
+<articles nmax="10"/>
+
+</td>
+
+<td bgcolor="#808080" width="1"><spacer type="block" width="1"/></td>
+
+<td valign="top" width="200">
+
+<p> This site is being customized as we speak. </p>
+
+<p> Welcome to Advogato, the free software developer's advocate. The
+goal of the site is to serve as a community resource for free software
+developers around the world, as well as a research testbed for work on
+group trust metrics.
+ </p>
+
+<p> Sign up for an <a href="acct/">account</a> and <a href="certs.html">certify</a> all
+the free software developers you know who have an account here. </p>
+
+<p> Here's the <a href="mission.html">mission statement</a>. </p>
+
+<p> Curious how the <a href="trust-metric.html">trust metric</a> works? </p>
+
+<p><div align="center"><b><a href="recentlog.html">Recent diary entries</a></b></div>
+<spacer type="vertical" size="3"/>
+<recent list="diary" nmax="50"/>
+</p>
+
+<p><div align="center"><b>Recent people joining</b></div>
+<spacer type="vertical" size="3"/>
+<recent list="acct" nmax="25"/>
+</p>
+
+<p> <a href="syndicate.html">Syndicate</a> this! <br/>
+Show me the <a href="code.html">code</a>! </p>
+
+<p> Advogato logo by <a href="/person/drc/">Ville P&#228;tsi</a>. </p>
+
+</td></tr>
+</table>
+
+</page>
