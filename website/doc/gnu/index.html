@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C/DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+<TITLE>GNU Ghostscript</TITLE>
+</HEAD>
+
+<BODY>
+<H1>GNU Ghostscript</H1>
+<HR>
+Ghostscript is the name of a set of software that provides:
+  <UL>
+  <LI> An interpreter for the PostScript (TM) language and the Adobe
+       Portable Document Format (PDF -- sometimes confused with Acrobat, 
+       Adobe's PDF browser/editor product), and
+  <LI> A set of C procedures (the Ghostscript library) that implement
+       the graphics and filtering (data compression / decompression 
+       / conversion) capabilities that appear as primitive operations 
+       in the PostScript language and in PDF.
+  </UL>
+
+<H2>Obtaining GNU Ghostscript</H2>
+Ghostscript is a copyrighted work (Aladdin Enterprises owns the copyright);
+it is not shareware or in the public domain.
+<P>
+Versions entitled "GNU Ghostscript" are distributed with the GNU
+General Public License, which allows free use, and free copying and
+redistribution under certain conditions (including, in some cases,
+commercial distribution).  
+You can always get the current version of GNU Ghostscript by Internet FTP
+from
+<BR>
+<A HREF="ftp://ftp.cs.wisc.edu/ghost/gnu/">
+    ftp://ftp.cs.wisc.edu/pub/ghost/gnu/gsNNN/gnu-gs-*NNNN*</A>
+<BR>
+or
+<BR>
+/afs/cs.wisc.edu/public/pub/ghost/gnu/gsNNN/gnu-gs-*NNNN*
+<BR>
+or from any of the GNU distribution sites, such as ftp.uu.net:/systems/gnu
+or gatekeeper.dec.com:/pub/GNU; you can also get GNU Ghostscript on tape
+or CD-ROM from the Free Software Foundation.  For a more complete list of
+sites, including sites outside the U.S., send e-mail to
+gnu@prep.ai.mit.edu.
+<P>
+The Ghostscript source code distribution, and the Ghostscript executable
+code, include the following libraries obtained from other parties:
+<UL>
+<LI> The Independent JPEG Group (IJG) library.  The executable versions
+of Ghostscript are based in part on the work of the Independent JPEG Group.
+For more information, please see the file jpeg.mak in the main Ghostscript
+source directory, and the README file in the jpeg subdirectory of the
+Ghostscript source code.
+<LI> The PNG library created by Dave Martindale, Guy Eric Schalnat,
+Paul Schmidt, and Tim Wegner, of Group 42, Inc.  For more information,
+please see the libpng.mak file in the main Ghostscript source directory, and
+the files readme.txt and png.h in the libpng subdirectory of the Ghostscript
+source code.
+<LI> The zlib library created by Jean-loup Gailly and Mark Adler.  For
+more information, please see the zlib.mak file in the main Ghostscript
+source directory, and the README file in the zlib subdirectory of the
+Ghostscript source code.
+</UL>
+These libraries do NOT fall under either the GNU License or the Aladdin
+Ghostscript Free Public License; they come with their own licenses, which
+also allow free use and redistribution under appropriate circumstances and
+which appear in the files referenced just above.  These libraries are
+entirely original works of their respective authors, and are provided "AS
+IS" with NO WARRANTY and NO SUPPORT.
+
+
+<H2>What platforms does Ghostscript run on?</H2>
+Ghostscript is written entirely in C (with some optional assembly-language
+accelerators for MS-DOS platforms), with special care taken to make it run
+properly on systems of either byte order and of various word lengths.
+<P>
+GNU Ghostscript is known to run on the following platform families:
+<UL>
+<LI> A wide variety of Unix systems using X Windows version 11, release
+	  4, 5, and 6, including Sun-3, Sun-4, Sun-386i, and Sun
+	  SPARCStation; generic 80386/486/Pentium machines running Linux,
+	  386/ix, FreeBSD, ISC Unix, SCO Unix, and Solaris; H-P 9000/300 and
+	  9000/800; DECStation 2100 and 3100; VAX running Ultrix and OSF/1;
+	  Sequent Symmetry; Convex C1 and C2; Tektronix 4300; SGI Iris
+	  Indigo; 4.4bsd Unix systems (FreeBSD (intel), NetBSD (intel,
+	  sparc, m68k (apple, amiga, sun & hp) and vax) and 386BSD (intel)).
+
+<LI> Sun workstations (Sun-3, SPARC, Sun-386i) running SunView;
+
+<LI> VAX or AXP systems running VMS with X11R4/5 and DEC C or gcc.
+
+</UL>
+
+<H2>Newsgroups for GNU Ghostscript</H2>
+Discussion about GNU Ghostscript and Ghostview can be found in the
+USENET <A HREF="news:gnu.ghostscript.bug">gnu.ghostscript.bug</A> newsgroup.
+
+<H2>Other information on the WWW</H2>
+<UL>
+<LI> There is a Ghostscript World Wide Web home page at 
+ <A HREF="http://www.cs.wisc.edu/~ghost/">
+    http://www.cs.wisc.edu/~ghost/</A>
+<LI> GNU Ghostscript 5.50
+  <UL>
+  <LI> <A HREF="gnu550.html"> Release of GNU Ghostscript 5.50</A>
+  <LI> <A HREF="doc550/Readme.htm">GNU Ghostscript 5.50 documentation</A>
+<!--
+  <LI> <A HREF="dev550.html">Output devices supported by GNU Ghostscript 5.50</A>
+-->
+  </UL>
+<LI> GNU Ghostscript 5.10
+  <UL>
+  <LI> <A HREF="gnu510.html"> Release of GNU Ghostscript 5.10</A>
+  <LI> <A HREF="doc510/index.html">GNU Ghostscript 5.10 documentation</A>
+  <LI> <A HREF="dev510.html">Output devices supported by GNU Ghostscript 5.10</A>
+  </UL>
+<LI> GNU Ghostscript 4.03
+  <UL>
+  <LI> <A HREF="gnu403.html"> Release of GNU Ghostscript 4.03</A>
+  <LI> <A HREF="doc403/index.html">GNU Ghostscript 4.03 documentation</A>
+  <LI> <A HREF="dev403.html">Output devices supported by GNU Ghostscript 4.03</A>
+  </UL>
+<!--
+<LI> GNU Ghostscript 3.33
+  <UL>
+  <LI> <A HREF="doc333/index.html">GNU Ghostscript 3.33 documentation</A>
+  </UL>
+-->
+<LI> Previewers
+  <UL>
+  <LI> <A HREF="http://www.cs.wisc.edu/~ghost/ghostview/">Ghostview</A>
+    is a freely available X Windows screen previewer based on Ghostscript.
+  <LI> <A HREF="http://www.cs.wisc.edu/~ghost/gv/">GV</A>
+    is a modified version of Ghostview, generally preferred to the
+    original Ghostview..
+  </UL>
+
+<LI> <A HREF="intro.html"> Introduction to GNU Ghostscript</A>
+
+</UL>
+
+<HR>
+This information was mostly obtained from the GNU Ghostscript 
+documentation.
+<BR>
+Last updated 2000-02-14.
+</BODY>
+
+</HTML>
