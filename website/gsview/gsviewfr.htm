@@ -14,7 +14,7 @@ PostScript utilis&#233; par les imprimantes laser.
 Pour les documents respectant les conventions de structure du langage Adobe 
 PostScript, GSview permet de visualiser ou d'imprimer des pages 
 s&#233;lectionn&#233;es. 
-GSview 3.6 n&#233;cessite Ghostscript version 4.03 - 6.99, de pr&#233;f&#233;rence 6.0. 
+GSview 4.0 n&#233;cessite Ghostscript version 7.00 - 7.99. 
 <P>
 <A HREF="#Installation">Installation</A><BR>
 <A HREF="#Registration">Registration</A><BR>
@@ -201,11 +201,11 @@ puis d'&#233;diter ce fichier
 en supprimant toutes les entr&#233;es sauf : 
 <PRE>
  [Options]
- Version=3.6
- GSversion=650
+ Version=4.0
+ GSversion=700
  Configured=1
- GhostscriptDLL=e:\gs\gs6.50\bin\gsdll32.dll
- GhostscriptInclude=e:\gs\gs6.50\lib;e:\gs\fonts
+ GhostscriptDLL=e:\gs\gs7.00\bin\gsdll32.dll
+ GhostscriptInclude=e:\gs\gs7.00\lib;e:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
 </PRE>
 <P>Lorsqu'un utilisateur lance GSview, son fichier INI sera utilis&#233; normalement. 
@@ -1062,7 +1062,6 @@ Le menu <B>Options</B> poss&#232;de les commandes suivantes :
 <A HREF="#Enregistrer_le_dernier_répertoire">Enregistrer le dernier répertoire</A><BR>
 <A HREF="#Afficher_la_barre_d'outils">Afficher la barre d'outils</A><BR>
 <A HREF="#Ajuster_la_fenêtre_à_la_page">Ajuster la fenêtre à la page</A><BR>
-<A HREF="#Ouverture_rapide">Ouverture rapide</A><BR>
 <A HREF="#Réaffichage_automatique">Réaffichage automatique</A><BR>
 <A HREF="#Ajuster_l'affichage_des_fichiers_EPS">Ajuster l'affichage des fichiers EPS</A><BR>
 <A HREF="#Avertissements_EPS">Avertissements EPS</A><BR>
@@ -1290,21 +1289,6 @@ et les zones &#224; l'ext&#233;rieur de la page seront affich&#233;es en gris cl
 Ceci est utile si vous ne voulez pas que la fen&#234;tre se r&#233;tr&#233;cisse lorsque vous visualisez des pages 
 &#224; une r&#233;solution faible. Par d&#233;faut, cette option n'est <B>pas coch&#233;e</B>. 
 <P>Voir aussi <A HREF="#Sélection_des_pages">Affichage</A> | <A HREF="#Sélection_des_pages">S'adapter &#224; la fen&#234;tre</A>. 
-<P>
-<P>
-<HR>
-<H2><A NAME="Ouverture_rapide">Ouverture rapide</A></H2>
-Lorsque l'option <B>Ouverture rapide</B> est <B>coch&#233;e</B>, GSview ne red&#233;marre pas 
-Ghostscript lorsque l'orientation de la page, la r&#233;solution ou la taille 
-est modifi&#233;e. 
-<P>GSview tente de conserver l'&#233;tat de Ghostscript mais un document peut toujours 
-laisser l'interpr&#233;teur Ghostscript dans un &#233;tat instable ou provoquer 
-une erreur. Si une erreur se produit, l'ex&#233;cution de Ghostscript va &#234;tre interrompue. 
-Les messages d'erreur de Ghostscript sont affich&#233;s en utilisant <B>Fichier </B>| <A HREF="#Afficher_les_messages">Afficher les messages</A>. 
-S&#233;lectionnez <A HREF="#Sélection_des_pages">R&#233;afficher</A> pour ouvrir de nouveau le document. 
-<P>Si l'option <B>Ouverture rapide</B> n'est <B>pas coch&#233;e</B>, GSview red&#233;marre Ghostscript 
-avant chaque nouveau document ou lorsque l'orientation de la page, 
-la r&#233;solution ou la taille est modifi&#233;e. 
 <P>
 <P>
 <HR>
@@ -1700,7 +1684,7 @@ La commande <B>Aide</B> | <B>A propos de</B> affiche le message de copyright de 
 de version de GSview. 
 <P><PRE>
  GSVIEW.EXE - Une interface graphique pour Ghostscript
- Copyright (C) 1993-2000, Ghostgum Software Pty Ltd.  Tous droits r&#233;serv&#233;s.
+ Copyright (C) 1993-2001, Ghostgum Software Pty Ltd.  Tous droits r&#233;serv&#233;s.
  Copyright (C) 1997-2000, Cyrille Chevallet, pour la traduction fran&#231;aise.
 </PRE>
 <P>Ce fichier fait partie de GSview. 
