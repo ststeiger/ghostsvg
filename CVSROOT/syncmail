@@ -210,7 +210,7 @@ def main():
         specs = L
     print 'Generating notification message...'
     blast_mail(mailcmd, specs[1:], contextlines)
-    print 'Generating notification message... done.'
+    print 'done.'
 
 
 
