@@ -21,6 +21,9 @@ and workarounds or fixes when available.
 <li><i>(2000-12-21)</i><a href="#20001221">
   (3.5) Can't open DOS EPS files.
   </a>
+<li><i>(2000-12-20)</i><a href="#20001220">
+  (3.4) GSview can't find AFPL Ghostscript 6.50.
+  </a>
 <li><i>(2000-08-09)</i><a href="#20000809">
   (3.4) Convert to vector format uses first page instead of selected page.
   </a>
@@ -78,6 +81,24 @@ Use GSview 2.9 or earlier.
 <p>
 <b>Workaround:</b>
 Use GSview 3.4 or earlier.
+</p>
+<hr>
+
+<p>
+<a name="20001220"><i>(2000-12-20)</i></a>
+</p>
+<p>
+<b>Problem:</b>
+  (3.4) GSview can't find AFPL Ghostscript 6.50.
+  GSview finds Ghostscript using registry entries written by Ghostscript.
+  AFPL Ghostscript writes these in a different place to Aladdin Ghostscript
+  and GSview 3.4 doesn't look in the new location.
+</p>
+<p>
+<b>Workaround:</b>
+To use AFPL Ghostscript, you must configure GSview with
+<b>Options | Advanced Configure</b>.  
+Easy Configure will not work.
 </p>
 <hr>
 
@@ -181,14 +202,13 @@ Use GSview 3.4.
 <b>Workaround:</b>
 Use GSview 3.4.
 </p>
+
 <hr>
-
-
 <a href="../index.htm">Home </a>
-&nbsp;
+&nbsp; &nbsp;
 <a href="index.htm">Back</a>
-<hr>
-Last updated 2000-12-22.
+&nbsp; &nbsp; &nbsp; &nbsp;
+Last updated 2000-12-23.
 </body>
 
 </html>
