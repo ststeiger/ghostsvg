@@ -16,6 +16,14 @@ the pages are on a hard disk or CD.
 The doc/ tree is generally maintained by checking out the
 new files from cvs by their release tag. Versions from before
 ghostscript was in cvs are kept explicitly in the website module.
+To checkout the documentation files by their release tag:
+cd doc/AFPL
+cvs -z3 co -r gs7_03 -d 7.03 gs/doc
+cd ../../doc/gnu
+cvs -z3 co -r gs6_52 -d 6.52 gs/doc
+cd ../../doc
+cvs -z3 co -d cvs gs/doc
+cd ..
 
 Russell Lang
-2001-03-29
+2001-10-27
