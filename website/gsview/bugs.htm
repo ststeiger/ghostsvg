@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>GSview 3.5 Bugs</title>
+<title>GSview 3.6 Bugs</title>
 <link rel="stylesheet" type="text/css" href="../doc/gsweb.css" title="Ghostscript Website Style">
 </head>
 
@@ -14,6 +14,9 @@ This file contains information about known bugs,
 and workarounds or fixes when available.
 </p>
 <ul>
+<li><i>(2000-12-29)</i><a href="#20001229">
+  (3.6) Links don't work in PDF files with Ghostcript 6.50.
+  </a>
 <li><i>(2000-12-22)</i><a href="#20001222">
   (3.5) Adding a preview to an EPS file without a trailer produces 
   incorrect output.
@@ -58,6 +61,23 @@ There are no known bugs in GSview 3.4.
 -->
 
 <p>
+<a name="20001229"><i>(2000-12-29)</i></a>
+</p>
+<p>
+<b>Problem:</b>
+  (3.6 and earlier) Links don't work in PDF files with Ghostcript 6.50.
+  This is due to an optimisation in Ghostscript 6.50 which doesn't bother
+  to call <tt>pdfmark</tt> for PDF file unless the output device
+  requests it.
+</p>
+<p>
+<b>Workaround:</b>
+Apply the patch in the bug report at
+<a href="http://sourceforge.net/bugs/?func=detailbug&bug_id=127062&group_id=1897">SourceForge</a>.
+</p>
+<hr>
+
+<p>
 <a name="20001222"><i>(2000-12-22)</i></a>
 </p>
 <p>
@@ -67,7 +87,7 @@ There are no known bugs in GSview 3.4.
 </p>
 <p>
 <b>Workaround:</b>
-Use GSview 2.9 or earlier.
+Use GSview 3.6.
 </p>
 <hr>
 
@@ -80,7 +100,7 @@ Use GSview 2.9 or earlier.
 </p>
 <p>
 <b>Workaround:</b>
-Use GSview 3.4 or earlier.
+Use GSview 3.6.
 </p>
 <hr>
 
