@@ -4,21 +4,21 @@
 <dict>
 	<key>IBDocumentLocation</key>
 	<string>62 102 356 240 0 0 1152 746 </string>
-	<key>IBFramework Version</key>
-	<string>219.0</string>
-	<key>IBMainMenuLocation</key>
-	<string>69 252 318 44 0 0 1152 746 </string>
-	<key>IBSystem Version</key>
-	<string>5M28</string>
-	<key>IBUserGuides</key>
+	<key>IBEditorPositions</key>
 	<dict>
-		<key>Window</key>
-		<dict>
-			<key>guideLocations</key>
-			<array/>
-			<key>guidesLocked</key>
-			<string>NO</string>
-		</dict>
+		<key>196</key>
+		<string>516 188 321 405 0 0 1152 746 </string>
+		<key>29</key>
+		<string>62 347 318 44 0 0 1152 746 </string>
 	</dict>
+	<key>IBFramework Version</key>
+	<string>248.0</string>
+	<key>IBOpenObjects</key>
+	<array>
+		<integer>29</integer>
+		<integer>21</integer>
+	</array>
+	<key>IBSystem Version</key>
+	<string>5P48</string>
 </dict>
 </plist>
