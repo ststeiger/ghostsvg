@@ -13,7 +13,7 @@
 # we use the root passed as an argument instead
 HTMLROOT=/home/www/ghostscript.com/html
 
-CVSROOT=:pserver:anonymous@cvs.ghostscript.sourceforge.net:/cvsroot/ghostscript
+CVSROOT=:pserver:anonymous@cvs.ghostscript.com:/cvs/ghostscript
 CVS='cvs -z3 -q'
 
 if [ x$1 != 'x-d' -o x$2 = 'x' ]; then
