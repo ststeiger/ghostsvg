@@ -96,7 +96,7 @@
 #include <UVolume.h>
 
 #if PP_Debug
-	#include <LSIOUXAttachment.h>
+	#include <LSIOUXAttachment.h>		// for LDebugStream
 	#include <LDebugMenuAttachment.h>
 	#include <LCommanderTree.h>
 	#include <LPaneTree.h>
@@ -117,6 +117,8 @@
 	#include <profiler.h>
 #endif
 
+#include <new>				// for PP_STD::* exceptions 20010129RG
+#include "UMiscUtils.h"
 
 #include <LDialogBox.h>
 #include <LOffscreenView.h>
