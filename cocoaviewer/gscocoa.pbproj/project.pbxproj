@@ -13,6 +13,8 @@
 		};
 		080E96DDFE201D6D7F000001 = {
 			children = (
+				F5CD593E022330E001A80165,
+				F5CD593F022330E001A80165,
 			);
 			isa = PBXGroup;
 			name = Classes;
@@ -150,8 +152,6 @@
 		29B97315FDCFA39411CA2CEA = {
 			children = (
 				29B97316FDCFA39411CA2CEA,
-				F57249BD01C5F41701A80165,
-				F57249BE01C5F41701A80165,
 			);
 			isa = PBXGroup;
 			name = "Other Sources";
@@ -266,7 +266,7 @@
 		29B97327FDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
 			files = (
-				F57249BF01C5F41701A80165,
+				F5CD5940022330E001A80165,
 			);
 			isa = PBXHeadersBuildPhase;
 			name = Headers;
@@ -284,7 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29B9732CFDCFA39411CA2CEA,
-				F57249C001C5F41701A80165,
+				F5CD5941022330E001A80165,
 			);
 			isa = PBXSourcesBuildPhase;
 			name = Sources;
@@ -357,24 +357,24 @@
 			settings = {
 			};
 		};
-		F57249BD01C5F41701A80165 = {
+		F5CD593E022330E001A80165 = {
 			isa = PBXFileReference;
-			path = MyView.m;
+			path = GSPageView.h;
 			refType = 4;
 		};
-		F57249BE01C5F41701A80165 = {
+		F5CD593F022330E001A80165 = {
 			isa = PBXFileReference;
-			path = MyView.h;
+			path = GSPageView.m;
 			refType = 4;
 		};
-		F57249BF01C5F41701A80165 = {
-			fileRef = F57249BE01C5F41701A80165;
+		F5CD5940022330E001A80165 = {
+			fileRef = F5CD593E022330E001A80165;
 			isa = PBXBuildFile;
 			settings = {
 			};
 		};
-		F57249C001C5F41701A80165 = {
-			fileRef = F57249BD01C5F41701A80165;
+		F5CD5941022330E001A80165 = {
+			fileRef = F5CD593F022330E001A80165;
 			isa = PBXBuildFile;
 			settings = {
 			};
