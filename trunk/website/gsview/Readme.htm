@@ -9,9 +9,9 @@
 GSview Readme
 </h1>
 <p>
-GSview 3.6 - PostScript previewer.  Needs Ghostscript 6.
+GSview 4.0 - PostScript previewer.  Needs Ghostscript 7.
 <br>
-Release date: 2000-12-29
+Release date: 2001-06-02
 </p>
 <h2>
 Table of contents
@@ -39,7 +39,7 @@ OS/2 and Linux.  Ghostscript is an interpreter for the PostScript page
 description language used by laser printers.
 For documents following the Adobe PostScript Document Structuring 
 Conventions, GSview allows selected pages to be viewed or printed.
-GSview requires <a href="#ObtainGS">Ghostscript 4.03 - 6.99</a>.
+GSview requires <a href="#ObtainGS">Ghostscript 7.00 - 7.99</a>.
 </p>
 <p>
 Features include:
@@ -69,26 +69,20 @@ Features include:
  <li> Per user initialisation files for Windows.
  <li> Includes setup program.
  <li> Free (Aladdin Free Public Licence).
- <li> Works with Aladdin/AFPL Ghostscript 4.03 - 6.99 (GSview checks the
-   Ghostscript version number).
+ <li> Works with AFPL Ghostscript 7.00 - 7.99 (GSview checks the
+   Ghostscript version number).  Older version of GSview will
+   work with Ghostscript 4.03 - 6.50.
 </ul>
 <p>
-Changes in version 3.6:
+Changes in version 4.0:
 </p>
 <ul>
- <li> Linux/X11 version.
- <li> Measure works for OS/2.
- <li> Windows setup prompts you to uninstall previous version of GSview.
- <li> DSC parser updated.
- <li> pstoedit updated.
+ <li> Uses new Ghostscript API on Windows, OS/2 and Linux.
+ <li> pstoedit for OS/2.
  <li> Bug fixes:
  <ul>
-    <li>Reverse page order now works for printing.
-    <li>pstoedit now converts the correct page.
-    <li>Quotes correctly handled in Ghostscript options.
-    <li>PStoEPS correctly calculates bounding box when
-        EPSF clip used.
-    <li>Handles DOS EPS files again.
+    <li>Anti-aliased display is now the default.
+    <li>File | Convert now processes only the requested pages.
  </ul>
 </ul>
 <p>
@@ -106,25 +100,25 @@ First uninstall any previous versions of GSview.
 Win32
 </h3>
 <p>
-  Obtain GSview (gsv35w32.exe) from 
+  Obtain GSview (gsv40w32.exe) from 
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get35.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get35.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get40.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get40.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 6.50 (gs650w32.exe) from
+  Obtain AFPL Ghostscript 7.00 (gs700w32.exe) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get650.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get650.htm
+    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get700.htm">
+    http://www.cs.wisc.edu/~ghost/doc/AFPL/get700.htm
     </a>
   </blockquote>
 <p>
-  Install the AFPL Ghostscript self extracting archive gs650w32.exe
+  Install the AFPL Ghostscript self extracting archive gs700w32.exe
   (or a later version).
-  Install the GSview self extracting archive gsv35w32.exe.
+  Install the GSview self extracting archive gsv40w32.exe.
   Run GSview.
 </p>
 <h4>
@@ -157,25 +151,25 @@ Win32 location details
 OS/2
 </h3>
 <p>
-  Obtain GSview (gsv35os2.zip) from
+  Obtain GSview (gsv40os2.zip) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get35.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get35.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get40.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get40.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 6.50 (gs650os2.zip) from
+  Obtain AFPL Ghostscript 7.00 (gs700os2.zip) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get650.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get650.htm
+    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get700.htm">
+    http://www.cs.wisc.edu/~ghost/doc/AFPL/get700.htm
     </a>
   </blockquote>
 
 <p>
   <a href="http://www.info-zip.org/pub/infozip/">Unzip</a>
-  GSview to a temporary directory, place gs650os2.zip (or a later 
+  GSview to a temporary directory, place gs700os2.zip (or a later 
   version) in the same directory, and then run os2setup.exe.
 </p>
  
@@ -239,11 +233,20 @@ Win32s
 X11/Linux
 </h3>
 <p>
-Copy <tt>gsview</tt>, <tt>epstool</tt> and <tt>pstotext</tt> 
-to a directory on your search path.
-Copy <tt>gvx*.htm</tt> and <tt>printer.ini</tt> 
-to <tt>/usr/share/gsview</tt>.
-GSview stores configuration information in <tt>$HOME/.gsviewrc</tt>.
+Copy <tt>gsview</tt>, <tt>gsview-help</tt>, <tt>epstool</tt>
+and <tt>pstotext</tt> to a directory on your search path.
+Copy <tt>gvx*.htm</tt> to the directory <tt>/usr/share/doc/gsview-N.N</tt>.
+Copy <tt>printer.ini</tt> to directory <tt>/etc/gsview</tt>.
+GSview stores configuration information in <tt>$HOME/.gsview.ini</tt>.
+</p>
+
+<p>
+You must have the <b>shared object</b> version of Ghostscript 7.00 - 7.99.
+You must first install Ghostscript 7, then the additional shared
+object files.
+These are available from
+ <a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/gs700/linux/">
+ ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/gs700/linux/</a>
 </p>
 
 <h3>General</h3>
@@ -320,7 +323,7 @@ Type 'nmake'
 
 <p>
 To compile GSview for Linux/X11 you need gcc and the GTK+ 1.2 toolkit.
-Unzip the gsv35src.zip, to produce three other zip files.
+Unzip the gsv40src.zip, to produce three other zip files.
 Unzip these, converting the line endings:
 <br><tt>unzip -a src.zip</tt>
 <br>
@@ -328,7 +331,7 @@ Change to the <tt>src</tt> subdirectory and copy
 <tt>gvx.mak</tt> to <tt>makefile</tt>.
 Run <tt>make</tt>.
 To install, run <tt>make install</tt>
-See the <a href="#x11">X11/Linux</a> topic for more notes
+See the <a href="#X11">X11/Linux</a> topic for more notes
 on X11 GSview.
 </p>
 
@@ -337,14 +340,19 @@ on X11 GSview.
 X11/Linux
 </h2>
 <p>
-While the current version number is 3.6, the Linux version
-really ought to be called 0.36.
+While the current version number is 4.0, the Linux version
+really is an early release.
 </p>
 <p>
 X11 GSview is written by a novice at X Windows programming.
 It might have serious problems.  
 The GTK+ toolkit is used for most of the graphical interface,
 with a small amount of Xlib for interfacing with Ghostscript.
+</p>
+<p>
+GSview on Linux now uses the Ghostscript shared object.
+Drawing (especially over a network when using anti-aliased
+text) should be faster.
 </p>
 
 <h3>
@@ -365,7 +373,7 @@ Unimplemented features
     another copy of the browser, please let me know.
 <li> Keyboard movement between widgets
 <li> Map scroll keys to scroll bars
-<li> Convert to vector format
+<li> Convert to vector format (pstoedit)
 <li> Full screen not implemented
 <li> Clipboard operations
 <li> PDF links
@@ -377,22 +385,6 @@ Unimplemented features
 Known problems
 </h3>
 <ul>
-<li>
-If you see each page as it is being drawn, then erased when it is 
-finished, then you are probably using GS 6.50 which has a bug
-with the pixmap drawing method.
-Either change the drawing method to "Backing pixmap"
-or apply the fix described in 
-<a href=
-"http://sourceforge.net/bugs/?func=detailbug&bug_id=124957&group_id=1897">
-bug #124957</a> on 
-<a href="http://www.sourceforge.net/projects/ghostscript/">SourceForge</a>.
-<li> "Media | Display Settings | Draw Method" should be set
-   to pixmap (the default) or backing pixmap.  The setting
-   backing storage doesn't work properly - it does draw, 
-   but my X server is ignoring the request to provide
-   backing storage for the window.  I don't know if other
-   X servers will behave the same way.
 <li> Fit window doesn't get the correct dimension of the scrolled window
      client area, so the resize is slightly wrong.
    At the moment we use the size of the scroll window less the two
@@ -487,7 +479,7 @@ The CD-ROM (actually a CD-R) will contain ready to run
 and ready to install copies of GSview and AFPL Ghostscript for 
 Windows and OS/2, plus a number of other PostScript utilities.
 The CD-ROM will be dispatched by air-mail.  
-This offer is valid until 30 June 2001.  If this date has
+This offer is valid until 30 June 2002.  If this date has
 passed, send mail to 
 <tt>gsview</tt> <b>at</b> <tt>ghostgum.com.au</tt>. 
 to find out if the offer is still valid.
@@ -518,6 +510,8 @@ GSview can be <a href="http://www.ghostgum.com.au/">registered online</a>
 at <a href="http://www.ghostgum.com.au/">http://www.ghostgum.com.au/</a>
 or by faxing or mailing the <a href="regorder.txt">registration form</a>.
 Ghostgum Software prefers that you use the online registration.
+On registration you will be sent a registration code to disable
+the nag screen.
 </p>
 
 <p>

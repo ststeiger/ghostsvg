@@ -13,8 +13,7 @@ Ghostscript is an interpreter for the PostScript page description language
 used by laser printers. 
 For documents following the Adobe PostScript Document Structuring 
 Conventions, GSview allows selected pages to be viewed or printed. 
-GSview 3.6 requires Ghostscript 4.03 - 6.99, 
-preferably 6.0 or later. 
+GSview 4.0 requires Ghostscript 7.00 - 7.99. 
 <P>
 <A HREF="#Installation">Installation</A><BR>
 <A HREF="#Registration">Registration</A><BR>
@@ -39,11 +38,8 @@ preferably 6.0 or later.
 <P>
 <HR>
 <H1><A NAME="Installation">Installation</A></H1>
-It is recommended that you use the installation program for 
-installing GSview. 
-This is called <B>setup.exe</B> for MS-Windows and <B>os2setup.exe</B> for OS/2. 
-GSview for MS-Windows is distributed in a self extracting archive - 
-running this will run the setup program. 
+It is recommended that you use the installation program <B>os2setup.exe</B> 
+for installing GSview. 
 You will need to install Ghostscript separately. 
 <P>If you wish to install GSview manually, see the <A HREF="#Manual_Installation">Manual Installation</A> 
 topic. 
@@ -62,7 +58,7 @@ If you want to change the configuration later, use
 <P>
 <HR>
 <H2><A NAME="Obtaining_Ghostscript">Obtaining Ghostscript</A></H2>
-GSview needs Aladdin or AFPL Ghostscript.  GSview and Ghostscript  
+GSview needs AFPL Ghostscript.  GSview and Ghostscript 
 are available separately from 
 <PRE>
  http://www.cs.wisc.edu/~ghost/
@@ -81,6 +77,11 @@ the Ghostscript documentation files Install.htm and Use.htm
 <P>
 <HR>
 <H2><A NAME="Uninstalling_GSview">Uninstalling GSview</A></H2>
+<P>
+<A HREF="#Manual_uninstallation">Manual uninstallation</A><BR>
+<P>
+<HR>
+<H3><A NAME="Manual_uninstallation">Manual uninstallation</A></H3>
 To uninstall GSview, remove the files in the <B>gsview </B> directory. 
 Also remove 
 <PRE>
@@ -131,7 +132,7 @@ Instead of using <A HREF="#Options">Options</A> | <A HREF="#Easy_Configure">Easy
 <A HREF="#Options">Options</A> | <A HREF="#Advanced_Configure">Advanced Configure</A>. 
 <P>First correctly set the three text fields (see <A HREF="#Advanced_Configure">Advanced Configure</A>). 
 <P>Exit GSview, then append printer.ini to the GSview INI file 
-(c:\windows\gsview32.ini or c:\os2\gvpm.ini) 
+(c:\os2\gvpm.ini). 
 <P>Create a desktop program object for GSview, associating it 
 with the file extensions .ps, .eps and .pdf. 
 <P><P>If you have some Type 1 fonts on your system, it may be possible to 
@@ -160,11 +161,11 @@ user profile directory to the GSview directory, then edit it to
 remove all entries except for: 
 <PRE>
  [Options]
- Version=3.6
- GSversion=650
+ Version=4.0
+ GSversion=700
  Configured=1
- GhostscriptDLL=e:\gs\gs6.50\bin\gsdll32.dll
- GhostscriptInclude=e:\gs\gs6.50\lib;e:\gs\fonts
+ GhostscriptDLL=e:\gs\gs7.00\bin\gsdll32.dll
+ GhostscriptInclude=e:\gs\gs7.00\lib;e:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
 </PRE>
 <P>When a user starts GSview, their INI file will normally be used. 
@@ -280,7 +281,7 @@ then select the <B>pdfwrite</B> device.
 then select the <B>pswrite</B> device. 
 <P><A HREF="#Opening_a_Document">File</A> | <A HREF="#Extract">Extract</A> does not work for PDF files. 
 Extracting PDF pages extracts PostScript rather than PDF. 
-<P><P>To batch convert multiple files, look at  
+<P><P>To batch convert multiple files, look at 
 ps2pdf.bat and pdf2ps.bat 
 in the Ghostscript directory. 
 You will need to use 
@@ -417,7 +418,7 @@ printing a little.
 <P>With all other printer drivers, Ghostscript sends the output direct 
 to the printer queue. 
 If you have trouble printing you may have to <B>Print To File</B> 
-and then <B>Print File</B> or use the DOS command <B>COPY /B FILENAME PRN</B>. 
+and then <B>Print File</B> or use the OS/2 command <B>COPY /B FILENAME PRN</B>. 
 <P>If <A HREF="#PostScript_Printer">PostScript Printer</A> is checked, the selected pages will be 
 sent direct to the printer queue, without using Ghostscript. 
 This is similar to <B>File | Print File</B>, except that you can specify 
@@ -425,7 +426,7 @@ which pages to print.  The <A HREF="#PostScript_Printer">Advanced</A> button all
 epilog files to be placed around the PostScript being sent to 
 a PostScript printer. 
 <P>The list of available devices and resolutions is stored in the 
-[Devices] section of  
+[Devices] section of 
 gvpm.ini. 
 <P>The default list of devices and resolutions is taken from the 
 standard distribution version of Ghostscript 6.0 and may not 
@@ -434,12 +435,12 @@ be complete.
 using <A HREF="#Opening_a_Document">Select File</A>. 
 <P>If you want to produce a bitmap, some useful drivers are 
 <B>bmpmono</B>, <B>bmp16</B>, <B>bmp16m</B> and <B>bmp256</B>. 
-<P><B>File | Print File</B> sends a file to a local port, bypassing the 
-Presentation Manager printer drivers. 
+<P><B>File | Print File</B> sends a file to a local port 
+, bypassing the Presentation Manager printer drivers. 
 This is useful for sending a document to a PostScript printer, 
 or for sending an output file produced by Ghostscript to a printer. 
 <P>To control how GSview handles requests by the PostScript or 
-PDF documents to change the page size, see the  
+PDF documents to change the page size, see the 
 <A HREF="#Page_Size_Matching">Page Size Matching</A> topic. 
 <P>The <B>Options </B>field contains a Ghostscript command line option 
 for the selected device. 
@@ -577,11 +578,11 @@ page size on the Media menu and will ignore attempts by PostScript
 or PDF documents to change the page size. 
 This is useful for PDF files that contain a mix of portrait and 
 landscape pages. 
-<P>If <B>Rescale to fit Page Size</B> is selected, any page size selected 
-by the document will be rescaled to fit the page size on the Media 
-menu.  This is useful if you want to print an A4 sized page on  
+<P>If <B>Shrink to fit Page Size</B> is selected, any page size selected 
+by the document that is larger than the selected media will 
+be shrunk to fit the page size on the Media menu. 
+This is useful if you want to print an A4 sized page on 
 letter paper (although a better idea is to buy A4 paper). 
-This does not work with Ghostscript 6.30 or earlier. 
 <P>If <B>Variable Page Size</B> GSview will set the default page 
 size from the Media menu, but allow the page size to be changed. 
 <P>
@@ -656,7 +657,7 @@ To save to a BMP file, use Edit | <A HREF="#Clipboard">Copy</A> then <A HREF="#C
 <P>Create a bitmap with smooth edges (anti-aliasing). 
 1. Display with smooth edges and save the display bitmap. 
 OR 
-2.  
+2. 
 <A HREF="#Convert">Convert</A> using a bitmap device and set the following 
 in the properties. 
 <PRE>
@@ -670,8 +671,9 @@ in the properties.
 to bitmaps, PostScript or PDF. 
 <P>You need to select a Ghostscript output device and resolution. 
 The default list of available devices and resolutions is stored 
-in the [Convert] section of gsview32.ini and is taken from the 
-standard distribution version of Ghostscript 6.01. 
+in the [Convert] section of 
+gvpm.ini 
+and is taken from the standard distribution version of Ghostscript 6.01. 
 You can use other devices or resolutions. 
 <P>Some Ghostscript options may be added using either the 
 <B>Options </B>field or the <A HREF="#Properties">Properties</A> button. 
@@ -682,7 +684,7 @@ buttons will select odd or even pages within this range.
 The <B>Reverse</B> check box causes the pages to be converted in 
 descending order. 
 <P>To control how GSview handles requests by the PostScript or 
-PDF documents to change the page size, see the  
+PDF documents to change the page size, see the 
 <A HREF="#Page_Size_Matching">Page Size Matching</A> topic. 
 <P>See also <A HREF="#Conversions">Conversions</A>. 
 <P>
@@ -842,7 +844,7 @@ format using <B>pstoedit</B> by Wolfgang Glunz.
 Binaries are included in GSview with the permission of Wolfgang Glunz. 
 A command line version <B>pstoedit.exe</B> and the manual <B>pstoedit.htm</B> 
 are included in the 
-pstoedt2  
+pstoedt2 
 directory. 
 The home page of pstoedit is 
 <PRE>
@@ -995,9 +997,9 @@ to use one of the BMP drivers.  See <A HREF="#Printing">Print</A>.
 to a BMP file. 
 <P>If <A HREF="#Text_Extract_and_Find">Text Extract</A> or <A HREF="#Text_Extract_and_Find">Find</A> are used on a document with <A HREF="#PStoText">PStoText</A> enabled, 
 GSview creates an index of the words in the document.  If any words are 
-marked with the mouse,  
+marked with the mouse, 
 <B>Copy</B> will copy these words to the clipboard instead 
-of copying a bitmap.   
+of copying a bitmap. 
 Text cannot be marked until either <A HREF="#Text_Extract_and_Find">Text Extract</A> 
 or <A HREF="#Text_Extract_and_Find">Find</A> has been used with <A HREF="#Options">Options</A> | <A HREF="#PStoText">PStoText</A> enabled. 
 <P>
@@ -1056,7 +1058,6 @@ The <B>Options</B> menu has the following selections:
 <A HREF="#Save_Last_Directory">Save Last Directory</A><BR>
 <A HREF="#Button_Bar">Button Bar</A><BR>
 <A HREF="#Fit_Window_To_Page">Fit Window To Page</A><BR>
-<A HREF="#Quick_Open">Quick Open</A><BR>
 <A HREF="#Auto_Redisplay">Auto Redisplay</A><BR>
 <A HREF="#EPS_Clip">EPS Clip</A><BR>
 <A HREF="#EPS_Warn">EPS Warn</A><BR>
@@ -1218,9 +1219,12 @@ of the program that started GSview.
 <HR>
 <H2><A NAME="Button_Bar">Button Bar</A></H2>
 When the <B>Button Bar</B> option is <B>checked</B>, GSview will display 
-a Button Bar at the top of the window.  This is the default. 
-The Button Bar contains the following items in order from left to right: 
-<P><A HREF="#Opening_a_Document">File</A> | <A HREF="#Opening_a_Document">Open</A> 
+a Button Bar 
+down the left side 
+of the window.  This is the default. 
+The Button Bar contains the following items in order from 
+top to bottom: 
+<A HREF="#Opening_a_Document">File</A> | <A HREF="#Opening_a_Document">Open</A> 
 <P><A HREF="#Opening_a_Document">File</A> | <A HREF="#Printing">Print</A> 
 <P><A HREF="#Opening_a_Document">File</A> | <A HREF="#Document_Information">Info</A> 
 <P><B>Help</B> | <B>Contents</B> 
@@ -1258,21 +1262,6 @@ window and areas outside the page will be drawn in light grey.
 This is useful if you do not wish the window to shrink when looking 
 at pages at low resolution.  This is the default. 
 <P>See also <A HREF="#Page_Selection">View</A> | <A HREF="#Page_Selection">Fit Window</A>. 
-<P>
-<P>
-<HR>
-<H2><A NAME="Quick_Open">Quick Open</A></H2>
-When the <B>Quick Open</B> option is <B>checked</B>, GSview will not restart 
-Ghostscript whenever the page orientation, resolution or size 
-is changed. 
-<P>GSview tries to preserve the Ghostscript state, but a document may 
-still leave the Ghostscript interpreter in an unusual state or cause 
-an error.  If an error occurs, Ghostscript will abort. 
-Ghostscript error messages are displayed using <B>File </B> | <A HREF="#Show_Messages">Show Messages</A>. 
-Select <A HREF="#Page_Selection">Redisplay</A> to reopen the document. 
-<P>If <B>Quick Open</B> is <B>unchecked</B>, GSview will restart Ghostscript 
-before each new document or whenever the page orientation, 
-resolution or size is changed. 
 <P>
 <P>
 <HR>
@@ -1565,7 +1554,7 @@ The <B>About</B> menu item shows the GSview copyright message
 and GSview version number. 
 <P><PRE>
  GVPM.EXE - A Ghostscript graphical interface
- Copyright (C) 1993-2000, Ghostgum Software Pty Ltd.  All rights reserved.
+ Copyright (C) 1993-2001, Ghostgum Software Pty Ltd.  All rights reserved.
 </PRE>
 <P>This file is part of GSview. 
 <P>This program is distributed with NO WARRANTY OF ANY KIND.  No author 
@@ -1601,7 +1590,7 @@ pstotxt2.dll and pstotxt3.dll.
 (gsdll2.dll for OS/2, gsdll32.dll for Win32). 
 This error message usually occurs if you don't have Ghostscript, 
 or if GSview can't find Ghostscript. 
-<P>From the GSview menu select <A HREF="#Options">Options</A> | <B>Configure Ghostscript</B> 
+<P>From the GSview menu select <A HREF="#Options">Options</A> | <A HREF="#Advanced_Configure">Advanced Configure</A> 
 and enter the correct <A HREF="#Advanced_Configure">Ghostscript DLL</A> path. For example 
 <PRE>
  c:\gs\gsN.NN\bin\gsdll2.dll
@@ -1740,7 +1729,7 @@ depth or a combination of all three.
 Alternatively, you may have used <B>-dFIXEDMEDIA</B> in the Ghostscript 
 environment variable GS_OPTIONS.  When using GSview, it is safest 
 not to use GS_OPTIONS at all and to use <A HREF="#Options">Options</A> | 
-<B>Configure Ghostscript</B> | <A HREF="#Advanced_Configure">Ghostscript Options</A> instead. 
+<A HREF="#Advanced_Configure">Advanced Configure</A> | <A HREF="#Advanced_Configure">Ghostscript Options</A> instead. 
 <P>
 <P>
 <HR>

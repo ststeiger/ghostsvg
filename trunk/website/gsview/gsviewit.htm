@@ -14,9 +14,9 @@ Postscript usato dalle stampanti laser.
 Per i documenti che si attengono all'Adobe Postscript Document Structiring 
 Conventions, GSview permette alle pagine selezionate di essere viste o 
 stampate. 
-GSview 3.6 necessita di Ghostscript 4.03 - 6.99, con preferenza per la versione 6.0. 
+GSview 4.0 necessita di Ghostscript 7.00 - 7.99. 
 <P>
-<A HREF="#Installazione">Installazione</A><BR>
+<A HREF="#knstallazione">knstallazione</A><BR>
 <A HREF="#Registrazione">Registrazione</A><BR>
 <A HREF="#Convenzioni_sulla_struttura_del_Documento">Convenzioni sulla struttura del Documento</A><BR>
 <A HREF="#Files_in_formato_PDF">Files in formato PDF</A><BR>
@@ -38,7 +38,7 @@ GSview 3.6 necessita di Ghostscript 4.03 - 6.99, con preferenza per la versione 
 <A HREF="#Altri_Argomenti_della_Guida">Altri Argomenti della Guida</A><BR>
 <P>
 <HR>
-<H1><A NAME="Installazione">Installazione</A></H1>
+<H1><A NAME="knstallazione">knstallazione</A></H1>
 E' consigliabile usare lo specifico programma di installazione per 
 installare GSview. Il programma di installazione si chiama <B>setup.exe</B> 
 sotto MS-Windows e <B>os2setup.exe</B> sotto OS/2. 
@@ -200,11 +200,11 @@ cartella del profilo utente alla cartella di GSview, quindi modificarlo
 togliendo tutte le registrazioni, ad eccezione di: 
 <PRE>
  [Options]
- Version=3.6
- GSversion=650
+ Version=4.0
+ GSversion=700
  Configured=1
- GhostscriptDLL=e:\gs\gs6.50\bin\gsdll32.dll
- GhostscriptInclude=e:\gs\gs6.50\lib;e:\gs\fonts
+ GhostscriptDLL=e:\gs\gs7.00\bin\gsdll32.dll
+ GhostscriptInclude=e:\gs\gs7.00\lib;e:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
 </PRE>
 <P>Quando un utente avvia GSview, il suo file INI sar&#224; usato normalmente. 
@@ -1184,7 +1184,6 @@ Il menu <B>Opzioni</B> ha le seguenti selezioni:
 <A HREF="#Salva_Ultima_Cartella">Salva Ultima Cartella</A><BR>
 <A HREF="#Barra_Pulsanti">Barra Pulsanti</A><BR>
 <A HREF="#Adatta_la_Finestra_alla_Pagina">Adatta la Finestra alla Pagina</A><BR>
-<A HREF="#Apertura_Veloce">Apertura Veloce</A><BR>
 <A HREF="#Rivisualizza_Automaticamente">Rivisualizza Automaticamente</A><BR>
 <A HREF="#Ritaglia_EPS">Ritaglia EPS</A><BR>
 <A HREF="#Avvisi_EPS">Avvisi EPS</A><BR>
@@ -1243,7 +1242,7 @@ PostScript con GSview.
 <P>GSView non fornisce delle utilit&#224; per il ripristino di quanto creato da queste quattro caselle di controllo. 
 Le azioni 'Associa...' e 'Crea Collegamenti...' sono normalmente eseguite 
 (con utilit&#224; di ripristino) dal programma di installazione di GSview. 
-<P>Vedere l'argomento <A HREF="#Installazione">Installazione</A>. 
+<P>Vedere l'argomento <A HREF="#knstallazione">Installazione</A>. 
 <P>
 <P>
 <HR>
@@ -1426,21 +1425,6 @@ finestra e le aree esterne alla pagina saranno disegnate in grigio chiaro.
 Questo &#232; utile se non si vuole che la finestra si restringa quando si guardano le 
 pagine con una bassa risoluzione. Questa &#232; l'impostazione predefinita. 
 <P>Vedere anche <A HREF="#Selezione_della_Pagina">Visualizza</A> | <A HREF="#Selezione_della_Pagina">Adatta Finestra</A>. 
-<P>
-<P>
-<HR>
-<H2><A NAME="Apertura_Veloce">Apertura Veloce</A></H2>
-Quando l'opzione <B>Apertura Veloce</B> &#232; <B>attivata</B>, GSview non riavvier&#224; 
-Ghostscript ogni volta che l'orientamento, la risoluzione o le dimensioni della pagina 
-verranno cambiate. 
-<P>GSview tenta di preservare lo stato di Ghostscript ma un documento pu&#242; 
-tuttavia lasciare l'interprete di Ghostscript in uno stato inusuale oppure causare 
-un errore.  Se si manifesta un errore Ghostscript interrompe l'esecuzione e si chiude. 
-I messaggi di errore di Ghostscript vengono visualizzati usando <B>File </B> | <A HREF="#Mostra_Messaggi">Mostra Messaggi</A>. 
-Selezionare <A HREF="#Selezione_della_Pagina">Rivisualizza</A> per riaprire il documento. 
-<P>Se <B>Apertura Veloce</B> &#232; <B>disattivato</B>, GSview riavvier&#224; Ghostscript 
-prima di ogni nuovo documento oppure ogni volta che l'orientamento, la risoluzione 
-o le misure della pagina verranno cambiate. 
 <P>
 <P>
 <HR>
@@ -1751,7 +1735,7 @@ La voce del menu <B>?</B> <B>Informazioni su GSview</B> fa vedere il messaggio d
 versione di GSview 
 <P><PRE>
  GSVIEW.EXE - Una interfaccia grafica a Ghostscript
- Copyright (C) 1993-2000, Ghostgum Software Pty Ltd.  Tutti i diritti riservati.
+ Copyright (C) 1993-2001, Ghostgum Software Pty Ltd.  Tutti i diritti riservati.
 </PRE>
 <P>Questo file &#232; parte integrante di GSview. 
 <P>Questo programma &#232; distribuito SENZA ALCUNA GARANZIA. 

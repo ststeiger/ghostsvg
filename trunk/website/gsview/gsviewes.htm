@@ -13,8 +13,8 @@ Ghostscript es un int&#233;rprete del lenguaje de descripci&#243;n de p&#225;gin
 utilizado por las impresoras l&#225;ser. 
 Para los documentos construidos siguiendo las especificaciones de Adobe acerca 
 de la estructura de los documentos PostScript (DSC), GSview permite 
-seleccionar las p&#225;ginas que ser&#225;n visualizadas o impresas. GSview 3.6 requiere 
-Ghostscript 4.03 - 6.99, siendo preferible la versi&#243;n 6.0 o superior. 
+seleccionar las p&#225;ginas que ser&#225;n visualizadas o impresas. GSview 4.0 requiere 
+Ghostscript 7.00 - 7.99. 
 <P>
 <A HREF="#Instalación">Instalación</A><BR>
 <A HREF="#Registro">Registro</A><BR>
@@ -205,11 +205,11 @@ desde el directorio del perfil de usuario, al directorio de GSview, ed&#237;telo
 elimine todas las entradas excepto: 
 <PRE>
  [Options]
- Version=3.6
- GSversion=650
+ Version=4.0
+ GSversion=700
  Configured=1
- GhostscriptDLL=e:\gs\gs6.50\bin\gsdll32.dll
- GhostscriptInclude=e:\gs\gs6.50\lib;e:\gs\fonts
+ GhostscriptDLL=e:\gs\gs7.00\bin\gsdll32.dll
+ GhostscriptInclude=e:\gs\gs7.00\lib;e:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
 </PRE>
 <P>Cuando un usuario inicia GSview, se utiliza normalmente su archivo INI. La 
@@ -1215,7 +1215,6 @@ El men&#250; <B>Opciones</B> ofrece las siguientes posibilidades:
 <A HREF="#Guardar_el_último_directorio">Guardar el último directorio</A><BR>
 <A HREF="#Mostrar_barra_de_botones">Mostrar barra de botones</A><BR>
 <A HREF="#Ajustar_a_la_ventana_a_la_página">Ajustar a la ventana a la página</A><BR>
-<A HREF="#Apertura_rápida">Apertura rápida</A><BR>
 <A HREF="#Actualización_automática">Actualización automática</A><BR>
 <A HREF="#Recortar_EPS">Recortar EPS</A><BR>
 <A HREF="#Avisos_EPS">Avisos EPS</A><BR>
@@ -1455,24 +1454,6 @@ Esto resulta &#250;til si no desea que la ventana se desplace cuando
 visionemos p&#225;ginas de menor resoluci&#243;n. La opci&#243;n no est&#225; activada 
 por defecto. 
 <P>Vea tambi&#233;n <B>Ver</B> | <A HREF="#Seleccionar_página">Ajustar a la ventana</A>. 
-<P>
-<P>
-<HR>
-<H2><A NAME="Apertura_r&#225;pida">Apertura r&#225;pida</A></H2>
-Cuando la opci&#243;n <B>Apertura r&#225;pida</B> est&#225; <B>activada</B>, GSview no reinicializar&#225; el programa 
-Ghostscript si se cambia la orientaci&#243;n, la resoluci&#243;n o 
-el tama&#241;o de la p&#225;gina. 
-<P>GSview intentar&#225; mantener a Ghostscript en una situaci&#243;n estable, pero 
-algunos documentos pueden hacer que su comportamiento no sea estable e 
-incluso pueden hacer que Ghostscript produzca errores. 
-Cuando esto ocurre, la ejecuci&#243;n del programa Ghostscript se ver&#225; interrumpida. 
-Para ver la ventana con los mensajes de error de Ghostscript 
-deber&#225; seleccionar la opci&#243;n <B>Archivo </B>| <A HREF="#Mostrar_mensajes">Mostrar mensajes</A> desde el men&#250;. 
-Para volver a abrir el documento deber&#225; seleccionar <B>Ver</B> | <A HREF="#Seleccionar_página">Actualizar</A>. 
-<P>Si la opci&#243;n <B>Apertura r&#225;pida</B> no est&#225; <B>activada</B>, GSview 
-lanzar&#225; el programa Ghostscript antes de cambiar a un 
-nuevo documento o cuando se cambie el tama&#241;o, la 
-orientaci&#243;n o la resoluci&#243;n de la p&#225;gina. 
 <P>
 <P>
 <HR>
@@ -1850,7 +1831,7 @@ El men&#250; <B>Ayuda</B> | <B>Acerca de</B> muestra el mensaje de los derechos 
 y el n&#250;mero de versi&#243;n. 
 <P><PRE>
  GSVIEW.EXE - Un interfaz gr&#225;fico para Ghostscript.
- Copyright (C) 1993-2000, Ghostgum Software Pty Ltd.  Reservados todos los derechos
+ Copyright (C) 1993-2001, Ghostgum Software Pty Ltd.  Reservados todos los derechos
 </PRE>
 <P>Este archivo es parte de GSview. 
 <P>Este programa se distribuye sin NING&#218;N TIPO DE GARANT&#205;A.  Ni los autores ni los distribuidores 
