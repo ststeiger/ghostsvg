@@ -9,9 +9,9 @@
 GSview Readme
 </h1>
 <p>
-GSview 4.0 - PostScript previewer.  Needs Ghostscript 7.
+GSview 4.1 - PostScript previewer.  Needs Ghostscript 7.
 <br>
-Release date: 2001-06-02
+Release date: 2001-11-23
 </p>
 <h2>
 Table of contents
@@ -20,7 +20,7 @@ Table of contents
 <li><a href="#Overview">Overview</a>
 <li><a href="#Installation">Installation</a>
 <li><a href="#Compilation">Compilation</a>
-<li><a href="#X11">X11/Linux</a>
+<li><a href="#X11">X11/Unix</a>
 <li><a href="#Bugs">Bugs</a>
 <li><a href="#Updates">Updates</a>
 <li><a href="#ObtainGS">Obtaining Ghostscript</a>
@@ -35,7 +35,7 @@ Overview
 </h2>
 <p>
 GSview is a graphical interface for Ghostscript under MS-Windows,
-OS/2 and Linux.  Ghostscript is an interpreter for the PostScript page 
+OS/2 and Unix.  Ghostscript is an interpreter for the PostScript page 
 description language used by laser printers.
 For documents following the Adobe PostScript Document Structuring 
 Conventions, GSview allows selected pages to be viewed or printed.
@@ -63,7 +63,7 @@ Features include:
  <li> Extract text or search for text.
  <li> Can read gzip and bzip2 compressed PostScript and PDF files.
  <li> On-line help.
- <li> Win32, OS/2 and Linux/X11 executables. Older versions support Win16.
+ <li> Win32, OS/2 and X11/Linux executables. Older versions support Win16.
  <li> Can be run directly off a CD-ROM.
  <li> English, German, French, Italian and Spanish languages.
  <li> Per user initialisation files for Windows.
@@ -74,16 +74,16 @@ Features include:
    work with Ghostscript 4.03 - 6.50.
 </ul>
 <p>
-Changes in version 4.0:
+Changes in version 4.1:
 </p>
 <ul>
- <li> Uses new Ghostscript API on Windows, OS/2 and Linux.
- <li> pstoedit for OS/2.
- <li> Bug fixes:
- <ul>
-    <li>Anti-aliased display is now the default.
-    <li>File | Convert now processes only the requested pages.
- </ul>
+ <li> Greek translation
+ <li> Dutch translation (except help file)
+ <li> Compiles on SunOS and SGI IRIX.
+ <li> New command line options for setting page size and orientation.
+    "gsview /Ffile.pdf" now works.
+ <li> Progressive update of the display as Ghostscript renders each page.
+ <li> New page sizes A0, A1 and A2 configured in the initialisation file.
 </ul>
 <p>
 GSview was written by Russell Lang at Ghostgum Software Pty Ltd.
@@ -100,25 +100,25 @@ First uninstall any previous versions of GSview.
 Win32
 </h3>
 <p>
-  Obtain GSview (gsv40w32.exe) from 
+  Obtain GSview (gsv41w32.exe) from 
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get40.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get40.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get41.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get41.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 7.00 (gs700w32.exe) from
+  Obtain AFPL Ghostscript 7.03 (gs703w32.exe) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get700.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get700.htm
+    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get703.htm">
+    http://www.cs.wisc.edu/~ghost/doc/AFPL/get703.htm
     </a>
   </blockquote>
 <p>
-  Install the AFPL Ghostscript self extracting archive gs700w32.exe
+  Install the AFPL Ghostscript self extracting archive gs703w32.exe
   (or a later version).
-  Install the GSview self extracting archive gsv40w32.exe.
+  Install the GSview self extracting archive gsv41w32.exe.
   Run GSview.
 </p>
 <h4>
@@ -151,25 +151,25 @@ Win32 location details
 OS/2
 </h3>
 <p>
-  Obtain GSview (gsv40os2.zip) from
+  Obtain GSview (gsv41os2.zip) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get40.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get40.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get41.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get41.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 7.00 (gs700os2.zip) from
+  Obtain AFPL Ghostscript 7.03 (gs703os2.zip) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get700.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get700.htm
+    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get703.htm">
+    http://www.cs.wisc.edu/~ghost/doc/AFPL/get703.htm
     </a>
   </blockquote>
 
 <p>
   <a href="http://www.info-zip.org/pub/infozip/">Unzip</a>
-  GSview to a temporary directory, place gs700os2.zip (or a later 
+  GSview to a temporary directory, place gs703os2.zip (or a later 
   version) in the same directory, and then run os2setup.exe.
 </p>
  
@@ -230,11 +230,11 @@ Win32s
 </p>
 
 <h3>
-X11/Linux
+X11/Unix
 </h3>
 <p>
-Copy <tt>gsview</tt>, <tt>gsview-help</tt>, <tt>epstool</tt>
-and <tt>pstotext</tt> to a directory on your search path.
+Copy <tt>gsview</tt>, <tt>gsview-help</tt>, <tt>epstool</tt> and 
+<tt>pstotext</tt> to a directory on your search path.
 Copy <tt>gvx*.htm</tt> to the directory <tt>/usr/share/doc/gsview-N.N</tt>.
 Copy <tt>printer.ini</tt> to directory <tt>/etc/gsview</tt>.
 GSview stores configuration information in <tt>$HOME/.gsview.ini</tt>.
@@ -245,8 +245,13 @@ You must have the <b>shared object</b> version of Ghostscript 7.00 - 7.99.
 You must first install Ghostscript 7, then the additional shared
 object files.
 These are available from
- <a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/gs700/linux/">
- ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/gs700/linux/</a>
+ <a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/gs703/linux/">
+ ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/gs703/linux/</a>
+</p>
+
+<p>
+A precompiled version is available for GNU/Linux.
+GSview can also be compiled for SunOS and SGI IRIX.
 </p>
 
 <h3>General</h3>
@@ -322,37 +327,41 @@ Type 'nmake'
 </p>
 
 <p>
-To compile GSview for Linux/X11 you need gcc and the GTK+ 1.2 toolkit.
-Unzip the gsv40src.zip, to produce three other zip files.
-Unzip these, converting the line endings:
-<br><tt>unzip -a src.zip</tt>
-<br>
-Change to the <tt>src</tt> subdirectory and copy 
-<tt>gvx.mak</tt> to <tt>makefile</tt>.
-Run <tt>make</tt>.
+To compile GSview for X11/Unix you need gcc and the GTK+ 1.2 toolkit.
+Unzip the sources as follows to convert the line endings:
+<pre>
+  mkdir gsview41
+  cd gsview41
+  unzip -a ../gsv41src.zip
+  unzip -a epstool.zip
+  unzip -a pstotext.zip
+  unzip -aa src.zip
+  unzip -a -o src.zip "src/binary/*"
+  cd src
+  cp gvx.mak makefile
+  make
+</pre>
 To install, run <tt>make install</tt>
-See the <a href="#X11">X11/Linux</a> topic for more notes
+See the <a href="#X11">X11/Unix</a> topic for more notes
 on X11 GSview.
+For SunOS or SGI IRIX, uncomment the appropriate lines in the makefile.
+If using SGI make, you will need to manually make epstool and pstotext. 
 </p>
 
 <h2>
 <a name="X11"></a>
-X11/Linux
+X11/Unix
 </h2>
-<p>
-While the current version number is 4.0, the Linux version
-really is an early release.
-</p>
 <p>
 X11 GSview is written by a novice at X Windows programming.
 It might have serious problems.  
 The GTK+ toolkit is used for most of the graphical interface,
-with a small amount of Xlib for interfacing with Ghostscript.
+with a very small amount of Xlib.
 </p>
 <p>
-GSview on Linux now uses the Ghostscript shared object.
-Drawing (especially over a network when using anti-aliased
-text) should be faster.
+GSview on Unix uses the Ghostscript shared object.
+Drawing (especially over a network when using anti-aliased text) 
+should be faster.
 </p>
 
 <h3>
@@ -376,7 +385,6 @@ Unimplemented features
 <li> Convert to vector format (pstoedit)
 <li> Full screen not implemented
 <li> Clipboard operations
-<li> PDF links
 <li> Sounds
 </ul>
 <p>
@@ -387,7 +395,7 @@ Known problems
 <ul>
 <li> Fit window doesn't get the correct dimension of the scrolled window
      client area, so the resize is slightly wrong.
-   At the moment we use the size of the scroll window less the two
+   At the moment we use the size of the scroll window less the
    two scroll bars.
 <li> GSview still includes lots of debugging code.
 </ul>
@@ -532,7 +540,7 @@ The postal address for Ghostgum Software is:
 <p>
 GSview uses Ghostscript to display the contents of the PostScript
 files.  Ghostscript is a separate program from GSview; it is
-written and owned by Aladdin Enterprises, not by Ghostgum
+written and owned by artofcode LLC, not by Ghostgum
 Software Pty Ltd.
 </p>
 
@@ -595,8 +603,8 @@ The installation programs may use an
 decompression library (DLL)
 by the Info-ZIP group.  The original sources are freely available
 from 
-    <a href="ftp://ftp.freesoftware.com/pub/infozip/">
-    ftp://ftp.freesoftware.com/pub/infozip/
+    <a href="ftp://ftp.info-zip.org/pub/infozip/">
+    ftp://ftp.info-zip.org/pub/infozip/
     </a>
 </p>
 
@@ -635,7 +643,7 @@ and making changes to it for use with GSview.
 
 <p>
 Thomas Pfeiffer and Mrs. Stefanie Kolweyh for translating GSview into 
-German/Deutsch.
+German/Deutsch.  Thomas Hoffmann for updates.
 </p>
 
 <p>
@@ -648,6 +656,14 @@ Antonio Guadagnin for translating GSview into Italian/Italiano.
 
 <p>
 Pascual Lucas for translating GSview into Spanish/Español.
+</p>
+
+<p>
+Stamos Mylonas for translating GSview into Greek/Ellenika.
+</p>
+
+<p>
+Kris Steenhaut for translating GSview into Dutch/Nederlands.
 </p>
 
 <h2>
