@@ -190,7 +190,7 @@ def main():
     if os.path.exists('/cvs/ghostscript/CVSROOT/fnord'):
         fnord = open('/cvs/ghostscript/CVSROOT/fnord')
         fnord_keyword = fnord.readline()
-        fnord_keyword.strip()
+        fnord_keyword = fnord_keyword.strip()
         fnord.close()
     else:
         fnord_keyword = ''
