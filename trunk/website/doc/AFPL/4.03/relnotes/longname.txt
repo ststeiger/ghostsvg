@@ -1,6 +1,0 @@
-index.htm     index.html
-arcto.txt     arcto.txt
-os2fix.txt    os2fix.txt
-bjc610.txt    bjc610.txt
-djet.txt      djet.txt
-textalph.txt  textalph.txt

@@ -1,3 +1,0 @@
-index.htm  index.html
-muir.htm  muir.html
-redmon.htm redmon.html

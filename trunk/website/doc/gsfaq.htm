@@ -1,0 +1,614 @@
+<HTML>
+<HEAD>
+<TITLE>Ghostscript Frequently Asked Questions</TITLE>
+</HEAD>
+<BODY>
+<!--  --> <H1><IMG SRC="../images/ghost64.gif" WIDTH=56 HEIGHT=64> Ghostscript FAQ</H1><P>
+<p>
+This FAQ is hopelessly out of date.
+Please see the web sites:
+<br>
+<a href="http://www.ghostscript.com/">
+  http://www.ghostscript.com/
+</a>
+<br>
+<a href="http://www.cs.wisc.edu/~ghost/">
+  http://www.cs.wisc.edu/~ghost/
+</a>
+
+</p>
+<HR>
+Last-modified: 2000-02-05
+<BR>
+Version: 0.68
+<P>
+<CENTER>
+                             -- Ghostscript --
+<P>
+                          Answers to questions
+<P>
+                   (the gnu.ghostscript.bug FAQ 0.68)
+<P>
+                             Russell Lang
+<BR>
+<A HREF="http://www.cs.wisc.edu/~ghost/rjl.html">
+                http://www.cs.wisc.edu/ghost/~rjl.html
+</A>
+<P>
+       (previously maintained by Christoph Strozyk, chris@ins.de)
+<P>
+<!--
+
+
+                    This FAQ is formatted as a digest. 
+
+               Most news readers can skip from one question 
+
+                    to the next by pressing control-G. 
+-->
+</CENTER>
+
+<P>
+   Changes since the last version are marked with a '|' in the table
+   of contents and in the sections in the text-only format of the FAQ.
+<P>
+   This is a collection of common questions posted to the 
+   gnu.ghostscript.bug newsgroup. 
+   This FAQ is very old and is not being maintained.
+<P>
+   This latest version of this FAQ should be available from
+   the Ghostscript WWW page
+<A HREF="http://www.cs.wisc.edu/~ghost/index.html">
+       http://www.cs.wisc.edu/~ghost/index.html
+</A>
+   and also from
+<A HREF="ftp://ftp.cs.wisc.edu/ghost/gsfaq.txt">
+       ftp://ftp.cs.wisc.edu/ghost/gsfaq.txt
+</A>
+<P>
+<B>
+   Table of Contents 
+</B>
+<P>
+<!--
+    1 General Questions
+     1.1 What is Ghostscript?
+     1.2 What is the current version of Ghostscript?
+     1.3 What is the difference between Aladdin Ghostscript and GNU Ghostscript?
+     1.4 Where can I get Ghostscript?
+     |1.5 Where can I find a list of post-release problems?
+     1.6 Where can I get patches for Ghostscript?
+     1.7 Which USENET newsgroups are relevant to Ghostscript?
+     1.8 Why do my fonts look ugly at larger point sizes?
+     1.9 How do I display a particular page?
+     1.10 ZapfDingbats gives "/invalidfont in -dicttype-" with gs 2.6.1.
+     1.11 Without FTP access to the Internet. How can I get Ghostscript?
+     1.12 Why won't Aladdin Ghostscript read piped PDF files?
+     |1.13 How do you display PDF files with Ghostview?
+
+    2 Platform specific Questions
+     2.1 HPUX
+     2.2 DEC ALPHA AXP
+     2.3 UnixWare 1.0
+     2.4 SCO Unix (ODT3.0)
+     2.5 X Windows
+         2.5.1 Why do I get a "Malformed color property" message under
+               X Windows?
+         2.5.2 Why do I get "Can't allocate backing pixmap" messages?
+         2.5.3 Why do I get white or black rectangles where characters 
+               should appear?
+     2.6 DOS
+         2.6.1 Borland C, on my DOS system using GS.EXE,
+               why do I get a 'limitcheck in setdevice' or 
+               'VMerror in setdevice' error message?
+         2.6.2 Watcom C 9.0x, I can't compile gs, wmake has
+               a memory problem. Is the makefile too big?
+     2.7 MS Windows
+         2.7.1 MS Windows GSview cannot execute GSWIN.
+         2.7.2 MS Windows GSWIN fails with exit code -13 or -15.
+
+    3 Device specific Questions
+     3.1 Why isn't GIF supported in Ghostscript?
+     3.2 The spacing of characters / words / margins on the display is
+         wrong, what can I do?
+     3.3 On my H-P LaserJet, why do I only get a partial page of output,
+         or a single page gets split across two sheets?
+--> <P>
+<A HREF="#1">Subject: 1 General Questions</A><BR>
+<A HREF="#2">Subject: 2 Platform specific Questions</A><BR>
+<A HREF="#3">Subject: 3 Device specific Questions</A><BR>
+<P>
+<HR><A NAME="1">
+<H1>
+Subject: 1 General Questions
+</H1></A><P>
+<A HREF="#1.1">Subject: 1.1 What is Ghostscript</A><BR>
+<A HREF="#1.2">Subject: 1.2 What is the current version of Ghostscript?</A><BR>
+<A HREF="#1.3">Subject: 1.3 What is the difference between Aladdin Ghostscript and GNU Ghostscript.</A><BR>
+<A HREF="#1.4">Subject: 1.4 Where can I get Ghostscript?</A><BR>
+<A HREF="#1.5">|Subject: 1.5 Where can I find a list of post-release problems?</A><BR>
+<A HREF="#1.6">Subject: 1.6 Where can I get patches for Ghostscript ?</A><BR>
+<A HREF="#1.7">Subject: 1.7 Which USENET newsgroups are relevant to Ghostscript?</A><BR>
+<A HREF="#1.8">Subject: 1.8 Why do my fonts look ugly at larger point sizes?</A><BR>
+<A HREF="#1.9">Subject: 1.9 How do I display a particular page?</A><BR>
+<A HREF="#1.10">Subject: 1.10 ZapfDingbats gives "/invalidfont in -dicttype" with gs 2.6.1.</A><BR>
+<A HREF="#1.11">Subject: 1.11 Without FTP access to the Internet. How can I get Ghostscript?</A><BR>
+<A HREF="#1.12">Subject: 1.12 Why won't Aladdin Ghostscript read piped PDF files?</A><BR>
+<A HREF="#1.13">|Subject: 1.13 How do you display PDF files with Ghostview?</A><BR>
+
+<P>
+<HR><A NAME="1.1">
+<H2>
+Subject: 1.1 What is Ghostscript
+</H2></A>
+<P>
+   Ghostscript is a software package that interprets Adobe's 
+   PostScript (TM) language, including a few additional features. 
+   For further information read the file language.doc from the current 
+   Ghostscript distribution. 
+<P> 
+   For informations on PostScript read the comp.lang.postscript FAQ. 
+   It is available by anonymous ftp to
+<BR><A HREF="ftp://wilma.cs.brown.edu/pub/comp.lang.postscript/FAQ.txt">
+     ftp://wilma.cs.brown.edu/pub/comp.lang.postscript/FAQ.txt
+</A>
+<BR>
+   in ASCII, and there are also LaTeX, DVI, and PostScript formats.
+<P>
+<HR><A NAME="1.2">
+<H2>
+Subject: 1.2 What is the current version of Ghostscript?
+</H2></A>
+<P>
+   There are two versions of Ghostscript currently available. 
+<P>
+   The current Aladdin Ghostscript version is 5.10. 
+<P>
+   The current GNU Ghostscript version is 3.33.
+<P>
+<HR><A NAME="1.3">
+<H2>
+Subject: 1.3 What is the difference between Aladdin Ghostscript 
+                 and GNU Ghostscript.
+</H2></A>
+<P>
+   Aladdin Ghostscript is distributed with a license called the Aladdin 
+   Ghostscript Free Public License that allows free use, copying, and
+   distribution by end users, but does not allow commercial distribution. 
+<P>
+   GNU Ghostscript is distributed with the GNU General Public License, 
+   which allows free use, and free copying and redistribution under
+   certain conditions (including, in some cases, commercial distribution). 
+<P>
+<HR><A NAME="1.4">
+<H2>
+Subject: 1.4 Where can I get Ghostscript?
+</H2></A>
+<P>
+   You can get GNU Ghostscript from ftp.cs.wisc.edu (128.105.2.15) 
+   from the directory ghost/gnu or from prep.ai.mit.edu. Please 
+   try first one of the usual mirrors (for example: germany.eu.net). 
+   The URL is
+<A HREF="ftp://ftp.cs.wisc.edu/ghost/gnu">
+     ftp://ftp.cs.wisc.edu/ghost/gnu
+</A>
+<P>
+   You can get Aladdin Ghostscript from 
+<A HREF="ftp://ftp.cs.wisc.edu/ghost/aladdin">
+     ftp://ftp.cs.wisc.edu/ghost/aladdin
+</A>
+   or from any CTAN mirror in 
+     /support/ghostscript/aladdin
+<P>
+<HR><A NAME="1.5">
+<H2>
+|Subject 1.5 Where can I find a list of post-release problems?
+</H2></A>
+<P>
+   For a list of problems, fixes and workarounds for a given 
+   release, see
+<A HREF="http://www.cs.wisc.edu/~ghost/aladdin/relnotes/">
+     http://www.cs.wisc.edu/~ghost/aladdin/relnotes/
+</A>
+<P>
+<HR><A NAME="1.6">
+<H2>
+Subject: 1.6 Where can I get patches for Ghostscript ?
+</H2></A>
+<P>
+   If there are patches, you can get them from ftp.cs.wisc.edu 
+   (128.105.2.15) from the directory ghost or from
+   prep.ai.mit.edu.
+<P>
+<HR><A NAME="1.7">
+<H2>
+Subject: 1.7 Which USENET newsgroups are relevant to Ghostscript?
+</H2></A>
+<P>
+   Discussion about Aladdin Ghostscript and GSview can be found in the
+   USENET newsgroup
+<A HREF="news:comp.lang.postscript">
+     comp.lang.postscript
+</A>
+<P>
+   Discussion about GNU Ghostscript and Ghostview can be found in the
+   USENET newsgroup
+<A HREF="news:gnu.ghostscript.bug">
+     gnu.ghostscript.bug
+</A>
+<P>
+<HR><A NAME="1.8">
+<H2>
+Subject: 1.8 Why do my fonts look ugly at larger point sizes?
+</H2></A>
+<P>
+   Older versions of Ghostscript came with fonts that look ugly 
+   (jagged text), when you use them at larger sizes. 
+   Fonts downloaded as part of the postscript file look fine. 
+   This is because the fonts coming with old versions of 
+   Ghostscript are overworked bitmapped fonts. 
+   The solution is to get high quality fonts, for example the 
+   Adobe Type Manager fonts. Also third-party Type 1 fonts from 
+   Bitstream, URW, Soft Horizons and many other suppliers work. 
+   Please read your corresponding font licences. 
+<P>
+
+   Aladdin Ghostscript 4.0 and later come with a set of high 
+   quality fonts, made available by URW.
+<P>
+<HR><A NAME="1.9">
+<H2>
+Subject: 1.9 How do I display a particular page?
+</H2></A>
+<P>
+   You need a previewer based on Ghostscript. These are described 
+   in the Ghostscript README. Some previewers are: 
+<P>
+   Ghostview 1.5 (X11): 
+<BR><A HREF="ftp://ftp.cs.wisc.edu/ghost/gnu/ghostview/ghostview-1.5.tar.gz">
+     ftp://ftp.cs.wisc.edu/ghost/gnu/ghostview/ghostview-1.5.tar.gz
+</A><P>
+   GSview (Windows and OS/2) 2.5. 
+<BR><A HREF="ftp://ftp.cs.wisc.edu/ghost/rjl/gsview25.zip">
+     ftp://ftp.cs.wisc.edu/ghost/rjl/gsview25.zip
+</A><P>
+<P>
+<HR><A NAME="1.10">
+<H2>
+Subject: 1.10 ZapfDingbats gives "/invalidfont in -dicttype-" with gs 2.6.1.
+</H2></A>
+<P>
+   The file gs_dbt_e.ps was not copied to the library directory, 
+   due to an error in the ghostscript installation procedure. 
+   Copy this file manually to the library directory. 
+   (I.e. where the rest of the *.ps files for ghostscript are.) 
+<P>
+<HR><A NAME="1.11">
+<H2>
+Subject: 1.11 Without FTP access to the Internet. How can I get Ghostscript?
+</H2></A>
+<P>
+   GNU Ghostscript is included in the GNU distribution from the Free Software 
+   Foundation; e-mail to gnu@prep.ai.mit.edu for information on ordering 
+   their tapes, floppies, or CD-ROMs.  Ghostscript is generally included in 
+   less-commercial Unix systems such as Linux and BSDI, and also appears on 
+   some freeware CD-ROMs.  Some commercial services like Compuserve and 
+   Genie, and many privately run bulletin board systems (BBSs), make 
+   Ghostscript available for downloading, but their copies are likely to be 
+   incomplete or obsolete.
+<P>
+   If you do not have convenient access to the Internet, you can order 
+   Aladdin Ghostscript on a CD-R disc, along with some useful related 
+   programs and documentation: for more information, see
+<PRE>
+	http://www.cs.wisc.edu/~ghost/cd.html
+</PRE>
+   or send e-mail to Russell Lang (see the e-mail address above).
+   Please note that this is not "commercial licensing"; you are still
+   getting freely redistributable software, with no support and no warranty.
+<P>
+<HR><A NAME="1.12">
+<H2>
+Subject: 1.12 Why won't Aladdin Ghostscript read piped PDF files?
+</H2></A>
+<P>
+   Portable Document Format is a file format which contains forward
+   and backward links.  It is not a stream format like PostScript.
+   You cannot pipe PDF files to the stdin of Ghostscript.  Instead
+   you must either give the PDF filename on the command line, or
+   use it as the argument of the Ghostscript run command.
+<P>
+<HR><A NAME="1.13">
+<H2>
+|Subject: 1.13 How do you display PDF files with Ghostview?
+</H2></A>
+<P>
+   Since Ghostview pipes PostScript files to Ghostscript, you
+   cannot start Ghostview as
+<PRE>
+          ghostview file.pdf
+</PRE><P>
+   Instead there are several options:
+<P>
+   1. Tanmoy Bhattacharya has written some patches for Ghostview 1.5
+   that allow it to read and display PDF files.  These are available 
+   from:
+<A HREF="ftp://gita.lanl.gov/people/tanmoy/hypertex/gv1.5gs3.33hack.tar.gz">
+       ftp://gita.lanl.gov/people/tanmoy/hypertex/gv1.5gs3.33hack.tar.gz
+</A>
+<P>
+   2. Start Ghostview as follows:
+<PRE>
+          ghostview -arguments file.pdf quit.ps
+</PRE><P>
+   This will allow you to display a PDF file, but you won't be able
+   to jump to particular pages.  Use Tanmoy's code if you want that
+   facility.
+<P>
+   3. With ghostscript 3.53 or later, create an `index file' by saying
+<PRE>
+          pdf2dsc file.pdf file.pdx
+          ghostview file.pdx
+</PRE>
+   This lets you display particular pages of a pdf file even without a
+   patched version of ghostview. The index file isn't a postscript
+   version of the pdf file, just a series of commands to ghostscript
+   saying `display page 1 of file.pdf', `display page 2', and so on.
+<P>
+   4. Use GV, a modified version of Ghostview available from
+<A HREF="http://wwwthep.physik.uni-mainz.de/~plass/gv/">
+      http://wwwthep.physik.uni-mainz.de/~plass/gv/
+</A>
+<HR><A NAME="2">
+<H1>
+Subject: 2 Platform specific Questions
+</H1></A><P>
+<A HREF="#2.1">Subject: 2.1 HPUX</A><BR>
+<A HREF="#2.2">Subject: 2.2 DEC ALPHA AX</A><BR>
+<A HREF="#2.3">Subject: 2.3 UnixWare 1.0</A><BR>
+<A HREF="#2.4">Subject: 2.4 SCO Unix (ODT3.0)</A><BR>
+<A HREF="#2.5">Subject: 2.5 X Windows</A><BR>
+<A HREF="#2.6">Subject: 2.6 DOS</A><BR>
+<A HREF="#2.7">Subject: 2.7 MS Windows</A><BR>
+<P>
+<HR><A NAME="2.1">
+<H2>
+Subject: 2.1 HPUX
+</H2></A>
+<P>
+   On HP 9000/700 (and other), the HP C-compiler has a bug that 
+   is fatal for gs. You must have the latest C compiler patch 
+   to compile gs. The patch is PHSS_3015, which results in the
+   following 'what /bin/cc': 
+<BR>
+   /bin/cc: 
+<BR>
+   HP92453-01 A.09.34 HP C Compiler 
+<P>
+   Further you need the patches PHSS_2199 and PHSS_3537. 
+<P>
+<HR><A NAME="2.2">
+<H2>
+Subject: 2.2 DEC ALPHA AX
+</H2></A>
+<P>
+   When you run Ghostscript on AXP (Alpha) machines, text does not 
+   appear properly (or does not appear at all) on the screen. 
+   Versions of Ghostscript through 2.6.1 have a number of bugs that 
+   prevent them from working properly on 64-bit architectures. Versions 
+   starting with 3.0 will work properly on 64-bit machines. 
+<P>
+<!--   If you still want to use gs 2.6.1, you can look at a set of patches at  -->
+<!--     drizzle.stanford.edu /pub/ghostscript-osf-patch-->
+<!--   Append these patch to gs 2.6.1 with fix 1-4 to get gs 2.6.1 -->
+<!--   working on DEC ALPHA. -->
+<P>
+<HR><A NAME="2.3">
+<H2>
+Subject: 2.3 UnixWare 1.0
+</H2></A>
+<P>
+   There is a chance that you can not link gs, because your enviroment 
+   is not big enough. You can change the enviroment size with a kernel 
+   variable: ARG_MAX. Change this with /etc/conf/idtune and rebuild 
+   the kernel. For further reference read the manpages. 
+<P>
+<HR><A NAME="2.4">
+<H2>
+Subject: 2.4 SCO Unix (ODT3.0)
+</H2></A>
+<P>
+   There is a chance that you can not link gs, because your enviroment 
+   is not big enough. You can change the enviroment size with a
+   parameter in the file /usr/include/sys/param.h and a kernel rebuilt. 
+<P>
+   Tom Kelly about building gs 2.6.1 for SCO ODT 3.0: 
+<P>
+   I have patches for the makefile that allow it to be built without 
+   modifying the kernel.  The modified makefile can be obtained from 
+<A HREF="ftp://ftp.sco.com/Skunk/src/Tools/gs261/unix-ansi.mak">
+     ftp://ftp.sco.com/Skunk/src/Tools/gs261/unix-ansi.mak 
+</A>
+<P>
+<HR><A NAME="2.5">
+<H2>
+Subject: 2.5 X Windows
+</H2></A><P>
+<A HREF="#2.5.1">Subject: 2.5.1 Why do I get a "Malformed color property" message under X Windows?</A><BR>
+<A HREF="#2.5.2">Subject: 2.5.2 Why do I get "Can't allocate backing pixmap" messages?</A><BR>
+<A HREF="#2.5.3">Subject: 2.5.3 Why do I get white or black rectangles where characters should appear?</A><BR>
+<P>
+<HR><A NAME="2.5.1">
+<H3>
+Subject: 2.5.1 Why do I get a "Malformed color property" message under X Windows?
+</H3></A>
+<P>
+   This is a Ghostscript bug that was fixed by a patch released 
+   separately from Ghostscript 2.6.1.  See section 1.5 for information 
+   about patches.   This bug is fixed in GNU Ghostscript 2.6.2.
+<P>
+<HR><A NAME="2.5.2">
+<H3>
+Subject: 2.5.2 Why do I get "Can't allocate backing pixmap" messages?
+</H3></A>
+<P>
+   Some servers do not implement backing pixmaps properly, or do not
+   have enough memory for them.  If you get strange behavior or "out
+   of memory" messages, try setting the useBackingPixmap resource
+   to false.
+<P>
+<HR><A NAME="2.5.3">
+<H3>
+Subject: 2.5.3 Why do I get white or black rectangles where characters 
+                should appear?
+</H3></A>
+<P>
+   Some servers do not implement bitmap/pixmap displaying properly. 
+   This may show up as white or black rectangles where characters 
+   should appear, or characters may appear in "inverse video" (e.g.,
+   white on a black rectangle).  If this happens, try setting 
+   the useXPutImage resource to false.
+<P>
+<HR><A NAME="2.6">
+<H2>
+Subject: 2.6 DOS
+</H2></A><P>
+<A HREF="#2.6.1">Subject: 2.6.1 On my DOS system using GS.EXE (Borland compiler), why do I get a `limitcheck in setdevice' or `VMerror in setdevice' error message?</A><BR>
+<A HREF="#2.6.2">Subject: 2.6.2 Watcom C 9.0x, I can't compile gs, wmake has a memory size problem. Is the makefile too big?</A><BR>
+<P>
+<HR><A NAME="2.6.1">
+<H3>
+Subject: 2.6.1 On my DOS system using GS.EXE (Borland compiler), 
+                why do I get a 'limitcheck in setdevice' 
+                or 'VMerror in setdevice' error message?
+</H3></A>
+<P>
+   On DOS systems using the Borland compiler, if Ghostscript gives you 
+   a 'limitcheck in setdevice' error, it may mean Ghostscript's standard 
+   buffer size wasn't large enough.  Likewise, if Ghostscript gives you a 
+   'VMerror in setdevice' error, it means the buffer size was too large. You 
+   can use the -dBufferSpace= switch to set the buffer size to a different 
+   value, e.g., 
+<PRE>
+     -dBufferSpace=50000 
+</PRE>
+   The default value is 25000; the smallest value Ghostscript accepts is 
+   10000; the largest valid value is 65000. 
+<P>
+<HR><A NAME="2.6.2">
+<H3>
+Subject: 2.6.2 Watcom C 9.0x, I can't compile gs, wmake has 
+                a memory size problem. Is the makefile too big?
+</H3></A>
+<P>
+   wmake.exe is a normal DOS application with a 64K limit. You 
+   should ask Watcom for an enhanced mode version, or update 
+   to a newer Watcom C version, this problem is fixed there. 
+<P>
+<HR><A NAME="2.7">
+<H2>
+Subject: 2.7 MS Windows
+</H2></A><P>
+<A HREF="#2.7.1">Subject: 2.7.1 MS Windows GSview cannot execute GSWIN.</A><BR>
+<A HREF="#2.7.2">Subject: 2.7.2 MS Windows GSWIN fails with exit code -13 or -15.</A><BR>
+<P>
+<HR><A NAME="2.7.1">
+<H3>
+Subject: 2.7.1 MS Windows GSview cannot execute GSWIN.
+</H3></A>
+<P>
+   The most common problem is that you have not set up your ghostscript 
+   command line correctly in the "Options | Ghostscript Command" menu item. 
+   The GSWIN command should look like: 
+<PRE>
+     D:\GS\GSWIN -ID:\GS;D:\GS\GSFONTS
+</PRE>
+<BR>
+   assuming you installed GSWIN in D:\GS, and your fonts in D:\GS\GSFONTS. 
+<P>
+<HR><A NAME="2.7.2">
+<H3>
+Subject: 2.7.2 MS Windows GSWIN fails with exit code -13 or -15.
+</H3>
+
+   This is due to a bug in GSview 1.3 and earlier, and Aladdin 
+   Ghostscript 3.51 and earlier.  This error is caused when a display 
+   driver returns a depth other than 1, 4, 8, 16 or 24.
+   As a work around, in GSview set "Media | Depth" to something
+   other than default, preferably the value that best matches
+   your display driver.  For Ghostscript, use the -dBitsPerPixel=XX
+   switch, using one of the values listed above.
+<P>
+<HR><A NAME="3">
+<H1>
+Subject: 3 Device specific Questions
+</H1></A><P>
+<A HREF="#3.1">Subject: 3.1 Why isn't GIF supported in Ghostscript?</A><BR>
+<A HREF="#3.2">Subject: 3.2 The spacing of characters / words / margins on the display is wrong, what can I do?</A><BR>
+<A HREF="#3.3">Subject: 3.3 On my H-P LaserJet, why do I only get a partial page of output, or a single page gets split across two sheets?</A><BR>
+<P>
+<HR><A NAME="3.1">
+<H2>
+Subject: 3.1 Why isn't GIF supported in Ghostscript?
+</H2></A>
+<P>
+  L. Peter Deutsch of Aladdin Enterprises writes:
+<P>
+  Because of actions by CompuServe and Unisys related to a patent that claims
+  to cover the data compression method used in GIF, anyone who distributes any
+  new GIF software (even readers, but definitely software that creates GIF
+  files) after January 1, 1995 may be subject to legal action if they do not
+  get a license from Unisys, and/or unpredictable payment requirements if they
+  do get such a license.  I cannot run the risk of having this happen.  If you
+  wish to run this risk, you may extract the GIF software (gdevgif.c and a
+  small part of devs.mak) from Aladdin Ghostscript 3.12, which was originally
+  released in 1994.
+<P>
+<HR><A NAME="3.2">
+<H2>
+Subject: 3.2 The spacing of characters / words / margins on the display
+              is wrong, what can I do?
+</H2></A>
+<P>
+   This is almost always caused by differences between the character 
+   widths that were used to format the document and the character widths 
+   of the fonts installed in your system.  (This only affects the 
+   display, and only with window systems, not with DOS.)  If this 
+   happens, invoke Ghostscript with the -dNOPLATFONTS switch, or
+   (on X Windows) set 
+<BR>
+<PRE>
+     Ghostscript*useExternalFonts: false
+</PRE>
+<BR>
+   in your X resource file. 
+<P>
+   For more information about fonts on the display, please read the 
+   first sections of fonts.doc. 
+<P>
+<HR><A NAME="3.3">
+<H2>
+Subject: 3.3 On my H-P LaserJet, why do I only get a partial page of output, 
+              or a single page gets split across two sheets?
+</H2></A>
+<P>
+   Printing on a Hewlett-Packard LaserJet at full resolution (300 DPI) 
+   requires a printer with at least 1.5 Mb of memory.  150 DPI printing 
+   requires only .5 Mb.  You can select 150 DPI printing with the command 
+   line switch 
+<PRE>
+     -r150 
+</PRE>
+   (This is not necessary on DeskJet printers.) 
+<P>
+<P>
+<HR>
+Trademarks 
+<P>
+PostScript (TM) Adobe 
+
+<HR>
+If you are interested in volunteering to maintain the Ghostscript
+FAQ, please contact ghost@aladdin.com.
+</BODY>
+</HTML>
