@@ -25,7 +25,7 @@ gsapi_t *cv_load_gs(void)
 	OSStatus result = noErr;
 	gsapi_t *gsapi;
 	int	err;
-	ConstStr63Param libname = "\pGhostscriptLib PPC";
+	ConstStr63Param libname = "\pGhostscriptLib Carbon";
 	CFragConnectionID connection;
 	Str255 error_msg;
 	CFragSymbolClass class;
