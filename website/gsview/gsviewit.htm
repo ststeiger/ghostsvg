@@ -14,7 +14,7 @@ Postscript usato dalle stampanti laser.
 Per i documenti che si attengono all'Adobe Postscript Document Structiring 
 Conventions, GSview permette alle pagine selezionate di essere viste o 
 stampate. 
-GSview 4.3 necessita di Ghostscript 7.04 - 8.09. 
+GSview 4.4 necessita di Ghostscript 7.04 - 8.99. 
 <p>
 <a href="#knstallazione">knstallazione</a><br>
 <a href="#Registrazione">Registrazione</a><br>
@@ -199,12 +199,12 @@ Copiare gsview32.ini oppure gvpm.ini dalla cartella di sistema oppure dalla
 cartella del profilo utente alla cartella di GSview, quindi modificarlo 
 togliendo tutte le registrazioni, ad eccezione di: 
 <pre>
- [Options]
- Version=4.3
- GSversion=704
+ [GSview-4.4]
+ Version=4.4
+ GSversion=800
  Configured=1
- GhostscriptDLL=e:\gs\gs7.04\bin\gsdll32.dll
- GhostscriptInclude=e:\gs\gs7.04\lib;e:\gs\fonts
+ GhostscriptDLL=e:\gs\gs8.00\bin\gsdll32.dll
+ GhostscriptInclude=e:\gs\gs8.00\lib;e:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
 </pre>
 <p>Quando un utente avvia GSview, il suo file INI sar&#224; usato normalmente. 
@@ -1651,7 +1651,7 @@ porta della stampante LPT3: usare:
 <p>Per avviare GSview e inviare nomefile.ps per la stampa direttamente alla 
 coda di stampa della stampante "HP DeskJet Portable" usare: 
 <pre>
- gsview32 /S"HP DeskJet Portable" nomefile.ps
+ gsview32 "/SHP DeskJet Portable" nomefile.ps
 </pre>
 <p>GSview si chiuder&#224; dopo che il file sar&#224; accodato allo spooler di stampa. 
 <p>Per avviare GSview in modalit&#224; di debug usare: 
@@ -1693,8 +1693,6 @@ I comandi XTYP_EXECUTE che sono ammessi sono:
  [GoBack()]
  [GotoPage(5)]
  [ShowWindow(nCmdShow)]
- [Minimise()]
- [Maximise()]
  [Command("linea di comando")]
 </pre>
 <p>Il comando [Command()] riconosce solo "nomefile" oppure "/P nomefile". 

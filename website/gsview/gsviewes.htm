@@ -14,7 +14,7 @@ utilizado por las impresoras l&#225;ser.
 Para los documentos construidos siguiendo las especificaciones de Adobe acerca 
 de la estructura de los documentos PostScript (DSC), GSview permite 
 seleccionar las p&#225;ginas que ser&#225;n visualizadas o impresas. 
-GSview 4.3 requiere Ghostscript 7.04 - 8.09. 
+GSview 4.4 requiere Ghostscript 7.04 - 8.99. 
 <p>
 <a href="#Instalaci&#243n">Instalaci&#243n</a><br>
 <a href="#Registro">Registro</a><br>
@@ -198,12 +198,12 @@ Copie el archivo gsview32.ini o gvpm.ini desde el directorio del sistema, o
 desde el directorio del perfil de usuario, al directorio de GSview, ed&#237;telo y 
 elimine todas las entradas excepto: 
 <pre>
- [Options]
- Version=4.3
- GSversion=704
+ [GSview-4.4]
+ Version=4.4
+ GSversion=800
  Configured=1
- GhostscriptDLL=e:\gs\gs7.04\bin\gsdll32.dll
- GhostscriptInclude=e:\gs\gs7.04\lib;e:\gs\fonts
+ GhostscriptDLL=e:\gs\gs8.00\bin\gsdll32.dll
+ GhostscriptInclude=e:\gs\gs8.00\lib;e:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
 </pre>
 <p>Cuando un usuario inicia GSview, se utiliza normalmente su archivo INI. La 
@@ -1820,7 +1820,7 @@ Despu&#233;s de esto, GSview se cierra. Algunos ejemplos son:
 <pre>
  gsview32 -s NombreArchivo.ps
  gsview32 -sLPT3: NombreArchivo.ps
- gsview32 -s"HP DeskJet Port&#225;til" NombreArchivo.ps
+ gsview32 "-sHP DeskJet Port&#225;til" NombreArchivo.ps
 </pre>
 <p><b>-e</b> utiliza DDE para abrir un archivo en una instancia de GSview que ya 
 est&#225; ejecut&#225;ndose, o inicia GSview si no existe ninguna. 
@@ -1846,8 +1846,6 @@ Los comandos de XTYP_EXECUTE reconocidos son:
  [GoBack()]
  [GotoPage(5)]
  [ShowWindow(nCmdShow)]
- [Minimise()]
- [Maximise()]
  [Command("l&#237;nea de comando")]
 </pre>
 <p>El comando [Command()] s&#243;lo comprende "NombreDeArchivo" o "/P NombreDeArchivo". 

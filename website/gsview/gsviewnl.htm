@@ -13,7 +13,7 @@ Ghostscript interpreteert het "PostScript page description language"
 dat door laserprinters wordt gebruikt. 
 Bij documenten opgemaakt volgens de "Adobe PostScript Document Structuring" 
 laat GSview toe geselecteerde bladzijden te bekijken en af te drukken. 
-Voor GSview 4.3 is vereist 7.04 - 8.09. 
+Voor GSview 4.4 is vereist 7.04 - 8.99. 
 <p>
 <a href="#Installatie">Installatie</a><br>
 <a href="#Registratie">Registratie</a><br>
@@ -27,15 +27,15 @@ Voor GSview 4.3 is vereist 7.04 - 8.09.
 <a href="#Meeteenheden">Meeteenheden</a><br>
 <a href="#Opties">Opties</a><br>
 <a href="#Orientatie">Orientatie</a><br>
-<a href="#Display_Settings">Display Settings</a><br>
-<a href="#Page_Size">Page Size</a><br>
-<a href="#Keys">Keys</a><br>
-<a href="#Command_line_options">Command line options</a><br>
+<a href="#Schermresolutie">Schermresolutie</a><br>
+<a href="#Paginagrootte">Paginagrootte</a><br>
+<a href="#Toetsen">Toetsen</a><br>
+<a href="#Aan_de_opdrachtregel">Aan de opdrachtregel</a><br>
 <a href="#World_Wide_Web">World Wide Web</a><br>
 <a href="#Copyright">Copyright</a><br>
-<a href="#Common_Problems">Common Problems</a><br>
-<a href="#Other_Useful_Programs">Other Useful Programs</a><br>
-<a href="#Other_Help_Topics">Other Help Topics</a><br>
+<a href="#Vaak_voorkomende_problemen">Vaak voorkomende problemen</a><br>
+<a href="#Aanvullende_programma's">Aanvullende programma's</a><br>
+<a href="#Meer_hulp">Meer hulp</a><br>
 <p>
 <hr>
 <h1><a name="Installatie">Installatie</a></h1>
@@ -49,7 +49,7 @@ U dient Ghostscript afzonderlijk te installeren.
 Indien u later om een of andere reden de instellingen wilt aanpassen, ga dan naar 
 <a href="#Opties">Opties</a> | <a href="#Eenvoudige_configuratie">Eenvoudige configuratie</a> of 
 <a href="#Opties">Opties</a> | <b>Aangepaste Configuratie</b>. 
-<p>Zie ook <a href="#Opties">Opties</a> | <b>Taal</b>. 
+<p>Zie ook <a href="#Opties">Opties</a> | <a href="#Taal">Taal</a>. 
 <p>
 <a href="#Hoe_zich_Ghostscript_aanschaffen?">Hoe zich Ghostscript aanschaffen?</a><br>
 <a href="#Het_installeren_van_Ghostscript.">Het installeren van Ghostscript.</a><br>
@@ -189,12 +189,12 @@ Kopi&#235;er gsview32.ini (Windows) of gvpm.ini (OS/2) van de
 systeem- of gebruikersdirectory naar de GSview directory, en 
 verwijder alle instructies UITGENOMEN: 
 <pre>
- [Options]
- Version=4.3
- GSversion=704
+ [GSview-4.4]
+ Version=4.4
+ GSversion=800
  Configured=1
- GhostscriptDLL=e:\gs\gs7.04\bin\gsdll32.dll
- GhostscriptInclude=e:\gs\gs7.04\lib;e:\gs\fonts
+ GhostscriptDLL=e:\gs\gs8.00\bin\gsdll32.dll
+ GhostscriptInclude=e:\gs\gs8.00\lib;e:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
  Wanneer een gebruiker GSview opstart wordt normaliter zijn INI bestand
  ingelezen. Wanneer GSview voor het allereerst wordt opgestart, of
@@ -349,7 +349,7 @@ EPS bestanden beginnen met het commentaar:
  %!PS-Adobe-3.0 EPSF-3.0
 </pre>
 <p>EPS bestanden worden meestal gebruikt als invoeging in andere 
-documenten en bevatten derrhalve het "bounding box" commentaar: 
+documenten en bevatten derhalve het "inbinden" commentaar: 
 <pre>
   %%BoundingBox: llx lly urx ury
 </pre>
@@ -377,11 +377,11 @@ GSview toont en drukt PDF bestanden af. Er zijn echter wel een
 aantal beperkingen. 
 <p>GSview maakt geen gebruik paginainstellingen, en gebruikt in de plaats 
 de /MediaBox instructie van het PDF bestand. 
-Wanneer <a href="#Opties">Opties</a> | <b>EPS Knipsel</b> werd geactiveerd zal GSview gebruik 
+Wanneer <a href="#Opties">Opties</a> | <a href="#EPS_Knipsel">EPS Knipsel</a> werd geactiveerd zal GSview gebruik 
 maken van de /CropBox instructie in het PDF bestand. 
 <p>Om de bladzijden te kunnen tellen, moet GSview eerst het PDF bestand 
 openen. Bij het enkel maar selecteren van het bestand zullen geen 
-opdrachten zoals <a href="#Tekst_zoeken_en_afscheiden">Zoeken</a>, <a href="#Bladzijde_kiezen">Ga naar</a> etc... kunnen uitgevoerd worden. 
+opdrachten zoals <a href="#Tekst_zoeken_en_exporteren">Zoeken</a>, <a href="#Bladzijde_kiezen">Ga naar</a> etc... kunnen uitgevoerd worden. 
 <p>Er is slechts een beperkte ondersteuning van het omzetten van PDF 
 naar PostScript en vice versa. 
 <p>Wilt u een PostScript bestand naar PDF om te zetten, gebruik dan 
@@ -456,7 +456,7 @@ toont de volgende bladzijde bovenaan.
 "spatie terug" toets toont de vorige bladzijde bovenaan. 
 <p><b>Vorige bladzijde</b>, <b>Opnieuw tonen</b> en <b>Ga naar</b> werken enkel indien 
 het document <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> gegevens bevat. 
-<p><b>Bekijken</b> | <b>In venster aanpassen</b> of <b>F6</b> past de resolutie zodanig 
+<p><b>Bekijken</b> | <a href="#In_venster_aanpassen">In venster aanpassen</a> of <b>F6</b> past de resolutie zodanig 
 aan dat de volledige bladzijde in het huidig venster past. 
 Bij herhaling wordt of de hoogte of de breedte aan het venster 
 aangepast. 
@@ -487,7 +487,7 @@ werd geselecteerd.
 Kunnen worden voorafgegaan door <b>Ctrl-D gevolgd door</b> of <b>PJL gevolgd door</b>. 
 Beide mededelingen geven aan dat het document niet DSC conform is 
 omdat het begin van het document onjuiste gegevens bevat. 
-Om hieraan te verhelpen, zie <b>Vaak voorkomende problemen</b>. 
+Om hieraan te verhelpen, zie <a href="#Vaak_voorkomende_problemen">Vaak voorkomende problemen</a>. 
 Maar gebruik dan geen HP LaserJet drijver om  PostScript documenen 
 naar anderen te versturen. 
 <p><b>Opschrift</b> is een tekstreeks die kan worden gebruikt bij het afdrukken 
@@ -751,18 +751,18 @@ PostScript en PDF kunnen op meerdere verschillende manieren worden
 omgezet. 
 <p><b>Bestand </b>| <a href="#Omzetten">Omzetten</a> laat toe PostScript en/of PDF bestanden 
 om te zetten van en naar PostScript-, or PDF- en bitmapbestanden. 
-<p>Met <b>Bestand </b>| <a href="#Afscheiden">Afscheiden</a> kunnen een aantal PostScriptbestanden 
+<p>Met <b>Bestand </b>| <a href="#Exporteren">Exporteren</a> kunnen een aantal PostScriptbestanden 
 worden gekopi&#235;erd. 
-<p>Met <b>Bestand </b>| <a href="#PS_naar_EPS">PS naar EPS</a> wordt het "bounding box" aangepast 
+<p>Met <b>Bestand </b>| <a href="#PS_naar_EPS">PS naar EPS</a> wordt het "inbinden" aangepast 
 en wordt de kop van PS veranderd naar EPS. 
 Gelieve eerst de documentatie te lezen vooraler er aan te beginnen. 
 <p>Met <b>Bewerken </b>| <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS afdrukvoorbeeld toevoegen</a> kan u een afdrukvoorbeeld toe- 
 voegen. 
-<p><b>Bewerken </b>| <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS afscheiden</a> neemt PostScript of een afdrukvoorbeeld 
+<p><b>Bewerken </b>| <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS exporteren</a> neemt PostScript of een afdrukvoorbeeld 
 uit een DOS EPS bestand. 
 <p>Met <b>Bewerken </b>| <b>Omzetten naar vectori&#235;el formaat</b> wordt middels 
 pstoedit PostScript en/of PDF naar vectori&#235;el formaat omgezet. 
-<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_afscheiden">Tekst afscheiden</a> neemt middels pstotext tekst uit 
+<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_exporteren">Tekst exporteren</a> neemt middels pstotext tekst uit 
 PostScript- en/of PDFdocument . 
 <p><b>Bewerken </b>| <b>Kopi&#235;ren </b> kopieert de bitmap naar het prikbord. 
 <b>Bewerken </b>| <a href="#Prikbord">Plakken</a>  kopieert de bitmap uit het prikbord naar 
@@ -774,12 +774,12 @@ prikbordt om in en naar een secundair prikbord.
 <p>
 <a href="#Bestanden_omzetten_en_trucjes_hierbij.">Bestanden omzetten en trucjes hierbij.</a><br>
 <a href="#Omzetten">Omzetten</a><br>
-<a href="#Afscheiden">Afscheiden</a><br>
+<a href="#Exporteren">Exporteren</a><br>
 <a href="#PS_naar_EPS">PS naar EPS</a><br>
 <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS afdrukvoorbeeld toevoegen</a><br>
 <a href="#Afdrukvoorbeeld_door_de_gebruiker_verstrekt">Afdrukvoorbeeld door de gebruiker verstrekt</a><br>
 <a href="#Omzetten_naar_vectorieel_formaat">Omzetten naar vectorieel formaat</a><br>
-<a href="#Tekst_zoeken_en_afscheiden">Tekst zoeken en afscheiden</a><br>
+<a href="#Tekst_zoeken_en_exporteren">Tekst zoeken en exporteren</a><br>
 <a href="#Prikbord">Prikbord</a><br>
 <p>
 <hr>
@@ -802,15 +802,15 @@ Bestand | <a href="#Omzetten">Omzetten</a>, kies bmp16m, 72dpi.
 <p>Naar een te bewerken vectori&#235;el formaat omzetten (pstoedit). 
 Bewerken | <a href="#Omzetten_naar_vectorieel_formaat">Omzetten naar vectorieel formaat</a> OF zet gewoon om naar 
 PDF. 
-<p>Tekst afscheiden (pstotext). 
-Bewerken | <a href="#Tekst_zoeken_en_afscheiden">Tekst afscheiden</a> 
+<p>Tekst exporteren (pstotext). 
+Bewerken | <a href="#Tekst_zoeken_en_exporteren">Tekst exporteren</a> 
 <p>Een afdrukvoorbeeld aan een EPS bestand toevoegen. 
 Bewerken | <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS afdrukvoorbeeld toevoegen</a>. Zie <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS afdrukvoorbeeld toevoegen</a>. 
 <p>Afdrukvoorbeeld uit een EPS bestand verwijderen. 
-Bewerken | <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS afscheiden</a> | PostScript 
+Bewerken | <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS exporteren</a> | PostScript 
 <p>Met afgeronde hoeken tonen. 
-Papierformaat | <b>Instellingen tonen</b>.  Stel <b>Tekst Alpha</b> and 
-<b>Grafisch Alpha</b> in op  4. Kan enkel op een scherm met 8 bits per pixel 
+Papierformaat | <b>Schermresolutie wijzigen</b>.  Stel <a href="#Schermresolutie">Tekst Alpha</a> and 
+<a href="#Schermresolutie">Grafisch Alpha</a> in op  4. Kan enkel op een scherm met 8 bits per pixel 
 minimum. 
 <p>De bitmap op het scherm getoond bewaren. 
 Bewerken | <a href="#Prikbord">Kopi&#235;ren</a> om naar naar het prikbord te kopi&#235;ren. 
@@ -853,8 +853,8 @@ moet behandelen i. v. m . paginagrootte, zie het onderwerp
 <p>
 <p>
 <hr>
-<h2><a name="Afscheiden">Afscheiden</a></h2>
-Met <b>Afscheiden</b> wordt een reeks bladzijden van het huidige document 
+<h2><a name="Exporteren">Exporteren</a></h2>
+Met <b>Exporteren</b> wordt een reeks bladzijden van het huidige document 
 naar een nieuw document gekopieerd. Bijvoorbeeld, tien bladzijden 
 uit het midden van het huidige document naar een nieuw bestand, en 
 van daaruit op een later tijdstip naar een printer. 
@@ -873,7 +873,7 @@ van het bestand te wijzigen in
 </pre>
 <p>en dan <b>%%BoundingBox</b> eraan toe te voegen. 
 <p>EPS bestanden worden over het algemeen in andere documenten ingebed en	 
-dienen derhalve volgende the bounding box commentaar te bevatten: 
+dienen derhalve volgende the inbinden commentaar te bevatten: 
 <pre>
   %%BoundingBox: llx lly urx ury
 </pre>
@@ -886,7 +886,7 @@ document in te voegen.</b>
 <p>Wil u een PostScript bestand omzetten naar <a href="#DSC:_Afspraken_over_de_structuur">EPS</a>, dan mag het 
 originele bestand uit maar een enkele bladzijde bestaan. Bevat het 
 document <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> gegevens en bestaat het uit meerdere bladzijden, dan 
-dient u de gewenste bladzijde via <b>Bestand</b> | <a href="#Afscheiden">Afscheiden</a> te 
+dient u de gewenste bladzijde via <b>Bestand</b> | <a href="#Exporteren">Exporteren</a> te 
 genereren. Bevat het document geen <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> gegevens, dan zit er niets 
 anders op dan het bestand manueel te bewerken. 
 <p><a href="#DSC:_Afspraken_over_de_structuur">EPS</a> mogen volgende operatoren NIET bevatten: 
@@ -906,18 +906,18 @@ aangewend:
 </pre>
 <p>U diens er zelf op toe te zien dat aan deze voorwaarde wordt voldaan. 
 <p>Om na te gaan of een document een of meerdere van bovenstaande 
-operatoren bevat, kiest u voor <a href="#Opties">Opties</a> | <b>EPS Waarschuwingen</b> en 
+operatoren bevat, kiest u voor <a href="#Opties">Opties</a> | <a href="#EPS_Waarschuwingen">EPS Waarschuwingen</a> en 
 opent u daarna het kwestieuze document. Kies dan voor <b>Sluiten</b> NADAT 
 de bladzijde op het scherm werd getoond; hierna kan u de GhostScript 
-berichten bekijken middels <b>Bestand</b> | <b>Berichten tonen</b>. 
+berichten bekijken middels <b>Bestand</b> | <a href="#Berichten_tonen">Berichten tonen</a>. 
 Wanneer een of meerdere van de bovenstaande operatoren werden gebruikt 
 krijgt u iets te zien als: Warning: EPS files must not use... . Treft 
 u dus zulke berichten aan, dan mag u <b>PS naar EPS</b> niet gebruiken. 
 Vergeet ook niet achteraf <b>EPS Waarscuwing</b> weer uit te schakelen. 
 <p>Het document MOET eerst op het scherm worden getoond vooraleer 
 <b>PS naar EPS</b> wordt aangewend. 
-<p>Bij documenten zonder <a href="#DSC:_Afspraken_over_de_structuur">DSC</a>, laat <b>PS naar EPS</b> toe een bounding 
-box te specifi&#235;ren, om daarna een <a href="#DSC:_Afspraken_over_de_structuur">EPS</a> bestand aan te maken 
+<p>Bij documenten zonder <a href="#DSC:_Afspraken_over_de_structuur">DSC</a>, laat <b>PS naar EPS</b> toe inbinden 
+te specifi&#217;ren, om daarna een <a href="#DSC:_Afspraken_over_de_structuur">EPS</a> bestand aan te maken 
 gegenereerd omheen het originele document. 
 <p>Bij bestanden zonder <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> zal <b>PS naar EPS</b> de eerste regel omzetten 
 naar: 
@@ -931,16 +931,16 @@ te wijzigen.
 <p><b>PS naar EPS</b> plakt het document niet in de <b>%%BoundingBox</b>. 
 Dat zou immers een wijziging van de PostScriptcode inhouden. 
 <b>PS naar EPS</b> wijzigt enkel de <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> commentaar/gegevens. 
-<p>Wanneer <b>Automatisch Bounding Box berekenen</b> werd aangekruist, zal 
-GSview de bounding box berekenen aan de hand van de niet-witte pixels. 
-Wanneer niet aangekruist, kan u de bounding box kiezen door te klikken 
+<p>Wanneer <b>Automatisch inbinden berekenen</b> werd aangekruist, zal 
+GSview het inbinden berekenen aan de hand van de niet-witte pixels. 
+Wanneer niet aangekruist, kan u voor inbinden kiezen door te klikken 
 links, rechts, bovenaan en onderaan. 
 <p><b>PS naar EPS</b> voegt geen afdrukvoorbeeld toe aan het document. Wilt u 
 er een, gebruik dan <b>Bewerken </b>| <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS afdrukvoorbeeld toevoegen</a> 
 na vooraf een <a href="#DSC:_Afspraken_over_de_structuur">EPS</a> bestand met de juiste <b>%%BoundingBox</b> te hebben 
 gecre&#235;erd. 
-<p>Zie ook <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS afdrukvoorbeeld toevoegen</a>, <a href="#Afscheiden">Afscheiden</a>, 
-<b>EPS Waarschuwingen</b> en <a href="#Omzetten">Omzetten</a>. 
+<p>Zie ook <a href="#EPS_afdrukvoorbeeld_toevoegen">EPS afdrukvoorbeeld toevoegen</a>, <a href="#Exporteren">Exporteren</a>, 
+<a href="#EPS_Waarschuwingen">EPS Waarschuwingen</a> en <a href="#Omzetten">Omzetten</a>. 
 <p>
 <p>
 <hr>
@@ -953,11 +953,11 @@ een uitwisselbaar afdrukvoorbeeld [*.met = Windows metafile].
 Om <b>EPS afdrukvoorbeeld toevoegen</b> te kunnen gebruiken dienen volgende 
 stappen te worden gevolgd. 
 <p>1. Schakel uit <b>Opties | DSC negeren</b> 
-<p>2. Ga na of de correcte bounding box werd ge&#239;nstalleerd. 
+<p>2. Ga na of het inbindene correct werd ge&#180;nitialiseerd. 
 Zie hiervoor <a href="#Opties">Opties</a> | <b>Bounding Box tonen</b> 
-U kan een bounding box toevoegen middels <b>Bestand</b> | <a href="#PS_naar_EPS">PS naar EPS</a>. 
+U kan inbinden toevoegen middels <b>Bestand</b> | <a href="#PS_naar_EPS">PS naar EPS</a>. 
 <p>3. Kies <a href="#Orientatie">Orientatie</a> | <a href="#Orientatie">Staand</a>. 
-<p>4. Kies <b>Papierformaat </b>| <b>Instellingen tonen</b> en stel de gewenste 
+<p>4. Kies <b>Papierformaat </b>| <b>Schermresolutie wijzigen</b> en stel de gewenste 
 resolutie in voor het afdrukvoorbeeld. Een te grote resolutie zal 
 het bestand aanzienlijk doen aanzwellen. 
 <p>5. <b>Open</b> een EPS bestand dat geen afdrukvoorbeeld bevat. 
@@ -979,10 +979,10 @@ TIFF 6 formaat kan zowel gecomprimeerd als ongecomprimeerd
 worden. Windows *.Met afdrukvoorbeelden zijn steeds ongecomprimeerd. 
 <p>7. 
 Herschik <a href="#Orientatie">Orientatie</a> | <a href="#Orientatie">Staand</a>, en 
-<b>Papierformaat </b>| <b>Instellingen tonen</b> naar de vorige waarden. 
+<b>Papierformaat </b>| <b>Schermresolutie wijzigen</b> naar de vorige waarden. 
 <p>Om uit een DOS EPS bestand de PS of de afdrukvoorbeeld sectie te halen 
 dient u <b>Bestand</b> | <b>Selecteren</b> te kiezen en vervolgens 
-<b>Bewerken </b>| <b>EPS afscheiden</b> en daarna dan <b>PostScript</b> of 
+<b>Bewerken </b>| <b>EPS exporteren</b> en daarna dan <b>PostScript</b> of 
 <pre>
  <b>afdrukvoorbeeld</b>.
 </pre>
@@ -997,7 +997,7 @@ laat toe een reeds bestaand TIFF or WMF bestand aan EPS bestand toe te
 voegen en zodoende een DOS EPS bestand aan te maken. 
 Dit is bedoeld voor wanneer een toepassing een EPS en WMF bestanden 
 kan behandelen, maar geen DOS EPS bestanden met WMF afdrukvoorbeeld 
-kan genereren. Het EPS bestand moet een bounding box bevatten dat 
+kan genereren. Het EPS bestand moet zodanig ingebonden zijn dat het 
 overeenstemt met het TIFF of WMF afdrukvoorbeeld. 
 Het is niet nodig het EPS bestand op scherm te brengen. U kan voor 
 <b>Afdrukvoorbeeld door de gebruiker verstrekt</b> kiezen nadat een EPS 
@@ -1062,14 +1062,14 @@ bitmapbestand als doel, zie eerst <b>Formaten omzetten</b>.
 <p>
 <p>
 <hr>
-<h2><a name="Tekst_zoeken_en_afscheiden">Tekst zoeken en afscheiden</a></h2>
-Tekst afscheiden uit een PostScript document kan een hachelijke 
+<h2><a name="Tekst_zoeken_en_exporteren">Tekst zoeken en exporteren</a></h2>
+Tekst exporteren uit een PostScript document kan een hachelijke 
 onderneming zijn. Woorden kunnen worden afgebroken. Tekst kan enkel 
 als gecodeerd te voorschijn komen. Ligaturen mogen worden gebruikt 
 (Bijvoorbeeld de symbolen voor Pi en Fi). Er bestaat een kans dat er 
 helemaal geen relatie is tussen de plaats van een woord in het 
 PS-bestand en zijn plaats op de pagina. Met goed gevolg tekst uit 
-een PS-bestand afscheiden is dus in grote mate afhankelijk van de 
+een PS-bestand exporteren is dus in grote mate afhankelijk van de 
 structuur van het document zelf. 
 <p>GSview heeft twee mogelijkheden om tekst uit een PS-bestand af te 
 scheiden. 
@@ -1080,17 +1080,17 @@ aanzienlijk nauwkeuriger.
 Zie hieronder voor meer over dit onderwerp: 
 <p>Zie ook <a href="#Omzetten">Omzetten</a>. 
 <p>
-<a href="#Vlug_een_tekst_zoeken_en_afscheiden">Vlug een tekst zoeken en afscheiden</a><br>
-<a href="#PStoText_Tekst_Afscheiden_en_zoeken">PStoText Tekst Afscheiden en zoeken</a><br>
+<a href="#Vlug_een_tekst_zoeken_en_exporteren">Vlug een tekst zoeken en exporteren</a><br>
+<a href="#PStoText_Tekst_exporteren_en_zoeken">PStoText Tekst exporteren en zoeken</a><br>
 <p>
 <hr>
-<h3><a name="Vlug_een_tekst_zoeken_en_afscheiden">Vlug een tekst zoeken en afscheiden</a></h3>
+<h3><a name="Vlug_een_tekst_zoeken_en_exporteren">Vlug een tekst zoeken en exporteren</a></h3>
 Normaliter heedt de tekst in PostScriptdocumenten dezelfde volgorde 
 als de bladzijden, en is deze tekst geplaatst tussen haakjes in 
 PostScript reeksen. Volledige regels kunnen in een reeks worden weer- 
 gegeven of in een woord per reeks. Bij dit type documenten kan worden 
 gerekend op goed resultaat. 
-<p>Middels <b>Bewerken </b>| <a href="#Tekst_zoeken_en_afscheiden">Tekst afscheiden</a> wordt tekst bevat in reeksen 
+<p>Middels <b>Bewerken </b>| <a href="#Tekst_zoeken_en_exporteren">Tekst exporteren</a> wordt tekst bevat in reeksen 
 afgescheid uit bepaalde bladzijden en weggeschreven naar een tekst- 
 bestand. Teruglopen in het tekstbestand komen overeen met teruglopen 
 in het oorspronkelijk document. Spaties in het tekstbestand komen 
@@ -1098,12 +1098,12 @@ overeen met de spaties binnen de reeksen, of met afzonderlijke reeksen
 zelf. Het is echter beter tekst af te scheiden door ps2ascii.ps te 
 gebruiken, ofwel het <a href="#PStoText">PStoText</a> programma.  <a href="#PStoText">PStoText</a> wordt inge- 
 schakeld middels <a href="#Opties">Opties</a> | <a href="#PStoText">PStoText</a>. 
-<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_afscheiden">Zoeken</a> zoekt naar een bepaald tekst en plaatst de 
-eerste bladzijde waar die tekst voorkomt op het scherm. Bij <a href="#Tekst_zoeken_en_afscheiden">Zoeken</a> 
+<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_exporteren">Zoeken</a> zoekt naar een bepaald tekst en plaatst de 
+eerste bladzijde waar die tekst voorkomt op het scherm. Bij <a href="#Tekst_zoeken_en_exporteren">Zoeken</a> 
 moet u dus een bepaalde tekst intikken alsook de reeks bladzijden waar 
 moet worden gezocht. 
-Voorgaande uitleg aangaande <a href="#Afscheiden">Afscheiden</a> is mutatis mutandis van 
-toepassing op <a href="#Tekst_zoeken_en_afscheiden">Zoeken</a>. Eerst wordt tekst afgescheiden van het 
+Voorgaande uitleg aangaande <a href="#Exporteren">Exporteren</a> is mutatis mutandis van 
+toepassing op <a href="#Tekst_zoeken_en_exporteren">Zoeken</a>. Eerst wordt tekst afgescheiden van het 
 document, daarna wordt in deze tekst gezocht zonder rekening te 
 houden met se spaties. Er wordt geen onderscheid gemaakt tussen 
 hoofd- en kleine letters. Bijvoorbeeld, zoeken naar <b>deze</b> zal dus als 
@@ -1112,27 +1112,27 @@ zoekreeks zich precies op de bladzijde bevindt wordt evenmin
 aangegeven. <b>Zoeken </b> is niet bruikbaar voor niet-DSC documenten of 
 voor DSC documentens waar de bladzijden op een speciale manier werden 
 ingebouwd. 
-<p><b>Zoeken </b>| <a href="#Tekst_zoeken_en_afscheiden">Volgende zoeken</a> zoekt verder vanaf de volgende bladzijde. 
+<p><b>Zoeken </b>| <a href="#Tekst_zoeken_en_exporteren">Volgende zoeken</a> zoekt verder vanaf de volgende bladzijde. 
 <p>
 <p>
 <hr>
-<h3><a name="PStoText_Tekst_Afscheiden_en_zoeken">PStoText Tekst Afscheiden en zoeken</a></h3>
+<h3><a name="PStoText_Tekst_exporteren_en_zoeken">PStoText Tekst exporteren en zoeken</a></h3>
 Hierbij worden pstotext en Ghostscript aangewend om tekst af te 
 scheiden uit een PostScript document. Hierbij wordt vooraf het ganse 
 document door Ghostscript en pstotext omgezet naar een ge&#239;ndexeerd 
 tekstbestand. Dat kan een tijdje duren, maar eens zover kan zoeken 
-en/of afscheiden vrij snel gaan. 
+en/of exporteren vrij snel gaan. 
 <p>pstotext maakt gebruik van de ISO-Latin1 tekentabel. Voor meer 
 hierover, zie 
 <pre>
  http://www.research.digital.com/SRC/virtualpaper/pstotext.html
 </pre>
 <p><a href="#Orientatie">Orientatie</a> moet overeenstemmen met de orientatie in het document. 
-<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_afscheiden">Tekst afscheiden</a> kopieert tekst uit bepaalde 
+<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_exporteren">Tekst exporteren</a> kopieert tekst uit bepaalde 
 bladzijden en schrijft dit vervolgens weg naar een tekstbestand. 
 <p>Naar het prikbord kopi&#235;ren doet u middels <b>Bewerken</b> | <a href="#Prikbord">Kopi&#235;ren</a>. 
-<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_afscheiden">Zoeken</a> zoekt naar een tekst en toont de eerstvolgende 
-bladzijde op het scherm waarin zich deze tekst bevindt. <a href="#Tekst_zoeken_en_afscheiden">Zoeken</a> 
+<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_exporteren">Zoeken</a> zoekt naar een tekst en toont de eerstvolgende 
+bladzijde op het scherm waarin zich deze tekst bevindt. <a href="#Tekst_zoeken_en_exporteren">Zoeken</a> 
 behoeft dus een teksteeks en een reeks van bladzijden waarin moet 
 worden gezocht. Er wordt naar een overeenkomdt gezocht ongeacht of 
 een woord deel uitmaakt van een langer woord. Bijvoorbeeld zoeken naar 
@@ -1142,9 +1142,9 @@ die aan het begin of het eind van een woord in te zetten.
 Meerdere woorden kunnen worden gespecificeerd, bijvoorbeels <b>GSview is een</b>. 
 Wordt de zoektekst gevonden, dan wordt DE BLADZIJDEIf waarin zich deze 
 tekst bevindt op het scherm getoond. 
-<a href="#Tekst_zoeken_en_afscheiden">Zoeken</a> werkt niet bij niet-DSC documenten of DSC-documenten met 
+<a href="#Tekst_zoeken_en_exporteren">Zoeken</a> werkt niet bij niet-DSC documenten of DSC-documenten met 
 bijzondere indeling. 
-<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_afscheiden">Volgende zoeken</a> zet de zoekopdracht verder. 
+<p><b>Bewerken </b>| <a href="#Tekst_zoeken_en_exporteren">Volgende zoeken</a> zet de zoekopdracht verder. 
 <p>Voor PostScript bestanden volstaat over het algemeen 
 <a href="#Opties">Opties</a> | <a href="#PStoText">PStoText</a> | <b>Normaal</b>. 
 <p><b>Options</b> | <a href="#PStoText">PStoText</a> | <b>Dvips Cork codering</b> 
@@ -1169,14 +1169,14 @@ Eventueel wordt een kleurenpalet ingeschakeld en als zodanig toegvoegd
 aan het prikbord. Deze optie is dienstig voor sommige programma's 
 Windows Paintbrush. 
 <p>In een <a href="#PStoText">PStoText</a> document wordt een index aangemaakt van de woorden 
-indien <a href="#Tekst_zoeken_en_afscheiden">Tekst afscheiden</a> of <a href="#Tekst_zoeken_en_afscheiden">Zoeken</a> wordt ingezet. Indien dan een 
+indien <a href="#Tekst_zoeken_en_exporteren">Tekst exporteren</a> of <a href="#Tekst_zoeken_en_exporteren">Zoeken</a> wordt ingezet. Indien dan een 
 (reeks) woorden met de muis wordtgeselecteerd, dan zal 
 <b>Kopi&#235;ren</b> enkel deze woorden naar het prikbord kopi&#235;ren in plaats van 
 <pre>
  een bitmap.
 </pre>
-<p>Tekst kan enkel worden geselecteerd viard  <a href="#Tekst_zoeken_en_afscheiden">Tekst afscheiden</a> of 
-<a href="#Tekst_zoeken_en_afscheiden">Zoeken</a> NADAT <a href="#Opties">Opties</a> | <a href="#PStoText">PStoText</a> werd geactiveerd. 
+<p>Tekst kan enkel worden geselecteerd viard  <a href="#Tekst_zoeken_en_exporteren">Tekst exporteren</a> of 
+<a href="#Tekst_zoeken_en_exporteren">Zoeken</a> NADAT <a href="#Opties">Opties</a> | <a href="#PStoText">PStoText</a> werd geactiveerd. 
 <p>
 <p>
 <hr>
@@ -1222,19 +1222,19 @@ Het menu <b>Opties</b> heeft de volgende indeling:
 <a href="#Aangepaste_configuratie	">Aangepaste configuratie	</a><br>
 <a href="#Geluiden">Geluiden</a><br>
 <a href="#Eenheden">Eenheden</a><br>
-<a href="#Language">Language</a><br>
+<a href="#Taal">Taal</a><br>
 <a href="#PStoText">PStoText</a><br>
-<a href="#DSC_Warnings">DSC Warnings</a><br>
-<a href="#Save_Settings">Save Settings</a><br>
-<a href="#Safer">Safer</a><br>
-<a href="#Save_Last_Directory">Save Last Directory</a><br>
-<a href="#Button_Bar">Button Bar</a><br>
-<a href="#Fit_Window_To_Page">Fit Window To Page</a><br>
-<a href="#Auto_Redisplay">Auto Redisplay</a><br>
-<a href="#EPS_Clip">EPS Clip</a><br>
-<a href="#EPS_Warn">EPS Warn</a><br>
+<a href="#DSC_Waarschuwingen">DSC Waarschuwingen</a><br>
+<a href="#Instellingen_bewaren_bij_het_afsluiten">Instellingen bewaren bij het afsluiten</a><br>
+<a href="#Veilig">Veilig</a><br>
+<a href="#Jongste_directory_bewaren">Jongste directory bewaren</a><br>
+<a href="#Knoppenbalk">Knoppenbalk</a><br>
+<a href="#In_venster_aanpassen">In venster aanpassen</a><br>
+<a href="#Verversen">Verversen</a><br>
+<a href="#EPS_Knipsel">EPS Knipsel</a><br>
+<a href="#EPS_Waarschuwingen">EPS Waarschuwingen</a><br>
 <a href="#DSC_negeren">DSC negeren</a><br>
-<a href="#Show_Bounding_Box">Show Bounding Box</a><br>
+<a href="#Inbinden_tonen">Inbinden tonen</a><br>
 <p>
 <hr>
 <h2><a name="Eenvoudige_configuratie">Eenvoudige configuratie</a></h2>
@@ -1310,465 +1310,433 @@ ingesteld op <b>Luidspreker biep</b> en alle andere op <b>Geen</b>.
 <p>
 <hr>
 <h2><a name="Eenheden">Eenheden</a></h2>
-The <b>Units</b> option sets the units used to display the cursor location 
-on the status bar.  Available units are PostScript points (<b>pt</b> = 1/72"), 
-millimetres (<b>mm</b>) and inches (<b>in</b>). 
-The default is <b>pt</b>. 
-<p>The resolution of the units can be increased by selecting 
-<b>Units </b>| <b>Fine Resolution</b>. 
-<p>See also <b>Measure</b>. 
+<b>Eenheden</b> stelt de meeteenheden in aan de hand waarvan de positie van 
+de aanwijzer op het scherm wordtgetoond.  Keuze uit PostScript punten 
+(<b>pt</b> = 1/72"), millimeters (<b>mm</b>) of duim (<b>in</b>). 
+Standaardinstelling is <b>pt</b>. 
+<p>De resolutie kan worden verbeterd aan de hand van 
+<b>Eenheden </b>| <b>Beste resolutie</b>. 
+<p>Zie ook <b>Eenheden</b>. 
 <p>
 <p>
 <hr>
-<h2><a name="Language">Language</a></h2>
-GSview is available in English, French, German, Italian and Spanish. 
-To change the language use <b>Options</b> | <b>Language</b>. 
+<h2><a name="Taal">Taal</a></h2>
+GSview is beschikbaar in het Engels, Nederlands, Frans, Duits, 
+Italiaans en Spaans. 
+In te stellen aan de hand van <a href="#Opties">Opties</a> | <b>Taal</b>. 
 <p>
 <p>
 <hr>
 <h2><a name="PStoText">PStoText</a></h2>
-GSview has two methods of extracting and searching text. 
-<p>The <b>Quick Text Extract and Find</b> method does a simple extraction 
-of PostScript strings.  This method is easily confused. 
-This is selected by the menu item <b>PStoText</b> | <b>Disabled</b>. 
-<p>The <b>PStoText Text Extract and Find</b> method uses the external pstotext 
-tool and Ghostscript to extract words and their co-ordinates. 
-This method is more accurate, but there may be a long pause while 
-pstotext and Ghostscript do the initial processing. 
-After this, text extraction and searching should be quick. 
-There are two modes of operation.  <b>Normal</b> should be used 
-for most PostScript files.  <b>Dvips Cork Encoding</b> should be 
-used if you have a PostScript file produced by dvips 
-which uses Cork Encoding. 
-<p>The default is <b>Normal</b>. 
+GSview heeft twee manieren beschikbaar om tekst af te scheiden en te 
+zoeken. 
+<p>De <b>Snelle methode</b> zoekt enkel PostScript reeksen. Maar deze methode 
+brengt vaak verwarring. <b>PStoText</b> | <b>Uitgeschakeld</b>. 
+<p><b>PStoText tekst zoeken en exporteren</b> maakt gebruik van pstotext en 
+Ghostscript om de positie van de woorden in een document te bepalen. 
+Deze laatste methode geeft betere resultaten maar neemt veel meer tijd 
+in beslag (afhankelijk van de kracht van de processor). 
+U hebt de keus uit twee manieren: <b>Normaal</b> voor de meeste gevallen; 
+<b>Dvips Cork Encoding</b> indien een PS-bestands middels dvips (Cork 
+Encoding) werd aangemaakt. 
+<p><b>Normal</b> is de standaardinstelling. 
 <p>
 <p>
 <hr>
-<h2><a name="DSC_Warnings">DSC Warnings</a></h2>
-Some documents contain errors in the Document Structuring Conventions. 
-The level of warnings provided by GSview can be set using 
-<b>Options</b> | <b>DSC Warnings</b>. 
-If set to<b> Off</b>, GSview will assume that the DSC comments are correct. 
-<b>Errors</b> will notify you of errors in the DSC comments . 
-<b>Warnings</b> will notify you of warnings and errors in the DSC comments. 
-<b>All</b> will notify you of irregularities, warnings and errors in the 
-DSC comments.  The default is <b>Warnings</b>. 
-<p>If you ask to be notified about errors and warnings, the DSC 
-warning dialog box allows you to make the following choices: 
-<b>OK</b> tells GSview to take a guess about what was probably meant 
-(rather than what the DSC comment actually said), 
-<b>Cancel</b> tells GSview to treat the DSC as being correct, 
-<b>Ignore DSC </b> tells GSview to ignore all DSC comments. 
-<p>If <b>DSC Warnings</b> is<b> Off</b>, GSview will assume <b>Cancel</b>. 
-Documents with incorrect DSC comments will be likely to cause problems. 
+<h2><a name="DSC_Waarschuwingen">DSC Waarschuwingen</a></h2>
+Sommige documenten bevatten fouten in hun opmaakstructuur. 
+U kan instellen hoe de waarschuwingen worden weergegeven middels 
+<pre>
+ <a href="#Opties">Opties</a> | <b>DSC Waarschuwingen</b>.
+</pre>
+<p>Bij <b>Uit</b>, wordt voorhands verondersteld dat alle DSC commentaren 
+juist zijn. 
+<b>Fouten</b> zal u de fouten in de DSC commentaren laten zien. 
+<b>Waarschuwingen</b> toont de fouten en waarschuwingen. 
+<b>Alle</b> zal u alle mogelijke fouten en ongeregeldheden laten zien. 
+<pre>
+ Standaardinstelling is  <b>Waarschuwingen</b>.
+</pre>
+<p>Indien u <b>Alle</b> hebt aangemerkt zal u hetvolgende te zien krijgen 
+wanneer zich een probleem voordoet: 
+Bij <b>OK</b> zal GSview proberen de fout te herstellen. <b>Annuleren</b> doet 
+GSview DSC als goed interpreteren. <a href="#DSC_negeren">DSC negeren</a> zal alle verdere 
+DSC commentaren doen negeren. 
+<p>Bij <b>DSC Waaschuwingen</b> op<b> Uit</b> wordt alle controle voorhands uitge- 
+schakeld. Documenten met DSC fouten zullen derhalve naar alle 
+waarschijnlijkheid problemen opleveren. 
 <p>
 <p>
 <hr>
-<h2><a name="Save_Settings">Save Settings</a></h2>
-The <b>Save Settings Now</b> option saves the GSview window position, 
-window size, last used printer, last directory, 
-all items on the <b>Options</b> menu and all items on the <a href="#Page_Size">Media</a> menu 
-to the initialisation file 
-gsview32.ini in the Windows system directory (or for Windows 
-95 or NT 4 in the user profile directory if user profiles are 
-being used). 
-GSview reads this file during startup. 
-<p>When the <b>Save Settings on Exit</b> option is checked, GSview will 
-automatically save the above settings when you quit GSview. 
+<h2><a name="Instellingen_bewaren_bij_het_afsluiten">Instellingen bewaren bij het afsluiten</a></h2>
+Met <b>Instellingen nu bewaren</b> worden bewaard: vensterplaatsing, 
+venstergrootte, jongst gebruikte printer, jongst benaderde directory 
+en alle items uit de menu's <a href="#Opties">Opties</a> en  <a href="#Paginagrootte">Papierformaat</a>. Dit wordt 
+opgeslagen in 
+gsview32.ini 
+GSview leest dit bestand in bij het opstarten. 
+<p>Wanneer werd aangemerkt <b>Instellingen bewaren bij het afsluiten</b> 
+worden al deze instellingen automatisch bewaard bij het afsluiten van 
+GSview. 
 <p>
 <p>
 <hr>
-<h2><a name="Safer">Safer</a></h2>
-When the <b>Safer</b> option is <b>checked</b>, GSview will give Ghostscript 
-the <b>-dSAFER</b> flag, which disables the deletefile and renamefile operators, 
-and the ability to open files in any mode other than read-only. 
-This is the default. 
-<p>When the <b>Safer</b> option is <b>unchecked</b> Ghostscript can change 
-files. 
-<p>
-<p>
-<hr>
-<h2><a name="Save_Last_Directory">Save Last Directory</a></h2>
-When the <b>Save Last Directory</b> option is <b>checked</b>, GSview will 
-save the current directory when you quit GSview.  When GSview 
-is started next, this will be made the current directory. 
-This is the default. 
-<p>When <b>Save Last Directory</b> option is <b>unchecked</b>, the current 
-directory when GSview is started will be the current directory 
-of the program that started GSview. 
-<p>
+<h2><a name="Veilig">Veilig</a></h2>
+Wanneer de optie <b>Veilig</b> werd aangevinkt, zal het <b>-dSAFER</b> kenmerk 
+worden ingeschakeld, zodat wissen en hernoemen van bestanden 
+onmogelijk wordt, en aldus bestanden in een "alleen lezen" toestand 
+kunnen worden geopend. Dit is ook de standaardinstelling. 
+<p><p>Werd <b>Veilig</b> niet aangevinkt, dan kan Ghostscript bestanden wijzigen. 
+<p><p>
 <p>
 <hr>
-<h2><a name="Button_Bar">Button Bar</a></h2>
-When the <b>Button Bar</b> option is <b>checked</b>, GSview will display 
-a Button Bar 
-at the top 
-of the window.  This is the default. 
-The Button Bar contains the following items in order from 
-left to right: 
+<h2><a name="Jongste_directory_bewaren">Jongste directory bewaren</a></h2>
+Wanneer <b>Jongste directory bewaren</b> werd <b>aangevinkt</b>, wordt de huidige 
+directory bewaard bij het afsluiten en bij de volgende opstart als 
+huidige directory ingesteld. Dit is de standaardinstelling. Werd 
+<b>Jongste directory bewaren</b> niet aangevinkt, dan wordt de huidige 
+directory de directory van het geopende bestand. 
+<p><p>
+<p>
+<hr>
+<h2><a name="Knoppenbalk">Knoppenbalk</a></h2>
+Met <b>Knoppenbalk</b> aangemerkt wordt de knoppenbalk getoond 
+bovenaan 
+van het venster. Dit is ook de standaardinstelling. 
+De knoppenbalk bevat de volgende items in de volgorde 
+van links naar rechts: 
 
 <img src="gvwopen.gif">
-<a href="#Een_document_openen.">File</a> | <b>Open</b> 
+<b>Bestand</b> | <a href="#Een_document_openen.">Openen</a> 
 <p>
 <img src="gvwprint.gif">
-<a href="#Een_document_openen.">File</a> | <b>Print</b> 
+<b>Bestand</b> | <a href="#Afdrukken">Afdrukken</a> 
 <p>
 <img src="gvwinfo.gif">
-<a href="#Een_document_openen.">File</a> | <a href="#Over_het_document.">Info</a> 
+<b>Bestand</b> | <a href="#Over_het_document.">Info</a> 
 <p>
 <img src="gvwhelp.gif">
-<b>Help</b> | <b>Contents</b> 
+<b>Help</b> | <b>Inhoud</b> 
 <p>
 <img src="gvwgoto.gif">
-<b>View</b> | <b>Goto Page</b> 
+<a href="#Bladzijde_kiezen">Bekijken</a> | <a href="#Bladzijde_kiezen">Ga naar</a> 
 <p>
 <img src="gvwprevs.gif">
-<b>Go back 5 pages</b> 
+<b>5 bladzijden terug</b> 
 <p>
 <img src="gvwprev.gif">
-<b>View</b> | <b>Previous Page</b> 
+<a href="#Bladzijde_kiezen">Bekijken</a> | <a href="#Bladzijde_kiezen">Vorige bladzijde</a> 
 <p>
 <img src="gvwnext.gif">
-<b>View</b> | <b>Next Page</b> 
+<a href="#Bladzijde_kiezen">Bekijken</a> | <a href="#Bladzijde_kiezen">Volgende bladzijde</a> 
 <p>
 <img src="gvwnexts.gif">
-<b>Go forward 5 pages</b> 
+<b>5 bladzijden verder</b> 
 <p>
 <img src="gvwback.gif">
-<b>View</b> | <b>Go Back</b> 
+<a href="#Bladzijde_kiezen">Bekijken</a> | <b>Terug</b> 
 <p>
 <img src="gvwfwd.gif">
-<b>View</b> | <b>Go Forward</b> 
+<a href="#Bladzijde_kiezen">Bekijken</a> | <b>Verder</b> 
 <p>
 <img src="gvwmagp.gif">
-<b>Increase resolution by 1.2</b> 
+<b>Resolutie + 1.2</b> 
 <p>
 <img src="gvwmagm.gif">
-<b>Decrease resolution by 1/1.2</b> 
+<b>Resolutie - 1.2</b> 
 <p>
 <img src="gvwfind.gif">
-<b>Edit </b>| <b>Find</b> 
+<b>Bewerken </b>| <a href="#Tekst_zoeken_en_exporteren">Zoeken</a> 
 <p>
 <img src="gvwfindn.gif">
-<b>Edit </b>| <b>Find Next</b> 
-<p>If using the increase/decrease resolution buttons, <a href="#Auto_Redisplay">Auto Redisplay</a> 
-should be set.  Instead of using these buttons the 
-<b>Media </b>| <a href="#Display_Settings">Display Settings</a> command can be used. 
-When the <b>Button Bar</b> option is <b>unchecked</b>, GSview will not 
-display the Button Bar. 
-<p>
+<b>Bewerken </b>| <a href="#Tekst_zoeken_en_exporteren">Volgende zoeken</a> 
+<p>Bij het wijzigen van de resolutie dient <a href="#Verversen">Verversen</a> te worden 
+aangemerkt; i. p. v. de knoppenbalk kan ook worden aangewend 
+<b>Papierformaat </b>| <b>Schermresolutie wijzigen</b>. 
+<p><p>
 <p>
 <hr>
-<h2><a name="Fit_Window_To_Page">Fit Window To Page</a></h2>
-When the <b>Fit Window To Page</b> option is <b>checked</b>, changes to the page 
-size or orientation will cause the window size to be enlarged or 
-reduced to suit the page size. 
-Whenever the window is resized, GSview will force it to be no larger 
-than the page being displayed. 
-<p>Changes in the window size will only occur when the window is resized 
-or the page size changed; it does not happen immediately after this 
-option is changed. 
-Fit Window To Page is ignored for a maximized window. 
-<p>If <b>Fit Window To Page</b> is <b>unchecked</b>, GSview will not resize the 
-window and areas outside the page will be drawn in light grey. 
-This is useful if you do not wish the window to shrink when looking 
-at pages at low resolution.  This is the default. 
-<p>See also <b>View</b> | <b>Fit Window</b>. 
-<p>
-<p>
-<hr>
-<h2><a name="Auto_Redisplay">Auto Redisplay</a></h2>
-When the <b>Auto Redisplay</b> option is <b>checked</b>, GSview will 
-redisplay <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> documents when the <b>Orientation</b>, <a href="#Display_Settings">Resolution</a>, 
-<a href="#Display_Settings">Depth</a> or <a href="#Page_Size">Media</a> are changed. 
+<h2><a name="In_venster_aanpassen">In venster aanpassen</a></h2>
+Met <b>In venster aanpassen</b> wordt het venster vergroot of verkleind 
+al naargelang de afmetingen van de bladzijde. 
+Het venster zal NOOIT groter worden dan het de bladzijde die wordt 
+getoond. 
+<p>Het venster wordt enkel aangepast bij wijziging van het venster en/of 
+pagina afmetingen. 
+<b>In venster aanpassen</b> werkt niet bij een volledig scherm. 
+<p>Is <b>In venster aanpassen</b> niet actief, dan wordt het venster niet 
+aangepast en wordt de ruimte buiten de bladzijde in lichtgrijs 
+getoond. Vooral nuttig bij het bekijken van documenten opgesteld 
+in een lage resolutie (beletten dat het venster wordt verkleind). 
 This is the default. 
-<p>For <b>non-DSC documents</b>, if <b>Auto Redisplay</b> is <b>checked</b>, 
-GSview will <b>restart at the first page</b>. 
-<p>If <b>Auto Redisplay</b> is <b>unchecked</b>, the <b>View</b> | <b>Redisplay</b> command 
-must be used to redisplay a document after changing the 
-<b>Orientation</b>, <a href="#Display_Settings">Resolution</a>, <a href="#Display_Settings">Depth</a> or <a href="#Page_Size">Media</a>. 
+<p>Zie ook <a href="#Bladzijde_kiezen">Bekijken</a> | <b>In venster aanpassen</b>. 
 <p>
 <p>
 <hr>
-<h2><a name="EPS_Clip">EPS Clip</a></h2>
-When the <b>EPS Clip</b> option is <b>checked</b>, GSview will clip the 
-display bitmap to the bounding box of an EPS file instead of using the 
-page size specified on the <a href="#Page_Size">Media</a> menu.  This is useful when 
-adding a bitmap preview to an EPS file. 
-If a PDF file is being displayed, <b>EPS Clip</b> will cause the 
-display to be clipped to the PDF crop box. 
-<p>If <b>EPS Clip</b> is <b>unchecked</b>, GSview will use the page size 
-specified on the <a href="#Page_Size">Media</a> menu for EPS files.  This is the default. 
-<p><b>EPS Clip</b> does not alter the original document, it only affects 
-how much of the document is displayed by GSview. 
-It does not affect printing. 
-<p>See also <b>Edit </b>| <b>Add EPS Preview</b> 
+<h2><a name="Verversen">Verversen</a></h2>
+Met <b>Auto Verversen</b> actief wordt bij <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> documenten het scherm ververst 
+wanneer de <a href="#Orientatie">Orientatie</a>, de <b>Resolutie</b>, of het <a href="#Paginagrootte">Papierformaat</a> 
+worden gewijzigd. Dit is de standaardinstelling. 
+<p>Bij <b>niet-DSC documenten</b>, wordt met <b>Auto Verversen</b> actief de eerste 
+bladzijde opnieuw getoond. 
+<p>Is <b>Auto Verversen</b> niet actief, dan moet via <a href="#Bladzijde_kiezen">Bekijken</a> | <b>Verversen</b> 
+het document worden hertoond bij elke wijziging van de <a href="#Orientatie">Orientatie</a>, 
+<b>Resolutie</b> etc... 
+<p><p>
+<p>
+<hr>
+<h2><a name="EPS_Knipsel">EPS Knipsel</a></h2>
+Met <b>EPS Knipsel</b> actief wordt de bitmap op het scherm ingebonden 
+naar een EPS bestand gestuurd i. p. v. dat het 
+<a href="#Paginagrootte">Papierformaat</a> wordt gebruikt. Nuttig voor wanneer een afdruk- 
+voorbeeld bij het EPS bestand moet worden toegevoegd. 
+<p>Is <b>EPS Knipsel</b> niet actief, dan worden de instellingen uit het menu 
+<a href="#Paginagrootte">Papierformaat</a> gebruikt. Dit is de standaardinstelling. 
+<p><b>EPS Knipsel</b> wijzigt niets aan het originele document, deze optie 
+heeft enkel invloed op de manier waarop het document wordt getoond. 
+Ook het afdrukken wordt hierdoor niet beinvloed . 
+<p>Zie ook <b>Bewerken </b>| <b>EPS voorbeeld toevoegen </b> 
 <p>
 <p>
 <hr>
-<h2><a name="EPS_Warn">EPS Warn</a></h2>
-When the <b>EPS Warn</b> option is <b>checked</b>, GSview will write a 
-prolog to Ghostscript when each file is opened.  This prolog will 
-produce warning messages in the <b>File </b>| <a href="#Show_Messages">Show Messages</a> 
-window if any PostScript operators that should not be used in <a href="#DSC:_Afspraken_over_de_structuur">EPS</a> 
-files are used.  An example warning message is: 
+<h2><a name="EPS_Waarschuwingen">EPS Waarschuwingen</a></h2>
+Wanneer <b>EPS Waarschuwingen</b> actief is, wordt door  GSview een 
+voorvoegsel naar Ghostscript gestuurd bij het openen van een bestand. 
+Dit voorvoegsel genereert waarschuwingen naar het kader 
+<b>Bestand </b>| <a href="#Berichten_tonen">Berichten tonen</a> bij oneigenlijk gebruik van PostScript 
+parameters.  Enige voorbeelden hiervan: 
 <pre>
  Warning: EPS files must not use /initgraphics
 </pre>
 <p><b>EPS Warn</b> is not infallible.  It is possible to access restricted 
 operators without <b>EPS Warn</b> producing a warning. 
-If you do get a warning, do NOT used <b>PS to EPS</b>. 
-<p>The default for <b>EPS Warn</b> is <b>unchecked</b>. 
-<p>See also <b>PS to EPS</b>. 
+Krijgt u zo'n waarschuwing, maak dan GEEN GEBRUIK van <a href="#PS_naar_EPS">PS naar EPS</a>. 
+<p>Standaard is de optie <b>EPS Waarschuwingen</b> niet actief. 
+<p>Zie ook <a href="#PS_naar_EPS">PS naar EPS</a>. 
 <p>
 <p>
 <hr>
 <h2><a name="DSC_negeren">DSC negeren</a></h2>
-Some documents incorrectly claim to conform to the Adobe Document 
-Structuring Conventions.  Attempting to display one of these bogus 
-documents will probably leave GSview horribly confused and unable 
-to display the document.  If <b>Ignore DSC</b> is <b>checked</b>, GSview 
-will treat the document as if it does not contain DSC comments 
-and will only display the pages in the original order. 
-<p>The default for <b>Ignore DSC</b> is <b>unchecked</b>. 
-<p>
+Het kan zijn dat een bestand ten onrechte aangeeft overeen te stemmen 
+met de PDF structuur. Wordt geprobeerd een dergelijk bestand te openen 
+dan zal GSview dat waarschijnlijk niet aankunnen. Is <b>DSC negeren</b> 
+actief dan veronderstelt GSview dat het document geen DSC commentaar 
+bevat en worden de bladzijden in de originele volgorde getoond. 
+<p>Standaard is <b>DSC negeren</b> niet actief. 
+<p><p>
 <p>
 <hr>
-<h2><a name="Show_Bounding_Box">Show Bounding Box</a></h2>
-Selecting this option causes a dashed rectangle to drawn over 
-the image, showing the location of the bounding box. 
-This bounding box is only drawn on the display, and does not 
-affect printer output. 
-The bounding box will only be shown for <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> documents (non 
-conforming documents don't have a bounding box). 
-<p>The default for <b>Show Bounding Box</b> is <b>unchecked</b>. 
+<h2><a name="Inbinden_tonen">Inbinden tonen</a></h2>
+Hiermede wordt een gestippelde rechthoek over het beeld getrokken om 
+de plaatsing en omschrijving van het "inbinden" te tonen. 
+Dit wordt dus enkel over het beeld getrokken, en heeft geen invloed op 
+het afdrukken. 
+Het "inbinden" wordt enkel getoond bij <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> documenten (niet DSC 
+documenten worden niet ingebonden). 
+<p>Standaard is <b>Inbinden tonen</b> niet actief. 
 <p>
 <p>
 <hr>
 <h1><a name="Orientatie">Orientatie</a></h1>
-The <b>Portrait</b>, <b>Landscape</b>, <b>Upside-down</b> and <b>Seascape</b> 
-(reverse Landscape) commands on the <b>Orientation </b>Menu select 
-the page orientation used by the display. 
-<b>Landscape</b> implies a clockwise rotation of the paper by 90 degrees. 
-<b>Seascape</b> implies an anti-clockwise rotation of the paper by 90 degrees. 
-These orientation options only affect the display and do not affect 
-the print commands. 
-<p>If the <b>Auto</b> command on the orientation menu is checked and 
-a <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> page orientation comment is found (%%Orientation or 
-%%PageOrientation), the orientation will be selected automatically. 
-<p>When the <b>Swap Landscape</b> option is <b>checked</b>, GSview swaps the 
-meaning of Landscape and Seascape. 
-Most of the Landscape documents that I have encountered require a 90 
-clockwise rotation of the paper to view. 
-However, there is no standard and some documents need to be rotated 
-the other way. 
-The <b>Swap Landscape</b> button allows GSview to automatically rotate the 
-document the right way in response to the <b>%%Orientation</b> comment in the 
-PostScript file. 
-<p>See also <a href="#Page_Size">Page Size</a> and <a href="#Display_Settings">Display Settings</a>. 
-<p>
+<b>Staand</b>, <b>Liggend</b>, <b>Onderste boven</b> en <b>90 graden naar links</b> 
+uit het menu <b>Orientatie</b> hebben enkel invloed op de manier waarop 
+het document op het scherm wordt getoond, en deze opties hebben geen 
+enkele invloed op het afdrukken. 
+<b>Liggend</b> draait het document 90 graden in wijzerzin. 
+<b>90 graden naar links</b> draait het document 90 graden in tegenwijzerzin. 
+<p><p>Werd <b>Automatisch</b> aangevinkt, dan wordt de orientatie automatisch 
+ingesteld aan de hand van <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> commentaar zo deze beschikbaar is. 
+<p>Met <b>Liggende positie omdraaien</b> wordt gewisseld tussen <b>Liggend</b> en 
+<b>90 graden naar links</b>. 
+De meeste documenten doen het met <b>Liggend</b>, maar het kan gebeuren dat 
+sommige documenten in tegenwijzerzin werden moeten worden gedraaid. 
+<p><p>Zie ook <a href="#Paginagrootte">Papierformaat</a> en <b>Schermresolutie wijzigen</b>. 
+<p><p>
 <p>
 <hr>
-<h1><a name="Display_Settings">Display Settings</a></h1>
-Some settings for display only can be set with <a href="#Page_Size">Media</a> | <b>Display Settings</b>. 
-<p>The <b>Resolution</b> field sets the display resolution in dots per inch. 
-The default for a VGA display is 96 dots per inch. 
-This can also be changed by the resolution changing buttons on 
-the button bar. 
-<p>For DSC conforming files, pressing the right mouse button will 
-<a href="#Zoom">Zoom</a> into the page at what is usually printer resolution. 
-Pressing the right mouse button a second time will zoom back out to 
-normal display resolution. 
-The <b>Zoom Resolution</b> field sets the zoom resolution in dots per inch. 
-<p>The <b>Depth</b> field sets the page bitmap depth in bits per pixels 
-for the display. 
-Default will select the highest depth supported by your display 
-driver.  In general, you shouldn't set this higher than your 
-actual display depth because doing so will use extra memory 
-for the page bitmap but won't improve the display. 
-<p>The <b>Text Alpha</b> field sets anti-aliasing for fonts.  The default 
-(use anti-aliasing) is 4 bits.  To disable anti-aliasing of fonts, 
-use 1 bit. 
-<p><b>IMPORTANT</b>: If you use <b>Text Alpha</b>, GSview will disable 
-<b>Platform Fonts</b> by doing the equivalent of adding 
-<pre>
-  -dNOPLATFONTS
-</pre>
-<p>to the <b>Options </b>| <b>Advanced Configure</b> Ghostscript Options field. 
-<p>The <b>Graphics Alpha</b> field sets anti-aliasing for graphics and 
-also for text that is too large to fit in the font cache. 
-<p>Using anti-aliasing slows down drawing. 
-Text and Graphics Alpha can only be used if your display depth is 
-set to 8bits/pixel or higher. 
+<h1><a name="Schermresolutie">Schermresolutie</a></h1>
+Sommige beeldinstellingen kunnen worden aangepast via 
+<a href="#Paginagrootte">Papierformaat</a> | <b>Schermresolutie</b>. 
+<p>Het veld <b>Resolutie</b> stelt de resolutie in in dpi. Dat is standaard 
+96 dpi voor VGA. 
+<p>Bij DSC conforme bestanden zal een klik op de rechtermuisknop in- of 
+uitzoomen naar de exacte printerresolutie. Een tweede klik op de 
+rechtermuisknop stelt opnieuw de schermresolutie in. 
+<p><b>Zoom Resolutie</b> stelt de zoomresolutie in per dpi. 
+<p><b>Diepte</b> stelt de bitmapresolutie diepte in bits per pixels 
+in op het scherm. 
+"Standaard" stelt in op de beste diepte overeenstemmend met de video 
+drijvers in het geheugen. Het is sterk aangeraden het bij deze 
+standaardinstelling te houden. 
+<p><b>Tekst Alpha</b> stelt anti-aliasing in voor fonts.  Standaard is dat 
+is 4 bits.  Om anti-aliasing uit te schakelen, stel in op 1 bit. 
+<p><b>BELANGRIJK</b>: Met <b>Text Alpha</b> wordt <b>Platform Fonts</b> uitgeschakeld. 
+<p><p><b>Graphics Alpha</b> stelt anti-aliasing in voor prentjes en ook voor 
+tekst die te groot is m in de fontcache te passen. 
+<p>Anti-aliasing vertraagt wel sterk het systeem. 
+U kan Tekst en Graphics Alpha enkel aanwenden wanneer de schermdiepte 
+ingesteld werd op 8bits/pixel of beter. 
 <p>
 <a href="#Zoom">Zoom</a><br>
 <p>
 <hr>
 <h2><a name="Zoom">Zoom</a></h2>
-To enlarge a displayed feature, position the cross-hair mouse pointer 
-over the feature then press the right mouse button. 
-The window will swap from normal display resolution to zoom 
-resolution and the status line will have the word <b>Zoomed</b> appended to it. 
-The zoomed feature will be in the centre of the window. 
-To cancel <b>Zoom</b>, press the right mouse button again or select 
-any command that redraws the page (e.g. <b>Redisplay</b>, <b>Next Page</b>). 
-By default the zoom resolution is 300 dots per inch but this can 
-be changed with <a href="#Page_Size">Media</a> | <a href="#Display_Settings">Display Settings</a> dialog box. 
-<p><b>Zoom</b> will only work for <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> conforming documents. 
-<p>To enlarge or shrink the entire page, use the <a href="#Display_Settings">Resolution</a> 
-on the <a href="#Page_Size">Media</a> | <a href="#Display_Settings">Display Settings</a> dialog box, use the magnifying 
-glass toolbar buttons. 
-<p>
+Om in te zoemen dient u de muisaanwijzer op de gewenste plaats te 
+zetten en op de rechtermuisknop te duwen. 
+Om het zoomen te annuleren, opnieuw op de rechtermuisknop duwen. 
+Standaard is de zoomresolutie 300 dpi maar dit kan worden aangepast 
+via <a href="#Paginagrootte">Papierformaat</a> | <a href="#Schermresolutie">Schermresolutie</a>. 
+<p><b>Zoom</b> werkt enkel met  <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> conforme documenten. 
+<p>Om de hele bladzijde te vergroten of te verkleinen, gebruik 
+<b>Resolutie</b> uit de menuoptie <a href="#Paginagrootte">Papierformaat</a> | <a href="#Schermresolutie">Schermresolutie</a>. 
+<p><p>
 <p>
 <hr>
-<h1><a name="Page_Size">Page Size</a></h1>
-The <b>Media</b> menu also allows selection of page size. 
-Available page sizes are: 
+<h1><a name="Paginagrootte">Paginagrootte</a></h1>
+Middels <b>Papierformaat</b> kan u de paginagrootte instellen. 
+Beschikbaar zijn: 
 <pre>
- 11x17          11   x 17   inch
+ 11x17          11   x 17   duim (inch)
  A3              297 x 420  mm
  A4              210 x 297  mm
  A5              148 x 210  mm
  B4              257 x 364  mm
  B5              182 x 257  mm
- Ledger         17   x 11   inch
- Letter          8.5 x 11   inch
- Legal           8.5 x 14   inch
- Note            8.5 x 11   inch
+ Ledger         17   x 11   duim (inch)
+ Letter          8.5 x 11   duim (inch)
+ Legal           8.5 x 14   duim (inch)
+ Note            8.5 x 11   duim (inch)
 </pre>
-<p>A user defined size can be specified in PostScript points (1/72 inch) 
-with the <b>User Defined</b> command.  A size of 480x360 points at 96 dpi 
-will give an image size of 640x480 pixels. 
-<p>If a <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> media comment is found, such as 
+<p>Middels <b>Door de gebruiker ingesteld</b> kan een eigen grootte in 
+PostScript punten (1/72 duim) worden gecreeerd. 480x360 punten bij 
+een resolutie van 96 dpi geeft een beeldgrootte 640x480 pixels. 
+<p>Is <a href="#DSC:_Afspraken_over_de_structuur">DSC</a> commentaar beschikbaar, zoals bijvoorbeeld 
 <pre>
  %%DocumentPaperSizes: a4
  %%DocumentMedia: a4 595 842 80 white ( )
 </pre>
-<p>the page type will be selected automatically. 
-If the media specification is not one of the above page types, 
-the <b>User Defined</b> size will be set. 
-<p>If <b>Rotate Media</b> is checked, the width and height of the page 
-are exchanged.  The image drawn on the page is not rotated. 
-This affects both display and printing. 
-Selecting <b>A4</b> and <b>Rotate Media</b> is equivalent to selecting 
-<b>User Defined</b> with a size of 842 x 595 pt. 
-It is more common to use the settings on the <b>Orientation</b> menu 
-than <b>Rotate Media</b>. 
+<p>dan wordt het papierformaat automatisch ingesteld. 
+Zijn er geen gegevens in het document beschikbaar, dan wordt het for- 
+maat aangenomen dat werd gecreeerd in <b>Door de gebruiker ingesteld</b>. 
+<p><p>Is <b>Papier omdraaien</b> aangevinkt, dan worden hoogte en breedte omge- 
+wisseld. Dit geldt zowel voor het beeld op scherm als voor het 
+afdrukken. 
+<b>A4</b> met <b>Papier omdraaien</b> komt gelijk overeen met 
+<b>Door de gebruiker ingesteld</b> op 842 x 595 pt. 
+Het is meer aangewezen om van de mogelijkheden <a href="#Orientatie">Orientatie</a> gebruik te 
+maken dan van <b>Papier omdraaien</b>. 
 <p>
 <p>
 <hr>
-<h1><a name="Keys">Keys</a></h1>
-Following are the key assignments for GSview. 
-<p><b>O</b>, <b>o</b>  Open and display a file.  (<a href="#Een_document_openen.">File</a> | <b>Open</b>) 
-<p><b>C</b>, <b>c</b>  Close file.  (<a href="#Een_document_openen.">File</a> | <a href="#Een_document_openen.">Close</a>) 
-<p><b>N</b>, <b>n</b>, <b>+</b>  Next Page.  (<b>View</b> | <b>Next Page</b>) 
-<p>Space     Next Page and Home.  (<b>View</b> | <b>Next Page and Home</b>) 
-<p><b>V</b>, <b>v</b>, <b>-</b>  Previous Page.  (<b>View</b> | <b>Previous Page</b>) 
-<p>BackSpace  Previous Page and Home.  (<b>View</b> | <b>Previous Page and Home</b>) 
-<p><b>G</b>, <b>g</b>  Goto Page.  (<b>View</b> | <b>Goto Page</b>) 
-<p><b>I</b>, <b>i</b>  File information.  (<a href="#Een_document_openen.">File</a> | <a href="#Over_het_document.">Info</a>) 
-<p><b>R</b>, <b>r</b>, <b>F5</b>  Redisplay page.  (<b>View</b> | <b>Redisplay</b>) 
-<p><b>S</b>, <b>s</b>  Select file: open but don't display.  (<a href="#Een_document_openen.">File</a> | <a href="#Een_document_openen.">Select File</a>) 
-<p><b>A</b>, <b>a</b>  Save As. (<a href="#Een_document_openen.">File</a> | <b>Save As</b>) 
-<p><b>P</b>, <b>p</b>  Print all or some pages to a printer.  (<a href="#Een_document_openen.">File</a> | <b>Print</b>) 
-<p><b>F</b>, <b>f</b>  Convert all or some pages to a PDF or bitmap File. 
-(<a href="#Een_document_openen.">File</a> | <b>Convert</b>). 
-<p><b>E</b>, <b>e</b>  Extract some pages to another File.  (<a href="#Een_document_openen.">File</a> | <b>Extract</b>) 
-<p><b>M</b>, <b>m</b>  Show Ghostscript Messages.  (<a href="#Een_document_openen.">File</a> | <a href="#Show_Messages">Show Messages</a>) 
-<p><b>&lt;</b> Decrease resolution by 1/1.2 
-<p><b>&gt;</b> Increase resolution by 1.2 
-<p><b>F1</b>  Help.  (<b>Help</b> | <b>Contents</b>) 
-<p><b>Ctrl+C</b>, <b>Ctrl+Insert</b>  Copy displayed bitmap to clipboard.  (<b>Edit</b> | <b>Copy</b>) 
-<p><b>Ctrl+F</b>, Find Text. (<b>Edit</b> | <b>Find</b>) 
-<p><b>F3</b>, Find Next. (<b>Edit</b> | <b>Find Next</b>) 
-<p><b>F4</b>  Full Screen.  (<b>View</b> | <b>Full Screen</b>) 
-<p><b>F6</b>  Fit Window.  (<b>View</b> | <b>Fit Window</b>) 
-<p><b>Arrow Keys</b>  Scroll by 1/16 of a screen. 
-<p><b>Ctrl + Arrow Keys</b>  Scroll by one screen. 
-<p><b>Page Up</b>  Scroll up one screen (window height). 
-<p><b>Page Down</b>  Scroll down one screen. 
-<p><b>Home</b>  Scroll to top of page. 
-<p><b>End</b>  Scroll to bottom of page. 
+<h1><a name="Toetsen">Toetsen</a></h1>
+Sneltoetsen. 
+<p><b>O</b>, <b>o</b>  Bestand openen.  (<b>Bestand</b> | <a href="#Een_document_openen.">Openen</a>) 
+<p><b>S</b>, <b>s</b>  Bestand sluiten.  (<b>Bestand</b> | <b>sluiten</b>) 
+<p><b>V</b>, <b>v</b>, <b>+</b>  Volgende bladzijde.  (<a href="#Bladzijde_kiezen">Bekijken</a> | <a href="#Bladzijde_kiezen">Volgende bladzijde</a>) 
+<p>Spatiebalk     Volgende bladzijde bovenaan.  (<a href="#Bladzijde_kiezen">Bekijken</a> | <b>Volgende bladzijde bovenaan</b>) 
+<p><b>Z</b>, <b>z</b>, <b>-</b>  Vorige bladzijde.  (<a href="#Bladzijde_kiezen">Bekijken</a> | <a href="#Bladzijde_kiezen">Vorige bladzijde</a>) 
+<p>BackSpace  Vorige blz en bovenaan. 
+		(<a href="#Bladzijde_kiezen">Bekijken</a> | <b>Vorige bladzijde en bovenaan</b>) 
+<p><b>G</b>, <b>g</b>  Ga naar bladzijde.  (<a href="#Bladzijde_kiezen">Bekijken</a> | <b>Ga naar bladzijde</b>) 
+<p><b>I</b>, <b>i</b>  Gegevens over het bestand.  (<b>Bestand</b> | <a href="#Over_het_document.">Info</a>) 
+<p><b>R</b>, <b>r</b>, <b>F5</b>  Opnieuw tonen.  (<b>Bestand</b> | <a href="#Bladzijde_kiezen">Opnieuw tonen</a>) 
+<p><b>B</b>, <b>b</b>  Bestand kiezen: openen maar niet tonen.  (<b>Bestand</b> | <b>Bestand selecteren</b>) 
+<p><b>A</b>, <b>a</b>  Opslaan als. (<b>Bestand</b> | <a href="#Een_document_openen.">Opslaan als</a>) 
+<p><b>D</b>, <b>d</b>  Geheel of gedeeltelijk afdrukken.  (<b>Bestand</b> | <a href="#Afdrukken">Afdrukken</a>) 
+<p><b>Z</b>, <b>z</b>  Geheel of gedeeltelijk naar PDF of bitmap omzetten. 
+(<b>Bestand</b> | <a href="#Omzetten">Omzetten</a>). 
+<p><b>X</b>, <b>x</b>  Bepaalde bladzijden naar een ander bestand exporteren. 
+	  (<b>Bestand</b> | <a href="#Exporteren">Exporteren</a>) 
+<p><b>T</b>, <b>t</b>  Ghostscript berichten tonen.  (<b>Bestand</b> | <a href="#Berichten_tonen">Berichten tonen</a>) 
+<p><b>&lt;</b>  Resolutie verminderen met 1/1.2 
+<p><b>&gt;</b> Resolutie vermeerderen met 1.2 
+<p><b>F1</b>  Hulp.  (<b>Hulp</b> | <b>Inhoud</b>) 
+<p><b>Ctrl+C</b>, <b>Ctrl+Insert</b>  Kopieer bitmap op het scherm naar het prikbord. 
+	 (<b>Bewerken</b> | <b>kopi&#217;ren</b>) 
+<p><b>Ctrl+F</b>, Zoeken naar. (<b>Bewerken</b> | <a href="#Tekst_zoeken_en_exporteren">Zoeken</a>) 
+<p><b>F3</b>, Volgende zoeken. (<b>Bewerken</b> | <a href="#Tekst_zoeken_en_exporteren">Volgende zoeken</a>) 
+<p><b>F4</b>  Volledig scherm.  (<a href="#Bladzijde_kiezen">Bekijken</a> | <a href="#Bladzijde_kiezen">Volledig scherm</a>) 
+<p><b>F6</b>  In venster aanpassen. (<a href="#Bladzijde_kiezen">Bekijken</a> | <a href="#In_venster_aanpassen">In venster aanpassen</a>) 
+<p><b>Pijltoetsen</b>  Scrollen met 1/16 gedeelte van het scherm. 
+<p><b>Ctrl + pijltoetsen</b>  Per volledig scherm omhoog of omlaag. 
+<p><b>Page Up</b>  Scrollen een scherm naar boven. 
+<p><b>Page Down</b>  Scrollen een scherm naar beneden. 
+<p><b>Home</b> Scrollen naar bovenaan de bladzijde . 
+<p><b>End</b>  Scrollen naar onderaan de bladzijde. 
 <p>
 <p>
 <hr>
-<h1><a name="Command_line_options">Command line options</a></h1>
-Usage: 
+<h1><a name="Aan_de_opdrachtregel">Aan de opdrachtregel</a></h1>
+Opdrachtregel en parameters: 
 <pre>
- gsview32 [/D] [/Tn] filename
- gsview32 [/D] [/Tn] /F filename
- gsview32 [/D] [/Tn] /P filename
- gsview32 [/D] [/Tn] /S[port] filename
- gsview32 [/D] [/Tn] /S["queue"] filename
+ gsview32 [/D] [/Tn] bestandsnaam
+ gsview32 [/D] [/Tn] /F bestandsnaam
+ gsview32 [/D] [/Tn] /P bestandsnaam
+ gsview32 [/D] [/Tn] /S[port] bestandsnaam
+ gsview32 [/D] [/Tn] /S["queue"] bestandsnaam
 </pre>
-<p>To start GSview and display filename.ps use: 
-<pre>
- gsview32 filename.ps
+<p><pre>
+ GSview opstarten met een bepaald bestand (vb: test.ps):
+ gsview32 test.ps
 </pre>
-<p>To start GSview and print filename.ps using Ghostscript. 
-This is similar to <a href="#Een_document_openen.">File</a> | <b>Print</b>, except that 
-you will not be prompted for a printer (it will use 
-the printer most recently used by GSview) and GSview 
-will exit after printing has finished. 
+<p>GSview opstarten en test.ps (bijvoorbeeld) afdrukken - 
+(Dit komt vrijwel overeen met <b>Bestand</b> | <a href="#Afdrukken">Afdrukken</a>, met dit 
+verschil dat u niet wordt gevraagd welke printer moet worden 
+aangewend. De jongst geselecteerde printer zal worden aangesproken 
+en na deze taak zal GSview zichzelf uit het geheugen laden). 
 <pre>
- gsview32 /P filename.ps
+ gsview32 /P test.ps
 </pre>
-<p>To start GSview and convert a PostScript file (not PDF) filename.ps 
-to a file using Ghostscript 
-(<a href="#Een_document_openen.">File</a> | <b>Convert</b>) use: 
+<p>GSview starten en een bestand (vb: test.ps) omzetten naar PostScript 
+(niet PDF!) - evenwaardig met (<b>Bestand</b> | <a href="#Omzetten">Omzetten</a>): 
 <pre>
- gsview32 /F filename.ps
+ gsview32 /F test.ps
 </pre>
-<p>To start GSview and spool filename.ps for printing directly to 
-a printer (<a href="#Een_document_openen.">File</a> | <b>Print File</b>) use: 
+<p>Bestand (test.ps) rechtstreeks naar een printer sturen 
 <pre>
- gsview32 /S filename.ps
+  gsview32 /S filename.ps
+ Bestand (test.ps) rechtstreeks naar een printer sturen op LPT3:
+  gsview32 /SLPT3: filename.ps
 </pre>
-<p>To start GSview and spool filename.ps for printing directly to 
-printer port LPT3: use: 
+<p>Bestand (test.ps) rechtstreeks naar een "HP DeskJet Portable" sturen: 
 <pre>
- gsview32 /SLPT3: filename.ps
+ gsview32 "/SHP DeskJet Portable" test.ps
 </pre>
-<p>To start GSview and spool filename.ps for printing directly to 
-printer queue "HP DeskJet Portable" use: 
-<pre>
- gsview32 /S"HP DeskJet Portable" filename.ps
-</pre>
-<p>GSview will exit when the file has been spooled. 
-<p>To start GSview in debug mode use: 
-<pre>
+<p>Na de taal zal GSview zichzelf uit het geheugen laden. 
+<p><pre>
+ GSview opstarten in debug modus:
  gsview32 /D
 </pre>
-<p>In debug mode GSview will <b>not</b> remove its temporary files. 
-This is to allow inspection of these files after GSview has finished. 
-Debug mode also produces more verbose output for <b>File </b>| <a href="#Show_Messages">Show Messages</a>. 
-To write debugging output to 
+<p>In debug modus zal  GSview zijn tijdelijk aangemaakte bestanden niet 
+automatisch verwijderen. 
+De debug modus stuurt ook meer gegevens naar <b>Bestanden </b>| <a href="#Berichten_tonen">Berichten tonen</a>. 
+De gegevens worden weggeschreven naar 
 c:\gsview.txt 
 use -d9 
-<p>GSview by default runs 
-multi-threaded under Windows 95 and Windows NT, and single-threaded under 
+<p>GSview is standaard 
+multi-threaded onder Windows 95 en Windows NT, en single-threaded onder 
 Windows 3.1 / Win32s. 
-To change this, use <b>/T</b> to toggle the threading mode, use <b>/T0</b> to select 
-single-thread mode and <b>/T1</b> to select multi-thread mode. 
-<p>Instead of opening up a second copy of GSview, you can tell 
-GSview to open a file in an existing GSview, or if GSview 
-is not already running, in a new window using: 
+Om dit te veranderen, gebruik <b>/T</b> om van threading modus te wisselen, 
+of gebruik  <b>/T0</b> voor de single-thread modus en <b>/T1</b> voor de 
+multi-thread modus. 
+<p>Om een bestand in een bestaand venster van GSview te openen (of GSview 
+openen in een nieuw venster): 
 <pre>
- gsview32 /E filename
+ gsview32 /E bestandsnaam
 </pre>
-<p>To tell an existing GSview to exit: 
+<p>E&#233;n instantie van GSview uit het geheugen halen: 
 <pre>
  gsview32 /X
 </pre>
-<p>GSview ignores the case of options: 
-/p is the same as /P. 
+<p>GSview maakt geen onderscheid tussen hoofd- en kleine letters: 
+/p is hetzelfde als /P. 
 <p>
-<a href="#Dynamic_Data_Exchange">Dynamic Data Exchange</a><br>
+<a href="#Dynamische_gegevensuitwisseling_(DDE)">Dynamische gegevensuitwisseling (DDE)</a><br>
 <p>
 <hr>
-<h2><a name="Dynamic_Data_Exchange">Dynamic Data Exchange</a></h2>
-GSview implements a DDE server, service="GSview and topic="GSview". 
-The XTYP_EXECUTE commands that are recognised are: 
+<h2><a name="Dynamische_gegevensuitwisseling_(DDE)">Dynamische gegevensuitwisseling (DDE)</a></h2>
+GSview heeft DDE ge&#239;mplementeerd, service="GSview" en onderwerp="GSview". 
+Volgende XTYP_EXECUTE opdrachten kunnen worden gebruikt: 
 <pre>
  [FileOpen("filename")]
  [FileExit()]
@@ -1777,50 +1745,49 @@ The XTYP_EXECUTE commands that are recognised are:
  [GoBack()]
  [GotoPage(5)]
  [ShowWindow(nCmdShow)]
- [Minimise()]
- [Maximise()]
  [Command("command line")]
 </pre>
-<p>The [Command()] command only understands "filename" or "/P filename". 
-<p>Don't sent multiple commands together.  GSview won't complain, 
-but the multithreaded asynchrononous execution within GSview 
-means that the first command won't have been completed before 
-the second command is received.  If you need to send multiple 
-commands, send them separately with pauses inbetween. 
-<p>There are two command line options to cause GSview to send a DDE 
-command to another copy of GSview. 
-The /E command line option uses [Command("command line")][ShowWindow(1)]. 
-The /X command line option uses [FileExit()]. 
+<p>De [Command()] opdracht aanvaard enkel "filename" of "/P filename". 
+<p>Schakel geen meervoudige opdrachten aan elkaar. Er zijn niet direct 
+problemen te verwachten, maar het is vrij zinloos daar GSview reeds 
+volgende opdrachten uitvoert vooraleer een vorige werd be&#217;indigd. 
+Heeft u meervoudige opdrachtenreeksen nodig, schakel dan een pause 
+in tussendoor . 
+<p>Middels volgende twee opdrachten kan een DDE instructie van een 
+GSview *.exe bestand naar een ander GSview *.exe bestand worden 
+gezonden: 
+De /E opdracht gebruikt [Command("command line")][ShowWindow(1)]. 
+D /X opdracht gebruikt [FileExit()]. 
 <p>
 <p>
 <hr>
 <h1><a name="World_Wide_Web">World Wide Web</a></h1>
-The World Wide Web home page for Ghostscript, Ghostview and GSview 
-is at 
-<pre>
+De WWW thuislocatie van Ghostscript, Ghostview en GSview is: 
+<p><pre>
  http://www.cs.wisc.edu/~ghost/
 </pre>
-<p>GSview can be registered on-line at 
+<p>GSview kan online worden geregistreerd op de onderstaande locatie: 
 <pre>
  http://www.ghostgum.com.au/
 </pre>
-<p>GSview can be used as a PostScript file viewer for several OS/2 
-and MS-Windows Web browsers.  See the GSview home page for details. 
-<p>Thomas Merz has written a Ghostscript manual, which is available 
-in <a href="#Portable_Document_Format">PDF</a> from the above WWW site.  This manual is an extract from a 
-book written by Thomas Merz titled <b>PostScript and Acrobat/PDF</b>, 
-available in English and German. 
+<p>GSview kan ook worden aangewend om *.htm* bronbestanden te bekijken. 
+Meer hierover op de GSview thuishaven (home page). 
+<p>U kan van de GSview WWW locatie een Ghostscript handleiding afhalen 
+die werd samengesteld door Thomas Merz. Deze handleiding bevat 
+uittreksels uit het boek <b>PostScript and Acrobat/PDF</b> van dezelfde 
+autheur (verkrijgbaar in het Duits en Engels). 
 <p>
 <p>
 <hr>
 <h1><a name="Copyright">Copyright</a></h1>
-The <b>About</b> menu item shows the GSview copyright message 
-and GSview version number. 
+Onder de menuoptie <b>Hulp --&gt; Over GSview</b> bevindt zich het GSview 
+versienummer en het copyright bericht. 
 <p><pre>
- GSVIEW.EXE - A Ghostscript graphical interface
- Copyright (C) 1993-2001, Ghostgum Software Pty Ltd.  All rights reserved.
+ GSVIEW.EXE - Grafische schil voor Ghostscript
+ Copyright (C) 1993-2001, Ghostgum Software Pty Ltd.  Alle rechten
+ voorbehouden.
 </pre>
-<p>This file is part of GSview. 
+<p>Dit bestand is een onderdeel van het GSview programma. 
 <p>This program is distributed with NO WARRANTY OF ANY KIND.  No author 
 or distributor accepts any responsibility for the consequences of using it, 
 or for whether it serves any particular purpose or works at all, unless he 
@@ -1832,239 +1799,245 @@ to copy, modify and redistribute GSview, but only under certain conditions
 described in the Licence.  Among other things, the Licence requires that 
 the copyright notice and this notice be preserved on all copies. 
 <p><pre>
-    Author: Russell Lang, Ghostgum Software Pty Ltd
+    Autheur: Russell Lang, Ghostgum Software Pty Ltd
   Internet: gsview@ghostgum.com.au
 </pre>
-<p>Please read the <a href="#Common_Problems">Common Problems</a> topic, the GSview Readme.htm and browse 
-the <a href="#World_Wide_Web">WWW</a> page before sending mail to the author. 
-<p>GSview uses pstotext in an external DLL. pstotext was written by 
-Andrew Birrell and Paul McJones.  It is 
-<pre>
-  Copyright (C) 1995-1996, Digital Equipment Corporation.
-</pre>
-<p>See the licence in pstotext.txt or pstotext.zip for more details. 
-If you do not agree to the pstotext licence, delete pstotext.zip, 
-pstotxt2.dll and pstotxt3.dll. 
-<p>
+<p>Lees a. u. b. eerst <b>Algemene problemen</b> , en de GSview Readme.htm 
+alvorens een bericht naar de autheur te sturen. 
+<p>GSview maakt gebruik van pstotext binnen een toegevoegde DLL. pstotext 
+werd geprogrammeerd door Andrew Birrell en Paul McJones. het is een 
+Copyright (C) 1995-1996 vande firma Digital Equipment Corporation. 
+Voo meer details zie de bestanden pstotext.txt of pstotext.zip. 
+Bent u het niet eens met de voorwaarden, wis dan de bestanden 
+pstotext.zip, pstotxt2.dll en pstotxt3.dll. 
+<p><p>
 <p>
 <hr>
-<h1><a name="Common_Problems">Common Problems</a></h1>
-<b>Problem:</b> Can't load Ghostscript DLL ... 
+<h1><a name="Vaak_voorkomende_problemen">Vaak voorkomende problemen</a></h1>
+<b>Probleem:</b> Can't load Ghostscript DLL ... 
 <p>GSview heeft de Ghostscript DLL nodig 
 (gsdll2.dll voor OS/2, gsdll32.dll voor Win32). 
 Dit komt voor wanneer Ghostscript niet werd ge&#239;nstalleerd, 
 of wanneer GSview Ghostscript niet ip uw systeem kan vinden. 
-<p>From the GSview menu select <b>Options</b> | <b>Advanced Configure</b> 
-and enter the correct <a href="#Aangepaste_configuratie	">Ghostscript DLL</a> path. For example 
+<p>Selecteer <a href="#Opties">Opties</a> | <a href="#Aangepaste_configuratie	">Aangepaste configuratie</a> 
+en verwijs naar het pad waar de <a href="#Aangepaste_configuratie	">Ghostscript DLL</a> zich bevindt, 
+bijvoorbeeld 
 <pre>
  c:\gs\gsN.NN\bin\gsdll32.dll
 </pre>
-<p>This message also occurs if Ghostscript cannot find its 
-initialisation files (e.g. gs_init.ps).  Set the 
-<b>Ghostscript Include Path</b> correctly. 
-<p>If using Win32s, make sure you don't already have a copy of 
-the Ghostscript DLL loaded by another copy of GSview. 
-Only one copy of Ghostscript DLL can be loaded by Win32s at a time. 
-<p>If you can't get GSview to run Ghostscript DLL correctly, make sure 
-you can configure and run Ghostscript on its own. 
-<p><b>Problem:</b> Ghostscript Messages window says 
+<p>U krijgt deze foutmelding ook te zien wanneer Ghostscript het 
+initialiebestand niet kan vinden (vb.: gs_init.ps). Stel dan 
+<b>Ghostscript Include Path</b> juist in. 
+<p>In een Win32s omgeving, zie er op toe dat er zich niet reeds een 
+andere kopie van de Ghostscript DLL in het geheugen bevindt. Er kan 
+zich namelijk slechts een kopie tegelijkertijd van deze DLL in het 
+geheugen bevinden. 
+<p>Lukt u er niet in GSview met de Ghostscript DLL te laten werken, 
+probeer dan eerst Ghostscript zonder GSview aan het werk te krijgen. 
+<p><b>Probleem:</b> Ghostscript foutmelding: 
 <b>Can't find initialization file gs_init.ps</b>. 
-<p>Set the <b>Ghostscript Include Path</b> to point to the directory containing 
-the correct gs_init.ps. 
-<p><b>Problem:</b> Ghostscript Messages window says 
+<p>Verwijs naar het juiste directory (<b>Ghostscript Include Path</b>) waar 
+het bestand gs_init.ps zich bevindt. 
+<p><b>Probleem:</b> Ghostscript foutmelding: 
 <b>gs: Interpreter revision (XXX) does not match gs_init.ps revision (YYY)</b>. 
-<p>Set the <b>Ghostscript Include Path</b> to point to the directory containing 
-the correct gs_init.ps. 
-Don't try to display a PostScript file in the directory of an old 
-version of Ghostscript (which will cause the old gs_init.ps to be 
-loaded irrespective of the <b>Ghostscript Include Path</b>). 
-<p><b>Problem:</b> Ghostscript Messages window says 
+<p>Verwijs naar het juiste directory (<b>Ghostscript Include Path</b>) waar 
+het bestand gs_init.ps zich bevindt. 
+Plaats geen PostScript bestand in de directory van een oudere versie 
+van Ghostscript (dan zal het oudere bestand gs_init.ps in het geheugen 
+worden geladen, hoeook het <b>Ghostscript Include Path</b> moge luiden). 
+<b>Probleem:</b> Ghostscript foutmelding: 
 <b>Wrong version of DLL found.  Found version XXX  Need version YYY</b>. 
-<p>GSview found the wrong Ghostscript DLL.  Install the required 
-version of the Ghostscript DLL.  Make sure you have only one copy 
-of the Ghostscript DLL on your system. 
-<p><b>Problem:</b> GSview says that a multipage PostScript file produced 
-by MS-Windows contains 0 pages and will only show the first page. 
-<p>This is because the document does not have correct DSC comments. 
-From the Control Panel, select <b>Printers</b>, <b>Options...</b>, then in the 
-<b>Print to</b> group box click on the <b>Printer</b> radio button.  You cannot 
-use the <b>Print To</b> <b>Encapsulated PostScript File</b> for printing 
-multipage files.  The correct method is to connect the printer 
-to <b>FILE:</b>. 
-In addition, 
-from the Control Panel select <b>Printers</b>, <b>Options...</b>, <b>Advanced</b> and 
-then check <b>Conform to Adobe Document Structuring Convention</b>. 
-<p>The DSC comment <b>%%Pages: 0</b> means that the document does not produce 
-any pages.  That is, the PostScript <b>showpage</b> operator is not used. 
-If you find a PostScript document that has multiple pages and contains 
-the <b>%%Pages: 0</b> comment, change the first line from <b>%!PS-Adobe-</b> to <b>%!</b>. 
-GSview will then ignore the DSC comments and allow you to view all 
-pages, but only in the original order.  Complain to the author of the 
-program that produced that PostScript file. 
-<p>Some PostScript printer drivers include code that is specific to 
-a particular printer.  The PostScript output from these drivers may 
-be unportable and may not display in GSview.  If you are having this 
-problem, try using a reasonably generic PostScript driver such as 
-<b>Apple LaserWriter II NT</b> for PostScript level 2 printers, or 
-<b>Apple LaserWriter Plus</b> for PostScript level 1 printers. 
-<p>For Windows 95, open the printer properties then select the 
-PostScript tab, then select PostScript Output Format = 
+<p>GSview trof een verkeerde Ghostscript DLL aan. Installeer de juiste 
+versie van de Ghostscript DLL. Waak erover slechts een exemplaar van 
+deze DLL opuw systeem te hebben. 
+<p><b>Probleem:</b> GSview bericht dat een PostScript bestand 0 (nul) 
+bladzijden bevat en slects de "eerste" zal worden getoond. 
+<p><p>Dit komt doordat het document foutieve DSC gegevens bevat. 
+Ga in het printersetup paneel, naar <b>Printers</b>, <b>Opties...</b>, en 
+selecteer in de <b>Printen naar</b> groep de <b>Printer</b> knop. <b>Printen naar</b> 
+<b>Ingekapseld PostScript bestand</b> kan niet worden aangewend om meerdere 
+bestanden af te drukken. De juiste methode bestaat erin de printer aan 
+te sluiten op <b>Bestand:</b>. 
+Bovendien, vanuit de Printse Setup, selecteer <b>Printers</b>, <b>Opties...</b>, 
+<b>Geavanceerd</b> en dan <b>Conform met de Adobe Document Structuring 
+Convention</b>. 
+<p>De DSC mededeling <b>%%Pages: 0</b> betekent dat het bestand geen enkele 
+bladzijde kan genereren. Dat betekent dat de PostScript <b>showpage</b> 
+functie niet wordt aangesproken. Treft u een PostScript bestand aan 
+dat meerdere bladzijden bevat en de <b>%%Pages: 0</b> mededeling genereert, 
+wijzig dan de eerste lijn van <b>%!PS-Adobe-</b> naar <b>%!</b>. 
+DSC gegevens worden dan genegeerd, en u kan dan alle bladzijden 
+bekijken, maar enkel in de volgorde waarin ze voorkomen. 
+<p>Sommige PostScript printerdrijvers bevatten codes specifiek voor een 
+bepaalde printer. Het kan zijn dat GSview niets met deze specifieke 
+printerdrijvers kan aanvangen. Treft u een dergelijk probleem aan, 
+probeer het dan via een meer algemende PS printerdrijver zoals 
+<b>Apple LaserWriter II NT</b> voor PostScript level 2 printers, of 
+<b>Apple LaserWriter Plus</b> voor PostScript level 1 printers. 
+<p>In Windows 95, open de printerinstellingen,selecteer de PostScript 
+tab, en selecteer dan PostScript Output Formaat = 
 <b>PostScript (optimize for portability - ADSC)</b>. 
-<p><b>Problem:</b> GSview says "Page ordering is Special..." 
-<p>Your document used the DSC comment <b>%%PageOrder: Special</b> which means 
-that pages can not be reliably reordered.  This may prevent GSview 
-from displaying pages in any order other than the original order. 
-If you continue and reorder the pages, PostScript errors may occur. 
-The only way to fix this is to regenerate the PostScript without 
-special page ordering. 
-<p>By default, Windows 95 creates PostScript files which use special 
-page ordering.  To disable this, open the printer properties then 
-select the PostScript tab, then select PostScript Output Format = 
-<b>PostScript (optimize for portability - ADSC)</b>. 
-<p><b>Problem:</b> PostScript files produced by MS-Windows start with a Control-D. 
-<p>For Windows 3.1: 
-<p>Since this occurs even when the PostScript printer 
-<b>Conform to Document Structuring Convention</b> 
-checkbox is checked, this must be considered a 
-bug in the MS-Windows PostScript printer driver. 
-The bug fix is documented in the MS-Windows PRINTERS.WRI file. 
-Edit the win.ini file and search for the PostScript printer section. 
-There may be more than one.  In each of these sections add 
-<b>CTRLD=0</b> as shown below. 
+<p><b>Probleem:</b> GSview mededeling: "Page ordering is Special..." 
+<p>Uw document gebruikt het DSC gegeven <b>%%PageOrder: Special</b> wat 
+betekent dat de bladzijden gecodeerd werden volgens een niet gekend 
+systeem. Ook hier kan het dan voorkomen dat u wel bladzijden kan 
+bekijken, maar enkel in de volgorde waarin ze voorkomen. 
+Probeert u het toch anders, dan zal GSview waarschijnlijk een stel 
+foutmeldingen genereren. De enige weg eruit bestaat erin het 
+PostScript bestand opnieuw te genereren zonder de eigen speciale 
+bladzijde codering. 
+<p><p>Standaard cre&#217;ert Windows 95 PostScriptbestanden met eigen codering. 
+Om dit uit te schakelen, ga naar de printereigenschappen, 
+selecteer de PostScript tab, en selecteer dan PostScript Output 
+Formaat = <b>PostScript (optimize for portability - ADSC)</b>. 
+<p><p><b>Probleem:</b> PostScriptbestanden gegenereerd door M$-Windows beginnen 
+met een code Control+D (^D). 
+<p>Voor Windows 3.1: 
+<p>Dit is een M$-Windows probleem en wordt als zodanig beschreven in het 
+bestand PRINTERS.WRI. 
+Open het bestand win.ini en zoek naar de PostScript printer sectie. 
+(er kunnen meerdere secties voorkomen). Voeg aan elke sectie toe 
+<b>CTRLD=0</b> zoals verder wordt beschreven: 
 <p><pre>
  [Apple LaserWriter II NT,FILE]
  CTRLD=0
 </pre>
 <p>For Windows 95: 
-<p>The PostScript printer driver setup has an option 
-(Properties, PostScript, Advanced) for suppressing 
-a ^D at the start of a document. 
-Fortunately the default is do not send ^D before job. 
-<p><b>Problem:</b> PostScript files produced by Word for Windows 6.0 
-cause a "Missing %%Pages comment" message box. 
-<p>Congratulations.  You have just found a mistake in the DSC comments 
-when Word included an EPS file.  Word should have surrounded the 
-included EPS file with the lines 
-<pre>
+<p>De PostScript printer drijver setup heeft een optie beschikbaar om 
+CTRL+D aan het begin van een document uit te schakelen. Overigens is 
+geen ^D toevoegen wel de standaardinsteeling in Win95/98. 
+<p><b>Probleem:</b> PostScript bestanden gegenereerd door Word for Windows 6.0 
+laten een foutmelding: "Missing %%Pages comment" zien. 
+<p>Felecitaties! U bent weer een fout van MS-Windows op het spoor 
+gekomen. MS-Word moet aan het bestand de EPS gegevens: 
+<p><pre>
  %%BeginDocument: filename.eps
  %%EndDocument
 </pre>
-<p>Because Word didn't do this, GSview can't tell how many pages 
-are in the document and where they are located. 
-<p>Please complain to Microsoft.  There is a problem in the EPSIMP.FLT 
-filter version 2.01 which Microsoft needs to fix. 
-<p>In the interim, you have two solutions: 
-<p>1. Select <b>Options</b> | <b>Ignore DSC</b> 
-<p>2. Edit the PostScript file to correct the DSC comments. 
-Search the PostScript file for all lines containing 
+<p>toevoegen. Doordat deze vereiste gegevens niet aan het bestand werden 
+toegevoegd is GSview niet in staat te bepalen hoeveelbladzijden een 
+document bevat en waar de bladzijden zich precies bevinden. De kern 
+van het probleem situeert zich in het bestand EPSIMP.FLT dat dus moet 
+worden aangepast. 
+Klachten hierover dus graag naar Bill Gates in Redmond (USA). 
+<p>Voorlopig kan u op een van de twee wolgende manieren er onderuit: 
+<p><p>- Selecteer <a href="#Opties">Opties</a> | <a href="#DSC_negeren">DSC negeren</a> 
+<p>of 
+<p>- Voeg aan het Postscriptbestand het juiste DSC gegeven toe. 
+Zoek in het PostScriptbestand naar ALLE regels die bevatten: 
 <pre>
   %MSEPS Preamble
 </pre>
-<p>From each of these lines, search forward for the start of the 
-included EPS file which should start with a line like 
-<pre>
+<p>Vanop deze regel, zoek naar voren naar het begin van het toegevoegde 
+EPS bestand, dat moet beginnen met iets als: 
+<p><pre>
  %!PS-Adobe-3.0 EPSF-3.0
 </pre>
-<p>Above these lines add the line 
-<pre>
+<p>En voeg toe boven deze regel: 
+<p><pre>
  %%BeginDocument: AddedByHand
 </pre>
-<p>Then search for all lines containing 
-<pre>
+<p>Zoek vervolgens naar alle regels bevattend: 
+<p><pre>
  %MSEPS Trailer
 </pre>
-<p>Above these lines add the line 
-<pre>
+<p>En voeg toe boven deze regls: 
+<p><pre>
  %%EndDocument
 </pre>
-<p>GSview should then be able to display the file correctly. 
-<p><b>Problem:</b> GSview doesn't recognise the DSC comments in files 
-produced using the Adobe PostScript driver 4.10 for Windows 32-bit. 
-<p>Do not use Tagged binary communications protocol. 
-Change this to "Printers | PostScript tab | Advanced... | 
-Data format group box | ASCII data" 
-<p><b>Problem:</b> Trying to open any file gives 
+<p>Daarna moet GSview normaliter de bladzijden op een juiste manier 
+weergeven. 
+<p><b>Probleem:</b> GSview accepteert geen DSC gegevens uit bestanden die 
+werden gegenereerd door de Adobe PostScript drijver 4.10 voor Win32. 
+<p>Maak geen gebruik van het Tagged binary communications protocol. 
+Verander als volgt "Printers | PostScript tab | Geavanceerd... | 
+Data formaat | ASCII data" 
+<p><b>Probleem:</b> Het openen van eender welk bestand heeft als resultaat 
+de foutmelding: 
 <pre>
  <b>Unrecoverable error: configurationerror in setpagedevice</b>
  Failed to open device or install ViewerPreProcess hook: returns -26
  Page size may have been too large or resolution too high.
  Resetting page size and resolution
 </pre>
-<p>Either the problem described in the error message has occurred, 
-in which case you should reduce the page size, resolution, 
-depth or a combination of all three. 
-Alternatively, you may have used <b>-dFIXEDMEDIA</b> in the Ghostscript 
-environment variable GS_OPTIONS.  When using GSview, it is safest 
-not to use GS_OPTIONS at all and to use <b>Options</b> | 
-<b>Advanced Configure</b> | <b>Ghostscript Options</b> instead. 
-<p>
+<p>Mogelijk zijn het papierformaat en/of de resolutie te groot; u dient 
+dan het nodige te doen om dit aan te passen. 
+Het kan ook zijn dat u <b>-dFIXEDMEDIA</b> hebt ge&#180;mplementeerd in de 
+Ghostscript GS_OPTIONS omgevingsvariable. Bij gebruik van GSview is het 
+het aangeraden GS_OPTIONS niet te gebruiken maar in de plaats 
+<a href="#Opties">Opties</a> | <b>Aangepaste Configuratie</b> | <a href="#Aangepaste_configuratie	">Ghostscript Opties</a>. 
+<p><p>
 <p>
 <hr>
-<h1><a name="Other_Useful_Programs">Other Useful Programs</a></h1>
-<b>RedMon</b> is a Windows 95 and NT port monitor, which allows you 
-to redirect a printer port to a program. 
-RedMon can be used with Ghostscript and a non-PostScript printer 
-to emulate a PostScript printer.  This emulated PostScript printer 
-can be shared on a computer network and appears as a PostScript 
-printer to network clients.   More details at: 
+<h1><a name="Aanvullende_programma's">Aanvullende programma's</a></h1>
+<b>RedMon</b> is een Windows 95 en NT poort monitor, die toelaat een 
+poort naar een programma af te leiden. 
+RedMon kan worden aangewend samen met Ghostscript en een niet 
+PostScript printer om een PostScript printer te emuleren. 
+Zo'n emualatieh kan op een computer network worden gezet en wordt 
+door de aangesloten eenheden als PostScript prnter gezien. 
+Meer hierover op de locatie: 
 <pre>
  http://www.cs.wisc.edu/~ghost/redmon/
 </pre>
-<p>RedMon also includes a command line utility for writing a file 
-to a Windows printer queue. 
-<p><b>PrintFile</b> by Peter Lerup is a Windows GUI application for 
-sending files to a printer.  It provides smart processing for 
-text, PostScript and other files.  It is available from: 
+<p>RedMon laat ook toe naar een Windows printerreeks te schrijven aan de 
+hand van enkele eenvoudige opdrachten. 
+<p><b>PrintFile</b> is een Windows GUI applicatie om bestanden naar een 
+printer te sturen. Het programma beheert op een intelligente wijze 
+tekst, PostScript en andere bestanden. Af te halen op de locatie: 
 <pre>
   http://hem1.passagen.se/ptlerup/
 </pre>
-<p>See the Ghostscript <a href="#World_Wide_Web">WWW</a> page for more useful programs. 
+<p>Voor nog meer interessante aanvullende programma's zie de GhostScript 
+<a href="#World_Wide_Web">WWW</a> locatie. 
 <p>
 <p>
 <hr>
-<h1><a name="Other_Help_Topics">Other Help Topics</a></h1>
-These topics are usually accessed by pressing the <b>Help</b> button 
-on a dialog box. 
-<p>
-<a href="#Show_Messages">Show Messages</a><br>
+<h1><a name="Meer_hulp">Meer hulp</a></h1>
+Hulp kan worden aangeroepen door in het menu op <b>Help</b> te klikken. 
+<p><p>
+<a href="#Berichten_tonen">Berichten tonen</a><br>
 <a href="#bzip2">bzip2</a><br>
 <a href="#zlib">zlib</a><br>
-<a href="#Internals">Internals</a><br>
+<a href="#Intern">Intern</a><br>
 <p>
 <hr>
-<h2><a name="Show_Messages">Show Messages</a></h2>
-GSview uses Ghostscript to display or print PostScript files. 
-<b>Show Messages</b> displays the console output from Ghostscript, 
-and is most useful when a PostScript error occurs. 
-You may need to scroll back to see the start of the error message. 
-<p>The text in the <b>Show Messages</b> window can be copied to the clipboard. 
-If no text is selected, the entire text will be copied to the clipboard. 
-If some text is highlighted, only that text will be copied to the 
-clipboard. 
-<p>Explanations of some of the error message that may appear in the 
-<b>Show Messages</b> are given in the <a href="#Common_Problems">Common Problems</a> topic. 
-<p>
+<h2><a name="Berichten_tonen">Berichten tonen</a></h2>
+GSview maakt gebruik van Ghostscript om bestanden te tonen of af te 
+drukken. <b>Berichten tonen</b> geeft weer wat door Ghostscript werd 
+gegenereerd, en is handig voor wanneer er zich PostScript problemen 
+voordoen. U dient eventueel terug te scrollen om het geheel van het 
+bericht te kunnen vernemen. 
+<p>De tekst uit het <b>Berichten tonen</b> kader kan eventueel naar het 
+worden gekopieerd. Werd er geen tekst geselecteerd, dan wordt alles 
+naar het prikbord gekopieerd. Werd er wel tekst gemarkeerd, dan wordt 
+enkel het gemarkeerde gedeelte gekopieerd. 
+<p>Meer over de foutmeldingen in uit het <b>Berichten tonen</b> kader in het 
+gedeelte <b>Algemene problemen</b> van dit hulpbestand. 
+<p><p>
 <p>
 <hr>
 <h2><a name="bzip2">bzip2</a></h2>
-If you attempt to load a file that has been compressed by bzip2, 
-GSview will attempt to load the bzip2 DLL, then uncompress it 
-to a temporary file. 
-<p>If you get an error message <b>Failed to load bzip2 DLL...</b> then 
-you probably don't have the bzip2 DLL available. 
-Obtain it from the same place you obtained GSview or from 
+Wanneer u een bestand dat werd gecomprimeerd met bzip2 in het geheugen 
+laadt zal GSview ook bzip2.DLL in het geheugen laden en dan uw 
+bestand naar een (ander) tijdelijk bestand uitpakken. 
+<p>Krijgt u de foutmelding <b>Failed to load bzip2 DLL...</b> te zien dan 
+bevindt het bestand bzip2.DLL zich denkelijk niet op uw systeem. 
+U kan bzip2.dll afhalen op deze locatie: 
 <pre>
  ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/
 </pre>
-<p>Place the bzip2 DLL in the same directory as the GSview EXE. 
-libbz2.dll is for Win32.  At this stage there is no bzip2 DLL 
-for Win16 or OS/2. 
-<p>bzip2 is Copyright 1996-2000 by Julian Seward 
-The source code can be obtained from 
+<p>Plaats dan bzip2 DLL in dezelfde directry als GSview EXE. 
+libbz2.dll is for Win32. Momenteel is er geen versie beschikbaar noch 
+voor Win16 noch voor OS/2. 
+<pre>
+ bzip2 is een Copyright 1996-2000 van Julian Seward
+</pre>
+<p>De broncode kan u hier afhalen: 
 <pre>
  http://sourceware.cygnus.com/bzip2/index.html
 </pre>
-<p>
+<p><p>
 <p>
 <hr>
 <h2><a name="zlib">zlib</a></h2>
@@ -2078,7 +2051,7 @@ U kan dan dit bestand op deze locatie afhalen:
  ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/
 </pre>
 <p>Plaats het bestand ZLIB.DLL in dezelfde directory als GSview.EXE. 
-zlib16.dll is bestemd voor win16, zlib32.dll voor win32 en 
+zlib16.dll is   bestemd voor win16, zlib32.dll voor win32 en 
 zlib2.dll voor OS/2. 
 <p>zlib : Copyright 1995-1996 van Jean-loup Gailly en Mark Adler. 
 De bronbestanden zijn hier beschikbaar: 
@@ -2088,7 +2061,7 @@ De bronbestanden zijn hier beschikbaar:
 <p>
 <p>
 <hr>
-<h2><a name="Internals">Internals</a></h2>
+<h2><a name="Intern">Intern</a></h2>
 GSview maakt gebruik van de AFPL Ghostscript DLL om PostScript 
 bestanden te genereren. 
 <p>Onder Win32s kan de GS DLL slechts door een toepassing tegelijkertijd 
@@ -2103,7 +2076,7 @@ worden gestart, het moet worden geactiveerd door GSview.
 het afdrukbeheer. Kunnen vanaf de opdrachtlijn worden aangewend, maar 
 aangezien dan automatisch bestanden worden gewist is het aangeraden 
 enkel gswin32.exe (Win32), gswin32c.exe (Win32 console) of 
-gsos2.exe (OS/2 te gebruiken. 
+gsos2.exe (OS/2) te gebruiken. 
 <p>
 <p><hr>Created automatically by doc2html
 </body>
