@@ -13,7 +13,7 @@ Ghostscript is an interpreter for the PostScript page description language
 used by laser printers. 
 For documents following the Adobe PostScript Document Structuring 
 Conventions, GSview allows selected pages to be viewed or printed. 
-GSview 4.4 requires Ghostscript 7.04 - 8.99. 
+GSview 4.7 requires Ghostscript 7.04 - 9.19. 
 <p>
 <a href="#Installation">Installation</a><br>
 <a href="#Registration">Registration</a><br>
@@ -191,12 +191,12 @@ Copy gsview32.ini or gvpm.ini from the system directory or your
 user profile directory to the GSview directory, then edit it to 
 remove all entries except for: 
 <pre>
- [GSview-4.4]
- Version=4.4
- GSversion=800
+ [GSview-4.7]
+ Version=4.7
+ GSversion=850
  Configured=1
- GhostscriptDLL=e:\gs\gs8.00\bin\gsdll32.dll
- GhostscriptInclude=e:\gs\gs8.00\lib;e:\gs\fonts
+ GhostscriptDLL=e:\gs\gs8.50\bin\gsdll32.dll
+ GhostscriptInclude=e:\gs\gs8.50\lib;e:\gs\fonts
  GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
 </pre>
 <p>When a user starts GSview, their INI file will normally be used. 
@@ -225,6 +225,10 @@ any prompting, unzip the self extracting archive then run the setup
 program as follows: 
 <pre>
  setup -name "Your Name" -number XXXXX-XXXXX "c:\ghostgum"
+</pre>
+<p>A silent uninstall can be done using: 
+<pre>
+ "C:\Program Files\Ghostgum\gsview\uninstgs.exe" "C:\Program Files\Ghostgum\gsview\uninstal.txt" -q
 </pre>
 <p>
 <p>
@@ -510,7 +514,7 @@ each page, and prints these using the standard Windows printer
 driver.  This is the slowest print method, but should work with 
 most printers. 
 <p><a href="#Ghostscript_device">Ghostscript device</a> uses the Ghostscript printer drivers. 
-This is faster, but you need Ghostscript to have driver for 
+This is faster, but you need Ghostscript to have a driver for 
 your printer and you need to know what it is called. 
 For example, the HP LaserJet 4 uses ljet4. 
 See the Ghostscript documentation for more details. 
@@ -544,7 +548,7 @@ descending order.  This is enabled only if the document
 contains <a href="#Document_Structuring_Conventions">DSC</a> comments. 
 <p>If you wish to print selected pages from a <a href="#Document_Structuring_Conventions">DSC</a> document that 
 has special page ordering (i.e. the pages can not be reordered), 
-select <a href="#Windows_GDI_printer">Windows GDI printer</a> and<a href="#Ignore_DSC">Ignore DSC</a>. 
+select <a href="#Windows_GDI_printer">Windows GDI printer</a> and <a href="#Ignore_DSC">Ignore DSC</a>. 
 <p>
 <p>
 <hr>
@@ -1552,12 +1556,13 @@ the page orientation used by the display.
 These orientation options only affect the display and do not affect 
 the print commands. 
 <p>If the <b>Auto</b> command on the orientation menu is checked and 
-a <a href="#Document_Structuring_Conventions">DSC</a> page orientation comment is found (%%Orientation or 
-%%PageOrientation), the orientation will be selected automatically. 
+a <a href="#Document_Structuring_Conventions">DSC</a> page orientation comment is found (%%Orientation,  
+%%PageOrientation or %%ViewingOrientation),  
+the orientation will be selected automatically. 
 <p>When the <b>Swap Landscape</b> option is <b>checked</b>, GSview swaps the 
 meaning of Landscape and Seascape. 
-Most of the Landscape documents that I have encountered require a 90 
-clockwise rotation of the paper to view. 
+Most Landscape documents require a 90 clockwise rotation of 
+the paper to view. 
 However, there is no standard and some documents need to be rotated 
 the other way. 
 The <b>Swap Landscape</b> button allows GSview to automatically rotate the 
@@ -1815,7 +1820,7 @@ The <b>About</b> menu item shows the GSview copyright message
 and GSview version number. 
 <p><pre>
  GSVIEW.EXE - A Ghostscript graphical interface
- Copyright (C) 1993-2002, Ghostgum Software Pty Ltd.  All rights reserved.
+ Copyright (C) 1993-2005, Ghostgum Software Pty Ltd.  All rights reserved.
 </pre>
 <p>This file is part of GSview. 
 <p>This program is distributed with NO WARRANTY OF ANY KIND.  No author 
@@ -2061,10 +2066,10 @@ Obtain it from the same place you obtained GSview or from
 <p>Place the bzip2 DLL in the same directory as the GSview EXE. 
 libbz2.dll is for Win32.  At this stage there is no bzip2 DLL 
 for Win16 or OS/2. 
-<p>bzip2 is Copyright 1996-2000 by Julian Seward 
+<p>bzip2 is Copyright 1996-2002 by Julian Seward 
 The source code can be obtained from 
 <pre>
- http://sourceware.cygnus.com/bzip2/index.html
+ http://sources.redhat.com/bzip2/
 </pre>
 <p>
 <p>
@@ -2081,11 +2086,11 @@ Obtain it from the same place you obtained GSview or from
 </pre>
 <p>Place the zlib DLL in the same directory as the GSview EXE. 
 zlib16.dll is for Win16.  zlib32.dll is for Win32. 
-zlib2.dll is for OS/2. 
-<p>zlib is Copyright 1995-1996 by Jean-loup Gailly and Mark Adler. 
+zlib2.dll is for OS/2. zlib64.dll is for Win64 (AMD64). 
+<p>zlib is Copyright 1995-2004 by Jean-loup Gailly and Mark Adler. 
 The source code can be obtained from 
 <pre>
- http://www.info-zip.org/pub/infozip/zlib/
+ http://www.zlib.net/
 </pre>
 <p>
 <p>

@@ -9,9 +9,9 @@
 GSview Readme
 </h1>
 <p>
-GSview 4.6 PostScript previewer.  Needs Ghostscript 7.04 or later.
+GSview 4.7 PostScript previewer.  Needs Ghostscript 7.04 or later.
 <br>
-Release date: 2004-01-11
+Release date: 2005-03-26
 </p>
 <h2>
 Table of contents
@@ -75,7 +75,7 @@ Features include:
    work with Ghostscript 4.03 - 6.99.
 </ul>
 <p>
-Changes in version 4.6:
+Changes in version 4.7:
 </p>
 <ul>
  <li> Fix text extract for PDF files.
@@ -88,6 +88,9 @@ Changes in version 4.6:
    on the display, put them on the first monitor.
  <li> Use pagesize from <tt>%%BeginFeature: *PageSize</tt> if no other
    page size is given.
+ <li> Set auto orientation <tt>%%ViewingOrientation</tt> if present, 
+   in preference to <tt>%%Orientation</tt>.
+ <li> Win64 build.
 </ul>
 <p>
 GSview was written by Russell Lang at Ghostgum Software Pty Ltd.
@@ -104,25 +107,25 @@ First uninstall any previous versions of GSview.
 Win32
 </h3>
 <p>
-  Obtain GSview (gsv46w32.exe) from 
+  Obtain GSview (gsv47w32.exe) from 
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get46.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get46.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get47.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get47.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 8.14 (gs814w32.exe) from
+  Obtain AFPL Ghostscript 8.50 (gs850w32.exe) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get814.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get814.htm
+    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get850.htm">
+    http://www.cs.wisc.edu/~ghost/doc/AFPL/get850.htm
     </a>
   </blockquote>
 <p>
   First install the AFPL Ghostscript self extracting archive 
-  gs814w32.exe (or a later version if available)
-  Then install the GSview self extracting archive gsv46w32.exe.
+  gs850w32.exe (or a later version if available)
+  Then install the GSview self extracting archive gsv47w32.exe.
   Run GSview.
 </p>
 <h4>
@@ -154,29 +157,52 @@ Win32 location details
 </p>
 
 <h3>
-OS/2
+Win64 (AMD64)
 </h3>
 <p>
-  Obtain GSview (gsv46os2.zip) from
+  Obtain GSview (gsv47w64.exe) from 
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get46.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get46.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get47.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get47.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 8.14 (gs814os2.zip) from
+  This currently requires the CVS version of Ghostscript,
+  which is not available pre-compiled.
+  The next version after AFPL Ghostscript 8.50 will work.
+</p>
+<p>
+  First install the AFPL Ghostscript self extracting archive 
+  gs850w64.exe (or a later version if available)
+  Then install the GSview self extracting archive gsv47w64.exe.
+  Run GSview.
+</p>
+
+<h3>
+OS/2
+</h3>
+<p>
+  Obtain GSview (gsv47os2.zip) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get814.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get814.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get47.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get47.htm
+    </a>
+  </blockquote>
+<p>
+  Obtain AFPL Ghostscript 8.50 (gs850os2.zip) from
+</p>
+  <blockquote>
+    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get850.htm">
+    http://www.cs.wisc.edu/~ghost/doc/AFPL/get850.htm
     </a>
   </blockquote>
 
 <p>
   <a href="http://www.info-zip.org/pub/infozip/">Unzip</a>
   GSview to a temporary directory, change to the gsview2 subdirectory,
-  place gs814os2.zip (or a later version) in the same directory, 
+  place gs850os2.zip (or a later version) in the same directory, 
   and then run os2setup.exe.
 </p>
  
@@ -257,10 +283,8 @@ You must have the <b>shared object</b> version of Ghostscript 7.04 - 9.19,
 which should be included in recent GNU/Linux distributions.
 If you don't have the ghostscript shared object, 
 you must first install Ghostscript, then the additional shared
-object files.
-These may be available from
- <a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/gs814/linux/">
- ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/gs814/linux/</a>
+object files.  To build the ghostscript shared object files,
+use '<tt>./configure ; make so</tt>'
 </p>
 
 <p>
@@ -323,7 +347,8 @@ Compilation
 <p>
 To compile GSview for Windows you need MS Visual C++ 5, 6, 7 or 7.1.
 Copy srcwin/win.mak to Makefile, edit Makefile to set 
-VCVER and DEVBASE as required, then type 'nmake'. 
+<tt>VCVER</tt> and <tt>DEVBASE</tt> as required, then type '<tt>nmake</tt>'. 
+To build for Win64 use '<tt>nmake VERVER=71 WIN64=1</tt>'
 </p>
 
 <p>
@@ -337,9 +362,9 @@ Type 'nmake'
 To compile GSview for X11/Unix you need gcc and the GTK+ 1.2 toolkit.
 Unzip the sources as follows to convert the line endings:
 <pre>
-  unzip -aa gsv46src.zip
-  unzip -o gsv46src.zip "gsview-4.6/src/binary/*"
-  cd gsview-4.6
+  unzip -aa gsv47src.zip
+  unzip -o gsv47src.zip "gsview-4.7/binary/*"
+  cd gsview-4.7
   cp srcunx/unx.mak Makefile
   make
 </pre>
@@ -349,6 +374,10 @@ To install, run <tt>make install</tt>
 See the <a href="#X11">X11/Unix</a> topic for more notes
 on X11 GSview.
 For SunOS or SGI IRIX, uncomment the appropriate lines in the makefile.
+You also be able to use
+<pre>
+  rpmbuild -ta gsview-4.7.tar.gz
+</pre>
 </p>
 
 <h2>
@@ -483,7 +512,7 @@ The CD-ROM (actually a CD-R) will contain ready to run
 and ready to install copies of GSview and AFPL Ghostscript for 
 Windows and OS/2, plus a number of other PostScript utilities.
 The CD-ROM will be dispatched by air-mail.  
-This offer is valid until 30 June 2004.  If this date has
+This offer is valid until 31 December 2005.  If this date has
 passed, send mail to 
 <tt>gsview</tt> <b>at</b> <tt>ghostgum.com.au</tt>. 
 to find out if the offer is still valid.
@@ -577,11 +606,11 @@ Source code can be obtained from these sites.
 </p>
 
 <p>
-GSview uses zlib 1.0.4 in an external DLL.  zlib is
-  Copyright (C) 1995-1996 Jean-loup Gailly and Mark Adler.
+GSview uses zlib 1.2.2 in an external DLL.  zlib is
+  Copyright (C) 1995-2004 Jean-loup Gailly and Mark Adler.
   See 
-    <a href="http://www.info-zip.org/pub/infozip/zlib/">
-    http://www.info-zip.org/pub/infozip/zlib/
+    <a href="http://www.zlib.net/">
+    http://www.zlib.net/
     </a>
 </p>
 
@@ -589,8 +618,8 @@ GSview uses zlib 1.0.4 in an external DLL.  zlib is
 GSview uses bzip2 in an external DLL.  bzip2 is 
  Copyright 1996-2000 by Julian Seward.  
  See 
-    <a href="http://sourceware.cygnus.com/bzip2/index.html">
-    http://sourceware.cygnus.com/bzip2/index.html
+    <a href="http://sources.redhat.com/bzip2/">
+    http://sources.redhat.com/bzip2/
     </a>
 </p>
 
