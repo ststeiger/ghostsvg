@@ -1,74 +1,93 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
-<HTML>
-<HEAD>
-<TITLE>RedMon - Redirection Port Monitor</TITLE>
+<html>
+<head>
+<title>RedMon - Redirection Port Monitor</title>
 <link rel="stylesheet" type="text/css" href="../doc/gsweb.css" title="Ghostscript Website Style">
-</HEAD>
-<BODY>
-<H1><IMG SRC="redmon.gif" WIDTH=32 HEIGHT=32 ALT="">
-  RedMon - Redirection Port Monitor</H1><P>
+</head>
+<body>
+<h1><img src="redmon.gif" width=32 height=32 alt="">
+  RedMon - Redirection Port Monitor</h1><p>
 Transparent PostScript printing from Windows 95/98 and NT.
-<HR>
-<H1>Overview</H1>
-<P>The <B>RedMon</B> port monitor redirects a special printer port 
+<hr>
+<h2>Overview</h2>
+<p>The <b>RedMon</b> port monitor redirects a special printer port 
 to a program. 
-<B>RedMon</B> is commonly used with Ghostscript and a non-PostScript 
+<b>RedMon</b> is commonly used with Ghostscript and a non-PostScript 
 printer to emulate a PostScript printer. 
-<P><B>RedMon</B> can be used with any program that accepts data on 
+<p><b>RedMon</b> can be used with any program that accepts data on 
 standard input. 
-<P>Using <B>RedMon</B> you create a redirected printer port.  
+<p>Using <b>RedMon</b> you create a redirected printer port.  
 If you connect a Windows printer driver to the redirected printer port, 
-all data sent to the redirected port will be forwarded by <B>RedMon</B> 
+all data sent to the redirected port will be forwarded by <b>RedMon</b> 
 to the standard input of a program.  
 The output of this program can be sent to different printer port, 
 or the program can generate whatever output it desires.
-<P>A PostScript Windows printer redirected to a RedMon port can shared  
+<p>A PostScript Windows printer redirected to a RedMon port can shared  
 on a network. 
 When this printer is configured to use Ghostscript and a non-PostScript 
 printer, it appears as a PostScript printer to other network clients. 
-<P>RedMon can also be used with an lpr client to provide transparent
+<p>RedMon can also be used with an lpr client to provide transparent
 access to printers on Unix hosts.  This is useful under Windows 95/98.
 Windows NT already has an lpr port monitor so there is no point in
 using RedMon for this.  Another alternative is to use RedMon with 
-<A HREF="http://www.concentric.net/~ravitz/">PrintGLN</A>, an HPGL
+<a href="http://www.concentric.net/~ravitz/">PrintGLN</a>, an HPGL
 pen plotter emulator.
-<P>
-The <A HREF="en/redmon.htm">RedMon online help</A> is available
-in <A HREF="en/redmon.htm">English</A>,
-<A HREF="fr/redmon.htm">French</A>,
-<A HREF="de/redmon.htm">German</A>,
-and <A HREF="se/redmon.htm">Swedish</A>.
-<P>If you use the Ghostscript mswinpr2 device with RedMon under 
-Windows NT, please read these <A HREF="muir.htm">notes</A>.
-<P>
-<H1>Availability</H1>
-RedMon works under Windows 95/98, Windows NT 4.0 and 2000.
-<P>
+<p>
+The <a href="en/redmon.htm">RedMon online help</a> is available
+in <a href="en/redmon.htm">English</a>,
+<a href="fr/redmon.htm">French</a>,
+<a href="de/redmon.htm">German</a>,
+and <a href="se/redmon.htm">Swedish</a>.
+<p>If you use the Ghostscript mswinpr2 device with RedMon under 
+Windows NT, please read these <a href="muir.htm">notes</a>.
+<p>
+<h2>Availability</h2>
+RedMon works under Windows 95/98, Windows NT 4.0, 2000 and XP.
+<p>
 RedMon version 1.7 can be downloaded from
-<A HREF="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17.zip">
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17.zip</A>.
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17.zip">
+ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17.zip</a>.
 Translations (possibly incomplete) for 
-<A HREF="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17de.zip"> German</A>,
-<A HREF="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17fr.zip"> French</A>,
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17de.zip"> German</a>,
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17fr.zip"> French</a>,
 and
-<A HREF="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17se.zip"> Swedish</A>
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/redmon17se.zip"> Swedish</a>
 are also available.
 Source code is included.
 The RedMon licence requires that you include the source if
 you redistribute RedMon.
-<P>
+<p>
 All user text is stored in language specific resources.
 Translating RedMon to another language should be straightforward.
 Contact the author if you want to translate RedMon into
 your language.
-<P>
+<p>
+
+<h2>Known issues</h2>
+<ul>
+<li> User interface is unfriendly.
+<li> On Windows Terminal Server or Windows XP with fast user switching, 
+  the "Prompt for filename" dialog will appear on the console or first
+  session, not the current session.  If you know how to set the session
+  for displaying windows, please send me email.
+<li> Writing files to network shares may not work.
+<li> Environment variables are not replaced in the program arguments.
+<li> Windows 2000 and XP have a job name as the document title, 
+ not the original document name.  This is not something that can be 
+ fixed in RedMon.
+<li>gsprint can't find any printers because RedMon runs as the default
+ user which doesn't have any printers.  Copy the printer configuration
+ in the registry from the current user to the default user.  
+ This problem is related to 
+ <a href="muir.htm">using mswinpr2 on Windows NT</a>.
+</ul>
 
 <!--
-<H1>Beta version</H1>
+<h2>Beta version</h2>
 <p>
 Beta test version 1.6 is available from
-<A HREF="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/redmon16b.zip">
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/redmon16b.zip</A>.
+<a href="ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/redmon16b.zip">
+ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/beta/redmon16b.zip</a>.
 </p>
 <p>
 Most of the changes are internal - there has been a major 
@@ -87,18 +106,18 @@ The beta version will expire on 31 December 2001.
 </p>
 -->
 
-<H1>Non-Windows equivalents</H1>
-RedMon is only available for Windows 95 and NT.
-<P>
-For OS/2, use <A HREF="../doc/printmon.htm">Printmon</A>.
-<P>
+<h2>Non-Windows equivalents</h2>
+RedMon is only available for Windows.
+<p>
+For OS/2, use <a href="../doc/printmon.htm">Printmon</a>.
+<p>
 For Unix, see
-<A HREF="http://www.linuxprinting.org/howto/">
- The Linux Printing HOWTO</A> for details of
+<a href="http://www.linuxprinting.org/howto/">
+ The Linux Printing HOWTO</a> for details of
 how to set up a Magicfilter.
 
-<P><HR>
-<A HREF="../gsview/rjl.htm">Russell Lang</A><BR>
-2001-10-28
-</BODY>
-</HTML>
+<p><hr>
+<a href="../gsview/rjl.htm">Russell Lang</a><br>
+2003-02-12
+</body>
+</html>
