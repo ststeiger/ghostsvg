@@ -14,10 +14,10 @@ This file contains information about known bugs,
 and workarounds or fixes when available.
 </p>
 <ul>
-<!--
-<li><i>(2001-04-06)</i><a href="#20010406">
-  (3.6) File | Convert ignores selected pages and converts all pages.
+<li><i>(2001-06-10)</i><a href="#20010610">
+  (4.0) DOS EPS file is invalid if adding TIFF preview and EPS omits trailer.
   </a>
+<!--
 -->
 <li><a href="bugs36.htm">Bug reports GSview 3.6</a>
 <li><a href="bugs28.htm">Bug reports GSview 2.8</a>
@@ -26,35 +26,39 @@ and workarounds or fixes when available.
 
 <hr>
 
+<!--
 <p>
 There are no known bugs in GSview 4.0.
 </p>
-<!--
 -->
 
-<!--
 <p>
-<a name="20010406"><i>(2001-04-06)</i></a>
+<a name="20010610"><i>(2001-06-10)</i></a>
 </p>
 <p>
 <b>Problem:</b>
-  (3.6 and earlier) File | Convert ignores selected pages and always
-  converts all pages.
+  (4.0) DOS EPS file is invalid if adding TIFF preview and EPS omits trailer.
+  If an EPS file omits the trailer and a TIFF preview is added by GSview
+  or epstool, the DOS EPS file will contain an incorrect size for
+  the PostScript section.  
+  The same bug occurs if a user supplied preview is added.
+  This does not affect adding a Windows MetaFile preview.
 </p>
 <p>
 <b>Workaround:</b>
- Try GSview 4.0.
+ Append the following line to the EPS file before adding the preview
+ <pre>
+ %%Trailer
+ </pre>
 </p>
 <hr>
--->
 
 
-<hr>
 <a href="../index.htm">Home </a>
 &nbsp; &nbsp;
 <a href="index.htm">Back</a>
 &nbsp; &nbsp; &nbsp; &nbsp;
-Last updated 2001-06-02.
+Last updated 2001-06-10.
 </body>
 
 </html>
