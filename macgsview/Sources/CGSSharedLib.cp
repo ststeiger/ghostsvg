@@ -136,7 +136,7 @@ CGSSharedLib::Open()
 			::ThreadEndCritical();
 		}
 		
-		::DisposeRoutineDescriptor(alertParam.filterProc);
+		::DisposeModalFilterUPP(alertParam.filterProc);
 		return;
 	}
 	

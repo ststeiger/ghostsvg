@@ -91,7 +91,6 @@ CGSDocument::CGSDocument(LCommander *inSuper, FSSpec *inFileSpec, bool inAutoCre
 	
 	mFileAlias		= 0;
 	mDocumentInfo	= 0;
-	mPrintRecordH	= 0;
 	mIsPDF			= false;
 	mWindow			= 0;
 	
@@ -347,7 +346,7 @@ CGSDocument::OpenFile()
 			::ThreadEndCritical();
 		}
 		
-		::DisposeRoutineDescriptor(alertParam.filterProc);
+		::DisposeModalFilterUPP(alertParam.filterProc);
 	}
 	
 	StartRepeating();
@@ -886,14 +885,15 @@ CGSDocument::SetupPage()
 	::PrOpen();
 	err = ::PrError();
 	if (err == noErr) {
-		if (!mPrintRecordH) {
-			mPrintRecordH = (THPrint) ::NewHandle(sizeof(TPrint));
-			ThrowIfMemFail_(mPrintRecordH);
-			memcpy(*mPrintRecordH,
+		THPrint		printRecordH = mPrintSpec.GetPrintRecord();
+		if (!printRecordH) {
+			printRecordH = (THPrint) ::NewHandle(sizeof(TPrint));
+			ThrowIfMemFail_(printRecordH);
+			memcpy(*printRecordH,
 				   *CGSApplication::GetPreferences()->GetDefaultPrintRecord(),
 				   sizeof(TPrint));
 		}
-		::PrStlDialog(mPrintRecordH);
+		::PrStlDialog(printRecordH);
 		::PrClose();
 	} else {
 		CUtilities::ShowErrorDialog("\pPrOpen failed in SetupPage", err);
@@ -915,10 +915,11 @@ CGSDocument::DoPrint()
 		return;
 	}
 	printDevice.SetIsThreadedDevice(false);
-	printDevice.SetDrawBuffered(true);
+	printDevice.SetDrawBuffered(false/*true*/);
 	printDevice.FinishCreateSelf();
 	
 	
+	THPrint		printRecordH = mPrintSpec.GetPrintRecord();
 	TPrStatus	tprStatus;
 	GrafPtr		oldPort;
 	
@@ -926,14 +927,14 @@ CGSDocument::DoPrint()
 	
 	::PrOpen();
 	if (::PrError() == noErr) {
-		if (!mPrintRecordH) {	// get applications default print record
-			mPrintRecordH = (THPrint) ::NewHandle(sizeof(TPrint));
-			ThrowIfMemFail_(mPrintRecordH);
-			memcpy(*mPrintRecordH,
+		if (!printRecordH) {	// get applications default print record
+			printRecordH = (THPrint) ::NewHandle(sizeof(TPrint));
+			ThrowIfMemFail_(printRecordH);
+			memcpy(*printRecordH,
 				   *CGSApplication::GetPreferences()->GetDefaultPrintRecord(),
 				   sizeof(TPrint));
 		}
-		::PrValidate(mPrintRecordH);
+		::PrValidate(printRecordH);
 		
 		TGetRslBlk		resGetInf;
 		resGetInf.iOpCode = getRslDataOp;
@@ -953,26 +954,26 @@ CGSDocument::DoPrint()
 			resSetInf.iOpCode	= setRslOp;
 			resSetInf.iXRsl		= maxXRes;
 			resSetInf.iYRsl		= maxYRes;
-			resSetInf.hPrint	= mPrintRecordH;
+			resSetInf.hPrint	= printRecordH;
 			::PrGeneral((Ptr) &resSetInf);
 		}
 		
 		// Print Loop (from Apple's technote 1092 (a print loop that cares)
 		
-		sPrintDialog = ::PrJobInit(mPrintRecordH);
+		sPrintDialog = ::PrJobInit(printRecordH);
 		if (::PrError() == noErr &&
-				::PrDlgMain(mPrintRecordH, NewPDlgInitProc(CGSDocument::ExtendPrintDialog))) {
+				::PrDlgMain(printRecordH, NewPDlgInitProc(CGSDocument::ExtendPrintDialog))) {
 			TPrPort		*printerPortPtr;
 			short		numberOfPages	= GetNumberOfPages(),
-						numberOfCopies	= (*mPrintRecordH)->prJob.iCopies,
-						firstPage		= (*mPrintRecordH)->prJob.iFstPage,
-						lastPage		= (*mPrintRecordH)->prJob.iLstPage;
+						numberOfCopies	= (*printRecordH)->prJob.iCopies,
+						firstPage		= (*printRecordH)->prJob.iFstPage,
+						lastPage		= (*printRecordH)->prJob.iLstPage;
 			
 			if (numberOfPages == 0 && mDocumentInfo->epsf)
 				numberOfPages = 1;
 			
-			(*mPrintRecordH)->prJob.iFstPage = iPrPgFst;
-			(*mPrintRecordH)->prJob.iLstPage = iPrPgMax;
+			(*printRecordH)->prJob.iFstPage = iPrPgFst;
+			(*printRecordH)->prJob.iLstPage = iPrPgMax;
 			
 			if(numberOfPages < lastPage)
 				lastPage = numberOfPages;
@@ -993,35 +994,35 @@ CGSDocument::DoPrint()
 			}
 			
 			float	pageSizeX, pageSizeY;
-			pageSizeX	 = - (*mPrintRecordH)->rPaper.left;
-			pageSizeX	+= (*mPrintRecordH)->rPaper.right;
-			pageSizeX	*= 72.0 / (*mPrintRecordH)->prInfo.iHRes;
-			pageSizeY	 = - (*mPrintRecordH)->rPaper.top;
-			pageSizeY	+= (*mPrintRecordH)->rPaper.bottom;
-			pageSizeY	*= 72.0 / (*mPrintRecordH)->prInfo.iVRes;
+			pageSizeX	 = - (*printRecordH)->rPaper.left;
+			pageSizeX	+= (*printRecordH)->rPaper.right;
+			pageSizeX	*= 72.0 / (*printRecordH)->prInfo.iHRes;
+			pageSizeY	 = - (*printRecordH)->rPaper.top;
+			pageSizeY	+= (*printRecordH)->rPaper.bottom;
+			pageSizeY	*= 72.0 / (*printRecordH)->prInfo.iVRes;
 			printDevice.SetPageSize(pageSizeX, pageSizeY);
 			
 			if (printPrefs->useRenderSettings) {
 				printDevice.SetResolution(printPrefs->renderSettings.resolution);
 			} else {
-				if ((*mPrintRecordH)->prInfoPT.iHRes > (*mPrintRecordH)->prInfo.iHRes) {
+				if ((*printRecordH)->prInfoPT.iHRes > (*printRecordH)->prInfo.iHRes) {
 					// this is a hack, as the powerprint driver seems to fill in the wrong
 					// field in the structure. In Carbon there is no accessor to prInfoPT!!!
-					printDevice.SetResolution((*mPrintRecordH)->prInfoPT.iHRes,
-											  (*mPrintRecordH)->prInfoPT.iVRes);
+					printDevice.SetResolution((*printRecordH)->prInfoPT.iHRes,
+											  (*printRecordH)->prInfoPT.iVRes);
 				} else {
-					printDevice.SetResolution((*mPrintRecordH)->prInfo.iHRes,
-											  (*mPrintRecordH)->prInfo.iVRes);
+					printDevice.SetResolution((*printRecordH)->prInfo.iHRes,
+											  (*printRecordH)->prInfo.iVRes);
 				}
 			}
 			
 			if (!HasDSC()) {
 				for (short copy=1; copy<=numberOfCopies; copy++) {	// copy loop
-					printDevice.PrintNonDSCDocument(mPrintRecordH);
+					printDevice.PrintNonDSCDocument(printRecordH);
 				}
 			} else {
 				for (short copy=1; copy<=numberOfCopies; copy++) {	// copy loop
-					printerPortPtr = ::PrOpenDoc(mPrintRecordH, NULL, NULL);
+					printerPortPtr = ::PrOpenDoc(printRecordH, NULL, NULL);
 					
 					if (printPrefs->useRenderSettings) {
 						switch (printPrefs->renderSettings.colorDepth) {
@@ -1041,9 +1042,9 @@ CGSDocument::DoPrint()
 							if ((pageNumber-firstPage) % iPFMaxPgs == 0) {
 								if (pageNumber != firstPage) {
 									::PrCloseDoc(printerPortPtr);
-									if (((*mPrintRecordH)->prJob.bJDocLoop == bSpoolLoop) &&
+									if (((*printRecordH)->prJob.bJDocLoop == bSpoolLoop) &&
 										(::PrError() == noErr))
-										::PrPicFile(mPrintRecordH, NULL, NULL, NULL, &tprStatus);
+										::PrPicFile(printRecordH, NULL, NULL, NULL, &tprStatus);
 								}
 							}
 							
@@ -1051,7 +1052,7 @@ CGSDocument::DoPrint()
 							
 							::PrOpenPage(printerPortPtr, NULL);
 							if(::PrError() == noErr)
-								printDevice.DrawToRect(&((*mPrintRecordH)->rPaper));
+								printDevice.DrawToRect(&((*printRecordH)->rPaper));
 							::PrClosePage(printerPortPtr);
 							pageNumber++;
 						}
@@ -1062,8 +1063,8 @@ CGSDocument::DoPrint()
 		} else ::PrSetError(iPrAbort);
 	}
 	
-	if (((*mPrintRecordH)->prJob.bJDocLoop == bSpoolLoop) && (::PrError() == noErr))
-		::PrPicFile(mPrintRecordH, NULL, NULL, NULL, &tprStatus);
+	if (((*printRecordH)->prJob.bJDocLoop == bSpoolLoop) && (::PrError() == noErr))
+		::PrPicFile(printRecordH, NULL, NULL, NULL, &tprStatus);
 	
 	OSErr	printErr = ::PrError();
 	::PrClose();
