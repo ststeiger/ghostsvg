@@ -1,0 +1,2365 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<TITLE>GSview Hilfe</TITLE>
+</HEAD>
+<BODY>
+<H1>GSview Hilfe</H1>
+<HR>
+<H1><A NAME="Inhalts&#252;bersicht">Inhalts&#252;bersicht</A></H1>
+<P>Das Programm <B>GSview</B> stellt eine grafische Schnittstelle f&#252;r Ghostscript 
+unter MS-Windows oder OS/2 dar. 
+<P>Das Programm Ghostscript ist ein Interpreter f&#252;r die 
+Seitenbeschreibungssprache PostScript, die vor allem Laserdrucker nutzen. 
+<P>Mit GSview k&#246;nnen ausgew&#228;hlte Seiten von Dokumenten, die den von Adobe 
+entwickelten PostScript Document Structuring Conventions 
+(DSC-Konventionen) entsprechen, auf dem Bildschirm dargestellt und auf 
+einen Drucker ausgegeben werden. 
+Die Version GSview 3.5 erfordert Ghostscript in der Version 4.03 - 6.99. 
+<P>
+<A HREF="#Installation">Installation</A><BR>
+<A HREF="#Registrierung">Registrierung</A><BR>
+<A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">Document Structuring Conventions (DSC-Kommentare)</A><BR>
+<A HREF="#PDF-Format_(Portable_Document_Format)">PDF-Format (Portable Document Format)</A><BR>
+<A HREF="#Datei_öffnen">Datei öffnen</A><BR>
+<A HREF="#Seiten_auswählen">Seiten auswählen</A><BR>
+<A HREF="#Zoomen">Zoomen</A><BR>
+<A HREF="#Datei-Informationen">Datei-Informationen</A><BR>
+<A HREF="#Drucken">Drucken</A><BR>
+<A HREF="#Datei_Konvertierungen_und_Tricks">Datei Konvertierungen und Tricks</A><BR>
+<A HREF="#Konvertierung_in_Vektor_Format">Konvertierung in Vektor Format</A><BR>
+<A HREF="#Text_extrahieren_und_Suche">Text extrahieren und Suche</A><BR>
+<A HREF="#Zwischenablage">Zwischenablage</A><BR>
+<A HREF="#EPS_Vorschau_(Preview)">EPS Vorschau (Preview)</A><BR>
+<A HREF="#Messen">Messen</A><BR>
+<A HREF="#Optionen">Optionen</A><BR>
+<A HREF="#Seitenausrichtung">Seitenausrichtung</A><BR>
+<A HREF="#Anzeige_Einstellungen">Anzeige Einstellungen</A><BR>
+<A HREF="#Seitenformat">Seitenformat</A><BR>
+<A HREF="#Tastenkombinationen">Tastenkombinationen</A><BR>
+<A HREF="#GSview_vom_Datei-Manager_oder_Windows_Explorer_starten">GSview vom Datei-Manager oder Windows Explorer starten</A><BR>
+<A HREF="#Aufruf-Optionen">Aufruf-Optionen</A><BR>
+<A HREF="#World_Wide_Web">World Wide Web</A><BR>
+<A HREF="#Copyright">Copyright</A><BR>
+<A HREF="#Häufig_auftretende_Probleme">Häufig auftretende Probleme</A><BR>
+<A HREF="#Andere_nützliche_Programme">Andere nützliche Programme</A><BR>
+<A HREF="#Weitere_Hilfethemen">Weitere Hilfethemen</A><BR>
+<A HREF="#GSview_intern">GSview intern</A><BR>
+<P>
+<HR>
+<H1><A NAME="Installation">Installation</A></H1>
+Zur Installation von GSview verwenden Sie das Installationsprogramm 
+<B>setup.exe</B> (f&#252;r MS-Windows) bzw. <B>os2setup.exe</B> (f&#252;r OS/2). Mit diesem 
+Programm wird neben GSview automatisch auch Ghostscript installiert. 
+<P>Wenn die Installation manuell durchgef&#252;hrt werden soll, lesen Sie das 
+Hilfethema 
+<A HREF="#Manuelle_Installation">Manuelle Installation</A>. 
+Siehe auch <A HREF="#Optionen">Optionen</A> | <A HREF="#Sprache">Sprache</A>. 
+<P>
+<A HREF="#GSview_und_Ghostscript_löschen">GSview und Ghostscript löschen</A><BR>
+<A HREF="#Manuelle_Installation">Manuelle Installation</A><BR>
+<A HREF="#Manuelle_Experteninstallation">Manuelle Experteninstallation</A><BR>
+<A HREF="#Installation_im_Netzwerk">Installation im Netzwerk</A><BR>
+<A HREF="#Ghostscript_Installation">Ghostscript Installation</A><BR>
+<A HREF="#Suchpfad">Suchpfad</A><BR>
+<A HREF="#Fonts">Fonts</A><BR>
+<P>
+<HR>
+<H2><A NAME="GSview_und_Ghostscript_l&#246;schen">GSview und Ghostscript l&#246;schen</A></H2>
+Um GSView und Ghostscript unter Windows 95 und NT 4.0 zu deinstallieren 
+benutzen Sie <B>Installieren/Deinstallieren</B> aus dem Windows Men&#252;. 
+<P>Unter Windows NT 3.5 oder Windows 3.1 benutzen Sie bitte das "Deinstalliere 
+GSView und Aladdin Ghostscript" Programm aus der <B>GS Tools</B> Gruppe. 
+<P>
+<A HREF="#Manuelle_Deinstallation">Manuelle Deinstallation</A><BR>
+<P>
+<HR>
+<H3><A NAME="Manuelle_Deinstallation">Manuelle Deinstallation</A></H3>
+Um das Programm GSview zu entfernen, l&#246;schen Sie die Dateien im 
+Verzeichnis <B>gsview</B>. 
+Um das Programm Ghostscript zu entfernen, l&#246;schen Sie die Dateien im 
+Verzeichnis <B>gsN.NN</B>, wobei N.NN die Versionsnummer von Ghostscript ist. 
+<P>L&#246;schen Sie anschlie&#223;end folgende Datei aus dem Systemverzeichnis: 
+<PRE>
+ c:\windows\gsview32.ini
+</PRE>
+<P>F&#252;r Windows mu&#223; gegebenenfalls noch die Datei gsview32.ini 
+aus dem Benutzerprofil-Verzeichnis gel&#246;scht werden. 
+<P>L&#246;schen Sie die Programmgruppe <B>GS Tools</B> aus dem Programm-Manager bzw. 
+aus dem Startmen&#252;. 
+<P>Wenn Sie wissen, wie die Registrierungsdatenbank editiert wird, 
+l&#246;schen Sie die folgenden Eintr&#228;ge: 
+<PRE>
+ psfile
+ .eps
+ .ps
+ MIME\Database\Content Type\application/postscript
+ pdffile  (falls PDF mit GSview verkn&#252;pft ist)
+ .pdf     (falls PDF mit GSview verkn&#252;pft ist)
+ MIME\Database\Content Type\application/pdf
+</PRE>
+<P>
+<P>
+<HR>
+<H2><A NAME="Manuelle_Installation">Manuelle Installation</A></H2>
+Wir empfehlen Ihnen, GSview mit dem Installationsprogramm zu installieren. 
+Im folgenden wird beschrieben, wie die Installation ohne das Installationsprogramm 
+durchzuf&#252;hren ist. 
+<P>Legen Sie die Umgebungsvariable TEMP an, die auf ein Verzeichnis f&#252;r 
+tempor&#228;re Dateien zeigt. 
+Beispiel: 
+<PRE>
+  SET TEMP=c:\temp
+</PRE>
+<P>Voraussetzung hierf&#252;r ist, da&#223; dieses Verzeichnis bereits angelegt und 
+beschreibbar ist. 
+<P>Anschlie&#223;end installieren Sie das Programm Ghostscript einschlie&#223;lich 
+aller Library Files und Fonts. 
+F&#252;r die Installation ben&#246;tigen Sie die Version von Ghostscript, die in der 
+<A HREF="#Inhaltsübersicht">Inhalts&#252;bersicht</A> angegeben ist, da das Programm GSview mit anderen 
+Ghostscript-Versionen nicht kompatibel ist. 
+Installieren Sie Ghostscript in das Verzeichnis c:\gstools\gsN.NN 
+(Ersetzen Sie N.NN durch die 
+Ghostscript-Versionsnummer.) 
+<P>Erstellen Sie das Verzeichnis c:\gstools\gsview. 
+<P>Anschlie&#223;end installieren Sie das Programm 
+GSview f&#252;r Windows, indem Sie gsview32.exe, gsv16spl.exe, gvwgs32.exe, 
+gsvw32de.dll, gsvw32fr.dll, 
+gsviewen.hlp, gsviewde.hlp, gsviewfr.hlp, 
+und printer.ini 
+in das Verzeichnis <B>c:\gstools\gsview</B> kopieren. 
+<P>Starten Sie das Programm GSview und folgen Sie den Anweisungen im 
+Konfigurationsprogramm. 
+<P>Dadurch werden automatisch das Men&#252; 
+<A HREF="#Optionen">Optionen</A> | <A HREF="#Konfiguriere_Ghostscript">Konfiguriere Ghostscript</A> konfiguriert, eine 
+Liste der bekannten Drucker in die ini-Datei kopiert und 
+Dateiverkn&#252;pfungen im Register und eine Programmgruppe erzeugt. 
+<P>Wenn Sie das Konfigurationsprogramm sp&#228;ter noch einmal starten wollen, 
+so w&#228;hlen Sie <A HREF="#Optionen">Optionen</A> | <B>Konfiguration</B>. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Manuelle_Experteninstallation">Manuelle Experteninstallation</A></H2>
+Anstatt den Men&#252;punkt <A HREF="#Optionen">Optionen</A> | <B>Konfiguration</B> zu w&#228;hlen, nehmen 
+Sie <A HREF="#Optionen">Optionen</A> | <A HREF="#Konfiguriere_Ghostscript">Konfiguriere Ghostscript</A>. 
+<P>Geben Sie im Feld <A HREF="#Konfiguriere_Ghostscript">Ghostscript DLL</A> den vollst&#228;ndigen Pfad f&#252;r 
+Ghostscript DLL an. 
+<PRE>
+  c:\gstools\gsN.NN\gsdll32.dll
+</PRE>
+<P>Geben Sie anschlie&#223;end im Feld <A HREF="#Konfiguriere_Ghostscript">Ghostscript Suchpfad</A> den korrekten 
+Suchpfad ein. 
+Dieser Pfad mu&#223; alle Verzeichnisse enthalten, in denen sich die 
+Ghostscript Library Files (gs_*.ps und Fontmap) und Ghostscript 
+fonts (*.gsf) befinden. 
+Beispiel: 
+<PRE>
+  c:\gstools\gsN.NN;c:\gstools\gsN.NN\Schriften
+</PRE>
+<P>Setzen Sie dabei auf keinen Fall die Option <B>-I</B> vor den Suchpfad. 
+<P>Lassen Sie das Feld <A HREF="#Konfiguriere_Ghostscript">Ghostscript Optionen</A> frei. 
+<P>Wenn die Eintragungen im Feld <A HREF="#Konfiguriere_Ghostscript">Ghostscript DLL</A> nicht korrekt sind, 
+kann GSview Ghostscript nicht laden. Wenn die Eintragungen im Feld 
+<A HREF="#Konfiguriere_Ghostscript">Ghostscript Suchpfad</A> nicht korrekt sind, wird Ghostscript 
+nicht initialisiert und damit nicht geladen. 
+<P>Beenden Sie GSview und tragen Sie die Datei printer.ini in die Gsview 
+INI-Datei (c:\windows\gsview32.ini oder c:\os2\gvpm.ini). 
+<P>Erstellen Sie f&#252;r GSview eine Programmgruppe oder ein Startmen&#252;. 
+<P>F&#252;gen Sie im <A HREF="#GSview_vom_Datei-Manager_oder_Windows_Explorer_starten">Register</A> die ps- und die eps-Dateien hinzu. 
+<P>Befinden Sie auf Ihrem System Type 1 Fonts, kann Ghostscript diese 
+verarbeiten. 
+Um sich hierzu Beispiele anzuschauen, lesen Sie die Dateien <B>fontmap.os2</B> 
+und <B>fontmap.atm</B>, 
+die mit Ghostscript geliefert werden.  Siehe auch <A HREF="#Fonts">Fonts</A>. 
+<P>Wenn bei der Arbeit mit GSview Probleme auftreten, finden Sie erste 
+L&#246;sungsans&#228;tze in <A HREF="#Häufig_auftretende_Probleme">H&#228;ufig auftretende Probleme</A>. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Installation_im_Netzwerk">Installation im Netzwerk</A></H2>
+Installieren Sie das Programm GSview in ein Netzwerk-Verzeichnis. 
+<P>Wenn Sie GSview zum ersten Mal aufrufen oder das Programm starten, nachdem 
+die Versionsnummer ge&#228;ndert wurde, f&#252;hrt GSview die Konfiguration des 
+lokalen Computers durch. 
+<P>Unter Windows 3.x darf kein UNC-Pfad verwendet werden! Mit Windows 95 
+sind keine Probleme bekannt. 
+<P>Wenn Benutzerprofile unter Windows 95 benutzt werden, dann speichert Gsview die INI Datei 
+in dem Verzeichnis des entsprechenden Benutzerprofils. Ansonsten wird gepr&#252;ft, ob die Umgebungsvariable 
+USERPROFILE existiert und ob es sich um ein Verzeichnis handelt. In diesem Fall wird die INI Datei dort 
+gespeichert und es kann dann keine Benutzerabh&#228;ngige Konfiguration erstellt werden. 
+<P>Wenn Sie es verhindern wollen, da&#223; das Installationsprogramm beim ersten Start von Gsview oder bei Updates 
+von Gsview, dann sollten Sie eine INI Datei in das Gsview Verzeichnis kopieren. 
+<B>Bei zuk&#252;nftigen Updates kann es jedoch erforderlich sein, diese Datei wieder zu entfernen.</B> 
+Sie sollte nur jene Eintr&#228;ge enthalten, die in der Benutzerkonfiguration &#252;berschrieben werden sollen. 
+Die vorgeschlagene Methode ist zuerst Gsview zu installieren und dann zu konfigurieren. 
+Kopieren Sie gsview32.ini oder gvpm.ini aus dem Systemverzeichnis oder dem Benutzerprofil-Verzeichnis in 
+das Gsview Verzeichnis und entfernen alle Eintr&#228;ge bis auf: 
+<PRE>
+ [Options]
+ Version=3.5
+ GSversion=650
+ Configured=1
+ GhostscriptDLL=E:\gs\gs6.50\gsdll32.dll
+ GhostscriptInclude=E:\gs\gs6.50;E:\gs\fonts
+ GhostscriptOther=-dNOPLATFONTS -sFONTPATH="c:\psfonts"
+</PRE>
+<P>Wenn ein Benutzer Gsview startet, dann wird normalerweise seine INI Datei benutzt. 
+Startet Gsview das erste Mal oder die Version von Gsview stimmt nicht mit der in der INI Datei &#252;berein, dann 
+passiert folgendes: 
+<P>1. Die INI Datei in dem Gsview Verzeichnis wird gelesen und &#252;berschreibt die INI Datei des Benutzers. 
+<P>2. Die Druckerliste aus printer.ini im Gsview Verzeichnis wird aktualisiert. 
+<P>3. Dateiverkn&#252;fungen (.ps, .eps, .pdf) werden NICHT angelegt oder ver&#228;ndert. 
+<P>4. Programmanagergruppen / Startmen&#252;eintr&#228;ge / Programmobjekte werden NICHT ver&#228;ndert 
+Wenn Sie dieses Verhalten &#228;ndern m&#246;chten, so w&#228;hlen Sie <A HREF="#Optionen">Optionen</A> | <B>Konfigurieren</B>. 
+<P><PRE>
+ Wenn ein Benutzer das GSview Deinstallationsprogramm aufruft, versucht dieses GSview und Ghostscript im
+</PRE>
+<P>Netzwerk zu l&#246;schen.  Stellen sie deshalb sicher, da&#223; die Verzeichnisse von GSview und Ghostscript vor 
+Benutzern schreibgesch&#252;tzt sind. 
+Um ganz sicher zu sein, k&#246;nnen sie auch die Datei <B>win32.log</B> aus dem GVview Verzeichnis nehmen. Dort sind 
+die Dateien aufgelistet, die das Deinstallationsprogramm entfernt. Das Deinstallationsprogramm wird ebenfalls 
+alle Schl&#252;ssel in der Datei <B>win32new.reg</B> l&#246;schen und dann jene aus der Datei <B>win32old.reg</B> reaktivieren. 
+Diese Schl&#252;ssel sind jene des Benutzers, der GSview im Netzwerk installiert hat. Um dies zu deaktivieren 
+l&#246;schen sie diese Dateien. 
+<P>Die Datei <B>win32dde.log</B> enth&#228;lt die Programm Manager DDE Kommandos, die das Deinstallationsprogramm 
+benutzt. 
+<P>Das Deinstallationsprogramm beschwert sich nicht dar&#252;ber, wenn ein der Dateien <B>win32.log</B>, <B>win32new.reg</B>, 
+<B>win32old.reg</B> oder <B>win32dde.log</B> fehlt. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Ghostscript_Installation">Ghostscript Installation</A></H2>
+ACHTUNG: EINIGE DER HIER AUFGEF&#220;HRTEN INFORMATIONEN SIND VERALTET. 
+<P>Im folgenden wird die Installation von Ghostscript beschrieben. 
+Grundlegende Informationen zu diesem Thema finden Sie in der 
+Ghostscript-Datei "install.txt". 
+<P>Das Programm Ghostscript von Aladdin Enterprises f&#252;r PCs ist im Internet 
+&#252;ber folgende Adresse erh&#228;ltlich: 
+<PRE>
+ ftp://ftp.cs.wisc.edu/ghost/aladdin/gsNNN???.zip
+</PRE>
+<P>(NNN ist die Versionsnummer). 
+<P>Die erforderlichen Zip-Dateien f&#252;r Ghostscript sind: 
+<P>Alle PC-Plattformen ben&#246;tigen die Library (INI) Files 
+<PRE>
+ gsNNNini.zip
+</PRE>
+<P>Sind noch keine Type 1 Fonts vorhanden, ben&#246;tigen Sie: 
+<PRE>
+ gsNNNfn1.zip
+</PRE>
+<P>Um Ghostscript in Verbindung mit GSview zu betreiben, sind eine oder 
+mehrere Ghostscript DLLs erforderlich: 
+<PRE>
+ gsNNNos2.zip   (OS/2 2.0 oder aktuellere DLL)
+ gsNNNw32.zip   (MS-Windows 3.1/Win32s, 95 oder NT)
+</PRE>
+<P>Im folgenden wird davon ausgegangen, da&#223; Ghostscript auf Laufwerk d: 
+installiert werden soll. 
+Dekomprimieren Sie die Datei INI zip und die DLL und EXE-Dateien aus dem 
+Quellverzeichnis. Die Dateien werden damit in das Verzeichnis d:\gstools\gsN.NN 
+kopiert. 
+<P>Ben&#246;tigen Sie auch die Fonts, wechseln Sie in das Verzeichnis d:\gstools\gsN.NN 
+und dekomprimieren die Datei gsNNNfn1.zip. Die Dateien werden dann in das 
+Unterverzeichnis .\fonts kopiert. 
+<P>Um Ghostscript ohne GSview zu betreiben, setzen Sie die GS_LIB 
+Umgebungsvariable wie folgt: 
+<PRE>
+ SET GS_LIB=d:\gstools\gsN.NN;d:\gstools\gsN.NN\fonts
+</PRE>
+<P>und starten anschlie&#223;end die entsprechende EXE-Datei. 
+Um Ghostscript ohne die Umgebungsvariable zu betreiben, verwenden Sie den 
+folgenden Befehl: 
+<PRE>
+ d:\gstools\gsN.NN\gs -Id:\gstools\gsN.NN;d:\gstools\gsN.NN\fonts
+</PRE>
+<P>(Hier mu&#223; die Bezeichnung EXE durch die Bezeichnungen gs, gs386, gswin16, 
+gswin32 oder gsos2 ersetzt werden). 
+<P>Wenn auf Ihrem System bereits Type 1 Fonts vorhanden sind, gibt es zwei 
+M&#246;glichkeiten, "dieses Ghostscript mitzuteilen": 
+<P>1. Die Datei <A HREF="#Fontmap">Fontmap</A> editieren oder ersetzen 
+<P>2. Die Umgebungsvariable <A HREF="#GS_FONTPATH">GS_FONTPATH</A> editieren oder ersetzen. 
+Ausf&#252;hrliche Informationen hierzu finden Sie in der Datei "use.txt" und 
+in den Fontmap-Beispieldateien. 
+<P>Siehe auch <A HREF="#Suchpfad">Suchpfad</A> und <A HREF="#Fonts">Fonts</A>. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Suchpfad">Suchpfad</A></H2>
+W&#228;hrend des Startvorganges ben&#246;tigt Ghostscript einige 
+Initialisierungsdateien sowie Fonts, die die Darstellung von Text 
+erm&#246;glichen. Deshalb mu&#223; dem Programm irgendwie mitgeteilt 
+werden, wo es diese Dateien findet. Dies erfolgt mit Hilfe der 
+Ghostscript-Aufrufoption -I oder 
+die Umgebungsvariable <B>GS_LIB</B>. 
+Arbeiten Sie unter UNIX oder VMS, lesen Sie die weiter unten 
+aufgef&#252;hrten Informationen zu diesem Thema. 
+<P>Die Aufrufoption <B>-I</B> oder die Umgebungsvariable <B>GS_LIB</B> enth&#228;lt 
+eine Liste von Verzeichnissen, in denen nach den erforderlichen 
+Initialisierungsdateien gesucht wird. Bei einem PC befinden sich die 
+Intitialisierungsdateien normalerweise im selben Verzeichnis wie das 
+Programm Ghostscript. Wenn Ghostscript also auf c:\gs zu finden ist, 
+verwenden Sie <B>-Ic:\gs</B> als Befehlszeilenoption f&#252;r Ghostscript. 
+<P>Dar&#252;ber hinaus ben&#246;tigt Ghostscript Fontdateien. Eine Liste der 
+Fontdateien, die Ghostscript verarbeiten kann, ist in der Datei <A HREF="#Fontmap">Fontmap</A> 
+enthalten. Daher m&#252;ssen Sie die Verzeichnisse, die diese Fonts enthalten, 
+zur Aufrufoption <B>-I</B> hinzuf&#252;gen. Wenn sich also die Ghostscript *.pfb 
+Fonts in c:\gs\fonts und andere *.pfb Fonts 
+in c:\psfonts befinden, verwenden Sie bei PCs die Befehlszeilenoption 
+<B>-Ic:\gs;c:\gs\Schriften;c:\psfonts</B>. 
+<P>Arbeiten Sie mit Ghostview unter Unix oder VMS, mu&#223; der Suchpfad bereits 
+beim Kompilieren von Ghostscript konfiguriert werden. Ist dies nicht 
+erfolgt und soll mit Ghostview gearbeitet werden, verwenden Sie 
+anstatt <B>-I</B> die Umgebungsvariable <B>GS_LIB</B>. Unter Unix werden die 
+Ghostscript-Suchpfade nicht in dasselbe Verzeichnis gesetzt wie die 
+ausf&#252;hrenden Dateien. Diese befinden sich im Verzeichnis 
+<PRE>
+ /usr/local/bin,
+</PRE>
+<P>die Suchpfade dagegen im Verzeichnis 
+<PRE>
+ /usr/local/lib/ghostscript/gsN.NN
+</PRE>
+<P>und die Fonts in 
+<PRE>
+ /usr/local/lib/ghostscript/fonts.
+</PRE>
+<P>Dementsprechend w&#252;rde die Umgebungsvariable <B>GS_LIB</B> in das Verzeichnis 
+<PRE>
+ /usr/local/lib/ghostscript/gsN.NN:/usr/local/lib/ghostscript/fonts
+</PRE>
+<P>gesetzt werden. 
+<P>Im allgemeinen kann man davon ausgehen, da&#223; die Einstellungen bereits beim 
+Kompilieren von Ghostscript vorgenommen wurden und es deshalb nicht mehr 
+erforderlich ist, <B>GS_LIB</B> zu verwenden. 
+Weitere Informationen hierzu erhalten Sie im folgenden Hilfethema. 
+<P>
+<A HREF="#Dateisuche">Dateisuche</A><BR>
+<P>
+<HR>
+<H3><A NAME="Dateisuche">Dateisuche</A></H3>
+(aus Ghostscript use.txt) 
+<P>W&#228;hrend Ghostscript nach den Initialisierungsdateien (gs_*.ps), den 
+Fontdateien (Fontmap, *.pfa, *.pfb, *.gsf) sucht, wird zun&#228;chst gepr&#252;ft, 
+ob der Dateiname auf ein bestimmtes Verzeichnis oder Laufwerk verweist 
+(z.B. beginnt es bei Unix nicht mit '/'; enth&#228;lt es unter MS-DOS 
+kein ':' und beginnt nicht mit '/' oder '\'; enth&#228;lt es bei 
+VMS-Systemen kein ':' oder eckige Klammern) 
+Im Normalfall versucht Ghostscript, die gesucht Datei zu &#246;ffnen. 
+Andernfalls durchsucht Ghostscript folgende 
+Verzeichnisse in der angegebenen Reihenfolge: 
+<P>- Dem aktuellen Verzeichnis 
+<P>- Das/die Verzeichnis(se), die durch die Aufrufoption -I in der 
+Kommandozeile gekennzeichnet ist/sind 
+<P>- Das/die Verzeichnis(se), die die Umgebungsvariable GS_LIB 
+enth&#228;lt/enthalten 
+<P>-  Das/die Verzeichnis(se), die &#252;ber das Makro GS_LIB_DEFAULT im 
+Makefile beschrieben wird/werden. 
+<P>GS_LIB_DEFAULT, GS_LIB und der -I-Parameter k&#246;nnen mit einem oder mehreren 
+Verzeichnissen belegt 
+sein, wobei die Verzeichnisnamen je nach Betriebssystem durch das 
+entsprechende Zeichen getrennt werden 
+(':' bei Unix, ';' bei VMS-Systemen, ';' bei MS-DOS). Wir denken, da&#223; es eine schlechte 
+Idee ist, zuerst das aktuelle Verzeichnis zu durchsuchen -- es &#246;ffnet ernsthafte 
+Sicherheitsl&#252;cken und kann zu sehr verwirrenden Fehlern f&#252;hren, wenn mehr als eine 
+Version von Ghostscript in der Umgebung existiert -- aber als wir versuchten dies zu 
+&#228;ndern bestanden zahlreiche Benutzer darauf dieses Verhalten wieder einzuschalten. 
+Sie k&#246;nnen das aktuelle Verzeichnis als ersten Suchpfad mit dem Schalter -P deaktivieren. 
+<P>Bitte beachten Sie, da&#223; Ghostscript diesen Suchalgorithmus nicht f&#252;r den 'run' oder 'file' 
+Operator verwendet. F&#252;r diese wird einfach der angegebene Dateiname verwendet, um 
+auch dort den Suchalgrithmus zu benutzen mu&#223; 'runlibfile' anstelle von 'run' verwendet 
+werden. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Fonts">Fonts</A></H2>
+Der Zugriff auf die Fonts erfolgt bei Ghostscript auf zwei 
+unterschiedliche Arten: 
+<P>1. Fonts, die explizit in der Datei <A HREF="#Fontmap">Fontmap</A> aufgelistet sind. 
+<P>2.  Die Fontdateien werden &#252;ber -sFONTPATH= oder die Umgebungsvariable <A HREF="#GS_FONTPATH">GS_FONTPATH</A>, 
+die die Verzeichnisse enth&#228;lt, gesucht. 
+<P>Die in der Datei <A HREF="#Fontmap">Fontmap</A> aufgef&#252;hrten Fonts k&#246;nnen &#252;ber den Ghostscript 
+Suchpfad gefunden werden oder sollten eindeutige Pfadangaben haben. 
+Verwenden Sie bei der Eingabe von Verzeichnisnamen  / oder \\ 
+(nicht \). 
+<P>Das Ghostscript-Paket enth&#228;lt jetzt verschiedene frei verf&#252;gbare Fonts, 
+die sich durch eine hohe Qualit&#228;t 
+auszeichnen. Die meisten dieser Fonts sind pfb-Dateien und k&#246;nnen auch mit 
+Adobe Type Manager eingesetzt werden. 
+Die Ghostscript-Fonts k&#246;nnen in drei Gruppen eingeteilt werden: 
+<P>1. Type 1-Fonts (Outline-Fonts mit Hints) (*.pfb und die meisten *.pfa). 
+Mit diesen Fonts lassen sich Schriftbilder ausgezeichneter Qualit&#228;t 
+erzielen. Die Datei Fontmap bevorzugt Type 1 Fonts gegen&#252;ber anderen 
+Schriften. Alle 35 Standard-PostScript-Schriften sind verf&#252;gbar. 
+<P>2.  Type 1-Fonts, die aus Bitmap-Fonts entstanden sind (*.gsf). Es handelt 
+sich hierbei um normale Type 1-Fonts, die allerdings nicht mit dem Adobe 
+Type Manager eingesetzt werden k&#246;nnen und ein Schriftbild 
+geringerer Qualit&#228;t erzeugen. Verwenden Sie diese Schriften nach 
+M&#246;glichkeit nicht. 
+<P>3.  Type 1-Fonts (Stroke-Fonts), die aus den Public Domain Hershey Fonts 
+entstanden sind (h*.gsf, h*.pfa). Mit diesen Fonts lassen sich 
+Schriftbilder normaler Qualit&#228;t erzeugen, sie entsprechen allerdings 
+nicht den Richtlinien f&#252;r Post Script Schriften. 
+<P>Andere Type 1-Fonts (Outline Fonts) k&#246;nnen in Verbindung mit Ghostscript 
+ebenfalls genutzt werden (*.pfa, *.pfb). Die Verwendung dieser Fonts h&#228;ngt 
+allerdings von den Lizenzbedingungen ab. Verwenden Sie diese 
+Fonts mit Ghostscript, sorgen Sie daf&#252;r, da&#223; die Lizenz vorhanden ist. 
+Um diese Fonts verwenden zu k&#246;nnen, ist dar&#252;ber hinaus ein manuelles 
+Editieren oder Ersetzen der Datei <A HREF="#Fontmap">Fontmap</A> oder die Verwendung von 
+<A HREF="#GS_FONTPATH">GS_FONTPATH</A> erforderlich. 
+<P>
+<A HREF="#Fontmap">Fontmap</A><BR>
+<A HREF="#GS_FONTPATH">GS_FONTPATH</A><BR>
+<A HREF="#Plattform-Fonts">Plattform-Fonts</A><BR>
+<P>
+<HR>
+<H3><A NAME="Fontmap">Fontmap</A></H3>
+Die Datei <B>Fontmap</B> liefert Ghostscript Informationen dar&#252;ber, welche 
+Fonts verf&#252;gbar sind und wo sie gefunden werden k&#246;nnen. Die Zeilen in der 
+Datei <B>Fontmap</B> k&#246;nnen folgenderma&#223;en aussehen: 
+<P>1. Kommentar. Kommentarzeilen beginnen mit % 
+<PRE>
+   % fontmap aka Fontmap - standard font catalog for Ghostscript.
+</PRE>
+<P>2. Fontname und Dateiname. Beispiele: 
+<PRE>
+   /Courier                (ncrr.pfa)      ;
+   /Courier-Italic         (ncrri.pfa)     ;
+</PRE>
+<P>Der Inhalt der ersten Zeile besagt, da&#223; sich der Fontname <B>Courier</B> in der 
+Datei <B>ncrr.pfa</B> befindet. 
+Voraussetzung hierf&#252;r ist nat&#252;rlich, da&#223; der Fontname <B>Courier</B> in dieser 
+Datei enthalten ist. Lautet die Bezeichnung nicht Courier, mu&#223; der 
+Font-Alias verwendet werden. 
+Eine Beschreibung hierzu finden Sie weiter unten auf dieser Seite. 
+Beachten Sie, da&#223; es sich bei dem Dateinamen um einen PostScript-String 
+handelt und \ eine besondere Bedeutung hat. 
+Befindet sich die Datei <B>ncrr.pfa</B> im Verzeichnis c:\gs\fonts, mu&#223; dieses 
+Verzeichnis im Suchpfad aufgef&#252;hrt sein. Ansonsten m&#252;&#223;ten Sie den 
+Dateinamen benutzen 
+(c:/gs/fonts/ncrr.pfa oder c:\\gs\\fonts\\ncrr.pfa; 
+verwenden Sie  / anstatt \\). 
+<P>3. Font-Alias. Beispiel: 
+<PRE>
+   /Courier-Oblique                /Courier-Italic         ;
+</PRE>
+<P>Wird die Schrift Courier-Oblique ben&#246;tigt, wei&#223; Ghostscript, da&#223; stattdessen 
+Courier-Italic verwendet werden mu&#223;. 
+Die Datei Fontmap verwendet diese Aliase, um die 35 Standard Zeichens&#228;tze 
+durch hochwertige Outline Fonts mit anderen Namen zu ersetzen. 
+Die Schrift NimbusSansL-Regular sieht genauso aus wie Helvetica und weist 
+eine h&#246;here Qualit&#228;t auf, so da&#223; die Datei Fontmap folgende Zuordnung vornimmt: 
+<PRE>
+   /Helvetica                      /NimbusSansL-Regular    ;
+   /NimbusSansL-Regular            (n019003l.gsf)  ;
+</PRE>
+<P>Eine Beschreibung der Formatierungen, die in jeder Zeile ben&#246;tigt werden, 
+finden Sie am Anfang der Datei <B>Fontmap</B>. 
+<P>In Ghostscript existieren bereits unterschiedliche <B>Fontmap</B>-Dateien: 
+<PRE>
+ Fontmap    Standard Fontmap Datei
+ Fontmap.ATB    Fontmap aus dem Paket Adobe Type Basics (65 Type 1-Fonts)
+ Fontmap.ATM    Windows mit den Standardfonts f&#252;r Adobe Type Manager (13 Fonts)
+ Fontmap.OS2    Type 1-Fonts unter OS/2 mit integriertem ATM (13 Fonts)
+ Fontmap.OSF    DEC OSF/1 mit DPS
+ Fontmap.Sol    F&#252;r Solaris 2.3 und h&#246;her
+ Fontmap.Ult    DEC Ultrix Systeme mit DPS
+ Fontmap.VMS    VAX/VMS mit DECwindows/Motif und DPS
+</PRE>
+<P>Um eine dieser Font-Dateien verwenden zu k&#246;nnen, gehen Sie 
+folgenderma&#223;en vor: 
+<P>1. Kopieren Sie Fontmap in Fontmap.old 
+<P>2. Kopieren Sie die ausgew&#228;hlte Fontmap-Datei nach Fontmap 
+<P>3. F&#252;gen Sie das Verzeichnis, da&#223; die Type 1-Fonts enth&#228;lt, 
+zum Suchpfad hinzu (<B>-I</B> oder <B>GS_LIB</B>) 
+<P>
+<P>
+<HR>
+<H3><A NAME="GS_FONTPATH">GS_FONTPATH</A></H3>
+(aus Ghostscript use.txt) 
+<P>Ghostscript hat verschiedene Regeln um einen bestimmten Zeichensatz zu finden. 
+Es beginnt mit der Suche nach Fontmap Dateien in jedem Verzeichnis des Suchpfads: 
+diese Dateien enthalten Verkn&#252;pfungen zwischen Zeichensatznamen und Dateinamen. 
+(Siehe Fontmap Datei in der Ghostscript Distribution f&#252;r weitere Details.) 
+<P>Wenn Ghostscript einen Font in keiner Fontmap Datei des Suchpfads finden kann, 
+durchsucht es automatisch 
+die Umgebungsvariable <B>GS_FONTPATH</B>, die mehrere Verzeichnisnamen enth&#228;lt 
+(oder die Liste, die evtl. durch den Schalter -sFONTMAP= angegeben wurde). 
+Ghostscript geht in diese Verzeichnisse und durchsucht alle Verzeichnisse, 
+die PostScript-Fonts enthalten k&#246;nnten. Anschlie&#223;end werden alle 
+Fontdateien und die Fonts der internen Kopie der Fontmap hinzugef&#252;gt. 
+Haben Sie einen der folgenden Computer im Einsatz, belegen Sie 
+<B>GS_FONTPATH</B> mit den hier aufgef&#252;hrten Verzeichnissen. 
+Ghostscript erh&#228;lt dann automatisch alle installierten Type 1-Fonts: 
+<P><PRE>
+ Betriebssystem    GS_FONTPATH
+ --------------    -----------
+ DEC OSF/1         /usr/lib/X11/fonts/Type1Adobe
+ DEC Ultrix        /usr/lib/DPS/outline/decwin
+ HP-UX 9           /usr/lib/X11/fonts/type1.st/typefaces
+ IBM AIX           /usr/lpp/DPS/fonts/outlines
+   "               /usr/lpp/X11/lib/X11/fonts/Type1
+   "               /usr/lpp/X11/lib/X11/fonts/Type1/DPS
+ NeXT              /NextLibrary/Fonts/outline
+ SGI IRIX          /usr/lib/DPS/outline/base
+   "               /usr/lib/X11/fonts/Type1
+ Sun SunOS 4.x     /usr/openwin/lib/X11/fonts/Type1/outline
+   " (NeWSprint only)
+  newsprint_2.5/SUNWsteNP/reloc/$BASEDIR/NeWSprint/small_openwin/lib/fonts
+ Sun Solaris 2    /usr/openwin/lib/X11/fonts/Type1/outline
+ VMS              SYS$COMMON:[SYSFONT.XDPS.OUTLINE]
+</PRE>
+<P>Diese Pfade sind vielleicht nicht exakt so, wie auf Ihrem 
+System installiert. Fragen Sie ggfs. Ihren Systemadministrator 
+wo Zeichens&#228;tze wie Helvetica oder Courier zu finden sind. 
+<P>ANMERKUNG: Auf Solaris System reicht das blo&#223;e setzen von GS_FONTPATH 
+manchmal nicht aus. Einige Versionen von Ghostscript k&#246;nnen anscheinend 
+keine Type 1 Schriften in /usr/openwin/lib/X11/fonts/Type1/outline finden. 
+Es erscheint die Meldung: "15 files, 15 scanned, 0 new fonts". 
+In diesem Fall schauen Sie bitte in die Datei Fontmap.Sol. 
+<P>Siehe auch <A HREF="#Fontmap">Fontmap</A>. 
+<P>
+<P>
+<HR>
+<H3><A NAME="Plattform-Fonts">Plattform-Fonts</A></H3>
+Plattform-Fonts werden in der in der Ghostscript-Datei fonts.txt 
+beschrieben. 
+<P>ACHTUNG! 
+Bei der Verwendung von Plattform-Fonts funktioniert das Text-Antialiasing 
+nicht. Wenn Text-Antialiasing ausgew&#228;hlt wurde, schaltet GSview die 
+Plattform-Fonts automatisch &#252;ber die Aufrufoption -dNOPLATFONTS aus. 
+<P>Der folgende Text wurde geschrieben, als Ghostscript Fonts verwendete, 
+die aus Bitmap-Fonts entstanden und eine schlechtere Qualit&#228;t aufweisen. 
+In der Zwischenzeit arbeitet Ghostscript allerdings mit den qualitativ 
+h&#246;herwertigen Type 1- Fonts. 
+<P>Auf dem Rechner, auf dem Ghostscript installiert wurde, k&#246;nnen die 
+gleichen Fonts als skalierbare Fonts 
+(z.B Type 1-Fonts oder TrueType-Fonts) oder als Bitmaps vorhanden sein, 
+jedoch in einer besseren Qualit&#228;t. F&#252;r eine optimale Darstellung der 
+Dokumente kann Ghostscript anstelle der schlechteren Fonts diese 
+sogenannten <B>Plattform-Fonts</B> verwenden. 
+<P>Folgendes Beispiel dient der Erl&#228;uterung: 
+Der Font /Helvetica-Bold befindet sich in der Datei phvb.gsf. Es handelt 
+sich um einen aus einem Bitmap entstandenen Outline-Font. 
+Wird der Font /Helvetica-Bold ben&#246;tigt, wird die Datei phvb.gsf gelesen. 
+Soll jetzt ein Zeichen auf dem Bildschirm dargestellt werden, 
+pr&#252;ft Ghostscript, ob ein Helvetica-Bold-Font der entsprechenden Gr&#246;&#223;e 
+unter MS-Windows vorhanden ist. MS-Windows stellt die ben&#246;tigten Zeichen 
+mit dem TrueType-Font Arial Bold dar, und Ghostscript erm&#246;glicht die 
+Darstellung dieses qualitativ h&#246;herwertigen Plattform-Fonts auf dem 
+Bildschirm. 
+<P>Unter Unix/X11 k&#246;nnen anstelle von /Helvetica-Bold Fonts Zeichen 
+dargestellt werden, die einen vorhandenen Bitmap-Font verwenden, 
+sofern dieser in der erforderlichen Gr&#246;&#223;e verf&#252;gbar ist. 
+<P>Beim Einsatz von <B>Plattform-Fonts</B> sind folgende Einschr&#228;nkungen 
+zu beachten: 
+<P>1. Plattform-Fonts kommen nur bei normalem Text zum Einsatz (Hochformat). 
+Gedrehter Text kann nur mit Original PostScript-Fonts dargestellt werden. 
+<P>2.  Es mu&#223; immer eine PostScript-Version der gew&#252;nschten Schrift auf dem 
+System vorhanden sein, damit Bounding Box-Informationen, 
+Fonts mit ungew&#246;hnlichem Zeichensatz (Encoding-Vektor) und gedrehte 
+Zeichen dargestellt werden k&#246;nnen. 
+<P>3.  Plattform-Fonts kommen nur bei bestimmten Fonth&#246;hen zum Einsatz. 
+MS-Windows verwendet z.B. Systemschriften von 6 bis 36 Punkt. 
+<P>4.  Die Angabe der verf&#252;gbaren Fonth&#246;hen ist bei MS-Windows nicht korrekt. 
+Ghostscript ben&#246;tigt eine bestimmte Fonth&#246;he, und MS-Windows liefert einen 
+Font, der angeblich dieselbe H&#246;he hat. MS-Windows w&#228;hlt jedoch einen Font 
+mit einer anderen H&#246;he, der besser aussehen soll. Tats&#228;chlich wird mit 
+diesem Font eine Verschlechterung erzielt, die die Laufweite nicht der 
+Zeichengr&#246;&#223;e entspricht. In diesem Fall lassen sich die Plattform-Fonts 
+beim Aufruf von Ghostscript &#252;ber die Option -dNOPLATFONTS abschalten 
+<P>5.  Plattform-Fonts k&#246;nnen nur f&#252;r die Bildschirmausgabe eingesetzt werden. 
+F&#252;r die Ausgabe auf einen Drucker dienen weiterhin die PostScript-Fonts. 
+<P>Unter Windows gibt es f&#252;r Ghostscript eine Tabelle mit den 
+PostScript-Fonts und den entsprechenden System-Fonts. 
+Auf der linken Seite der Tabelle ist der Name des PostScript-Fonts 
+angegeben, auf der rechten Seite finden Sie den Namen des Plattform-Fonts, 
+den Ghostscript w&#228;hlt, wenn der PostScript-Name unter Windows 
+nicht bekannt ist. 
+<PRE>
+ Courier         Courier New
+ Helvetica       Arial
+ Helvetica       Helv
+ Times           Times New Roman
+ Times           Tms Rmn
+</PRE>
+<P>Unter OS/2 werden Plattform-Fonts nicht unterst&#252;tzt. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Registrierung">Registrierung</A></H1>
+Wenn Sie die Entwicklung von GSview unterst&#252;tzen wollen, 
+oder die Startseite von GSview nicht mehr sehen wollen, 
+dann registrieren Sie GSview. Es besteht keine Verpflichtung 
+GSview zu lizensieren, es ist vef&#252;gbar im Rahmen der 
+Aladdin Free Public Licence, die in der Datei <B>LICENCE</B> zu 
+finden ist. 
+Dies erlaubt die freie Benutzung, schr&#228;nkt aber die  
+kommerzielle Verwendung ein. 
+<P> 
+Die Registrierungsgeb&#252;hr betr&#228;gt zur Zeit AUD$40. 
+GSview kann online registriert werden unter 
+<PRE>
+ http://www.ghostgum.com.au/
+</PRE>
+<P>oder durch Fax oder Email des Registrierungsformulars, 
+welches in der Datei <B>regorder.txt</B> im GSview Verzeichnis 
+zu finden ist. 
+Wir bevorzugen die online Registrierung. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Document_Structuring_Conventions_(DSC-Kommentare)">Document Structuring Conventions (DSC-Kommentare)</A></H1>
+Mit der Entwicklung dieser Konventionen hat Adobe einen Zusatz zur 
+eigentlichen Seitenbeschreibungssprache geschaffen, der Informationen 
+&#252;ber die Darstellung der Seiteninhalte und die Ressourcen enth&#228;lt, 
+die zum Ausdrucken einer PostScript-Datei ben&#246;tigt werden. 
+<P>Wenn eine Datei diese DSC-Kommentare enth&#228;lt, kann GSview &#252;ber die 
+Funktionen <A HREF="#Seiten_auswählen">Gehe zu Seite</A> bzw. 
+<A HREF="#Seiten_auswählen">Vorherige Seite</A> vor- bzw. zur&#252;ckbl&#228;ttern. Somit k&#246;nnen einzelne Seiten 
+extrahiert oder separat ausgedruckt werden. 
+<P>Enth&#228;lt eine Datei keine DSC-Kommentare, kann GSview die Seiten nur 
+sequentiell in der urspr&#252;nglichen Reihenfolge anzeigen. 
+<P>Der erste Eintrag bei DSC-kompatiblen Dateien lautet: 
+<PRE>
+ %!PS-Adobe-3.0
+</PRE>
+<P>Die Nummer 3.0 entspricht der DSC-Versionsnummer. 
+Bei einigen Programmen enthalten die PostScript-Dateien als erstes Zeichen 
+in der Zeile das Steuerzeichen Ctrl-D, das vor den oben aufgef&#252;hrten 
+Kommentar gesetzt wird. 
+GSview erkennt in diesem Fall, da&#223; diese Dateien nicht den 
+DSC-Konventionen entsprechen, erm&#246;glicht aber trotzdem eine Anzeige 
+mit den unterschiedlichen M&#246;glichkeiten der Seitenauswahl. 
+Wenden Sie sich in diesem Fall an die Firma, die das entsprechende 
+Programm und damit die PostScript-Datei entwickelt hat. 
+Um diese PostScript-Dateien DSC-kompatibel zu machen, editieren Sie die 
+Datei und entfernen das Zeichen Ctrl-D. 
+<P>Die Seitenbeschreibungen von DSC-kompatible Dateien sehen 
+folgenderma&#223;en aus: 
+<PRE>
+ %%Pages: 24
+ %%Page: 1 1
+</PRE>
+<P>&#220;ber diese Zeilen erh&#228;lt GSview Informationen dar&#252;ber, wie viele Seiten 
+ein Dokument enth&#228;lt und wo diese Seiten beginnen. 
+GSview ben&#246;tigt diese Informationen, um einzelne Seiten ausw&#228;hlen 
+zu k&#246;nnen. 
+<P>EPS-Dateien (Encapsulated PostScript Files) beschreiben einzelne Seiten 
+und enthalten eine Vielzahl von  <B>DSC</B>- und PostScript-Kommentaren. 
+EPS-Dateien beginnen mit der Kommentarzeile: 
+<PRE>
+ %!PS-Adobe-3.0 EPSF-3.0
+</PRE>
+<P>EPS-Dateien werden im allgemeinen daf&#252;r verwendet, Graphiken in andere 
+Dokumente einzubetten und ben&#246;tigen daher einen Bounding Box-Kommentar 
+f&#252;r die Gr&#246;&#223;enberechnung dieser Graphiken: 
+<PRE>
+  %%BoundingBox: llx lly urx ury
+</PRE>
+<P>Dabei geben die Werte llx, lly, urx und ury die x- und y-Koordinaten 
+der linken unteren (lower left) und der rechten oberen (upper right) 
+Ecken einer Bounding Box an (die Bounding Box ist das kleinste 
+kantenparallele Rechteck, das die Zeichnung voll umschlie&#223;t). 
+<P>Einige EPS-Dateien enthalten Preview-Teile des PostScript-Dokumentes. 
+Diese Preview-Teile k&#246;nnen unterschiedliche Formate haben: 
+Windows-Metafile-Format, TIFF-Format oder das EPSI-Format. 
+Beim Windows Metafile-Format oder beim TIFF-Format enth&#228;lt die 
+EPS-Datei unter DOS  einen bin&#228;ren Header, der Ausrichtung und L&#228;nge 
+des Preview-Teils sowie den PostScript-Teil der Datei n&#228;her beschreibt. 
+Beim EPSI-Format ist der Preview-Teil in den DSC-Kommentaren enthalten. 
+Diese beginnen mit: 
+<PRE>
+ %%BeginPreview: width height depth lines
+</PRE>
+<P>Mit der Funktion <A HREF="#EPS_Vorschau_(Preview)">EPS Vorschau einf&#252;gen</A> kann eine EPS-Datei um diesen 
+Preview-Teil erg&#228;nzt werden. 
+<P>
+<P>
+<HR>
+<H1><A NAME="PDF-Format_(Portable_Document_Format)">PDF-Format (Portable Document Format)</A></H1>
+PDF-Dateien k&#246;nnen mit GSview zwar angezeigt und ausgedruckt werden, 
+es k&#246;nnen jedoch verschiedene Probleme dabei auftreten: 
+<P>- GSview verwendet die Papiergr&#246;&#223;e im Men&#252; "Formate" nicht und sondern 
+stattdessen die /MediaBox aus der PDF-Datei. 
+<P>- Es k&#246;nnen Fehler auftreten, wenn die PDF-Datei w&#228;hrend der Anzeige 
+auf dem Bildschirm ver&#228;ndert wurde. 
+<P>- Beim Extrahieren von PDF-Seiten werden nicht Seiten der PDF-Datei 
+extrahiert, sondern das Programm schreibt eine kleine PostScript-Datei 
+mit den entsprechenden Befehlen zur Anzeige der PDF-Seiten. Die Seiten 
+k&#246;nnen von Ghostscript mit Hilfe dieser PostScript-Datei zwar ausgedruckt 
+werden, aber nicht an einen PostScript-Drucker weitergeleitet werden. 
+<P>- Das Extrahieren von PDF-Seiten extrahiert eher Postscript als PDF. 
+Bitte sehen Sie sich die Dokumentation zu pdf2ps von Ghostscript an. 
+<P>- Um die Seitenanzahl bestimmen zu k&#246;nnen, mu&#223; GSview eine PDF-Datei 
+<A HREF="#Datei_öffnen">&#214;ffnen</A>. Wenn Sie stattdessen die Funktion <A HREF="#Datei_öffnen">Auswahl Datei</A> anw&#228;hlen, 
+kann GSview folgende Funktionen nicht nutzen: <A HREF="#Text_extrahieren_und_Suche">Text extrahieren</A>, <A HREF="#Text_extrahieren_und_Suche">Suche</A>, 
+<A HREF="#Seiten_auswählen">Gehe zu Seite</A> sowie alle Funktionen, bei denen die Seitenanzahl des 
+Dokumentes wichtig ist. 
+<P>- Die Unterst&#252;tzung von pdfmark Verweisen ist schlecht. 
+<P>Um eine Postscript Datei in eine PDF Datei zu konvertieren, benutzen sie 
+<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Drucken">Drucken</A>, w&#228;hlen dann als Ger&#228;t <B>pdfwrite</B> aus und w&#228;hlen 
+<B>Drucken in Datei</B>. 
+<P>Um mehrere Dateien im Batch Betrieb zu konvertieren, sehen sie sich bitte 
+die Dateien ps2pdf.bat und pdf2ps.bat im Ghostscript Verzeichnis an. 
+Sie m&#252;ssen 
+gswin32c.exe 
+anstelle von gs.exe benutzen. Ferner m&#252;ssen sie den Inkludierungspfad setzen, 
+entweder mit <B>-I</B> oder mit der Umgebungsvariablen <B>GS_LIB</B>. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Datei_&#246;ffnen">Datei &#246;ffnen</A></H1>
+Mit dem Befehl <B>&#214;ffnen</B> im Men&#252; <B>Datei</B> wird eine Datei ge&#246;ffnet und die 
+erste Seite dieser Datei angezeigt. 
+<P>Enth&#228;lt die Datei <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentare, k&#246;nnen mit den Funktionen 
+<A HREF="#Seiten_auswählen">N&#228;chste Seite</A>, <A HREF="#Seiten_auswählen">Vorherige Seite</A> und <A HREF="#Seiten_auswählen">Gehe zu Seite</A> einzelne Seiten 
+ausgew&#228;hlt werden. 
+<P>Enth&#228;lt die Datei dagegen keine <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentare, k&#246;nnen Sie die 
+Funktionen <A HREF="#Seiten_auswählen">Vorherige Seite</A> und <A HREF="#Seiten_auswählen">Gehe zu Seite</A> nicht anw&#228;hlen. 
+&#214;ffnen Sie in diesem Fall erst eine neue Datei, nachdem die letzte 
+Seite der Datei angezeigt wurde. 
+<P>Ist die Datei ge&#246;ffnet, werden der Dateiname und die aktuelle Seitenzahl 
+(wenn m&#246;glich) angezeigt. Befindet sich der Cursor auf der ausgew&#228;hlten 
+Seite, wird mittels Koordinaten zus&#228;tzlich die Cursorposition angegeben. 
+Welche Einheit hierbei angezeigt werden soll, definieren Sie in 
+<A HREF="#Optionen">Optionen</A> | <B>Einheiten</B>. Sie k&#246;nnen zwischen Punkt (PostScript), 
+Inch und Millimeter w&#228;hlen. Die Angabe der Cursorposition kann z.B. 
+bei der Berechnung von Bounding Boxen hilfreich sein. 
+<P>Der Befehl <B>Auswahl Datei</B> hat eine &#228;hnliche Funktion wie der Befehl 
+<B>&#214;ffnen</B>, mit diesem Befehl kann die Datei jedoch nicht auf dem 
+Bildschirm dargestellt werden. Benutzen Sie diesen Befehl, um eine Datei 
+kurz zu &#246;ffnen und sie anschlie&#223;end zu drucken. 
+<P>Mit dem Befehl <B>Speichern unter</B> fertigen Sie eine Kopie des aktuellen 
+Dokumentes an. 
+Verwenden Sie diese Funktion z.B., wenn GSview von einer anderen Anwendung 
+als PostScript-Viewer benutzt wird und die angezeigte Datei gespeichert 
+werden soll. 
+<P>Mit dem Befehl <B>Extrahiere</B> k&#246;nnen mehrere Seiten vom aktuellen Dokument 
+in ein neues Dokument kopiert werden. 
+So ist es z.B. m&#246;glich, zehn Seiten mitten aus dem Dokument in ein anderes 
+Dokument zu kopieren und diese dann sp&#228;ter an einen Drucker auszugeben. 
+Wenn sie <B>Absteigend</B> ausw&#228;hlen, dann werden die Seiten in absteigender 
+Folge ausgegeben. 
+<P>Mit dem Befehl <B>Schlie&#223;en</B> wird das aktuelle Dokument geschlossen. 
+Schlie&#223;en Sie ein Dokument immer, bevor Sie es mit einem anderen Programm 
+weiterbearbeiten. Wird ein Dokument nicht geschlossen und GSview erkennt, 
+da&#223; sich die Dateil&#228;nge oder das Datum ge&#228;ndert haben, wird Ghostscript 
+beendet und das Dokument erneut eingelesen. 
+<P>Siehe auch <A HREF="#Drucken">Drucken</A>. 
+<P>
+<A HREF="#PS_zu_EPS">PS zu EPS</A><BR>
+<P>
+<HR>
+<H2><A NAME="PS_zu_EPS">PS zu EPS</A></H2>
+Normalerweise ist es nicht m&#246;glich, eine PostScript-Datei in eine 
+<B>EPS-Datei</B> umzuwandeln. Viele PostScript-Dateien, die eine Seite 
+beschreiben, k&#246;nnen dennoch umgewandelt werden. Voraussetzung ist, 
+da&#223; die erste Zeile folgenderma&#223;en aussieht: 
+<PRE>
+ %!PS-Adobe-3.0 EPSF-3.0
+</PRE>
+<P>Anschlie&#223;end mu&#223; der <B>%%Bounding Box</B>-Kommentar hinzugef&#252;gt werden. 
+<P>EPS-Dateien dienen dazu, Graphiken in andere Dokumente einzubetten, und 
+ben&#246;tigen daher einen Bounding Box-Kommentar f&#252;r die Gr&#246;&#223;enberechnung 
+dieser Graphiken: 
+<PRE>
+ %%BoundingBox: llx lly urx ury
+</PRE>
+<P>Dabei geben die Werte llx, lly, urx und ury die x- und y-Koordinaten der 
+linken unteren (lower left) und der rechten oberen (upper right) Ecken 
+einer Bounding Box an (die Bounding Box ist das kleinste kantenparallele 
+Rechteck, das die Zeichnung voll umschlie&#223;t). 
+<P><B>Wird der Befehl PS zu EPS nicht richtig angewendet, kann es sein, da&#223; 
+PostScript-Dateien mit falschen DSC-Kommentaren erzeugt werden und da&#223; 
+Probleme beim Einbetten in ein anderes Dokument auftreten.</B> 
+<P>Soll eine PostScript-Datei in eine <B>EPS-Datei</B> umgewandelt werden, 
+darf die Datei nur eine Seite enthalten. 
+Enth&#228;lt die Datei <B>DSC-Kommentare</B> und besteht aus mehreren Seiten, 
+extrahieren Sie vorher mit dem Befehl <A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei_öffnen">Extrahiere</A> die 
+gew&#252;nschte Seite. Enth&#228;lt die Datei keine <B>DSC-Kommentare</B>, 
+mu&#223; die Datei per Hand editiert werden, damit die gew&#252;nschte Seite 
+extrahiert werden kann. 
+<P>Folgende Operatoren d&#252;rfen auf keinen Fall in <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">EPS</A>-Dateien 
+enthalten sein: 
+<PRE>
+ banddevice   clear         cleardictstack  copypage
+ erasepage    exitserver    framedevice     grestoreall
+ initclip     initgraphics  initmatrix      quit
+ renderbands  setglobal     setpagedevice   setpageparams
+ setshared    startjob      letter          note
+ legal        a3            a4              a5
+</PRE>
+<P>Die nachfolgend genannten Operatoren sollten nur in 
+Ausnahmef&#228;llen verwendet werden: 
+<PRE>
+ nulldevice   setgstate     sethalftone    setmatrix
+ setscreen    settransfer   setcolortransfer
+</PRE>
+<P>Sorgen Sie daf&#252;r, da&#223; die beschriebenen Einschr&#228;nkungen und 
+Voraussetzungen beachtet werden. 
+<P>Um zu &#252;berpr&#252;fen, ob eine Datei einen der aufgelisteten Operatoren 
+enth&#228;lt, aktivieren Sie den Men&#252;punkt <A HREF="#Optionen">Optionen</A> | <A HREF="#EPS_Warnung">EPS Warnung</A> und 
+<A HREF="#Datei_öffnen">&#214;ffnen</A> anschlie&#223;end die Datei. Nachdem die Seite auf dem Bildschirm 
+angezeigt wurde, <A HREF="#Datei_öffnen">Schlie&#223;en</A> Sie die Datei und lassen sich mit der 
+<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Meldungen_anzeigen">Meldungen anzeigen</A> die entsprechenden Meldungen anzeigen. 
+Falls einer dieser Operatoren verwendet wurde, erhalten Sie die 
+folgenden Meldungen: 
+<PRE>
+ Warning: EPS files must not use ...
+</PRE>
+<P>W&#228;hlen Sie in diesem Fall nicht die Funktion <B>PS zu EPS</B> und deaktivieren 
+Sie die Option <A HREF="#EPS_Warnung">EPS Warnung</A>. 
+<P>Bevor die Funktion <B>PS zu EPS</B> verwendet werden kann, mu&#223; die Datei auf 
+dem Bildschirm angezeigt werden. Dar&#252;ber hinaus mu&#223; die Datei den Operator 
+<B>showpage</B> enthalten, damit die Bounding Box berechnet werden kann. 
+<P>Bei Dateien, die keine <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentare enthalten, kann &#252;ber die Funktion 
+<B>PS zu EPS</B> eine Bounding Box bestimmt werden. Daraufhin entstehen 
+<A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">EPS</A>-Dateien, bei denen das urspr&#252;ngliche Dokument 
+"von <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">EPS</A> umh&#252;llt" wird. 
+<P>Bei Dateien, die <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentare enthalten, ver&#228;ndert die Funktion 
+<B>PS zu EPS</B> die erste Zeile folgenderma&#223;en 
+<PRE>
+ %!PS-Adobe-3.0 EPSF-3.0
+</PRE>
+<P>Anschlie&#223;end kann der <B>%%BoundingBox</B>-Kommentar ge&#228;ndert oder erg&#228;nzt 
+werden. 
+<P>Bei <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">EPS</A>-Dateien wird der <B>%%BoundingBox</B>-Kommentar durch die Funktion 
+<B>PS zu EPS</B> ge&#228;ndert. 
+<P>Mit der Funktion <B>PS zu EPS</B> wird die Datei nicht auf die <B>%%BoundingBox</B> 
+zugeschnitten, sondern es werden lediglich die 'DSC'-Kommentare ver&#228;ndert. 
+Hierzu m&#252;&#223;te der eigentliche PostScript Code ge&#228;ndert werden. 
+<P>Mit der Funktion <B>PS zu EPS</B> wird kein Preview-Bild in ein Dokument eingef&#252;gt. 
+Erzeugen Sie dazu eine <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">EPS</A>-Datei mit einer korrekten 
+<B>%%BoundingBox</B>-Kommentar und w&#228;hlen anschlie&#223;end den Men&#252;punkt 
+<B>Bearbeiten </B>| <B>F&#252;ge EPS Vorschau ein</B> an. 
+<P>Siehe hierzu auch die Hilfethemen <B>F&#252;ge EPS Vorschau ein</B>, <A HREF="#Datei_öffnen">Extrahiere</A>, 
+und <A HREF="#EPS_Warnung">EPS Warnung</A>. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Seiten_ausw&#228;hlen">Seiten ausw&#228;hlen</A></H1>
+Mit dem Befehl <B>Ansicht</B> | <B>N&#228;chste Seite</B> oder dem Symbol <B>+</B> der 
+Hilfsmittelpalette gelangen Sie auf die n&#228;chste Seite eines Dokumentes. 
+Dieser Befehl funktioniert auch, wenn die Datei keine <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentare 
+enth&#228;lt. 
+<P>Mit dem Befehl <B>Ansicht</B> | <B>Vorherige Seite</B> oder dem Symbol <B>-</B> gelangen 
+Sie auf die vorherige Seite des Dokumentes. 
+<P>Der Befehl <B>Ansicht</B> | <B>Wiederaufbau</B> wird verwendet, um die aktuelle 
+Seite neu aufzubauen. 
+<P>Der Befehl <B>Anzeige</B> | <B>Gehe zu Seite</B> oder das Symbol mit der Hand &#246;ffnet 
+ein Dialogfeld, in dem Sie die Seite ausw&#228;hlen m&#252;ssen, die als n&#228;chstes 
+angezeigt werden soll. 
+In diesem Dialogfeld werden die Bezeichnungen der Seiten angegeben, 
+da es sinnvoller ist, diese anzugeben als aufeinanderfolgende 
+Seitenzahlen. 
+Mit dem Befehl <B>Anzeige</B> | <B>N&#228;chste Seite oben</B> oder der Leertaste 
+gelangen Sie an den Anfang der n&#228;chsten Seite. 
+<P>Mit dem Befehl <B>Anzeige</B> | <B>Vorherige Seite oben</B> oder der 
+BackSpace-Taste gelangen Sie an den Anfang der vorherigen Seite. 
+<P>Die Befehle <B>Vorherige Seite</B>, <B>Wiederaufbau</B> und <B>Gehe zu Seite</B> 
+funktionieren nur, wenn die Datei <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentare enth&#228;lt. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Zoomen">Zoomen</A></H1>
+Um die Darstellung zu vergr&#246;&#223;ern, positionieren Sie den Mauszeiger auf die 
+Stelle, die vergr&#246;&#223;ert werden soll, und dr&#252;cken die rechte Maustaste. 
+Das Fenster wechselt von der normalen Darstellung in die vergr&#246;&#223;erte 
+Zoom-Darstellung. 
+In der Statuszeile wird dieses durch die Meldung "Zoomed" angezeigt. 
+Der gezoomte Bereich befindet sich in der Bildmitte. 
+Um die <B>Zoom</B>-Funktion wieder r&#252;ckg&#228;ngig zu machen, dr&#252;cken Sie erneut 
+die rechte Maustaste oder w&#228;hlen Sie eine Funktion aus, bei der der 
+Bildschirm wieder aufgebaut wird (z.B. <A HREF="#Seiten_auswählen">Wiederaufbau</A>, <A HREF="#Seiten_auswählen">N&#228;chste Seite</A>). 
+Die Default-Einstellung f&#252;r das Zoomen betr&#228;gt 300 dpi. 
+Diese Einstellung kann jederzeit &#252;ber den Befehl 
+<A HREF="#Seitenformat">Formate</A> | <B>Anzeige Einstellung</B> im Dialogfeld ge&#228;ndert werden. 
+<P>Die <B>Zoom</B>-Funktion ist nur bei <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-kompatiblen Dokumenten m&#246;glich. 
+<P>Um die gesamte Seite zu vergr&#246;&#223;ern oder zu verkleinern, ver&#228;ndern Sie die 
+<A HREF="#Anzeige_Einstellungen">Aufl&#246;sung</A>. Gehen Sie dazu &#252;ber den Men&#252;punkt 
+<A HREF="#Seitenformat">Formate</A> | <B>Anzeige Einstellung</B> oder benutzen die Symbole der 
+Hilfsmittelpalette. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Datei-Informationen">Datei-Informationen</A></H1>
+Im oberen Bildschirmbereich werden der Dateiname und die aktuelle 
+Seitenzahl angezeigt. 
+Befindet sich der Cursor auf der ausgew&#228;hlten Seite, wird mittels 
+Koordinaten zus&#228;tzlich die Cursorposition angegeben. 
+Welche Einheit hierbei angezeigt werden soll, definieren Sie in 
+<A HREF="#Optionen">Optionen</A> | <A HREF="#Maßeinheiten">Ma&#223;einheiten</A>. Sie k&#246;nnen zwischen Punkt (PostScript), 
+Inch und Millimeter w&#228;hlen. 
+Die Angabe der Cursorposition kann z.B. bei der Berechnung von 
+Bounding Boxen hilfreich sein. 
+<P>Nach Auswahl des Befehls <B>Info</B> im Men&#252; <B>Datei </B>wird ein Dialogfeld mit 
+Informationen bez&#252;glich der <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentare im aktuellen Dokument 
+angezeigt. 
+<P>Im Feld <A HREF="#Datei_öffnen">Datei</A> wird der vollst&#228;ndige Pfad der Datei angegeben. 
+<P>Im Feld <B>Typ</B> steht entweder<B> DSC</B>,<B> EPS</B>, <B>Keine DSC Anweisungen</B> oder 
+<B>Ignoriere DSC Anweisungen</B>. 
+<A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">EPS</A> (Encapsulated PostScript File) ist ein Einzelseitendokument, das 
+eine Folge von <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentaren und PostScript-Befehlen enth&#228;lt. 
+<B>EPS </B>-Dateien werden normalerweise in andere Dokumente eingebettet. 
+Die Meldung <B>Ignoriere DSC Anweisungen</B> erhalten Sie, wenn die Funktion 
+<A HREF="#Optionen">Optionen</A> | <A HREF="#Ignoriere_DSC">Ignoriere DSC</A> aktiviert ist. 
+Enth&#228;lt das Dokument die Steuerzeichen Ctrl+D oder eine PJL-Anweisung, 
+bedeutet dies, da&#223; das Dokument nicht DSC-kompatibel ist, da der Anfang des 
+Dokumentes nicht korrekt ist. Wie das Ctrl+D-Problem behoben werden 
+kann, lesen Sie unter dem Hilfethema <B>H&#228;ufig aufretende Probleme</B>. 
+Um Probleme mit PJL-Anweisungen zu vermeiden, setzen Sie bei 
+PostScript-Dokumenten, die an andere Drucker weitergeleitet 
+werden sollen, keinen HP-Laserjet-Druckertreiber ein. 
+<P>Die Eintragung im Feld <B>Titel</B> kann dazu benutzt werden, Titelseiten 
+auszudrucken und Dokumente weiterzuleiten oder zu erkennen. 
+<P>Im Feld <B>Datum</B> wird angezeigt, wann das Dokument erzeugt wurde. 
+<P>Bei der <A HREF="#PS_zu_EPS">Bounding Box</A> handelt es sich um einen Kasten (Rahmen), 
+der alle dargestellten Punkte auf der Seite umschlie&#223;t. Dabei geben die 
+Werte die x- und y-Koordinaten der linken unteren (lower left) und der 
+rechten oberen (upper right) Ecken der Bounding Box an. 
+<P>Die <A HREF="#Seitenausrichtung">Ausrichtung</A> ist die default Seitenausrichtung und entweder Hoch- 
+oder Querformat. 
+<P>Die <B>Seitenordnung</B> kann <B>Ascending</B> (aufsteigend), <B>Descending</B> 
+(absteigend) oder <B>Special</B> (spezial) sein. 
+Wird <B>Descending</B> angegeben, so dreht GSview automatisch die Reihenfolge 
+um, so da&#223; die Seiten beim Anzeigen und Drucken trotzdem in aufsteigender 
+Reihenfolge dargestellt werden. Beim Extrahieren und Drucken kann GSview 
+instruiert werden, die Seiten in umgekehrter Reihenfolge zu auszugeben. 
+<P>Im Feld <B>Papierformat</B> wird das Papierformat angegeben, gefolgt von der 
+Standardeinstellung f&#252;r H&#246;he und Breite. 
+<P>Das Feld <B>Seiten</B> enth&#228;lt die Gesamtanzahl der Seiten des Dokumentes. 
+<P>Das Feld <B>Seite</B> enth&#228;lt die Seitenbezeichnung und Seitenzahl. 
+<P>Im Feld <B>Bitmap </B>ist die Gr&#246;&#223;e des Bitmaps in Pixeln angegeben. 
+Diese Angabe wird zum Kopieren des Dokumentes in die Zwischenablage 
+ben&#246;tigt. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Drucken">Drucken</A></H1>
+&#220;ber den Befehl <B>Drucken</B> im Men&#252; <A HREF="#Datei_öffnen">Datei</A> wird das Dokument gedruckt 
+(mittels Ghostscript). 
+Im Dialogfeld <B>Druckereinstellungen</B> k&#246;nnen Sie den entsprechenden 
+Ghostscript-Druckertreiber, die Aufl&#246;sung, den Seitenbereich und evtl. 
+eine Spooler-Ausgabe ausw&#228;hlen. 
+<P>Es k&#246;nnen alle Seiten, einzelne Seiten oder beliebige Kombinationen 
+ausgedruckt werden. 
+Mit Hilfe der Schaltfl&#228;chen <B>Alle</B>, <B>Ungerade</B> und <B>Gerade</B> ist eine 
+schnellere Auswahl m&#246;glich. 
+Wenn ein fortlaufender Bereich von Seiten markiert wurde, so bezieht sich 
+<B>Gerade</B> und <B>Ungerade</B> auf diesen Bereich. 
+Markieren sie <B>Umgekehrt</B>, so werden die Seiten in umgekehrter Reihenfolge 
+gedruckt. 
+Der Druckertreiber <B>mswinpr2</B> verwendet die Windows-Druckertreiber und 
+funktioniert mit jedem Drucker, der rasterorientiert arbeitet. 
+Die Aufl&#246;sung kann allerdings nicht &#252;ber GSview eingegeben werden, 
+sondern nur &#252;ber die Druckereinstellung. 
+Der Druckertreiber mu&#223; dabei auf Hochformat eingestellt sein. 
+<P>Bei den anderen Druckertreibern wird das Dokument direkt an die 
+Druckerwarteschlange ausgegeben. 
+Treten beim Drucken Probleme auf, w&#228;hlen Sie die Funktion 
+<B>Druck in Datei</B> und anschlie&#223;end <B>Druck Datei</B> oder verwenden den 
+DOS-Befehl <B>COPY /B FILENAME PRN</B>. 
+<P>Wenn zus&#228;tzlich die Option <B>PostScript Drucker</B> aktiviert ist, 
+werden die ausgew&#228;hlten Seiten direkt an die 
+Druckerwarteschlange weitergeleitet (ohne Ghostscript). 
+Diese Option unterscheidet sich vom 
+Befehl <A HREF="#Datei_öffnen">Datei</A> | <B>Drucke Datei</B> dadurch, da&#223; hier die 
+zu druckenden Seiten ausgew&#228;hlt werden k&#246;nnen. 
+Unter win 32s k&#246;nnen GSview und Ghostscript die Daten nicht 
+direkt an eine Druckerwarteschlange weiterleiten. Hierf&#252;r ist 
+ein externes 16-Bit-Programm erforderlich. 
+Eine Liste der verf&#252;gbaren Ausgabeger&#228;te und Aufl&#246;sungen ist in 
+der Sektion [Devices] der Datei 
+gsview32.ini 
+gespeichert. 
+Die Standard-Liste der Ausgabeger&#228;te und Einstellungen stammt 
+aus der Ghostscript Version 5.50, ist aber unter Umst&#228;nden nicht 
+vollst&#228;ndig. 
+<P>Wenn ein Dokument sofort gedruckt werden soll, vorher jedoch auf dem 
+Bildschirm angezeigt werden soll, w&#228;hlen Sie den Befehl <A HREF="#Datei_öffnen">Auswahl Datei</A>. 
+<P>Soll ein Bitmap erzeugt werden, w&#228;hlen Sie z.B. die Druckertreiber 
+<B>bmpmono</B>, <B>bmp16</B>, <B>bmp16m</B> oder <B>bmp256</B>. 
+<P>Der Befehl <A HREF="#Datei_öffnen">Datei</A> | <B>Drucke Datei</B> leitet eine Datei &#252;ber die 
+Windows 
+Drucker Treiber einen lokalen Anschlu&#223; weiter. Dies bietet sich an, wenn ein 
+Dokument an einen PostScript-Drucker geschickt werden soll oder in 
+Ghostscript erzeugte Daten an einen Drucker weitergeleitet werden 
+sollen. 
+<P>Das <A HREF="#Optionen">Optionen</A> Feld enth&#228;lt die Kommandozeilen Angaben f&#252;r das 
+ausgew&#228;hlte Ausgabeger&#228;t. 
+<P>Der <B>uniprint</B> Knopf selektiert das uniprint Ger&#228;t und zeigt eine Liste 
+der daf&#252;r verf&#252;gbaren Konfigurationsdateien. 
+Wenn sie eine dieser Konfigurationsdateien ausw&#228;hlen, dann erscheint 
+dieser Name im <A HREF="#Optionen">Optionen</A> Feld der Drucker Voreinstellung. 
+Sehen sie bitte in die Datei devices.txt f&#252;r weitere Hinweise zu dem 
+uniprint Ausgabeger&#228;t. 
+<P>
+<A HREF="#Druck-Manager">Druck-Manager</A><BR>
+<A HREF="#Einstellung">Einstellung</A><BR>
+<P>
+<HR>
+<H2><A NAME="Druck-Manager">Druck-Manager</A></H2>
+Tragen Sie bei der Druckereinstellung die Druckerwarteschlange 
+oder die Schnittstelle ein, an die die Daten geschickt werden sollen. 
+Diese Einstellung wird gespeichert und automatisch vorgeschlagen, 
+wenn das Dialogfeld wieder ge&#246;ffnet wird. 
+<P>Unter Windows 3.1 ist die Eingabe der Druckerschnittstelle (Anschlu&#223;) 
+erforderlich. Der Spooler stellt die Daten dann f&#252;r diese Schnittstelle bereit. 
+<P>Unter Windows 3.1 mit Win32s ist ebenfalls die Eingabe der 
+Druckerschnittstelle erforderlich. F&#252;r die Spooler-Ausgabe wird eine 
+16-Bit-Anwendung verwendet. 
+<P>Unter Windows 95 oder Windows NT ist die Eingabe der Druckerwarteschlange 
+erforderlich. 
+Derzeit k&#246;nnen hier eine lokale Warteschlange oder ein bereits 
+angeschlossener Netzwerkdrucker ausgew&#228;hlt werden. 
+<P>Siehe auch <A HREF="#Drucken">Drucken</A>. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Einstellung">Einstellung</A></H2>
+Im Dialogfeld <B>Druckereinstellungen</B> befindet sich die Schaltfl&#228;che 
+<B>Einstellung</B>, mit der Sie f&#252;r einige Druckertreiber spezielle 
+Einstellungen vornehmen und einen Seitenversatz bestimmen k&#246;nnen. 
+<P>F&#252;r jeden Druckertyp kann ein Seitenversatz definiert werden. 
+Dieser dient dazu, Abweichungen zwischen dem Original eines 
+Ghostscript-Ausgabeger&#228;tes und einem anderen Drucker zu korrigieren. 
+Durch Erh&#246;hen des X-Wertes wird ein Bild z.B. weiter nach rechts 
+verschoben. Durch Verringern des Y-Wertes wird ein Bild z.B. weiter 
+nach unten verschoben. 
+<P>Die Schaltfl&#228;che <B>Einstellung</B> wird im allgemeinen daf&#252;r verwendet, 
+BitsperPixel f&#252;r einen Farbdrucker festzulegen, andere Farben auszuw&#228;hlen 
+oder eine Korrektur der Zeichendichte vorzunehmen. 
+<P>Die <B>Einstellungen</B> m&#252;ssen f&#252;r jeden Drucker vorgenommen werden. Wenn Sie 
+den Wert der <B>BitsPerPixel</B> bei einem Drucker &#228;ndern, bleiben die 
+Einstellungen f&#252;r andere Drucker von dieser &#196;nderung unber&#252;hrt. 
+<P>Wenn Sie im Dialogfeld <B>Einstellung</B> die Schaltfl&#228;che <B>OK</B> anklicken, 
+werden die Einstellungen in die Datei 
+gsview32.ini 
+geschrieben. 
+<P>In GSview finden Sie einige vordefinierte Einstellungen, die allerdings 
+nicht immer mit den Einstellungen in Ghostscript &#252;bereinstimmen. 
+&#220;ber die Schaltfl&#228;chen <B>Bearbeiten </B>und <B>Neu</B> k&#246;nnen Sie die Einstellungen 
+f&#252;r den jeweiligen Drucker neu definieren bzw. ver&#228;ndern. 
+Siehe hierzu auch das Hilfethema <A HREF="#Einstellung_bearbeiten">Einstellung bearbeiten</A>. 
+<P>
+<A HREF="#Einstellung_bearbeiten">Einstellung bearbeiten</A><BR>
+<P>
+<HR>
+<H3><A NAME="Einstellung_bearbeiten">Einstellung bearbeiten</A></H3>
+Nicht jeder Drucker unterst&#252;tzt die Verwendung dieser optionalen 
+<A HREF="#Einstellung">Einstellung</A>. Um herauszufinden, welcher Drucker die Funktion 
+<A HREF="#Einstellung">Einstellung</A> unterst&#252;tzt und welche <A HREF="#Einstellung">Einstellung</A> von welchem Drucker 
+erkannt wird, lesen Sie die Ghostscript-Datei "devices.txt" oder schauen 
+Sie im Ghostscript Source Code nach. 
+<P>Es gibt zwei M&#246;glichkeiten, neue Einstellungen zu definieren oder die 
+Einstellungen zu bearbeiten. 
+<P>1. M&#246;glichkeit: 
+Klicken Sie auf die Schaltfl&#228;che <A HREF="#Zwischenablage">Bearbeiten</A> oder <B>Neu</B> im Dialogfeld 
+<A HREF="#Einstellung">Einstellung</A>. 
+<P>Beim Einstellungstyp mu&#223; zwischen Nummer und Text unterschieden werden. 
+Nummern-Einstellungen entsprechen der Option <B>-d</B> in der 
+Ghostscript-Kommentarzeile. Text-Einstellungen entsprechen der Option 
+<B>-s</B> in der Ghostscript Kommentarzeile. Jede Einstellung besteht aus 
+einem <B>Namen</B> und einem <B>Wert</B>: 
+<B>-dNAME=VALUE</B> oder <B>-sNAME=VALUE</B>. 
+Der hier eingetragene <B>VALUE</B> stammt aus der Liste von <B>Werten</B>, die im 
+Dialogfeld <B>Bearbeiten Eigenschaften</B> eingegeben wurde. 
+In den Zeilen <B>Name</B> und <B>Wert</B> d&#252;rfen keine Leerzeichen eingegeben 
+werden. Geben Sie die <B>Werte</B> durch Kommata getrennt ein. 
+<P>Um eine Einstellung zu l&#246;schen, w&#228;hlen Sie diese Einstellung im Dialogfeld 
+aus, klicken auf die Schaltfl&#228;che <A HREF="#Zwischenablage">Bearbeiten</A> und anschlie&#223;end auf die 
+Schaltfl&#228;che <B>L&#246;schen</B>. 
+<P>2. M&#246;glichkeit: 
+Editieren Sie die GSview INI-Datei. 
+<P>F&#252;r jeden Drucker mu&#223; die Datei 
+gsview32.ini 
+in diesem Fall um zwei Sektionen erg&#228;nzt werden. 
+Das folgende Beispiel verdeutlicht, wie die Datei f&#252;r den cdjcolor-Treiber 
+editiert werden mu&#223;. 
+F&#252;gen Sie zun&#228;chst eine Sektion mit den aktuellen Werten ein. 
+Diese Sektion enth&#228;lt die Optionen, die in unter GSview im Feld 
+<A HREF="#Einstellung">Einstellung</A> erscheinen. 
+Das erste Zeichen ist ein <B>s</B> (f&#252;r Text) oder ein <B>d</B> (f&#252;r Nummer). 
+<PRE>
+ [cdjcolor]
+ dBitsPerPixel=24
+ dDepletion=1
+ dShingling=2
+ dBlackCorrect=4
+</PRE>
+<P>Als n&#228;chstes f&#252;gen Sie eine Sektion mit den Werten ein, die im Feld 
+<B>Wert</B> erscheinen sollen. 
+<PRE>
+ [cdjcolor values]
+ dBitsPerPixel=1,3,8,16,24
+ dDepletion=1,2,3
+ dShingling=0,1,2
+ dBlackCorrect=0,1,2,3,4,5,6,7,8,9
+</PRE>
+<P>GSview f&#252;gt der Liste automatisch den Wert <B>[Undefiniert]</B> hinzu. 
+<P>Sobald eine Datei gedruckt wird, wird der Inhalt der Sektion [cdjcolor] 
+der Datei 
+gsview32.ini 
+wie folgt an Ghostscript weitergeleitet: 
+<PRE>
+ -dBitsPerPixel=24 -dDepletion=1 -dShingling=2 -dBlackCorrect=4
+</PRE>
+<P>Handelt es sich um einen <B>[Undefiniert]</B>-Wert, wird die Einstellung nicht 
+an Ghostscript weitergeleitet. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Datei_Konvertierungen_und_Tricks">Datei Konvertierungen und Tricks</A></H1>
+Einige g&#228;ngige Datei Konvertierungen unter mithilfe 
+von GSview und Ghostscript sind: 
+<P>Konvertierung PostScript zu PDF. 
+Datei | <A HREF="#Drucken">Drucken</A>, w&#228;hlen Sie pdfwrite, 300dpi, Druck in Datei. 
+Mit Ghostscript 5.50 werden Zeichens&#228;tze mit non-standard encodings 
+als Bitmaps importiert.  Wenn Sie 72dpi w&#228;hlen sehen die Zeichen sehr 
+rau aus. 
+<P>Konvertierung PDF zu PostScript. 
+Datei | <A HREF="#Drucken">Drucken</A>, w&#228;hlen Sie pswrite, 300dpi, Druck in Datei. 
+<P>Konvertierung Level 2 PostScript zu Level 1 PostScript. 
+Datei | <A HREF="#Drucken">Drucken</A>, w&#228;hlen Sie psmono, 300dpi, Druck in Datei. 
+An Stelle von 300dpi sollten Sie die Aufl&#246;sung ihres Druckers w&#228;hlen. 
+<P>Konvertierung in eine Bitmap. 
+Datei | <A HREF="#Drucken">Drucken</A>, w&#228;hlen Sie bmp16m, 72dpi, Druck in Datei. 
+<P>Konvertierung in ein editierbares Vektor Format (pstoedit). 
+Bearbeiten | <A HREF="#Konvertierung_in_Vektor_Format">Konvertierung in Vektor Format</A> ODER Konvertierung zu PDF 
+wie oben beschrieben. 
+<P>Extrahiere Text (pstotext). 
+Bearbeiten | <B>Extrahiere Text</B> 
+<P>Vorschau in eine EPS Datei. 
+Bearbeiten | <B>Vorschau in EPS Datei</B>.   Siehe <B>EPS Vorschau hinzuf&#252;gen</B>. 
+<P>EPS Vorschau l&#246;schen. 
+Bearbeiten | <A HREF="#EPS_Vorschau_(Preview)">Extrahiere EPS</A> | PostScript 
+<P>Anzeige mit abgerundeten Ecken. 
+Formate | <A HREF="#Anzeige_Einstellungen">Anzeige Einstellungen</A>.  Setzen Sie <B>Text Alpha</B> und 
+<B>Graphik Alpha</B> auf 4.  Sie m&#252;ssen die Anzeige auf mindestens  
+8 Bit pro Pixel einstellen. 
+<P>Speichern der dargestellten Bitmap. 
+Bearbeiten | <A HREF="#Zwischenablage">Kopieren</A> zum Kopieren in die Zwischenablage. 
+Um eine BMP Datei abzuspeichern benutzen Sie Bearbeiten | <A HREF="#Zwischenablage">Kopieren</A>  
+und dann <A HREF="#Zwischenablage">Einf&#252;gen</A>... 
+<P>Erzeugen einer Bitmap mit abgerundeten Ecken (Anti-Aliasing). 
+1. Anzeigen mit abgerundeten Ecken und dann speichern der Bitmap. 
+ODER 
+2. Konvertierung zu ppmraw und setzen der Eigenschaften 
+<PRE>
+   -dTextAlphaBits=4 -dGraphicsAlphaBits=4
+</PRE>
+<P>
+<P>
+<HR>
+<H1><A NAME="Konvertierung_in_Vektor_Format">Konvertierung in Vektor Format</A></H1>
+Sie k&#246;nnen eine Postscript oder PDF Datei in ein editierbares  
+Vektor Format konvertieren, indem Sie das Programm <B>pstoedit</B> 
+von Wolfgang Glunz benutzen. 
+<B>pstoedit</B> unterliegt der GNU Public Licence. 
+Bin&#228;rdateien sind mit der Erlaubnis von Wolfgang Glunz in GSview  
+enthalten. Eine Kommandozeilen Version <B>pstoedit.exe</B> und das Handbuch 
+<B>pstoedit.htm</B> sind in dem pstoedit Verzeichnis enthalten. 
+Die Homepage von pstoedit ist 
+<PRE>
+ http://www.geocities.com/SiliconValley/Network/1958/pstoedit/index.html
+</PRE>
+<P>Wegen Updates von pstoedit sehen Sie auf der Homepage nach oder auf 
+<PRE>
+ http://www.cs.wisc.edu/~ghost/gsview/pstoedit.html
+</PRE>
+<P><B>pstoedit</B> kann innerhalb von GSview aufgerufen werden, benutzen Sie 
+<B>Bearbeiten | Konvertierung in Vektor Format</B>. 
+Es werden 3 Dialogboxen angezeigt. 
+<P>Der erste Dialog ist f&#252;r die pstoedit Einstellungen. 
+<P>W&#228;hlen Sie ein Ausgabe <B>Format</B> aus. 
+<P><B>Zeiche Text als Polygone</B> sollte ausgew&#228;hlt werden, wenn die Postscript  
+Datei Text enth&#228;lt und das Ausgabeformat dies nicht unterst&#252;tzt (z.B. gnuplot). 
+Dies kann eine sehr gro&#223;e Ausgabedatei bewirken. 
+<P>Wenn <B>Konvertiere nach ISO-Latin1</B> ausgew&#228;hlt ist, konvertiert pstoedit alle  
+Zeichen zu der Kodierung, die ISO-Latin1 entspricht, dies ist HTML und  
+MS-Windows. Dies ist die Default Einstellung. 
+Wenn Sie dies abstellen, wird die Kodierung der Postscript Datei unver&#228;ndert 
+in die Ausgabe &#252;bernommen. 
+<P>Wenn das Ausgabeformat Kurven nicht wie in Postscript unterst&#252;tzt, 
+dann werden alle Kurven durch Linien approximiert. Die <B>Flachheit</B> 
+Option wird benutzt um diese Approximierung zu kontrollieren. 
+Dieser Parameter wird direkt an das Postscript Kommando setflat 
+&#252;bergeben. Kleine Werte erzeugen eine glattere Kurve aber mehr 
+Linien Segmente. 
+<P>Manchmal haben Zeichens&#228;tze, die innerhalb von Postscript Programmen  
+verwendet werden, keinen Namen. 
+Z.B. kommt dies in Postscript Dateien vor, die von dvips erzeugt 
+wurden. In diesem Fall verwendet pstoedit einen Ersatzzeichensatz. 
+Der Default daf&#252;r ist Courier. Ein anderer Zeichensatz kann durch 
+die Option <B>Default Font</B> angegeben werden. Hier kann au&#223;er 
+Courier noch Helvetica und Times-Roman angegeben werden. 
+<P>Einige der Ausgabeformate bieten extra Optionen. Bitte lesen Sie 
+das pstoedit Handbuch f&#252;r weitere Informationen. So bietet z.B. 
+das Java Ausgabe Format <B>Treiber Optionen</B> um den Namen der Java 
+Klasse anzugeben. 
+<P>Der zweite Dialog (er wird nicht angezeigt, wenn Seitennummerierung 
+nicht verf&#252;gbar ist) spezifiziert die Seite, die konvertiert werden 
+soll oder, sofern von dem Ausgabe Format unterst&#252;tzt, den Bereich 
+der zu konvertierenden Seiten. 
+<P>Im dritten Dialog kann der Name der Ausgabedatei angegeben werden. 
+<P>Nicht alle <B>pstoedit</B> Formate unterst&#252;tzen Bitmap Grafiken. 
+Wenn Sie Bitmap Ausgaben ben&#246;tigen lesen Sie bitte den Abschnitt 
+<A HREF="#Datei_Konvertierungen_und_Tricks">Datei Konvertierungen und Tricks</A>. 
+<P>F&#252;r weitere Details lesen Sie bitte das pstoedit Handbuch. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Text_extrahieren_und_Suche">Text extrahieren und Suche</A></H1>
+Bei dem Versuch, den Text eines PostScript-Dokumentes zu 
+extrahieren, k&#246;nnen Probleme auftreten, da einzelne W&#246;rter "abgehackt 
+werden k&#246;nnen", der Text kodiert sein kann, Ligaturen 
+(=spezielle Zeichen f&#252;r die Kombination zweier oder mehrerer Buchstaben, 
+z.B. die Zeichen f und i) vorhanden sein k&#246;nnen oder evtl. kein 
+Zusammenhang zwischen der Position eines Wortes in 
+der PostScript-Datei und seiner Position auf der Seite besteht. 
+Die Qualit&#228;t eines extrahierten Textes h&#228;ngt also in erste Linie von der 
+Beschaffenheit des Textes ab. 
+<P>Im Programm GSview gibt es zwei M&#246;glichkeiten, den Text einer 
+PostScript-Datei zu extrahieren. 
+<P>Mit der schnellen Methode wird der komplette Text extrahiert. 
+Die zweite Methode, die pstotext und Ghostscript verwendet, 
+ist zwar langsamer, extrahiert den Text daf&#252;r aber wesentlich genauer. 
+Um die Methoden auszuw&#228;hlen, aktivieren bzw. deaktivieren Sie die 
+Funktion <A HREF="#Optionen">Optionen</A> | <A HREF="#PSzuText">PSzuText</A>. 
+Siehe dazu auch die folgenden Hilfethemen: 
+<P>
+<A HREF="#PSzuText_Textextrakt_und_Suche">PSzuText Textextrakt und Suche</A><BR>
+<A HREF="#Schnelles_extrahieren_und_Suchen">Schnelles extrahieren und Suchen</A><BR>
+<P>
+<HR>
+<H2><A NAME="PSzuText_Textextrakt_und_Suche">PSzuText Textextrakt und Suche</A></H2>
+In PostScript-Dateien ist der Text normalerweise genauso angeordnet wie er 
+auf der Seite erscheint, wobei die PostScript Strings (Textanweisungen) in 
+Klammern angegeben sind. Es k&#246;nnen ganze Textzeilen im St&#252;ck oder Zeichen 
+f&#252;r Zeichen ausgegeben werden. Bei diesen PostScript-Dokumenten lassen 
+sich mit dem Extrahieren von Text relativ gute Ergebnisse erzielen. 
+<P>Mit dem Befehl <A HREF="#Zwischenablage">Bearbeiten</A> | <A HREF="#Text_extrahieren_und_Suche">Text extrahieren</A> wird ein aus mehreren Strings 
+bestehender Text auf einer bestimmten Seite extrahiert und in eine 
+Textdatei ausgegeben. Zeilenumbr&#252;che in der Textdatei entsprechen 
+den Zeilen der PostScript-Datei. Trennstellen bleiben einschlie&#223;lich 
+des Trennstriches erhalten. 
+Mit dem Programm ps2ascii.ps aus dem Ghostscript-Paket wurde eine 
+wesentlich effektivere Methode geschaffen, mit der Textbestandteile 
+einer PostScript-Datei extrahiert werden k&#246;nnen. Alternativ dazu kann 
+auch das Programm <A HREF="#Schnelles_extrahieren_und_Suchen">pstotext</A> verwendet werden, das auf der Ghostscript 
+<A HREF="#World_Wide_Web">WWW</A>-Seite aufgef&#252;hrt ist. 
+<A HREF="#Schnelles_extrahieren_und_Suchen">pstotext</A> kann in GSview ausgef&#252;hrt werden, wenn die Option 
+<A HREF="#Optionen">Optionen</A> | <B>Schnelle Textsuche</B> deaktiviert ist. 
+<P>Mit dem Befehl <A HREF="#Zwischenablage">Bearbeiten</A> | <A HREF="#Text_extrahieren_und_Suche">Suche</A> k&#246;nnen Sie einen bestimmten Text 
+suchen. 
+Geben Sie dazu den gesuchten Text ein und bestimmen den Seitenbereich, 
+in dem gesucht werden soll. 
+Anschlie&#223;end wird die erste Seite angezeigt, die diesen Text enth&#228;lt. 
+Beachten Sie dabei allerdings folgende Punkte: 
+Beim Suchen k&#246;nnen weder im eigentlichen Text noch in dem Text, nach dem 
+gesucht wird, Leerzeichen erkannt werden. Dies bedeutet, da&#223; bei der Suche 
+nach "diese" sowohl "Diese" als auch "Die serielle" gefunden 
+w&#252;rden. Dabei erh&#228;lt man keine Information dar&#252;ber, wo sich das Wort auf 
+einer Seite befindet, da diese Information ohne einen 
+PostScript-Interpreter nicht angezeigt werden kann. 
+Dar&#252;ber hinaus funktioniert der Befehl <A HREF="#Text_extrahieren_und_Suche">Suche</A> nur bei Dateien, 
+die <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-kompatibel sind bzw. eine bestimmte Seitenanordnung haben. 
+<P>Mit dem Befehl <B>Bearbeiten </B>| <A HREF="#Text_extrahieren_und_Suche">Suche n&#228;chsten</A> wird die Suche auf der 
+n&#228;chsten Seite fortgesetzt. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Schnelles_extrahieren_und_Suchen">Schnelles extrahieren und Suchen</A></H2>
+Diese Methode verwendet pstotext und Ghostscript, um Text aus 
+PostScript-Dateien zu extrahieren. Bevor Sie den Suchvorgang oder das 
+Extrahieren starten k&#246;nnen, wird die gesamte PostScript-Datei verarbeitet. 
+Dabei wird eine Text-Indexdatei erzeugt. Dieser Vorgang nimmt zwar l&#228;ngere 
+Zeit in Anspruch, wenn die Indexdatei jedoch erzeugt ist, l&#228;uft das Suchen 
+sehr schnell ab. 
+<P>Pstotext verwendet den ISO-Latin1 Zeichensatz. 
+Weitere Informationen zu pstotext erhalten Sie in: 
+<PRE>
+ http://www.research.digital.com/SRC/virtualpaper/pstotext.html
+</PRE>
+<P>Der Befehl <A HREF="#Seitenausrichtung">Ausrichtung</A> mu&#223; aktiviert sein, damit die Ausrichtung des 
+Textes richtig ist. 
+<P>Mit dem Befehl <A HREF="#Zwischenablage">Bearbeiten</A> | <A HREF="#Text_extrahieren_und_Suche">Text extrahieren</A> wird der Text bestimmter 
+Seiten extrahiert und in eine Textdatei ausgegeben. 
+<P>Mit dem Befehl <A HREF="#Zwischenablage">Bearbeiten</A> | <A HREF="#Zwischenablage">Kopieren</A> k&#246;nnen Sie W&#246;rter in die 
+Zwischenablage kopieren. 
+<P>Mit dem Befehl <A HREF="#Zwischenablage">Bearbeiten</A> | <A HREF="#Text_extrahieren_und_Suche">Suche</A> k&#246;nnen Sie einen bestimmten Text 
+suchen. 
+Geben Sie dazu den gesuchten Text ein und bestimmen den Seitenbereich, 
+in dem gesucht werden soll. 
+Anschlie&#223;end wird die erste Seite angezeigt, die diesen Text enth&#228;lt. 
+Der gesuchte Text wird zun&#228;chst in einzelne W&#246;rter zerlegt. 
+Diese werden im gesamten Dokument gesucht. Wenn Sie z. B. nach dem Wort 
+<B> Fisch</B> suchen, erhalten Sie <B> Fisch</B>,<B> Fische</B> und<B> Meeresfisch</B>. 
+Suchmuster '*' (0 oder beliebig viele Zeichen) und '?' (genau ein Zeichen) 
+werden unterst&#252;tzt, sollten jedoch nicht am Wortanfang oder am Wortende 
+eingegeben werden. 
+Das Suchmuster expandiert dabei nicht &#252;ber die Wortgrenzen hinaus. 
+Mehrere vollst&#228;ndige W&#246;rter, wie z. B. <B>GSview ist ein</B>, k&#246;nnen gefunden 
+werden. 
+Wurde der gesuchte Text gefunden, wird das erste Wort dieser Textstelle 
+markiert. 
+Der Befehl <A HREF="#Text_extrahieren_und_Suche">Suche</A> kann nur bei Dateien angewendet werden, 
+die <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-kompatibel sind. Bei <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-kompatiblen Dateien, die eine 
+bestimmte Seitenanordnung haben, funktioniert er nicht. 
+<P>Mit dem Befehl <A HREF="#Zwischenablage">Bearbeiten</A> | <A HREF="#Text_extrahieren_und_Suche">Suche n&#228;chsten</A> wird die Suche fortgesetzt. 
+<P>Normalerweise sollten Sie sollten Sie folgendes benutzen: 
+<A HREF="#Optionen">Optionen</A> | <A HREF="#PSzuText">PSzuText</A> | <B>Normal</B> 
+<P><A HREF="#Optionen">Optionen</A> | <A HREF="#PSzuText">PSzuText</A> | <B>Dvips Cork Encoding</B> 
+ist nur relevant f&#252;r Postscript Dateien, die von dvips aus TeX oder 
+LaTeX  Dokumenten erzeugt wurden. Ungl&#252;cklicherweise unterscheidet 
+dvips nicht,  welche Zeichensatzkodierungen verwendet wurden. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Zwischenablage">Zwischenablage</A></H1>
+Mit dem Befehl <B>Kopieren</B> aus dem Men&#252; <B>Bearbeiten</B> kann der Inhalt des 
+GSview-Fensters als Bitmap in die Zwischenablage kopiert werden. 
+Das Bitmap wird dann im DIB/BMP-Format gespeichert. 
+<P>Eine weitere M&#246;glichkeit, ein Bitmap zu erzeugen, besteht in der 
+Verwendung eines BMP-Treibers. Siehe hierzu auch <A HREF="#Drucken">Drucken</A>. 
+<P>Mit dem Befehl <B>Einf&#252;gen</B> werden Device Independent Bitmaps aus der 
+Zwischenablage als BMP-Dateien gespeichert. 
+<P>Mit dem Befehl <B>Konvertiere Bitmap</B> kann ein Device Independent Bitmap in 
+ein Device Dependent Bitmap umgewandelt werden und umgekehrt. 
+Enth&#228;lt die Zwischenablage ein Device Independent Bitmap (BMP-Format), 
+wird es in ein Device Dependent Bitmap umgewandelt und der Zwischenablage 
+hinzugef&#252;gt. 
+Enth&#228;lt die Zwischenablage keine Farbpalette, wird sie aus dem Device 
+Independent Bitmap erzeugt und der Zwischenablage hinzugef&#252;gt. 
+Diese Option ist notwendig, da einige Anwendungen (insbesondere 
+Paintbrush) ein Device Independent Bitmap in der Zwischenablage nicht 
+erkennen k&#246;nnen. 
+<P>Wird bei einem Dokument nicht der Befehl <A HREF="#Schnelles_extrahieren_und_Suchen">Schnelles extrahieren und Suchen</A> 
+verwendet, erzeugt GSview eine Indexdatei mit den im Dokument 
+enthaltenen W&#246;rtern. 
+Werden W&#246;rter mit der Maus markiert, wird mit dem Befehl <B>Kopieren</B> nicht 
+ein Bitmap kopiert, sondern diese W&#246;rter in die Zwischenablage kopiert. 
+Das Markieren eines Textes ist allerdings erst m&#246;glich, wenn der Befehl 
+<A HREF="#Text_extrahieren_und_Suche">Text extrahieren</A> oder <A HREF="#Text_extrahieren_und_Suche">Suche</A> angewendet wird. 
+Die Funktion <B>Option</B> | <A HREF="#PSzuText">PSzuText</A> mu&#223; dabei deaktiviert sein. 
+<P>
+<P>
+<HR>
+<H1><A NAME="EPS_Vorschau_(Preview)">EPS Vorschau (Preview)</A></H1>
+Mit dem Befehl <B>EPS Vorschau einf&#252;gen</B> wird ein Bitmap erzeugt, mit dessen 
+Hilfe ein Preview-Teil in die EPS-Datei eingef&#252;gt werden kann. Auf diese 
+Art lassen sich die Preview-Varianten Windows Metafile (WMF), TIFF und 
+EPSI erzeugen. 
+<P>Um ein Preview-Bild einzuf&#252;gen, gehen Sie folgenderma&#223;en vor: 
+<P>1. Deaktivieren Sie <B>Optionen | Ignoriere DSC</B>. 
+<P>2. Stellen Sie mit <A HREF="#Optionen">Optionen</A> | <A HREF="#Zeige_Bounding_Box">Zeige Bounding Box</A> sicher, da&#223; das 
+Dokument einen korrekten Bounding Box-Kommentar enth&#228;lt. Eine Bounding Box 
+kann &#252;ber den Befehl <A HREF="#Datei_öffnen">Datei</A> | <A HREF="#PS_zu_EPS">PS zu EPS</A> erzeugt bzw. ver&#228;ndert werden. 
+<P>3. W&#228;hlen Sie <A HREF="#Seitenausrichtung">Ausrichtung</A> | <A HREF="#Seitenausrichtung">Hochformat</A> aus. 
+<P>4.  W&#228;hlen Sie <B>Formate </B>| <A HREF="#Anzeige_Einstellungen">Anzeige Einstellungen</A> und w&#228;hlen Sie die 
+entsprechende Aufl&#246;sung f&#252;r die Preview. 
+Bei einer hohen Aufl&#246;sung wird die EPS-Datei allerdings sehr gro&#223;. 
+<P>5. <A HREF="#Datei_öffnen">&#214;ffnen</A> Sie eine EPS-Datei, die noch keinen Preview-Teil enth&#228;lt. 
+<P>6.  W&#228;hlen Sie den Befehl <B>Bearbeiten </B>| <B>EPS Vorschau einf&#252;gen</B>. Geben Sie 
+anschlie&#223;end den Preview-Typ sowie den neuen Namen der EPS-Datei an. 
+GSview erzeugt dann eine neue Datei, die die PostScript EPS-Datei 
+und den Preview-Teil enth&#228;lt. 
+<P>M&#246;gliche Preview-Typen sind <B>Interchange</B>, 
+<B>TIFF 4</B>, <B>TIFF 6 unkomprimiert</B>, <B>TIFF 6 komprimiert</B> und 
+<B>Windows Metafile (WMF)</B>. 
+Wird ein Interchange Preview eingef&#252;gt, mu&#223; das Dokument die 
+Kommentar-Zeile <B>%%EndComments</B> enthalten, 
+damit GSview den Preview-Teil an die richtige Stelle setzt. 
+Ein Interchange-Preview wird immer monochrom dargestellt. 
+Beim Format TIFF 4 handelt es sich um ein unkomprimiertes Baseline Bilevel 
+Image (1 bit/pixel). 
+Das Programm WordPerfect 5.1 ben&#246;tigt z.B. den Preview-Typ TIFF 4. 
+Das Format TIFF 6 kann ein Baseline Bilevel Image, ein Baseline 
+Palette-colour Image (4 or 8 bits/pixel)  oder ein Baseline RGB Full 
+Colour Image (24 bits/pixel) sein. 
+Preview-Teile im Format TIFF 6 liegen entweder unkomprimiert oder 
+komprimiert vor. 
+Ein WMF-Preview enth&#228;lt ein unkomprimiertes Bitmap. 
+<P>7. Nach dem Einf&#252;gen w&#228;hlen Sie wieder die urspr&#252;ngliche Seitenausrichtung 
+und setzen die Werte in <B>Formate </B>| <A HREF="#Anzeige_Einstellungen">Anzeige Einstellungen</A> wieder zur&#252;ck. 
+<P>Zum Entfernen/Extrahieren des PostScript- bzw. Preview-Teils einer DOS 
+EPS-Datei w&#228;hlen Sie nacheinander die Befehle <A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei_öffnen">Auswahl Datei</A>, 
+<B>Bearbeiten </B>| <B>Extrahiere EPS</B> und anschlie&#223;end die 
+Funktion <B>PostScript</B> oder <B>Preview</B>. 
+<P>Siehe auch <A HREF="#PS_zu_EPS">PS zu EPS</A>. 
+<P>
+<A HREF="#Benutzerdefinierte_Vorschau">Benutzerdefinierte Vorschau</A><BR>
+<P>
+<HR>
+<H2><A NAME="Benutzerdefinierte_Vorschau">Benutzerdefinierte Vorschau</A></H2>
+Mit dem Befehl <B>Bearbeiten </B>| <A HREF="#EPS_Vorschau_(Preview)">EPS Vorschau einf&#252;gen</A> | <B>Benutzer 
+definiert</B> k&#246;nnen bereits vorhandene TIFF- oder WMF-Dateien in eine 
+EPS-Datei eingef&#252;gt werden, um eine DOS EPS-Datei zu erzeugen. 
+Dies bietet sich an, wenn eine Anwendung in eine EPS- oder eine WMF-Datei 
+exportieren kann, jedoch keine DOS EPS-Datei mit einem WMF-Previewteil 
+erzeugen kann. Die EPS-Datei <B>mu&#223;</B> einen Bounding Box-Kommentar 
+enthalten, der mit dem TIFF- oder dem WMF-Previewteil &#252;bereinstimmt. 
+Die EPS-Datei mu&#223; nicht zwingend auf dem Bildschirm angezeigt werden. 
+Die Funktion <B>Benutzer definiert</B> kann auch verwendet werden, 
+nachdem die Datei &#252;ber den Men&#252;punkt <A HREF="#Datei_öffnen">Auswahl Datei</A> ge&#246;ffnet wurde. 
+<P>Sie k&#246;nnen auch eine Preview einf&#252;gen, die keine &#196;hnlichkeit mit 
+PostScript hat. Dies ist allerdings nicht w&#252;nschenswert. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Messen">Messen</A></H1>
+L&#228;ngen k&#246;nnen gemessen werden in dem die Cursor Position 
+in der Status Zeile abgelesen wird oder mit der Dialog Box 
+<B>Bearbeiten | Messen</B>. 
+<P>Diese Dialog Box zeigt den Startpunkt, Endpunkt und die 
+Entfernung und den Winkel zwischen diesen Punkten. 
+Der Startpunkt wird durch dr&#252;cken der linken Maustaste gesetzt. 
+Der Default Startpunkt ist auf der linken unteren Ecke der Seite. 
+Die m&#246;glichen Einheiten sind pt, mm, Zoll oder Benutzerdefiniert. 
+<P>Benutzerdefinierte Einheiten erlauben ihnen die Koordinaten so 
+anzuzeigen, wie sie in der Postscript Datei angegeben wurden. 
+Benutzerdefinierte Einheiten werden gew&#246;hnlich angegeben in dem 
+mit einer Identit&#228;tsmatrix gestartet wird und dann einen Reihe 
+von Transformationen darauf angewendet werden. 
+Wenn eine Postscript Datei Querformat beinhaltet durch 
+<PRE>
+ 90 rotate
+ 0 -595 translate
+</PRE>
+<P>und dann die Benutzerkoordinaten darstellt k&#246;nnten Sie folgendes 
+im Dialog eingeben: 
+<PRE>
+ Custom
+ initmatrix
+ 90 rotate
+ 0 -595 translate
+ invertmatrix
+ Ok
+</PRE>
+<P>Die gegenw&#228;rtige Transformationsmatrix (Current Transformation  
+Matrix - CTM) wird im oberen Teil des Dialogs angezeigt. 
+Sie k&#246;nnen dort direkt die CTM eingeben wenn Sie Mathematik  
+m&#246;gen. 
+Es ist allerdings einfacher, wenn Sie die Werte in den  
+Eingabefeldern eingeben, diese werden aber erst dann aktiv wenn 
+einer der Transformationskn&#246;pfe (Translation, Rotation, Skalierung) 
+bet&#228;tigt wird. 
+<P>Siehe auch <B>Einheiten</B>. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Optionen">Optionen</A></H1>
+Das Men&#252; <B>Optionen</B> enth&#228;lt die folgenden Befehle: 
+<P>
+<A HREF="#Konfiguriere_Ghostscript">Konfiguriere Ghostscript</A><BR>
+<A HREF="#Klänge">Klänge</A><BR>
+<A HREF="#Maßeinheiten">Maßeinheiten</A><BR>
+<A HREF="#Sprache">Sprache</A><BR>
+<A HREF="#PSzuText">PSzuText</A><BR>
+<A HREF="#Optionen_speichern">Optionen speichern</A><BR>
+<A HREF="#Schreibschutz_für_Dateien">Schreibschutz für Dateien</A><BR>
+<A HREF="#Merke_letztes_Verzeichnis">Merke letztes Verzeichnis</A><BR>
+<A HREF="#Hilfsmittelpalette">Hilfsmittelpalette</A><BR>
+<A HREF="#Fenster_an_Seite_anpassen">Fenster an Seite anpassen</A><BR>
+<A HREF="#Schnelles_Öffnen">Schnelles Öffnen</A><BR>
+<A HREF="#Automatisches_Neuzeichnen">Automatisches Neuzeichnen</A><BR>
+<A HREF="#EPS_Ausschnitt">EPS Ausschnitt</A><BR>
+<A HREF="#EPS_Warnung">EPS Warnung</A><BR>
+<A HREF="#Ignoriere_DSC">Ignoriere DSC</A><BR>
+<A HREF="#DSC_Warnings">DSC Warnings</A><BR>
+<A HREF="#Zeige_Bounding_Box">Zeige Bounding Box</A><BR>
+<P>
+<HR>
+<H2><A NAME="Konfiguriere_Ghostscript">Konfiguriere Ghostscript</A></H2>
+<B>Ghostscript DLL</B> teilt GSview mit, wo das Programm Ghostscript zu finden 
+ist. Bei OS/2 ist dies normalerweise <B>c:\gstools\gsN.NN\gsdll2.dll</B> und 
+bei Win32 <B>c:\gstools\gsN.NN\gsdll32.dll</B>. 
+<P>Tragen Sie dazu den korrekten Suchpfad f&#252;r Ghostscript in das Feld 
+<B>Ghostscript Suchpfad</B> ein. In diesem Suchpfad m&#252;ssen alle Verzeichnisse 
+vorhanden sein, die die Ghostscript Library Files (gs_*.ps und die Datei 
+Fontmap) sowie die Ghostscript-Fonts (*.pfb) enthalten. 
+<PRE>
+  c:\gstools\gsN.NN;c:\gstools\gsN.NN\fonts
+</PRE>
+<P>Setzen Sie dabei auf keinen Fall die Option <B>-I</B> vor den Suchpfad. 
+<P>Das Feld <B>Ghostscript Optionen</B> wird normalerweise freigelassen. 
+Wenn allerdings z.B. die <B>Plattform Fonts</B> unter MS-Windows ausgeschaltet 
+werden sollen, tragen Sie die Option <B>-dNOPLATFONTS</B> in dieses Feld ein. 
+<P>Lesen Sie hierzu auch den Punkt <A HREF="#Installation">Installation</A>. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Kl&#228;nge">Kl&#228;nge</A></H2>
+Mit der Option <B>Kl&#228;nge</B> k&#246;nnen verschiedene Aktionen akustisch untermalt 
+werden. Dabei kann f&#252;r jede Aktion <B>Kein Ton</B>, <B>Piepton</B> oder <B>Audiodateien</B> 
+ausgew&#228;hlt werden. 
+<P>F&#252;r die Verwendung von Audiodateien ist eine Soundkarte erforderlich. 
+Unter MS-Windows 3.0 ist die Erzeugung von Kl&#228;ngen mittels Audiodateien 
+nicht m&#246;glich. 
+<P>Folgende Aktionen k&#246;nnen akustisch untermalt werden: 
+<P><B>Ausgabe Seite</B>: Der PostScript-Operator showpage wurde ausgef&#252;hrt. 
+<P><B>Keine Seite</B>: Sie haben eine ung&#252;ltige Seite ausgew&#228;hlt. 
+Beispiel: Sie klicken auf <A HREF="#Seiten_auswählen">Vorherige Seite</A>, obwohl Sie sich auf der 
+ersten Seite eines Dokumentes mit <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentaren befinden. 
+<P><B>Keine Numerierung</B>: Sie haben einen Befehl ausgew&#228;hlt, der die 
+Seitennumerierung erfordert, diese ist aber nicht vorhanden. 
+Beispiel: Sie klicken beim Anzeigen des Dokumentes auf <A HREF="#Seiten_auswählen">Gehe zu Seite</A>, 
+obwohl keine <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentare vorhanden sind. 
+<P><B>Nicht offen</B>: Sie haben einen Befehl ausgew&#228;hlt, bei dem ein Dokument 
+ge&#246;ffnet sein mu&#223;, es ist jedoch kein Dokument ge&#246;ffnet. 
+Beispiel: Sie klicken auf <A HREF="#Seiten_auswählen">Gehe zu Seite</A>, obwohl kein Dokument ge&#246;ffnet 
+ist. 
+<P><B>Fehler</B>: verschiedene Fehlerarten 
+<P><B>Start</B>: Das Programm GSview wird gestartet. 
+<P><B>Verlassen</B>: Das Programm GSview wird beendet. 
+<P><B>Besch&#228;ftigt</B>: Es werden Befehle ausgef&#252;hrt, deshalb ist kein Dialog 
+m&#246;glich. 
+<P>Bei <B>Keine Seite</B>, <B>Fehler</B> und <B>Besch&#228;ftigt</B> lauten die 
+Default-Einstellungen <B>Piepton</B>, bei allen anderen <B>kein Ton</B>. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Ma&#223;einheiten">Ma&#223;einheiten</A></H2>
+Mit der Option <B>Ma&#223;einheiten</B> legen Sie fest, in welcher Einheit die 
+Cursorposition in der Statuszeile angegeben wird. Folgende Ma&#223;einheiten 
+sind m&#246;glich: Zoll, Millimeter (mm) und Punkt (pt). Die 
+Voreinstellung ist pt. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Sprache">Sprache</A></H2>
+GSview ist sowohl in Englisch als auch auf Deutsch und Franz&#246;sisch 
+verf&#252;gbar. 
+&#220;ber die Funktion <B>Optionen </B>| <B>Sprache</B> 
+k&#246;nnen Sie die Einstellung ver&#228;ndern. 
+<P>
+<P>
+<HR>
+<H2><A NAME="PSzuText">PSzuText</A></H2>
+Gsview unterst&#252;tzt zwei verschiedene Methoden, um Text zu suchen und 
+aus dem Postscript Dokument zu extrahieren. 
+Die <B>Schnelle Textsuche</B> verwendet eine sehr simple Extraktion der 
+Postscript Kommandos aus dem Dokument. 
+Diese Methode st&#246;&#223;t relativ schnell an ihre Grenzen. 
+Diese Methode wird via <B>PSzuText</B> | <B>Deaktiviert</B> abgeschaltet. 
+<P>Die mit <B>PSzuText Textsuche</B> angeschaltete Methode verwendet das externe 
+Programm pstotext aus dem Ghostscript Paket um Worte und ihre Koordinaten 
+aus einem Dokument zu extrahieren. 
+Dies ist die ad&#228;quate Methode, sie ben&#246;tigt jedoch auch erheblich mehr Zeit. 
+Hierbei gibt es zwei Modi. <B>Normal</B> sollte bei den mei&#223;ten Dokumenten 
+eingeschaltet werden, lediglich bei Dateien, die durch dvips aus dem TeX 
+Paket erzeugt wurden, sollte <B>Dvips Cork Encoding</B> aktiviert werden. 
+<P>Default ist <B>Normal</B>. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Optionen_speichern">Optionen speichern</A></H2>
+Mit der Option <B>Speichere Optionen jetzt</B> werden die Position des 
+GSview-Fensters, die Fenstergr&#246;&#223;e, der zuletzt benutzte Drucker, 
+das zuletzt ausgew&#228;hlte Verzeichnis sowie alle Optionen aus den Men&#252;s 
+<A HREF="#Optionen">Optionen</A> und <A HREF="#Seitenformat">Formate</A> in der Initialisierungsdatei 
+gsview32.ini im Windows-Verzeichnis 
+gespeichert. Wird das Programm gestartet, liest GSview diese Datei. 
+<P>Ist die Option <B>Einstellungen beim Beenden speichern</B> aktiviert, werden 
+die oben aufgelisteten Einstellungen gespeichert, wenn Sie das Programm 
+beenden. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Schreibschutz_f&#252;r_Dateien">Schreibschutz f&#252;r Dateien</A></H2>
+Ist die Option <B> Schreibschutz f&#252;r Dateien </B> aktiviert, erh&#228;lt Ghostscript das 
+Kennzeichen <B>-dSAFER</B>. 
+Damit werden die Operatoren zum L&#246;schen oder Umbenennen von Dateien deaktiviert. 
+Au&#223;erdem k&#246;nnen Dateien dann nur noch schreibgesch&#252;tzt ge&#246;ffnet werden. 
+Dies ist die Standard-Einstellung. 
+<P>Ist die Option <B>Schreibschutz f&#252;r Dateien</B> deaktiviert, 
+kann Ghostscript Dateien ver&#228;ndern. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Merke_letztes_Verzeichnis">Merke letztes Verzeichnis</A></H2>
+Ist die Option <B>Merke letztes Verzeichnis</B> aktiviert, wird beim Beenden 
+von GSview das aktuelle Verzeichnis gespeichert. 
+Wenn Sie GSview beim n&#228;chsten Mal wieder aufrufen,  wird automatisch 
+wieder dieses Verzeichnis angew&#228;hlt. 
+In der Default-Einstellung ist diese Option aktiviert. 
+<P>Ist die Option <B>Merke letztes Verzeichnis</B> deaktiviert, ist das aktuelle 
+Verzeichnis beim Starten von GSview das Verzeichnis, in dem sich Gsview 
+befindet, oder das entsprechende Arbeitsverzeichnis. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Hilfsmittelpalette">Hilfsmittelpalette</A></H2>
+Ist die Option <B>Hilfsmittelpalette</B> aktiviert, wird am linken 
+Bildschirmrand eine Hilfsmittelpalette eingeblendet. In der 
+Default-Einstellung ist diese Option aktiviert. 
+In der Hilfsmittelpalette sind folgende Symbole enthalten (Anordnung 
+von oben nach unten): 
+<P>
+<IMG SRC="gvwopen.gif">
+<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei_öffnen">&#214;ffnen</A> 
+<P>
+<IMG SRC="gvwprint.gif">
+<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Drucken">Drucken</A> 
+<P>
+<IMG SRC="gvwinfo.gif">
+<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei-Informationen">Info</A> 
+<P>
+<IMG SRC="gvwhelp.gif">
+<B>Hilfe</B> | <B>Inhalt</B> 
+<P>
+<IMG SRC="gvwgoto.gif">
+<A HREF="#Seiten_auswählen">Anzeige</A> | <A HREF="#Seiten_auswählen">Gehe zu Seite</A> 
+<P>
+<IMG SRC="gvwnext.gif">
+<A HREF="#Seiten_auswählen">Anzeige</A> | <A HREF="#Seiten_auswählen">N&#228;chste Seite</A> 
+<P>
+<IMG SRC="gvwprev.gif">
+<A HREF="#Seiten_auswählen">Anzeige</A> | <A HREF="#Seiten_auswählen">Vorherige Seite</A> 
+<P>
+<IMG SRC="gvwnexts.gif">
+<B>Springe 5 Seiten vorw&#228;rts</B> 
+<P>
+<IMG SRC="gvwprevs.gif">
+<B>Springe 5 Seiten r&#252;ckw&#228;rts</B> 
+<P>
+<IMG SRC="gvwmagp.gif">
+<B>Erh&#246;he Aufl&#246;sung</B> 
+<P>
+<IMG SRC="gvwmagm.gif">
+<B>Verringere Aufl&#246;sung</B> 
+<P>
+<IMG SRC="gvwfind.gif">
+<B>Bearbeiten </B>| <A HREF="#Text_extrahieren_und_Suche">Suche</A> 
+<P>
+<IMG SRC="gvwfindn.gif">
+<B>Bearbeiten </B>| <A HREF="#Text_extrahieren_und_Suche">Suche n&#228;chsten</A> 
+<P>Wenn Sie die Symbole "Erh&#246;he bzw. verringere Aufl&#246;sung" anklicken, sollte 
+die Option<B> Automatisches Neuzeichnen</B> aktiviert sein. 
+Anstelle der Hilfsmittel kann auch der Befehl <B>Formate </B>| 
+<A HREF="#Anzeige_Einstellungen">Anzeige Einstellungen</A> verwendet werden. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Fenster_an_Seite_anpassen">Fenster an Seite anpassen</A></H2>
+Ist die Option <B>Fenster an Seite anpassen</B> aktiviert, bewirken 
+Ver&#228;nderungen der Seitengr&#246;&#223;e oder -ausrichtung, da&#223; das Fenster 
+vergr&#246;&#223;ert oder verkleinert wird um sich der neuen Seitengr&#246;&#223;e anzupassen. 
+Wenn die Fenstergr&#246;&#223;e manuell ver&#228;ndert wird, erzwingt GSview, da&#223; das 
+Fenster niemals gr&#246;&#223;er wird, als die darzustellende Seite. 
+Fenstergr&#246;&#223;e auf die Bildschirmgr&#246;&#223;e verkleinert, so da&#223; das Fenster 
+genauso gro&#223; wie die angezeigte Seite ist. 
+<P>&#196;nderungen der Fenstergr&#246;&#223;e werden vorgenommen, wenn die Fenstergr&#246;&#223;e oder 
+die Seitengr&#246;&#223;e vom Benutzer ver&#228;ndert werden; dies geschieht nicht 
+unmittelbar durch Setzen der Option. 
+In der Vollbilddarstellung wird diese Option ignoriert. 
+<P>Ist die Option <B>Fenster an Seite anpassen</B> deaktiviert, wird die 
+Fenstergr&#246;&#223;e nicht ver&#228;ndert. Die Fl&#228;che zwischen der angezeigten Seite 
+und dem Fensterrahmen wird dann hellgrau angezeigt. 
+Deaktivieren Sie die Option, wenn z.B. die Fenstergr&#246;&#223;e nicht verkleinert 
+werden soll, weil Seiten geringer Aufl&#246;sung angezeigt werden sollen. 
+In der Default-Einstellung ist diese Option aktiviert. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Schnelles_&#214;ffnen">Schnelles &#214;ffnen</A></H2>
+Ist die Option <B>Schnelles &#214;ffnen</B> aktiviert, startet GSview Ghostscript 
+nicht neu, wenn die Seitengr&#246;&#223;e, Seitenausrichtung oder Seitenaufl&#246;sung 
+ge&#228;ndert werden. 
+<P>GSview versucht, den Ghostscript-Status aufrecht zu erhalten, aber ein 
+Dokument kann den Ghostscript-Interpreter in einem instabilen Zustand 
+hinterlassen oder einen Fehler verursachen, so da&#223; Ghostscript abgebrochen 
+wird. Ghostscript-Fehlermeldungen werden mit Hilfe des Befehls 
+<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Meldungen_anzeigen">Meldungen anzeigen</A> angezeigt. W&#228;hlen Sie in diesem Fall den 
+Befehl <A HREF="#Seiten_auswählen">Wiederaufbau</A>, um das Dokument erneut zu &#246;ffnen. 
+<P>Ist die Option <B>Schnelles &#214;ffnen</B> deaktiviert, &#246;ffnet GSview jedesmal 
+Ghostscript, bevor ein neues Dokument ge&#246;ffnet wird oder die Seitengr&#246;&#223;e, 
+Seitenausrichtung oder Seitenaufl&#246;sung ge&#228;ndert werden. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Automatisches_Neuzeichnen">Automatisches Neuzeichnen</A></H2>
+Ist die Option <B>Automatisches Neuzeichnen</B> aktiviert, werden <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-kompatible Dokumente 
+neu auf dem Bildschirm aufgebaut, wenn die <A HREF="#Seitenausrichtung">Ausrichtung</A>, die <A HREF="#Anzeige_Einstellungen">Aufl&#246;sung</A>, 
+die <A HREF="#Anzeige_Einstellungen">Farbtiefe</A> oder <A HREF="#Seitenformat">Formate</A>-Einstellungen ver&#228;ndert werden. 
+In der Default-Einstellung ist diese Option aktiviert. 
+<P>Ist diese Option bei nicht-kompatiblen Dokumenten aktiviert, beginnt 
+GSview den Bildschirmaufbau bei der ersten Seite. 
+<P>Ist die Option <B>Automatisches Neuzeichnen</B> deaktiviert, verwenden Sie stattdessen den 
+Befehl <A HREF="#Seiten_auswählen">Anzeige</A> | <A HREF="#Seiten_auswählen">Wiederaufbau</A>, nachdem eine der oben aufgef&#252;hrten 
+Einstellungen ge&#228;ndert wurde. 
+<P>
+<P>
+<HR>
+<H2><A NAME="EPS_Ausschnitt">EPS Ausschnitt</A></H2>
+Ist die Option <B>EPS Ausschnitt</B> aktiviert, wird das Bitmap auf dem 
+Bildschirm direkt in die Bounding Box einer EPS-Datei ausgeschnitten und 
+nicht &#252;ber das Seitenformat im Men&#252; <A HREF="#Seitenformat">Formate</A> definiert. Verwenden Sie 
+diese Funktion, um ein Bitmap-Preview in eine EPS-Datei einzuf&#252;gen. 
+<P>Ist die Option <B>EPS Ausschnitt</B> deaktiviert, verwendet GSview das 
+Seitenformat, das im Men&#252; <A HREF="#Seitenformat">Formate</A> festgelegt wurde. 
+In der Default-Einstellung ist die Option deaktiviert. 
+<P>Mit der Option <B>EPS Ausschnitt</B> werden keine Ver&#228;nderungen am 
+Ursprungs-Dokument vorgenommen. Es wird lediglich die 
+Gr&#246;&#223;e des Ausschnittes festgelegt, der auf dem Bildschirm 
+angezeigt werden soll. 
+<P>Siehe hierzu auch den Befehl <A HREF="#Zwischenablage">Bearbeiten</A>| <A HREF="#EPS_Vorschau_(Preview)">EPS Vorschau einf&#252;gen</A>. 
+<P>
+<P>
+<HR>
+<H2><A NAME="EPS_Warnung">EPS Warnung</A></H2>
+Wenn die Option <B>EPS Warnung</B> aktiviert ist, wird bei jedem &#214;ffnen einer 
+Datei ein Prolog in Ghostscript geschrieben. 
+Sobald PostScript-Operatoren verwendet werden, die in <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">EPS</A>-Dateien nicht 
+erlaubt sind, erzeugt dieser Prolog Warnmeldungen, die mit dem Befehl 
+<B>Datei </B>| <A HREF="#Meldungen_anzeigen">Meldungen anzeigen</A> auf dem Bildschirm angezeigt werden k&#246;nnen. 
+Beispiel f&#252;r eine Warnmeldung: 
+<PRE>
+ Warning: EPS files must not use /initgraphics
+</PRE>
+<P>Die Option zeigt nicht alle Meldungen an. So k&#246;nnen z.B. "kritische" 
+Operatoren eingesetzt werden, ohne da&#223; eine Meldung erzeugt wird. 
+Erhalten Sie dennoch eine Meldung, verwenden Sie auf keinen Fall den 
+Befehl <A HREF="#PS_zu_EPS">PS zu EPS</A>. 
+<P>In der Default-Einstellung ist die Option <B>EPS Warnung</B> deaktiviert. 
+<P>Siehe auch <A HREF="#PS_zu_EPS">PS zu EPS</A>. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Ignoriere_DSC">Ignoriere DSC</A></H2>
+Manchmal stellt sich - unerwartet - heraus, da&#223; ein Dokument doch nicht 
+den Adobe DSC-Konventionen entspricht. 
+In diesem Fall k&#246;nnen bei dem Versuch, das Dokument anzuzeigen, 
+Probleme auftreten. 
+Wenn Sie die Option <B>Ignoriere DSC</B> aktivieren, behandelt GSview das 
+Dokument so, als ob es keine DSC-Kommentare enth&#228;lt und zeigt die Seiten 
+in der urspr&#252;nglichen Reihenfolge an. 
+<P>In der Default-Einstellung ist die Option <B>Ignoriere DSC</B> deaktiviert. 
+<P>
+<P>
+<HR>
+<H2><A NAME="DSC_Warnings">DSC Warnings</A></H2>
+Einige Dokumente enthalten Fehler in den DSC Kommentaren. 
+Der Schwellenwert der Warnungen kann bei <A HREF="#Optionen">Optionen</A> | <B>DSC Warnungen</B> 
+eingestellt werden. 
+Wenn sie ausgestellt sind, dann nimmt GSview an, dass die DSC 
+Kommentare korrekt sind. <B>Fehler</B> benachrichtigt Sie &#252;ber Fehler 
+in den DSC Kommentaren. <B>Warnungen</B> benachtigt Sie bei Fehlern 
+und Warnungen. <B>Alle</B> informiert Sie &#252;ber jede Unregelm&#228;&#223;igkeit 
+in den DSC Kommentaren. Der Default ist <B>Warnungen</B>. 
+<P>Wenn Sie angegeben haben, da&#223; Sie &#252;ber Fehler und Warnungen 
+informiert werden wollen, gibt ihnen die DSC Warnungsbox 
+folgende M&#246;glichkeiten: 
+<B>OK</B> weist GSview an zu raten, was wahrscheinlich gemeint war 
+(das mu&#223; nicht das gewesen sein, was der DSC tats&#228;chlich bedeutet), 
+<B>Cancel</B> bewegt GSview dazu, die DSC Kommentare korrekt zu fidnen, 
+<B>Ignoriere DSC </B> l&#228;&#223;t GSview alle DSC Kommentare ignorieren. 
+<P>Wenn <B>DSC Warnungen</B> den Wert <B>Aus</B> hat, dann nimmt GSview <B>Cancel</B> an. 
+Dokumente mit inkorrekten DSC Kommentaren verursachen Probleme. 
+<P>
+<P>
+<HR>
+<H2><A NAME="Zeige_Bounding_Box">Zeige Bounding Box</A></H2>
+Nach Auswahl dieser Option wird ein Rechteck &#252;ber die Graphik gezogen, 
+das die Position der Bounding Box anzeigt. Die Bounding Box wird nur auf 
+dem Bildschirm dargestellt und hat keinen Einflu&#223; auf die 
+Druckausgabe. Sie wird nur bei <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-kompatiblen Dokumenten angezeigt 
+(Dokumente, die keine DSC-Kommentare enthalten, haben keine Bounding Box). 
+<P>In der Default-Einstellung ist die Option <B>Zeige Bounding Box</B> 
+deaktiviert. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Seitenausrichtung">Seitenausrichtung</A></H1>
+Mit den Befehlen <B>Hochformat</B>, <B>Querformat</B>, <B>Kopf&#252;ber</B> und <B>Umgekehrt 
+quer</B> im Men&#252; <B>Ausrichtung </B>bestimmen Sie die Seitenausrichtung, die 
+angezeigt werden soll. 
+Mit dem Befehl <B>Querformat</B> wird das Papier um 90 Grad im Uhrzeigersinn 
+gedreht. 
+Mit dem Befehl <B>Umgekehrt quer</B> wird das Papier um 90 Grad gegen den 
+Uhrzeigersinn gedreht. 
+Die Ausrichtung, die Sie hier w&#228;hlen, gilt nur f&#252;r die Darstellung auf 
+dem Bildschirm und hat keine Auswirkung auf das Drucken. 
+Wenn die Option <B>Automatisch</B> im Men&#252; <B>Seitenausricht</B> gesetzt ist und 
+das Dokument einen <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentar zur Seitenausrichtung enth&#228;lt 
+(%%Orientation oder %%PageOrientation), wird die Seitenausrichtung 
+automatisch ausgew&#228;hlt. 
+<P>Ist die Option <B>Gedreht quer</B> aktiviert, wird die Bedeutung von <B>Querformat</B> 
+und <B>Umgekehrt quer</B> vertauscht. 
+Bei den meisten Dokumenten im Querformat ist es erforderlich, sie zur 
+Ansicht um 90 Grad im Uhrzeigersinn zu drehen. Da es hier jedoch keinen 
+Standard gibt, m&#252;ssen einige Dokumente auch in die entgegengesetzte 
+Richtung - also gegen den Uhrzeigersinn - gedreht werden. 
+<P>Mit der Funktion <B>Gedreht quer</B> dreht GSview das Dokument gem&#228;&#223; dem 
+<B>%%Orientation</B>-Kommentar, den die PostScript-Datei enth&#228;lt, 
+automatisch in die richtige Richtung. 
+<P>Siehe auch <A HREF="#Seitenformat">Seitenformat</A> und <A HREF="#Anzeige_Einstellungen">Anzeige Einstellungen</A>. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Anzeige_Einstellungen">Anzeige Einstellungen</A></H1>
+Diese Einstellungen beeinflussen lediglich die Anzeige auf dem Bildschirm. 
+<P>Im Feld <B>Aufl&#246;sung</B> wird die Aufl&#246;sung der Anzeige in dpi festgelegt. 
+Der Default-Wert f&#252;r einen VGA-Bildschirm betr&#228;gt 96 dpi. Diese Aufl&#246;sung 
+kann auch &#252;ber die Symbole der Hilfsmittelpalette ge&#228;ndert werden. 
+<P>Bei DSC-kompatiblen Dateien wird durch Dr&#252;cken der rechten Maustaste die 
+Standard-Druckeraufl&#246;sung auf die Seite gezoomt. 
+Durch erneutes Dr&#252;cken der rechten Maustaste erhalten Sie wieder die 
+normale Aufl&#246;sung. Die Eintragung im Feld <B>Zoom Aufl&#246;sung</B> wird in dpi 
+angegeben. 
+<P>Im Feld <B>Farbtiefe</B> wird die Tiefe des Bitmaps, die auf dem Bildschirm 
+dargestellt wird, in bits per pixels festgelegt Als Standard-Einstellung 
+wird die maximale Bittiefe eingetragen, die der mitgelieferte 
+Bildschirmtreiber bietet. 
+W&#228;hlen Sie keine h&#246;here Einstellung, da sonst nur zus&#228;tzlicher Speicher 
+f&#252;r das Bitmap ben&#246;tigt wird, die Bildqualit&#228;t aber nicht weiter verbessert 
+werden kann. 
+<P>Im Feld <B>Text Alpha</B> wird das Antialiasing f&#252;r Schriften (geschickter 
+Einsatz von Graustufen zum Gl&#228;tten der Treppenstufen) festgelegt. 
+Die Default-Einstellung in diesem Feld betr&#228;gt 1 bit (kein Antialiasing). 
+Um das Antialiasing zu aktivieren, w&#228;hlen Sie 2 bits oder 4 bits. 
+<P><B>Achtung!</B>: 
+Durch die Funktion <B>Text Alpha</B> schaltet GSview die <B>Plattform Fonts</B> aus, 
+indem die Option 
+<PRE>
+ -dNOPLATFONTS
+</PRE>
+<P>in das Feld Ghostscript Optionen in 
+<B>Optionen </B>| <A HREF="#Konfiguriere_Ghostscript">Konfiguriere Ghostscript</A> eingetragen wird. 
+<P>Im Feld <B>Graphik Alpha</B> wird das Antialiasing f&#252;r Graphiken und Texte, 
+die nicht mehr in den Fonts Cache passen, festgelegt. 
+<P>Durch das Antialiasing wird der Bildaufbau langsamer. Dar&#252;ber hinaus kann 
+die Funktion nur genutzt werden, wenn im Feld <B>Farbtiefe</B> mindestens 8 
+bits/pixel eingetragen ist. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Seitenformat">Seitenformat</A></H1>
+&#220;ber das Men&#252; <B>Formate</B> k&#246;nnen Sie die Seitengr&#246;&#223;e ausw&#228;hlen. 
+M&#246;gliche Gr&#246;&#223;en sind: 
+<PRE>
+ 11x17          11   x 17   inch
+ A3              297 x 420  mm
+ A4              210 x 297  mm
+ A5              148 x 210  mm
+ B4              257 x 364  mm
+ B5              182 x 257  mm
+ Ledger         17   x 11   inch
+ Letter          8.5 x 11   inch
+ Legal           8.5 x 14   inch
+ Note            8.5 x 11   inch
+</PRE>
+<P>Mit dem Befehl <B>Benutzerdefiniert</B> k&#246;nnen Sie eine individuelle Gr&#246;&#223;e 
+definieren (Einheit Punkt (pt)). So erhalten Sie bei der Seitengr&#246;&#223;e 
+480x360 pt bei einer Aufl&#246;sung von 96 dpi eine Bildgr&#246;&#223;e von 640x480 
+Pixel. 
+<P>Enth&#228;lt die Datei einen <A HREF="#Document_Structuring_Conventions_(DSC-Kommentare)">DSC</A>-Kommentar zum Seitenformat, wie z.B. 
+<PRE>
+ %%DocumentPaperSizes: a4
+ %%DocumentMedia: a4 595 842 80 white ( )
+</PRE>
+<P>wird das Seitenlayout automatisch definiert. Handelt es sich bei der 
+Beschreibung in der Kommentarzeile nicht um eine der oben genannten 
+Gr&#246;&#223;en, wird automatisch <B>Benutzerdefiniert</B> gesetzt. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Tastenkombinationen">Tastenkombinationen</A></H1>
+In GSview wurden den einzelnen Befehlen folgende Tastenkombinationen 
+zugeordnet: 
+<P><B>O</B>, <B>o</B>  Daten &#246;ffnen und anzeigen.  (<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei_öffnen">&#214;ffnen</A>) 
+<P><B>S</B>, <B>s</B>  Datei schlie&#223;en.  (<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei_öffnen">Schlie&#223;en</A>) 
+<P><B>N</B>, <B>n</B>, <B>+</B>  N&#228;chste Seite.  (<A HREF="#Seiten_auswählen">Anzeige</A> | <A HREF="#Seiten_auswählen">N&#228;chste Seite</A>) 
+<P>Leertaste     N&#228;chste Seite oben.  (<A HREF="#Seiten_auswählen">Anzeige</A> | <B>N&#228;chste Seite oben</B>) 
+<P><B>V</B>, <B>v</B>, <B>-</B>  Vorherige Seite.  (<A HREF="#Seiten_auswählen">Anzeige</A> | <A HREF="#Seiten_auswählen">Vorherige Seite</A>) 
+<P>BackSpace  Vorherige Seite oben.  (<A HREF="#Seiten_auswählen">Anzeige</A> | <B>Vorherige Seite oben</B>) 
+<P><B>G</B>, <B>g</B>  Gehe zu Seite.  (<A HREF="#Seiten_auswählen">Anzeige</A> | <A HREF="#Seiten_auswählen">Gehe zu Seite</A>) 
+<P><B>I</B>, <B>i</B>  Dateiinformation.  (<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei-Informationen">Info</A>) 
+<P><B>W</B>, <B>w</B>, <B>F5</B>  Seite wieder aufbauen.  (<A HREF="#Seiten_auswählen">Anzeige</A> | <A HREF="#Seiten_auswählen">Wiederaufbau</A>) 
+<P><B>A</B>, <B>a</B>  Datei ausw&#228;hlen (&#246;ffnen, aber nicht anzeigen). 
+(<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei_öffnen">Auswahl Datei</A>) 
+<P><B>U</B>, <B>u</B>  Unter einem anderen Namen speichern. 
+(<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei_öffnen">Speichern unter</A>) 
+<P><B>D</B>, <B>d</B>  Alle oder einzelne Seiten drucken.  (<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Drucken">Drucken</A>) 
+<P><B>F</B>, <B>f</B>  Alle oder einzelne Seiten in eine Datei drucken. 
+(<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Drucken">Drucken</A>) mit der Option <A HREF="#Drucken">Druck in Datei</A> aktiviert. 
+<P><B>E</B>, <B>e</B>  Mehrere Seiten in andere Datei extrahieren. 
+(<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Datei_öffnen">Extrahiere</A>) 
+<P><B>M</B>, <B>m</B>  Ghostscript Meldungen anzeigen. (<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Meldungen_anzeigen">Meldungen anzeigen</A>) 
+<P><B>&lt;</B> Aufl&#246;sung verringern 
+<P><B>&gt;</B> Aufl&#246;sung erh&#246;hen 
+<P><B>F1</B>  Hilfe.  (<B>Hilfe</B> | <B>Inhalt</B>) 
+<P><B>Ctrl+C</B>, <B>Ctrl+Einfg</B>  Angezeigte Bitmap in Zwischenablage kopieren. 
+(<A HREF="#Zwischenablage">Bearbeiten</A> | <A HREF="#Zwischenablage">Kopieren</A>) 
+<P><B>Ctrl+S</B>, Text suchen. (<A HREF="#Zwischenablage">Bearbeiten</A> | <A HREF="#Text_extrahieren_und_Suche">Suche</A>) 
+<P><B>F3</B>, N&#228;chsten Text suchen. (<A HREF="#Zwischenablage">Bearbeiten</A> | <A HREF="#Text_extrahieren_und_Suche">Suche n&#228;chsten</A>) 
+<P><B>F4</B>  Ganzer Bildschirm.  (<A HREF="#Seiten_auswählen">Anzeige</A> | <B>Ganzer Bildschirm</B>) 
+<P><B>F6</B>  An Fenster anpassen.  (<A HREF="#Seiten_auswählen">Anzeige</A> | <B>An Fenster anpassen</B>) 
+<P><B>Cursor nach oben</B>  Um 16 Pixel hochrollen. 
+<P><B>Cursor nach unten</B>  Um 16 Pixel herunterrollen. 
+<P><B>Cursor nach links</B>  Bild nach links verschieben. 
+<P><B>Cursor nach rechts</B>  Bild nach rechts verschieben. 
+<P><B>Bild oben</B>  Bild nach oben rollen (Fensterh&#246;he). 
+<P><B>Bild unten</B>  Bild nach unten rollen. 
+<P><B>Pos1</B>  Anfang der Seite. 
+<P><B>Ende</B>  Ende der Seite. 
+<P>
+<P>
+<HR>
+<H1><A NAME="GSview_vom_Datei-Manager_oder_Windows_Explorer_starten">GSview vom Datei-Manager oder Windows Explorer starten</A></H1>
+Wenn Sie das GSviev Programm setup.exe verwendet haben und bei der 
+Installation alle Fragen mit Ja beantwortet haben, sind die folgenden 
+Konfigurationen bereits vorgenommen worden. Wurde das Register 
+w&#228;hrend der Installation von GSview nicht aktualisiert, lesen Sie im 
+folgenden, wie Sie manuell vorgehen m&#252;ssen. 
+<P>Um PostScript-Dateien &#252;ber den Datei-Manager &#246;ffnen zu k&#246;nnen, indem Sie 
+auf eine Datei doppelklicken, m&#252;ssen Sie folgenderma&#223;en vorgehen: 
+<P>Starten Sie mit dem Befehl <B>Datei </B>| <B>Ausf&#252;hren</B> im <B>Programm-Manager</B> den 
+Registriereditor, indem Sie <B>regedit</B> eingeben. 
+W&#228;hlen Sie im <B>Registriereditor</B> den Befehl 
+<B>Bearbeiten </B>| <B>Dateityp hinzuf&#252;gen</B> und geben Sie folgendes ein: 
+<PRE>
+ Bezeichner = psfile
+ Dateityp = PostScript
+ Ma&#223;nahme = &#214;ffnen
+ Befehl = c:\gstools\gsview\gsview32 %1
+ Verwendet DDE = deaktiviert
+ Ma&#223;nahme = Drucken
+ Befehl = c:\gstools\gsview\gsview32 /p %1
+ Verwendet DDE = deaktiviert
+</PRE>
+<P>Dr&#252;cken Sie anschlie&#223;end auf <B>OK</B>. 
+<P>W&#228;hlen Sie anschlie&#223;end im <B>Datei-Manager</B>, den Befehl 
+<B>Datei </B>| <B>Verkn&#252;pfen</B> und tragen in den Feldern folgendes ein: 
+<PRE>
+ Dateien mit Dateinamenerweiterung = ps
+ Verkn&#252;pfen mit = PostScript (gsview)
+</PRE>
+<P>Dr&#252;cken Sie auf <B>OK</B>. 
+<P>Wenn Sie jetzt auf eine PostScript-Datei doppelklicken, wird GSview vom 
+Datei-Manager aus gestartet. 
+Wird eine PostScript-Datei an den <B>Druck-Manager </B>geleitet, druckt 
+GSview diese Datei. 
+Da dieses bei einem PostScript-Drucker nicht sinnvoll ist, m&#252;ssen Sie in 
+diesem Fall die Zeile  Vorgang = Drucken aus dem Register entfernen. 
+<P>Unter Windows 95 erfolgt die Konfiguration im <B>Windows Explorer</B>. 
+<P>Starten Sie den Windows Explorer. W&#228;hlen Sie den Befehl 
+<B>Ansicht </B>| <B>Optionen </B>. Klicken Sie auf die Registerkarte <B>Datentypen</B> 
+und anschlie&#223;end auf die Schaltfl&#228;che <B>Neuer Typ</B>. 
+F&#252;llen Sie die Felder folgenderma&#223;en: 
+<PRE>
+ Beschreibung = PostScript
+ Verkn&#252;pfte Erweiterung = PS EPS
+</PRE>
+<P>Klicken Sie auf die Schaltfl&#228;che <B>Neu</B> und tragen folgendes in die 
+Felder ein: 
+<PRE>
+ Vorgang = open
+ Anwendung f&#252;r diesen Vorgang = c:\gstools\gsview\gsview32.exe
+</PRE>
+<P>Dr&#252;cken Sie auf <B>OK</B>. 
+<P>Dr&#252;cken Sie erneut auf die Schaltfl&#228;che <B>Neu</B> und tragen folgendes ein: 
+<PRE>
+ Vorgang = drucken
+ Anwendung f&#252;r diesen Vorgang = c:\gstools\gsview\gsview32.exe /p
+</PRE>
+<P>Klicken Sie auf die Schaltfl&#228;che <B>OK</B>. 
+<P>Klicken Sie auf die Schaltfl&#228;che<B> Schlie&#223;en</B>. 
+<P>Klicken Sie auf die Schaltfl&#228;che<B> Schlie&#223;en</B>. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Aufruf-Optionen">Aufruf-Optionen</A></H1>
+Verwendung: 
+<PRE>
+ gsview32 [/D] [/Tn] filename
+ gsview32 [/D] [/Tn] /F filename
+ gsview32 [/D] [/Tn] /P filename
+ gsview32 [/D] [/Tn] /S[port] filename
+</PRE>
+<P>So starten Sie GSview und zeigen filename.ps an: 
+<PRE>
+ gsview32 filename.ps
+</PRE>
+<P>So starten Sie GSview und drucken filename.ps unter Verwendung von 
+Ghostscript (<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Drucken">Drucken</A>): 
+<PRE>
+ gsview32 /P filename.ps
+</PRE>
+<P>So starten Sie GSview und drucken filename.ps unter Verwendung von 
+Ghostscript (<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Drucken">Druck in Datei</A>) in eine Datei: 
+<PRE>
+ gsview32 /F filename.ps
+</PRE>
+<P>So starten Sie GSview und stellen filename.ps f&#252;r die direkte Ausgabe auf 
+einen Drucker in den Spooler (<A HREF="#Datei_öffnen">Datei</A> | <A HREF="#Drucken">Drucke Datei</A>): 
+<PRE>
+ gsview32 /S filename.ps
+</PRE>
+<P>So starten Sie GSview und stellen filename.ps f&#252;r die direkte Ausgabe auf 
+LPT3 in den Spooler: 
+<PRE>
+ gsview32 /SLPT3: filename.ps
+</PRE>
+<P>So starten Sie Gsview und stellen filename.ps in die Druckerwarteschlange 
+"HP DeskJet Portable": 
+<PRE>
+ gsview32 /S"HP DeskJet Portable" filename.ps
+</PRE>
+<P><P>So starten S GSview im Debug-Modus: 
+<PRE>
+ gsview32 /D
+</PRE>
+<P>Im Debug-Modus werden die tempor&#228;ren Dateien von GSview nicht gel&#246;scht, so 
+da&#223; sie nach dem Beenden von GSview &#252;berpr&#252;ft werden k&#246;nnen. 
+Im Debug-Modus werden au&#223;erdem detaillierte Fehlermeldungen 
+ausgegeben, die &#252;ber <A HREF="#Datei_öffnen">Datei</A>| <A HREF="#Meldungen_anzeigen">Meldungen anzeigen</A> angezeigt werden k&#246;nnen. 
+<P>GSview l&#228;uft 
+unter Windows 95 und Windows NT als Mehr-Proze&#223;-Applikation, 
+unter Windows 3.1 / Win32s dagegen als Ein-Proze&#223;-Applikation. 
+Den Proze&#223;-Modus k&#246;nnen Sie mit der Option <B>/T</B> &#228;ndern. 
+Dabei w&#228;hlen Sie mit <B>/T0</B> den Ein-Proze&#223;-Modus aus und mit <B>/T1</B> den 
+Mehr-Proze&#223;-Modus. 
+<P>Bei diesen Optionen gibt es keinen Unterschied zwischen Gro&#223;- und 
+Kleinschreibung. Beispiel: 
+/p bewirkt das gleiche wie /P. 
+<P>
+<P>
+<HR>
+<H1><A NAME="World_Wide_Web">World Wide Web</A></H1>
+Die World Wide Web-Homepage f&#252;r Ghostscript, Ghostview und GSview finden 
+Sie unter folgender Adresse: 
+<PRE>
+ http://www.cs.wisc.edu/~ghost/
+</PRE>
+<P>F&#252;r verschiedene OS/2 und MS-Windows Web-Browser kann GSview als 
+PostScript-Viewer verwendet werden. 
+Ausf&#252;hrliche Informationen hierzu erhalten Sie auf der GSview-Homepage. 
+<P>Thomas Merz hat ein Ghostscript Handbuch geschrieben, welches im <A HREF="#PDF-Format_(Portable_Document_Format)">PDF</A> 
+Format auf obiger Web-Page zur Verf&#252;gung steht.  Dieses Handbuch ist ein 
+Extrakt seines Buches mit dem Titel <B>Die PostScript- und Acrobat-Bibel</B>, 
+da&#223; in englisch (<B>PostScript and Acrobat/PDF</B>) und deutsch erh&#228;ltlich ist. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Copyright">Copyright</A></H1>
+&#220;ber den Men&#252;punkt <B>&#220;ber GSview</B> erhalten Sie Informationen zum Copyright 
+und zur Versions-Nummer. 
+<P><PRE>
+ GSVIEW32.EXE - Bedienung von Ghostscript &#252;ber graphische Oberfl&#228;che
+ Copyright (C) 1993-2000, Ghostgum Software Pty Ltd.  Alle Rechte vorbehalten.
+</PRE>
+<P>Diese Datei ist Bestandteil des Programmes GSview. 
+<P>Dieses Programm wird ohne jede Gew&#228;hrleistung vertrieben. 
+Keiner der Autoren oder Distributoren ist verantwortlich f&#252;r die Folgen 
+des Verbrauchs, weder f&#252;r die Fehlerfreiheit noch f&#252;r die des gesamten 
+Programmes. Ausf&#252;hrliche Informationen hierzu erhalten Sie in den 
+Lizenzbestimmungen "GSview Free Public Licence". 
+<P>Jede Kopie von GSview mu&#223; eine Kopie der Lizenz enthalten, und zwar in 
+Form einer ASCII-Datei namens LICENCE. Diese gibt Ihnen das Recht, Gsview 
+zu kopieren, zu ver&#228;ndern oder zu vertreiben, jedoch nur unter 
+den in der Lizenz beschriebenen Bedingungen. 
+Unter anderem fordert die  Lizenz, da&#223; das Copyright und dieser Hinweis 
+in allen Kopien enthalten ist. 
+<P><PRE>
+     Autor: Russell Lang, Ghostgum Software Pty Ltd
+  Internet: gsview@ghostgum.com.au
+</PRE>
+<P>Lesen Sie zun&#228;chst das Thema <A HREF="#Häufig_auftretende_Probleme">H&#228;ufig auftretende Probleme</A>, 
+die GSview-Datei Readme.htm und die entsprechende <A HREF="#World_Wide_Web">WWW</A>-Seite, 
+bevor Sie sich per E-Mail an den Autor wenden. 
+<P>Das Programm pstotext (geschrieben von Andrew Birrell und Paul McJones) 
+wird von GSview in einem externen DLL verwendet. 
+<PRE>
+  Copyright (C) 1995-1996, Digital Equipment Corporation.
+</PRE>
+<P>Die Lizenz und weitere Informationen hierzu finden Sie in den Dateien 
+pstotext.txt bzw. pstotext.zip. Sind Sie mit den Lizenzbestimmungen f&#252;r 
+pstotext nicht einverstanden, l&#246;schen Sie die Dateien pstotext.zip, 
+pstotxt2.dll und pstotxt3.dll von Ihrem System. 
+<P>
+<P>
+<HR>
+<H1><A NAME="H&#228;ufig_auftretende_Probleme">H&#228;ufig auftretende Probleme</A></H1>
+<B>Problem:</B> Kann Ghostscript DLL nicht laden 
+<P>GSview ben&#246;tigt Ghostscript DLL (gsdll2.dll f&#252;r OS/2, gsdll32.dll f&#252;r 
+Win32). Diese Fehlermeldung tritt normalerweise auf, wenn Ghostscript 
+nicht installiert ist oder GSview Ghostscript nicht finden kann. 
+<P>W&#228;hlen Sie im GSview-Men&#252; <A HREF="#Optionen">Optionen</A> | <A HREF="#Konfiguriere_Ghostscript">Konfiguriere Ghostscript</A> und 
+geben Sie den korrekten Pfad f&#252;r <A HREF="#Konfiguriere_Ghostscript">Ghostscript DLL</A> ein. Beispiel: 
+<PRE>
+ c:\gstools\gsN.NN\gsdll32.dll
+</PRE>
+<P>Die Fehlermeldung erhalten Sie auch, wenn Ghostscript seine 
+Initialisierungsdateien (z.B. gs_init.ps) nicht finden kann. 
+In diesem Fall m&#252;ssen Sie den <A HREF="#Konfiguriere_Ghostscript">Ghostscript Suchpfad</A> korrekt einstellen. 
+<P>Wenn Sie Win32s verwenden, &#252;berpr&#252;fen Sie, ob nicht bereits eine Kopie von 
+Ghostscript DLL von einer Kopie von GSview geladen ist. 
+Unter Win32s darf immer nur eine Kopie von Ghostscript DLL geladen sein. 
+<P>Wenn Ghostscript DLL immer noch nicht korrekt geladen werden kann, 
+&#252;berpr&#252;fen Sie, ob Ghostscript alleine konfiguriert und gestartet 
+werden kann. 
+<P><B>Problem:</B> Im Ghostscript-Fenster erhalten Sie die Fehlermeldung 
+<B>Can't find initialization file gs_init.ps</B>. 
+<P>Geben Sie den korrekten <A HREF="#Konfiguriere_Ghostscript">Ghostscript Suchpfad</A> an, um auf das Verzeichnis 
+zu verweisen, das die Initialisierungsdatei gs_init.ps enth&#228;lt.. 
+<P><B>Problem:</B> Im Ghostscript-Fenster erhalten Sie die Fehlermeldung 
+<B>gs: Interpreter revision (XXX) does not match gs_init.ps revision (YYY)</B>. 
+<P>Geben Sie den korrekten <A HREF="#Konfiguriere_Ghostscript">Ghostscript Suchpfad</A> an, um auf das Verzeichnis 
+zu verweisen, das die Initialisierungsdatei gs_init.ps enth&#228;lt.. 
+PostScript-Dateien d&#252;rfen nicht mit einer &#228;lteren Version von Ghostscript 
+angezeigt werden, weil in diesem Fall unabh&#228;ngig vom <B>Ghostscript 
+Suchpfad</B> die alte Initialisierungsdatei geladen wird. 
+<P><B>Problem:</B> Im Ghostscript-Fenster erhalten Sie die Fehlermeldung 
+<B>Wrong version of DLL found.  Found version XXX  Need version YYY</B>. 
+<P>GSview hat die falsche Ghostscript DLL gefunden. Installieren Sie die 
+korrekte Version von Ghostscript DLL. &#220;berpr&#252;fen Sie, ob sich auf Ihrem 
+System nur eine Kopie von Ghostscript DLL befindet. 
+<P><B>Problem:</B> Unter GSview erhalten Sie die Meldung, da&#223; eine aus mehreren 
+Seiten bestehende PostScript-Datei, die mit einer MS-Windows-Anwendung 
+erzeugt wurde, 0 Seiten enth&#228;lt, und es wird nur die erste Seite 
+angezeigt. 
+<P>Diese Fehlermeldung erhalten Sie, wenn die Datei falsche DSC-Kommentare 
+enth&#228;lt. W&#228;hlen Sie in der Druckereinstellung <B>Drucker</B>, <A HREF="#Optionen">Optionen</A>, und klicken 
+Sie im Feld <B>Drucke in</B> auf <B>Drucker</B>. Dateien, die aus 
+mehreren Seiten bestehen, k&#246;nnen nicht &#252;ber den Befehl <B>Drucke in</B> 
+<B>EPS-Datei</B> gedruckt werden. 
+Verbinden Sie in diesem Fall den Treiber mit der Schnittstelle <B>FILE:</B>. 
+Anschlie&#223;end w&#228;hlen Sie im Einstellungsfeld des Treibers das Men&#252; 
+<A HREF="#Optionen">Optionen</A>, <B>Weitere Optionen</B> aus und aktivieren die Funktion <B>Gem&#228;&#223; 
+Adobe-Dokumentenstrukturierungsvereinbarung</B>. 
+<P>Der DSC-Kommentar <B>%%Pages: 0</B> bedeutet, da&#223; keine Seiten erzeugt wurden. 
+Der PostScript-Operator <B>showpage</B> wurde nicht verwendet. 
+Wenn ein aus mehreren Seiten bestehenden PostScript-Dokument den Kommentar 
+<B>%%Pages: 0</B> enth&#228;lt, &#228;ndern Sie die erste Zeile von <B>%!PS-Adobe-</B> in 
+<B>%!</B>. In diesem Fall ignoriert GSview die DSC-Kommentare, 
+und es k&#246;nnen alle Seiten des Dokumentes angezeigt werden, 
+allerdings nur in der urspr&#252;nglichen Reihenfolge. 
+Wenden Sie sich mit Beschwerden bzw. Verbesserungsvorschl&#228;gen an die 
+Autoren des Programmes, mit dem die PostScript-Datei erzeugt wurde. 
+<P>Einige PostScript-Druckertreiber enthalten einen speziellen Code f&#252;r 
+besondere Drucker. 
+Bei diesen PostScript-Treibern kann es vorkommen, da&#223; die Druckausgabe 
+nicht portierbar ist und daher in GSview nicht angezeigt werden kann. 
+Wenn dieses Problem auftritt, verwenden Sie einen der g&#228;ngigen 
+PostScript-Treiber wie z.B. <B>Apple LaserWriter II NT</B> f&#252;r PostScript 
+Level 2 Drucker oder <B>Apple LaserWriter Plus</B> f&#252;r PostScript Level 1 
+Drucker. 
+<P>Unter Windows 95 w&#228;hlen Sie in der Druckereinstellung den Men&#252;punkt 
+<B>Eigenschaften</B> und klicken auf die Registerkarte <B>PostScript</B>. 
+W&#228;hlen Sie anschlie&#223;end im Feld PostScript-Ausgabeformat die Einstellung 
+<B>PostScript (Optimale Portierung - ADSC)</B>. 
+<P><B>Problem:</B> In GSview erhalten Sie die Meldung "Page ordering is Special" 
+<P>Im Dokument ist der DSC-Kommentar <B>%%PageOrder: Special</B> enthalten. 
+Dies hat zur Folge, da&#223; die Seiten nicht korrekt angeordnet werden k&#246;nnen 
+und GSview die Seiten nur in der urspr&#252;nglichen Reihenfolge 
+anzeigen kann. 
+Wenn Sie trotzdem fortfahren und die Seiten neu anordnen, k&#246;nnen 
+PostScript-Fehler auftauchen, die nur behoben werden k&#246;nnen, 
+wenn die PostScript erneut erzeugt wird, allerdings ohne spezielle 
+Seitenanordnung. 
+<P>Windows 95 erzeugt normalerweise PostScript-Dateien mit einer speziellen 
+Seitenanordnung. Um dies zu &#228;ndern, w&#228;hlen Sie in den Druckereigenschaften 
+die Registerkarte PostScript und w&#228;hlen dort im Feld 
+PostScript-Ausgabeformat die Einstellung <B>PostScript 
+(Optimale Portierung - ADSC)</B>. 
+<P><B>Problem:</B> PostScript-Dateien, die unter MS-Windows erzeugt wurden, 
+beginnen mit dem Steuerzeichen Control-D. 
+<P>Windows 3.1: 
+Da dieses Probleme sogar auftritt, wenn bei einem PostScript-Treiber das 
+Kontrollk&#228;stchen <B>Gem&#228;&#223; Adobe-Dokumentenstrukturierungsvereinbarung</B> 
+aktiviert ist, wird es als Fehler des MS-Windows 
+PostScript-Druckertreibers betrachtet. 
+Hinweise zur L&#246;sung des Problems finden sie in der Datei PRINTERS.WRI. 
+Um die Ausgabe von Ctrl-D am Anfang der Datei zu verhindern, 
+m&#252;ssen Sie in der Datei win.ini den Abschnitt f&#252;r den Drucker ermitteln 
+(mehrere Abschnitte sind m&#246;glich) und folgende Zeile einf&#252;gen: 
+<B>CTRLD=0</B>.  Beispiel: 
+<PRE>
+ [Apple LaserWriter II NT,FILE]
+ CTRLD=0
+</PRE>
+<P>Windows 95: 
+Im Konfigurationsmen&#252; des PostScript-Treibers gibt es eine Funktion, mit 
+der die Ausgabe von Ctrl-D am Anfang der Datei verhindert werden kann 
+(Eigenschaften, Registerkarte PostScript, Schaltfl&#228;che Erweitert). 
+Die Default-Einstellung lautet "Strg + D nach Auftrag senden". 
+<P><B>Problem:</B> PostScript-Dateien, die mit Word f&#252;r Windows 6.0 erzeugt 
+wurden, verursachen eine "Missing %%Pages comment"-Meldung. 
+<P>Beim Einbetten der EPS-Datei entsteht ein fehlerhafter DSC-Kommentar. 
+Word h&#228;tte die eingebettete EPS-Datei mit folgenden Zeilen beginnen 
+bzw. beenden sollen: 
+<PRE>
+ %%BeginDocument: filename.eps
+ %%EndDocument
+</PRE>
+<P>Ist dieses nicht erfolgt, kann GSview nicht angeben, wieviele Seiten das 
+Dokument enth&#228;lt und wo sich die einzelnen Seiten befindet. 
+<P>Wenden Sie sich mit diesem Problem an Microsoft, da sich in der EPSIMP.FLT 
+Filterversion 2.01 ein Fehler befindet, der von Microsoft behoben werden 
+mu&#223;. 
+<P>Solange dieses Problem auftritt, gibt es zwei unterschiedliche 
+Vorgehensweisen: 
+<P>1. W&#228;hlen Sie <A HREF="#Optionen">Optionen</A> | <A HREF="#Ignoriere_DSC">Ignoriere DSC</A>. 
+<P>2. Bearbeiten Sie die PostScript-Datei, um die korrekten DSC-Kommentare 
+einzuf&#252;gen. Suchen Sie in der PostScript-Datei nach allen Zeilen, 
+die folgenden Kommentar enthalten: 
+<PRE>
+  %MSEPS Preamble
+</PRE>
+<P>Suchen Sie von hier aus die Kommentarzeilen, die sich auf die eingebettete 
+EPS-Datei beziehen. Die erste Zeile lautet hier normalerweise: 
+<PRE>
+  %!PS-Adobe-3.0 EPSF-3.0
+</PRE>
+<P>Vor diese Zeilen f&#252;gen Sie folgende Zeile ein: 
+<PRE>
+ %%BeginDocument: AddedByHand
+</PRE>
+<P>Suchen Sie anschlie&#223;end nach Zeilen, die folgenden Kommentar enthalten: 
+<PRE>
+ %MSEPS Trailer
+</PRE>
+<P>Vor diese Zeilen f&#252;gen Sie den Kommentar 
+<PRE>
+ %%EndDocument
+</PRE>
+<P>ein 
+<P>Anschlie&#223;end sollte eine korrekte Anzeige der Datei m&#246;glich sein. 
+<B>Problem:</B> Gsview erkennt keine DSC Anweisungen in Dateien, die mit dem 
+32-Bit Adobe Postscripttreiber 4.10 erzegt wurden. 
+<P>Verwenden Sie nicht das "Tagged binary communications protocol". 
+&#196;ndern Sie dies in "Printers | Postscript tab | Advanced... | 
+Data format group box | ASCII data". 
+<P><PRE>
+ <B>Problem:</B> DerVersuch irgendeine Datei zu &#246;ffnen ergibt:
+ <B>Unrecoverable error: configurationerror in setpagedevice</B>
+ Failed to open device or install ViewerPreProcess hook: returns -26
+ Page size may have been too large or resolution too high.
+ Resetting page size and resolution
+</PRE>
+<P>Entweder die Seitengr&#246;&#223;e oder die Aufl&#246;sung ist zu gro&#223;. Reduzieren 
+sie diese entsprechend. 
+Es ist jedoch auch m&#246;glich, da&#223; sie die Option <B>-dFIXEDMEDIA</B> in der 
+Ghostscript Umgebungsvariablen GS_OPTIONS angegeben haben. 
+Wenn sie mit Gsview arbeiten, so sollten sie GS_OPTIONS am besten 
+gar nicht benutzen, stattdessen verwenden sie bitte <A HREF="#Optionen">Optionen</A> | 
+<A HREF="#Konfiguriere_Ghostscript">Konfiguriere Ghostscript</A> | <A HREF="#Konfiguriere_Ghostscript">Ghostscript Optionen</A>. 
+<P>
+<P>
+<HR>
+<H1><A NAME="Andere_n&#252;tzliche_Programme">Andere n&#252;tzliche Programme</A></H1>
+<B>RedMon</B> ist ein Windows 95 und NT Port Monitor, der es einem erlaubt, 
+einen Druckerport an ein Programm umzuleiten. 
+RedMon kann zusammen mit Ghostscript und einem nicht Postscript f&#228;higem 
+Drucker benutzt werden um einen Postscript Drucker zu emulieren. Dieser 
+emulierte Drucker kann als Netzwerkdrucker anderen Computern zur 
+Verf&#252;gung gestellt werden. Weiteres unter: 
+<PRE>
+  http://www.cs.wisc.edu/~ghost/redmon/
+</PRE>
+<P>RedMon beinhaltet au&#223;erdem ein Kommandozeilenprogramm um eine 
+Datei in eine Windows Druckerwarteschlange zu stellen. 
+<P><B>PrintFile</B> von Peter Lerup ist eine Windows Applikation um Dateien an 
+Drucken zu schicken. Es beinhaltet smarte Verarbeitung von Text, 
+Postscript und anderen Dateien. Es ist erh&#228;ltlich unter: 
+<PRE>
+  http://hem1.passagen.se/ptlerup/
+</PRE>
+<P>Sehen sie auf die Ghostscript <A HREF="#World_Wide_Web">WWW</A> Seite f&#252;r weitere n&#252;tzliche 
+Programme. 
+<P><P>
+<P>
+<HR>
+<H1><A NAME="Weitere_Hilfethemen">Weitere Hilfethemen</A></H1>
+Zu diesen Themen gelangen Sie &#252;ber die Schaltfl&#228;che <B>Hilfe</B> in jedem 
+Dialogfeld. 
+<P>
+<A HREF="#Meldungen_anzeigen">Meldungen anzeigen</A><BR>
+<A HREF="#zlib">zlib</A><BR>
+<A HREF="#bzip2">bzip2</A><BR>
+<P>
+<HR>
+<H2><A NAME="Meldungen_anzeigen">Meldungen anzeigen</A></H2>
+Das Zusatzprogramm GSview benutzt Ghostscript, um PostScript-Dateien auf 
+dem Bildschirm oder dem Drucker auszugeben. &#220;ber den Befehl <B>Zeige 
+Meldungen</B> k&#246;nnen Sie sich die Meldungen anzeigen lassen, die 
+dabei im Konsolfenster von Ghostscript erscheinen. 
+Dieses ist vor allem bei PostScript-Problemen sinnvoll. 
+<P>Sie k&#246;nnen den Text, der &#252;ber den Befehl <B>Meldungen anzeigen</B> angezeigt 
+werden kann, in die Zwischenablage kopieren. 
+Haben Sie keinen Text markiert, wird der gesamte Text in die Zwischenablage 
+kopiert. 
+Haben Sie dagegen nur einen Teil des Textes markiert, wird nur dieser 
+Teil kopiert. 
+<P>Im Hilfethema <A HREF="#Häufig_auftretende_Probleme">H&#228;ufig auftretende Probleme</A> werden einige der 
+Fehlermeldungen erkl&#228;rt, die Sie mit <B>Meldungen anzeigen</B> erhalten. 
+<P>
+<P>
+<HR>
+<H2><A NAME="zlib">zlib</A></H2>
+Wenn Sie eine Datei bearbeiten wollen, die mit dem Programm gzip 
+komprimiert wurde, versucht Gsview die zlib DLL zu laden und die 
+Datei damit automatisch zu dekomprimieren. 
+<P>Wenn Sie eine Fehlermeldung erhalten, da&#223; diese zlib DLL nicht geladen 
+werden konnte, dann ist diese m&#246;glicherweise nicht auf ihrem System 
+installiert. Sie k&#246;nnen diese DLL von dort bekommen, wo Sie Gsview 
+erhalten haben, oder von 
+<PRE>
+ ftp://ftp.cs.wisc.edu/ghost/rjl/
+</PRE>
+<P>Kopieren Sie die zlib DLL in dasselbe Verzeichnis wie Gsview.exe. 
+zlib16.dll ist f&#252;r Win16. zlib32.dll ist f&#252;r Win32. 
+zlib2.dll ist f&#252;r OS/2. 
+<P>zlib unterliegt dem Copyright 1995-1996 von Jean-loup Gailly und 
+Mark Adler. Der Quelltext kann bezogen werden von 
+<PRE>
+ http://quest.jpl.nasa.gov/zlib/
+</PRE>
+<P>
+<P>
+<HR>
+<H2><A NAME="bzip2">bzip2</A></H2>
+Wenn Sie versuchen eine Datei zu &#246;ffnen, die mit bzip2 gepackt 
+wurde, dann versucht GSview die bzip2 DLL zu laden und es 
+in eine tempor&#228;re Datei zu entpacken. 
+<P>Wenn Sie eine Fehlermeldung bekommen, dann ist diese Bibliothek 
+eventuell nicht verf&#252;gbar. Holen Sie diese von demselben  
+Server, von dem Sie auch GSview geholt haben oder von 
+<PRE>
+ ftp://ftp.cs.wisc.edu/ghost/ghostgum/
+</PRE>
+<P>Kopieren Sie die bzip2 DLL in dasselbe Verzeichnis wie das 
+GSview EXE. libbz2.dll ist f&#252;r Win32. Zur Zeit ist leider 
+keine bzip2 DLL f&#252;r Win16 oder OS/2 verf&#252;gbar. 
+<P>bzip2 unterliegt dem Copyright 1996-1999 von Julian Sewar 
+Der Quelltext kann bezogen werden von 
+<PRE>
+ http://www.muraroa.demon.co.uk/
+</PRE>
+<P>
+<P>
+<HR>
+<H1><A NAME="GSview_intern">GSview intern</A></H1>
+GSview verwendet Aladdin Ghostscript DLL zur &#220;bertragung von 
+PostScript-Dateien. 
+<P>Unter Win32s kann das GS DLL nur von einem Anwendungsprogramm zur Zeit 
+genutzt werden. Dar&#252;ber hinaus mu&#223; GS DLL von GSview heruntergeladen 
+werden, wenn GSview von der gvwgs.exe zum Drucken verwendet wird. 
+Unter Windows 95, Windows NT und OS/2 kann GS DLL von mehreren Anwendungen 
+gleichzeitig genutzt werden, wenn gen&#252;gend Speicher vorhanden ist. 
+<P>Bei gsv16spl.exe handelt es sich um eine16 bit-Windows-Anwendung, die von 
+GSview benutzt wird, um Dateien, die unter GSview Win32s erzeugt wurden, 
+in den Spooler zu stellen. 
+gsv16spl kann f&#252;r sich alleine nicht verwendet werden und mu&#223; von Gsview 
+geladen werden. Von Windows 95 oder Windows NT wird es nicht ben&#246;tigt. 
+<P>Mit gvwgs32.exe (Windows) und gvpgs.exe (OS/2) wird GS DLL zum Drucken 
+geladen. Man k&#246;nnte sie auch aus der Kommandozeile heraus aufrufen. 
+Da sie allerdings die Dateien l&#246;schen, die in der Kommandozeile stehen, 
+ist die Verwendung gswin32.exe (Win32), gswin32c.exe (Win32 Konsole) 
+oder gsos2.exe (OS/2) sicherer. 
+<P>
+<P><HR>Created automatically by doc2html
+</BODY>
+</HTML>
