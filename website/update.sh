@@ -9,17 +9,36 @@
 
 # for now, just update whenever we're called.
 
-INSTALL_PATH=/home/www/ghostscript.com/html
+HTMLROOT=/home/www/ghostscript.com/html
+
 CVSROOT=:pserver:anonymous@cvs.ghostscript.sourceforge.net:/cvsroot/ghostscript
-CVS='cvs -z3 -q'
+CVS='echo cvs -z3 -q'
+
+if [ x$1 != 'x-d' -o x$2 = 'x' ]; then
+  echo "Usage: $0 -d <path_to_html>"
+  echo "  This script will update the ghostscript website installed"
+  echo "  at <path_to_html> from cvs. The path option is required"
+  echo "  because this script is usually invoked remotely."
+  exit 1
+fi
+
+# grab the html root from the cmdline
+HTMLROOT=$2
+
+if [ ! -d $HTMLROOT ]; then
+  echo "$HTMLROOT is not a directory"
+  exit 2
+fi
 
 # gratuitous login
 # $CVS -d $CVSROOT login
 
 # update the main site
-cd $INSTALL_PATH
+cd $HTMLROOT
 $CVS update -Pd
 
 # update the documentation
-cd doc/cvs
-$CVS update -Pd
+if [ -d doc/cvs ]; then
+  cd doc/cvs
+  $CVS update -Pd
+fi
