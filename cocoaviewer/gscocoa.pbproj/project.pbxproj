@@ -151,6 +151,8 @@
 		};
 		29B97315FDCFA39411CA2CEA = {
 			children = (
+				F57A58DC022459FC01A80165,
+				F57A58DD022459FC01A80165,
 				29B97316FDCFA39411CA2CEA,
 			);
 			isa = PBXGroup;
@@ -167,6 +169,7 @@
 			children = (
 				29B97318FDCFA39411CA2CEA,
 				089C165CFE840E0CC02AAC07,
+				F5CD59440223553E01A80165,
 			);
 			isa = PBXGroup;
 			name = Resources;
@@ -276,6 +279,7 @@
 			files = (
 				080E96DCFE201CFB7F000001,
 				089C165EFE840E0CC02AAC07,
+				F5CD59450223553E01A80165,
 			);
 			isa = PBXResourcesBuildPhase;
 			name = "Bundle Resources";
@@ -357,6 +361,16 @@
 			settings = {
 			};
 		};
+		F57A58DC022459FC01A80165 = {
+			isa = PBXFileReference;
+			path = gs_stdio.h;
+			refType = 4;
+		};
+		F57A58DD022459FC01A80165 = {
+			isa = PBXFileReference;
+			path = gs_stdio.c;
+			refType = 4;
+		};
 		F5CD593E022330E001A80165 = {
 			isa = PBXFileReference;
 			path = GSPageView.h;
@@ -375,6 +389,18 @@
 		};
 		F5CD5941022330E001A80165 = {
 			fileRef = F5CD593F022330E001A80165;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5CD59440223553E01A80165 = {
+			isa = PBXFileReference;
+			name = tiger.png;
+			path = /Users/giles/projects/ghostscript/cocoaviewer/tiger.png;
+			refType = 0;
+		};
+		F5CD59450223553E01A80165 = {
+			fileRef = F5CD59440223553E01A80165;
 			isa = PBXBuildFile;
 			settings = {
 			};

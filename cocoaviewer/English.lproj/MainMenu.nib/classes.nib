@@ -1,7 +1,12 @@
 {
     IBClasses = (
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = GSPageView; LANGUAGE = ObjC; SUPERCLASS = NSView; }
+        {
+            CLASS = GSPageView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {imageField = id; }; 
+            SUPERCLASS = NSView; 
+        }
     ); 
     IBVersion = 1; 
 }
