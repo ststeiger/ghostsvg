@@ -9,9 +9,9 @@
 GSview Readme
 </h1>
 <p>
-GSview 3.42 beta - PostScript previewer.  Needs Ghostscript 6.
+GSview 3.5 - PostScript previewer.  Needs Ghostscript 6.
 <br>
-Release date: 2000-12-08
+Release date: 2000-12-16
 </p>
 <h2>
 Table of contents
@@ -73,7 +73,7 @@ Features include:
    Ghostscript version number).
 </ul>
 <p>
-Changes in version 3.42-beta:
+Changes in version 3.5:
 </p>
 <ul>
  <li> Linux/X11 version.
@@ -336,7 +336,7 @@ on X11 GSview.
 X11/Linux
 </h2>
 <p>
-While the current version number is 3.42-beta, the Linux version
+While the current version number is 3.5, the Linux version
 really ought to be called 0.35.
 </p>
 <p>
@@ -349,9 +349,6 @@ with a small amount of Xlib for interfacing with Ghostscript.
 <h3>
 Unimplemented features
 </h3>
-<p>
-Highest priority first
-</p>
 <ul>
 <li> Many accelerator keys don't work.
       The GtkItemFactory ignores some accelerators, including
@@ -370,6 +367,7 @@ Highest priority first
 <li> Convert to vector format
 <li> Full screen not implemented
 <li> Clipboard operations
+<li> PDF links
 <li> Sounds
 </ul>
 <p>
@@ -378,6 +376,16 @@ Highest priority first
 Known problems
 </h3>
 <ul>
+<li>
+If you see each page as it is being drawn, then erased when it is 
+finished, then you are probably using GS 6.50 which has a bug
+with the pixmap drawing method.
+Either change the drawing method to "Backing pixmap"
+or apply the fix described in 
+<a href=
+"http://sourceforge.net/bugs/?func=detailbug&bug_id=124957&group_id=1897">
+bug #124957</a> on 
+<a href="http://www.sourceforge.net/projects/ghostscript/">SourceForge</a>.
 <li> "Media | Display Settings | Draw Method" should be set
    to pixmap (the default) or backing pixmap.  The setting
    backing storage doesn't work properly - it does draw, 
@@ -483,8 +491,8 @@ passed, send mail to
 <tt>gsview</tt> <b>at</b> <tt>ghostgum.com.au</tt>. 
 to find out if the offer is still valid.
 For more details see the page
-    <a href="http://www.ghostgum.com.au/cd.html">
-    http://www.ghostgum.com.au/cd.html
+    <a href="http://www.ghostgum.com.au/cd.htm">
+    http://www.ghostgum.com.au/cd.htm
     </a>
 
 <h2>
