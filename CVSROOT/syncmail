@@ -192,6 +192,8 @@ def main():
         fnord_keyword = fnord.readline()
         fnord_keyword.strip()
         fnord.close()
+    else:
+        fnord_keyword = ''
     if fnord_keyword:
         SUBJECT = SUBJECT + ' (' + fnord_keyword + ')'
 
