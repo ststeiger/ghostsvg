@@ -9,10 +9,12 @@
 
 # for now, just update whenever we're called.
 
+# this is the setting for ghostscript.com for reference
+# we use the root passed as an argument instead
 HTMLROOT=/home/www/ghostscript.com/html
 
 CVSROOT=:pserver:anonymous@cvs.ghostscript.sourceforge.net:/cvsroot/ghostscript
-CVS='echo cvs -z3 -q'
+CVS='cvs -z3 -q'
 
 if [ x$1 != 'x-d' -o x$2 = 'x' ]; then
   echo "Usage: $0 -d <path_to_html>"
