@@ -1,14 +1,8 @@
 <page raw="yes"><title>
-Advogato
+ghostscript.com
 </title>
 
-<table width="100%"><tr valign="center"><td>
-<h1><img src="http://beta.gimp.org/~raph/advogato-rodent.gif" width="300" height="100" alt="Advogato"/></h1>
-</td>
-<td align="right">
-<sitemap/>
-</td></tr>
-</table>
+<h1><img src="images/gslogo.gif" width="300" height="100" alt="ghostscript.com"/></h1>
 
 <table width="99%" cellpadding="0" cellspacing="10" border="0">
 <tr><td valign="top">
@@ -19,22 +13,28 @@ Advogato
 
 <td bgcolor="#808080" width="1"><spacer type="block" width="1"/></td>
 
-<td valign="top" width="200">
+<td valign="top">
 
-<p> This site is being customized as we speak. </p>
-
-<p> Welcome to Advogato, the free software developer's advocate. The
-goal of the site is to serve as a community resource for free software
-developers around the world, as well as a research testbed for work on
-group trust metrics.
+<p> Welcome to www.ghostscript.com, the news and community site for Ghostscript.
  </p>
 
+
+<p> Other Ghostscript resources: </p>
+
+<blockquote>
+
+<p> <a href="http://www.cs.wisc.edu/~ghost/">The wisc.edu Ghostscript website</a> </p>
+
+<p> <a href="http://www.ghostscript.com/mailman/listinfo">Ghostscript mailing lists</a> </p>
+
+<p> <a href="http://www.sourceforge.net/projects/ghostscript/">Ghostscript project page</a> on SourceForge </p>
+
+<p> <a href="http://www.artifex.com/pages/licensing.html">Licensing info from Artifex</a> </p>
+
+</blockquote>
+
 <p> Sign up for an <a href="acct/">account</a> and <a href="certs.html">certify</a> all
-the free software developers you know who have an account here. </p>
-
-<p> Here's the <a href="mission.html">mission statement</a>. </p>
-
-<p> Curious how the <a href="trust-metric.html">trust metric</a> works? </p>
+the Ghostscript community members you know who have an account here. </p>
 
 <p><div align="center"><b><a href="recentlog.html">Recent diary entries</a></b></div>
 <spacer type="vertical" size="3"/>
@@ -46,12 +46,12 @@ the free software developers you know who have an account here. </p>
 <recent list="acct" nmax="25"/>
 </p>
 
-<p> <a href="syndicate.html">Syndicate</a> this! <br/>
-Show me the <a href="code.html">code</a>! </p>
-
-<p> Advogato logo by <a href="/person/drc/">Ville P&#228;tsi</a>. </p>
+<p> This site runs on mod_virgule, the engine that drives <a
+href="http://www.advogato.org/">Advogato</a>. </p>
 
 </td></tr>
 </table>
+
+<p align="center"> <sitemap/> </p>
 
 </page>
