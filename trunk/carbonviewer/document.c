@@ -77,22 +77,16 @@ void free_pages(cv_page_t *pages)
 int cv_copy_page(cv_doc_t *doc)
 {
 	cv_page_t	*page = doc->pages;
-	GWorldPtr	offworld;
-	CGrafPtr	onport, saveport;
+	CGrafPtr	saveport;
 	GDHandle	savedevice;
-	Rect		bounds, pagebounds;
-	PixMapHandle	offpix, onpix;
-	int			offstride;
-	QDErr		err;
-	int			i;
+	PixMapHandle	offpix;
+	int			i, offstride;
 	
 	GetGWorld(&saveport, &savedevice);
 	
-	SetRect(&pagebounds, 0, 0, page->width, page->height);
-	err = NewGWorld(&offworld, 32, &pagebounds, NULL, NULL, 0);
 	SetGWorld(page->image, NULL);
 	
-	offpix = GetGWorldPixMap(offworld);
+	offpix = GetGWorldPixMap(page->image);
 	LockPixels(offpix);
 	offstride = GetPixRowBytes(offpix);
 	for (i = 0; i < page->height; i++) {
@@ -102,21 +96,6 @@ int cv_copy_page(cv_doc_t *doc)
 	UnlockPixels(offpix);
 	SetGWorld(saveport, savedevice);
 	
-	GetWindowBounds(doc->window, kWindowContentRgn, &bounds);
-	onport = GetWindowPort(doc->window);	
-	onpix = GetPortPixMap(onport);
-	
-	SetPort(onport);
-	LockPixels(offpix);
-	CopyBits((BitMap*)*offpix, (BitMap*)*onpix,
-			&pagebounds, &bounds, srcCopy, NULL);
-	UnlockPixels(offpix);
-	
-	//InvalWindowRect(page->window, &bounds);
-		
-	DisposeGWorld(offworld);
-	SetGWorld(saveport, savedevice);
-
 	return 0;
 }
 
