@@ -23,6 +23,10 @@
 */
 
 
+#ifdef PowerPlant_PCH
+	#include PowerPlant_PCH
+#endif
+
 #include <UReanimator.h>
 #include <UAppleEventsMgr.h>
 #include <UDesktop.h>
@@ -1193,7 +1197,7 @@ CGSDevice::ErrorDialog(int inError)
 		::ThreadEndCritical();
 	}
 	
-	::DisposeRoutineDescriptor(alertParam.filterProc);
+	::DisposeModalFilterUPP(alertParam.filterProc);
 	
 	if (itemHit == kAlertStdAlertCancelButton)
 		return false;

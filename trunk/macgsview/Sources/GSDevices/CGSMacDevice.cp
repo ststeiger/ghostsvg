@@ -23,6 +23,10 @@
 */
 
 
+#ifdef PowerPlant_PCH
+	#include PowerPlant_PCH
+#endif
+
 #include "CGSMacDevice.h"
 #include "CGSSharedLib.h"
 #include "CGSApplication.h"
