@@ -16,13 +16,14 @@ a Windows printer.  Using Ghostscript alone you can print
 using a number of inbuilt printer drivers for specific 
 printers (e.g. djet500, ljet4), or you can use the driver
 mswinpr2 which talks to the Windows printer driver.
-The mswinpr2 driver (which I wrote) is very slow.
+The mswinpr2 driver (which I wrote) is very slow for 
+printers that claim to support colour.
 GSPRINT tells Ghostscript to produce a bitmap, and then
-sends this to the Windows printer driver in a much more
-efficient way than the old mswinpr2.
+sends this to the Windows printer driver more efficiently
+than the old mswinpr2.
 </p>
 <p>
-GSPRINT requires AFPL Ghostscript 6.0 or later.
+GSPRINT requires AFPL Ghostscript 6.50 or later.
 </p>
 
 <h2>
@@ -61,6 +62,9 @@ Command line options are:
    <dd>Print to the specified printer</dd>
  <dt><b>-noprinter</b></dt>
    <dd>Use default printer</dd>
+ <dt><b>-port "name"</b></dt>
+   <dd>Print to the specified printer port, instead of the default
+     for the printer</dd>
  <dt><b>-ghostscript "name"</b></dt>
    <dd>Path and filename of command line Ghostscript</dd>
  <dt><b>-config "name"</b></dt>
@@ -81,8 +85,10 @@ Command line options are:
    <dd>Portrait orientation</dd>
  <dt><b>-landscape</b></dt>
    <dd>Landscape orientation</dd>
- <dt><b>-duplex</b></dt>
-   <dd>Duplex (vertical axis)</dd>
+ <dt><b>-duplex_vertical</b></dt>
+   <dd>Duplex (for long edge binding)</dd>
+ <dt><b>-duplex_horizontal</b></dt>
+   <dd>Duplex (for short edge binding)</dd>
  <dt><b>-copies NN</b></dt>
    <dd>Print NN copies (if supported by Windows printer driver)</dd>
  <dt><b>"filename"</b></dt>
@@ -191,7 +197,7 @@ option "-config filename.cfg"
 Licence
 </h2>
 <p>
-GSPRINT is Copyright (C) 1999-2001 Ghostgum Software Pty Ltd.
+GSPRINT is Copyright (C) 1999-2004 Ghostgum Software Pty Ltd.
 </p>
 
 <p>GSPRINT is part of <a href="Readme.htm">GSview</a>.
@@ -233,7 +239,7 @@ Russell Lang
 <br>
 <a href="http://www.ghostgum.com.au/">http://www.ghostgum.com.au/</a>
 <br>
-2001-06-02
+2004-09-07
 </p>
 </body>
 </html>
