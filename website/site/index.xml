@@ -13,7 +13,7 @@ ghostscript.com
 
 <td bgcolor="#808080" width="1"><spacer type="block" width="1"/></td>
 
-<td valign="top">
+<td valign="top" width="200" class="sidebar">
 
 <p> Welcome to www.ghostscript.com, the news and community site for Ghostscript.
  </p>
