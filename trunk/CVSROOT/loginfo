@@ -26,4 +26,6 @@
 #DEFAULT (echo ""; id; echo %{sVv}; date; cat) >> $CVSROOT/CVSROOT/commitlog
 
 DEFAULT $CVSROOT/CVSROOT/syncmail -u %{sVv} gs-cvs@ghostscript.com
-ALL $CVSROOT/CVSROOT/ciabot %{sVv}
+#ALL $CVSROOT/CVSROOT/ciabot %{sVv}
+ALL /usr/bin/perl $CVSROOT/CVSROOT/ciabot_cvs.pl %p %{s} %n $USER ghostscript webmaster@ghostscript.com
+
