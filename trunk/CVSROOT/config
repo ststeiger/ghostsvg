@@ -12,3 +12,6 @@ SystemAuth=no
 # Set `LogHistory' to `all' or `TOFEWGCMAR' to log all transactions to the
 # history file, or a subset as needed (ie `TMAR' logs all write operations)
 #LogHistory=TOFEWGCMAR
+
+# Set this to "yes" to use the new format for the info hook scripts
+UseNewInfoFmtStrings=yes
