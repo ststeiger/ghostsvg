@@ -28,3 +28,19 @@ cd ..
 
 Russell Lang
 2002-05-08
+
+
+The ghostscript repository moved from CVS to SVN, so to check
+out the website you use:
+  svn checkout http://svn.ghostscript.com:8080/ghostscript/trunk/website .
+  cd doc
+  mkdir svn
+  ln -s svn cvs
+  cd cvs
+  svn checkout http://svn.ghostscript.com:8080/ghostscript/trunk/gs/doc .
+  cd ../..
+If you want a clean copy without the hidden .svn directories, 
+use "svn export" instead of "svn checkout"
+
+Russell Lang
+2006-02-25
