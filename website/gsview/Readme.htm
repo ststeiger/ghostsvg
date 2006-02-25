@@ -9,9 +9,9 @@
 GSview Readme
 </h1>
 <p>
-GSview 4.7 PostScript previewer.  Needs Ghostscript 7.04 or later.
+GSview 4.8 PostScript previewer.  Needs Ghostscript 7.04 or later.
 <br>
-Release date: 2005-03-26
+Release date: 2006-02-25
 </p>
 <h2>
 Table of contents
@@ -39,7 +39,7 @@ OS/2 and Unix.  Ghostscript is an interpreter for the PostScript page
 description language used by laser printers.
 For documents following the Adobe PostScript Document Structuring 
 Conventions, GSview allows selected pages to be viewed or printed.
-GSview requires <a href="#ObtainGS">Ghostscript 7.04 - 9.19</a>.
+GSview requires <a href="#ObtainGS">Ghostscript 7.04 - 9.99</a>.
 </p>
 <p>
 Features include:
@@ -75,22 +75,10 @@ Features include:
    work with Ghostscript 4.03 - 6.99.
 </ul>
 <p>
-Changes in version 4.7:
+Changes in version 4.8:
 </p>
 <ul>
- <li> Fix text extract for PDF files.
- <li> Text extract (pstotext) now recognises excessive space within
-   text as being separate words.  Recognises a few more ways of
-   showing text.
- <li> Fix problem with forgetting page offset and device settings.
- <li> When displaying Full Screen on Windows with multiple monitors, 
-   display full screen on the last monitor.  When dialogs are centred
-   on the display, put them on the first monitor.
- <li> Use pagesize from <tt>%%BeginFeature: *PageSize</tt> if no other
-   page size is given.
- <li> Set auto orientation <tt>%%ViewingOrientation</tt> if present, 
-   in preference to <tt>%%Orientation</tt>.
- <li> Win64 build.
+ <li> Minor bug fixes.
 </ul>
 <p>
 GSview was written by Russell Lang at Ghostgum Software Pty Ltd.
@@ -107,25 +95,25 @@ First uninstall any previous versions of GSview.
 Win32
 </h3>
 <p>
-  Obtain GSview (gsv47w32.exe) from 
+  Obtain GSview (gsv48w32.exe) from 
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get47.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get47.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get48.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get48.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 8.50 (gs850w32.exe) from
+  Obtain AFPL Ghostscript 8.53 (gs853w32.exe) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get850.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get850.htm
+    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get853.htm">
+    http://www.cs.wisc.edu/~ghost/doc/AFPL/get853.htm
     </a>
   </blockquote>
 <p>
   First install the AFPL Ghostscript self extracting archive 
-  gs850w32.exe (or a later version if available)
-  Then install the GSview self extracting archive gsv47w32.exe.
+  gs853w32.exe (or a later version if available)
+  Then install the GSview self extracting archive gsv48w32.exe.
   Run GSview.
 </p>
 <h4>
@@ -160,49 +148,50 @@ Win32 location details
 Win64 (AMD64)
 </h3>
 <p>
-  Obtain GSview (gsv47w64.exe) from 
+  Obtain GSview (gsv48w64.exe) from 
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get47.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get47.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get48.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get48.htm
     </a>
   </blockquote>
 <p>
-  This currently requires the CVS version of Ghostscript,
-  which is not available pre-compiled.
-  The next version after AFPL Ghostscript 8.50 will work.
+  First install the AFPL Ghostscript self extracting archive 
+  gs853w64.exe (or a later version if available)
+  Then install the GSview self extracting archive gsv48w64.exe.
+  Run GSview.
 </p>
 <p>
-  First install the AFPL Ghostscript self extracting archive 
-  gs850w64.exe (or a later version if available)
-  Then install the GSview self extracting archive gsv47w64.exe.
-  Run GSview.
+  This version requires that you have a 64-bit x64 processor
+  (AMD64 or EM64T), and that you are also running a 64-bit 
+  version of Windows such as Windows XP x64 Edition.  
+  It will not run on the more common 32-bit Windows XP.
 </p>
 
 <h3>
 OS/2
 </h3>
 <p>
-  Obtain GSview (gsv47os2.zip) from
+  Obtain GSview (gsv48os2.zip) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get47.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get47.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get48.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get48.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 8.50 (gs850os2.zip) from
+  Obtain AFPL Ghostscript 8.53 (gs853os2.zip) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get850.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get850.htm
+    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get853.htm">
+    http://www.cs.wisc.edu/~ghost/doc/AFPL/get853.htm
     </a>
   </blockquote>
 
 <p>
   <a href="http://www.info-zip.org/pub/infozip/">Unzip</a>
   GSview to a temporary directory, change to the gsview2 subdirectory,
-  place gs850os2.zip (or a later version) in the same directory, 
+  place gs853os2.zip (or a later version) in the same directory, 
   and then run os2setup.exe.
 </p>
  
@@ -348,7 +337,7 @@ Compilation
 To compile GSview for Windows you need MS Visual C++ 5, 6, 7 or 7.1.
 Copy srcwin/win.mak to Makefile, edit Makefile to set 
 <tt>VCVER</tt> and <tt>DEVBASE</tt> as required, then type '<tt>nmake</tt>'. 
-To build for Win64 use '<tt>nmake VERVER=71 WIN64=1</tt>'
+To build for Win64 use '<tt>nmake VCVER=71 WIN64=1</tt>'
 </p>
 
 <p>
@@ -362,9 +351,9 @@ Type 'nmake'
 To compile GSview for X11/Unix you need gcc and the GTK+ 1.2 toolkit.
 Unzip the sources as follows to convert the line endings:
 <pre>
-  unzip -aa gsv47src.zip
-  unzip -o gsv47src.zip "gsview-4.7/binary/*"
-  cd gsview-4.7
+  unzip -aa gsv48src.zip
+  unzip -o gsv48src.zip "gsview-4.8/binary/*"
+  cd gsview-4.8
   cp srcunx/unx.mak Makefile
   make
 </pre>
@@ -376,7 +365,7 @@ on X11 GSview.
 For SunOS or SGI IRIX, uncomment the appropriate lines in the makefile.
 You also be able to use
 <pre>
-  rpmbuild -ta gsview-4.7.tar.gz
+  rpmbuild -ta gsview-4.8.tar.gz
 </pre>
 </p>
 
@@ -501,7 +490,7 @@ then follow the link to <b>Obtaining AFPL Ghostscript</b>.
 To obtain the latest version of GSview and AFPL Ghostscript
 on CD-ROM, send the <a href="cdorder.txt">order form</a>
 and payment to the address on the order form.
-Payment may be credit card or cheque for USD$50 drawn on a 
+Payment may be credit card or cheque for USD$60 drawn on a 
 USA bank or equivalent drawn on your local bank.
 For surface delivery within Australia, send a cheque for AUD$70 
 drawn on an Australian bank.
@@ -512,7 +501,7 @@ The CD-ROM (actually a CD-R) will contain ready to run
 and ready to install copies of GSview and AFPL Ghostscript for 
 Windows and OS/2, plus a number of other PostScript utilities.
 The CD-ROM will be dispatched by air-mail.  
-This offer is valid until 31 December 2005.  If this date has
+This offer is valid until 31 December 2006.  If this date has
 passed, send mail to 
 <tt>gsview</tt> <b>at</b> <tt>ghostgum.com.au</tt>. 
 to find out if the offer is still valid.
