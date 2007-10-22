@@ -93,6 +93,7 @@ def getrev(cachedir="queue.pcl"):
   'Read the queue directory and select a revision to test'
   if not os.path.exists(cachedir): os.mkdir(cachedir)
   revs = os.listdir(cachedir)
+  revs.sort()
   try:
     rev = revs[0]
     os.unlink(os.path.join(cachedir, rev))
@@ -136,7 +137,7 @@ def choosecluster():
       procs = int(m.group("procs"))
       free = int(m.group("free"))
       # remember the cluster with the most free nodes
-      if free > nodes and name != 'total': 
+      if free > nodes and name != 'orange' and name != 'total': 
         nodes = free
         cluster = name
       clusters.append((name,procs,free))
@@ -152,18 +153,31 @@ def log(msg):
   and a normal print command for progress and error messages.'''
   print '[' + time.ctime() + '] ' + msg
 
-def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
+def pbsjob(cmd, resources=None, workdir=None, 
+	stdout=None, stderr=None, mpi=True):
   if not resources:
     cluster, nodes = choosecluster()
+    while nodes < 1 or cluster == None:
+	log('clusters busy, waiting for an opening')
+	time.sleep(300)
+	cluster, nodes = choosecluster()
     if nodes > 1 and cluster == 'red' or cluster == 'green':
-      # red reports two cpus per node
+      # request two cpus per node
       nodes /= 2
       ppn = ':ppn=2'
+      # hack around an edge case
+      nodes -= 1
     else:
       ppn = ''
     resources = 'nodes=%d:%s:run%s,walltime=20:00' % (nodes, cluster, ppn)
-    print 'requesting', nodes, 'nodes on', cluster
-  f = open('regress.pbs', 'w')
+    if ppn:
+      ppnhelp = '(' + ppn[-1] + ' cpus per node)'
+    else:
+      ppnhelp = ''
+    print 'requesting', nodes, 'nodes on', cluster, ppnhelp
+  if stdout: filename = stdout + '.pbs'
+  else: filename = 'regress.pbs'
+  f = open(filename, 'w')
   f.write('#PBS -l ' + resources)
   if stdout:
     f.write(' -o ' + stdout)
@@ -171,7 +185,10 @@ def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
       f.write(' -j oe')
     elif stderr:
       f.write(' -e ' + stderr)
-  f.write(' -d ' + os.getcwd())
+  if workdir:
+    f.write(' -d ' + workdir)
+  else:
+    f.write(' -d ' + os.getcwd())
   f.write('\n\n')
   if mpi:
     f.write('mpiexec -comm mpich2-pmi ')
@@ -180,7 +197,7 @@ def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
   f.write(cmd)
   f.write('\n')
   f.close()
-  os.system('qsub regress.pbs')
+  os.system('qsub ' + filename)
 
 def build(workdir=None, clean=False):
   'compile an executable from the current source'
@@ -188,26 +205,36 @@ def build(workdir=None, clean=False):
     cmd = "make clean && nice ./autogen.sh && nice make"
   else:
     cmd = "nice make"
-  if workdir:
-    cmd = "cd " + workdir + " && " + cmd
-  if False:
-    # build on the dispatch host
-    make = os.system(cmd)
-    make = make >> 8
-  else:
-    # FIXME: alternate build on a compile node
-    report = 'update.log'
-    resources = 'nodes=1:compile'
-    cmd += "\nexit"
-    if os.path.exists(report): os.unlink(report)
-    make = pbsjob(cmd, resources, stdout=report, mpi=False)
-    while not os.path.exists(report): time.sleep(5)
+  #if workdir:
+  #  cmd = "cd " + workdir + " && " + cmd
+  report = 'update.log'
+  resources = 'nodes=1:build32'
+  cmd += "\nexit"
+  if os.path.exists(report): os.unlink(report)
+  make = pbsjob(cmd, resources, workdir, stdout=report, mpi=False)
+  while not os.path.exists(report): time.sleep(5)
   if make:
     log("build failed! exit code " + str(make))
     return False
   # update successful
   return True
 
+def runrev(workdir=None, rev=None, report=None):
+  if not rev: rev = getrev()
+  if not report: report = "regression-r" + rev + ".log"
+  # remove the report if it exists since we use this to check completion
+  if os.path.exists(report): os.unlink(report)
+  start = time.time()
+  cmd = 'bwpython ../regress.py'
+  cmd += ' --batch --update'
+  cmd += ' --exe main/obj/pcl6'
+  pbsjob(cmd, resources=None, workdir=workdir, stdout=report)
+  # wait for the run to finish
+  while not os.path.exists(report):
+    time.sleep(20)
+  print "report is ready as '" + report + "'. total time %d seconds" % int(time.time() - start)
+  ircfile(report, rev)
+  mailfile(report, rev)
 
 def mainloop():
   log("starting up")
@@ -227,41 +254,8 @@ def mainloop():
       if not os.path.exists(os.path.join(workdir, "reg_baseline.txt")):
         os.system("cp reg_baseline.txt " + workdir)
       log("running regression on ghostpcl-r" + rev)
-      start = time.time()
       report = "regression-r" + rev + ".log"
-      # remove the report if it exists since we use this to check completion
-      if os.path.exists(report): os.unlink(report)
-      f = open('regress.pbs', 'w')
-      cluster, nodes = choosecluster()
-      if nodes > 1 and (cluster == 'red' or cluster == 'green'):
-        # red reports two cpus per node
-        nodes /= 2
-        ppn = ':ppn=2'
-      else:
-        ppn = ''
-      f.write('#PBS -l nodes=%s:%s:run%s,walltime=20:00' % 
-        (nodes, cluster, ppn))
-      f.write(' -o ' + report)
-      #f.write(' -j oe')
-      #f.write(' -e /dev/null')
-      f.write(' -e ' + report + '.err')
-      f.write(' -d ' + os.path.join(os.getcwd(), workdir))
-      f.write('\n\n')
-      f.write('mpiexec -comm mpich2-pmi ')
-      f.write(' -nostdin -kill -nostdout')
-      f.write(' bwpython ../regress.py')
-      f.write(' --batch --update')
-      f.write(' --exe main/obj/pcl6')
-      f.write('\n')
-      f.close()
-      print 'requesting', nodes, 'nodes on', cluster
-      os.system('qsub regress.pbs')
-      # wait for the run to finish
-      while not os.path.exists(report):
-        time.sleep(20)
-      print "report is ready as '" + report + "'. total time %d seconds" % int(time.time() - start)
-      ircfile(report, rev)
-      #mailfile(report, rev)
+      runrev(workdir, rev, report)
       os.system("cp " + os.path.join(workdir, "reg_baseline.txt ") + " .")
     else:
       if doing:
