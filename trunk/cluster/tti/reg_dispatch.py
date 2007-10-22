@@ -90,7 +90,8 @@ def choosecluster():
      returns a (cluster_name, node_count) tuple.'''
   # figure out how many nodes are free
   r = re.compile('^\s+(?P<cluster>\w+).*\s+(?P<procs>\d+)\s+(?P<free>\d+)\s*$')
-  clusters=[]
+  clusters = []
+  cluster = None
   nodes = 0
   upnodes = os.popen("upnodes")
   for line in upnodes.readlines():
@@ -100,7 +101,7 @@ def choosecluster():
       procs = int(m.group("procs"))
       free = int(m.group("free"))
       # remember the cluster with the most free nodes
-      if free > nodes and name != 'total': 
+      if free > nodes and name != 'orange' and name != 'total': 
         nodes = free
         cluster = name
       clusters.append((name,procs,free))
@@ -113,6 +114,8 @@ def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
       # red reports two cpus per node
       nodes /= 2
       ppn = ':ppn=2'
+      # hack: work around a corner case
+      if nodes > 1: nodes = nodes - 1
     else:
       ppn = ''
     resources = 'nodes=%d:%s:run%s,walltime=20:00' % (nodes, cluster, ppn)
@@ -161,7 +164,7 @@ def build(clean=False):
     make = make >> 8
   else:
     # build on a compile node
-    resources = 'nodes=1:compile'
+    resources = 'nodes=1:build32'
     report = 'update.log'
     if os.path.exists(report): os.unlink(report)
     make = pbsjob(cmd, resources, stdout=report, stderr=report, mpi=False)
