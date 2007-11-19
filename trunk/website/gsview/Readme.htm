@@ -3,15 +3,16 @@
 <head>
 <title>GSview Readme</title>
 <link rel="stylesheet" type="text/css" href="gsview.css" title="GSview Style">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
 <h1>
 GSview Readme
 </h1>
 <p>
-GSview 4.8 PostScript previewer.  Needs Ghostscript 7.04 or later.
+GSview 4.9 PostScript previewer.  Needs Ghostscript 7.04 or later.
 <br>
-Release date: 2006-02-25
+Release date: 2007-11-18
 </p>
 <h2>
 Table of contents
@@ -64,7 +65,7 @@ Features include:
  <li> Can read gzip and bzip2 compressed PostScript and PDF files.
  <li> On-line help.
  <li> Win32, OS/2 and GNU/Linux executables. Older versions support Win16.
- <li> Can be run directly off a CD-ROM.
+ <li> Can be run directly off a CD-ROM or USB memory stick (Portable Application).
  <li> English, Catalan, Dutch, French, German, Greek, Italian, Russian,
     Slovak, Spanish and Swedish languages.
  <li> Per user initialisation files for Windows.
@@ -75,10 +76,12 @@ Features include:
    work with Ghostscript 4.03 - 6.99.
 </ul>
 <p>
-Changes in version 4.8:
+Changes in version 4.9:
 </p>
 <ul>
  <li> Minor bug fixes.
+ <li> Use latest version of zlib and bzip2 libraries.
+ <Li> Can be run as a portable application from USB flash memory.
 </ul>
 <p>
 GSview was written by Russell Lang at Ghostgum Software Pty Ltd.
@@ -95,25 +98,25 @@ First uninstall any previous versions of GSview.
 Win32
 </h3>
 <p>
-  Obtain GSview (gsv48w32.exe) from 
+  Obtain GSview (gsv49w32.exe) from 
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get48.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get48.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get49.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get49.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 8.53 (gs853w32.exe) from
+  Obtain GPL Ghostscript 8.60 (gs860w32.exe) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get853.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get853.htm
+    <a href="http://www.cs.wisc.edu/~ghost/doc/GPL/gpl860.htm">
+    http://www.cs.wisc.edu/~ghost/doc/GPL/gpl860.htm
     </a>
   </blockquote>
 <p>
-  First install the AFPL Ghostscript self extracting archive 
-  gs853w32.exe (or a later version if available)
-  Then install the GSview self extracting archive gsv48w32.exe.
+  First install the GPL Ghostscript self extracting archive 
+  gs860w32.exe (or a later version if available)
+  Then install the GSview self extracting archive gsv49w32.exe.
   Run GSview.
 </p>
 <h4>
@@ -128,16 +131,16 @@ Win32 location details
   <tt>c:\Program Files\Ghostgum\gsview\gsview32.exe</tt>.
 </p>
 <p>
-  By default, AFPL Ghostscript is installed in the directory 
+  By default, GPL Ghostscript is installed in the directory 
   <tt>c:\gs</tt>, which creates the sub-directories
   <tt>c:\gs\gsN.NN</tt> and <tt>c:\gs\fonts</tt>.
-  The AFPL Ghostscript executables are
+  The GPL Ghostscript executables are
   <tt>c:\gs\gsN.NN\gswin32c.exe</tt> for console mode and
   <tt>c:\gs\gsN.NN\gswin32.exe</tt> for windowing mode.
 </p>
 <p>
-  GSview normally locates AFPL Ghostscript using registry 
-  entries created by the AFPL Ghostscript setup program.  
+  GSview normally locates GPL Ghostscript using registry 
+  entries created by the GPL Ghostscript setup program.  
   If these do not exist, GSview will assume that Ghostscript 
   is in an adjacent directory to GSview, usually 
   <tt>c:\Program Files\Ghostgum\gsN.NN</tt> 
@@ -148,17 +151,17 @@ Win32 location details
 Win64 (AMD64)
 </h3>
 <p>
-  Obtain GSview (gsv48w64.exe) from 
+  Obtain GSview (gsv49w64.exe) from 
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get48.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get48.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get49.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get49.htm
     </a>
   </blockquote>
 <p>
-  First install the AFPL Ghostscript self extracting archive 
-  gs853w64.exe (or a later version if available)
-  Then install the GSview self extracting archive gsv48w64.exe.
+  First install the GPL Ghostscript self extracting archive 
+  gs860w64.exe (or a later version if available)
+  Then install the GSview self extracting archive gsv49w64.exe.
   Run GSview.
 </p>
 <p>
@@ -169,29 +172,39 @@ Win64 (AMD64)
 </p>
 
 <h3>
+Windows Vista
+</h3>
+Use the Win32 or Win64 versions described above.
+Windows Vista as distributed does not include support 
+for the WinHelp format used by GSview.  When you try to view
+the GSview help file, you will get an error message, which
+will direct you to the Microsoft site to download the
+Windows Help utility.
+
+<h3>
 OS/2
 </h3>
 <p>
-  Obtain GSview (gsv48os2.zip) from
+  Obtain GSview (gsv49os2.zip) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/gsview/get48.htm">
-    http://www.cs.wisc.edu/~ghost/gsview/get48.htm
+    <a href="http://www.cs.wisc.edu/~ghost/gsview/get49.htm">
+    http://www.cs.wisc.edu/~ghost/gsview/get49.htm
     </a>
   </blockquote>
 <p>
-  Obtain AFPL Ghostscript 8.53 (gs853os2.zip) from
+  Obtain GPL Ghostscript 8.60 (gs860os2.zip) from
 </p>
   <blockquote>
-    <a href="http://www.cs.wisc.edu/~ghost/doc/AFPL/get853.htm">
-    http://www.cs.wisc.edu/~ghost/doc/AFPL/get853.htm
+    <a href="http://www.cs.wisc.edu/~ghost/doc/GPL/gpl860.htm">
+    http://www.cs.wisc.edu/~ghost/doc/GPL/gpl860.htm
     </a>
   </blockquote>
 
 <p>
   <a href="http://www.info-zip.org/pub/infozip/">Unzip</a>
   GSview to a temporary directory, change to the gsview2 subdirectory,
-  place gs853os2.zip (or a later version) in the same directory, 
+  place gs860os2.zip (or a later version) in the same directory, 
   and then run os2setup.exe.
 </p>
  
@@ -218,43 +231,6 @@ OS/2
   GSview (gvpm.exe) will run under OS/2 2.1 and OS/2 Warp. 
 </p>
 
-<h3>
-Win16
-</h3>
-<p>
-  Use the older GSview 2.7 and Aladdin Ghostscript 4.03.
-</p>
-
-<h3>
-Win32s
-</h3>
-<p>
-  This has not been tested by Ghostgum Software Pty Ltd.
-  First you will need to recompile GSview and Ghostscript
-  with Microsoft Visual C++ 5.  Later versions will not
-  work with Win32s.
-<p>
-  For MS-Windows 3.1, it is recommended that you use the
-  Win32 version.  You must have Win32s installed before
-  installing GSview.  See 
-    <a href="http://www.microsoft.com/">
-    http://www.microsoft.com/</a>
-  or
-    <a href="ftp://ftp.microsoft.com/softlib/mslfiles/PW1118.EXE">
-    ftp://ftp.microsoft.com/softlib/mslfiles/PW1118.EXE</a>.
-  GSview and Ghostscript will not work with some versions
-  of Win32s.  If it doesn't work with your version, try 
-  updating to a later version of Win32s.  Some computers
-  will work with Win32s v1.15, others will not.
-</p>
-
-<p>
-  For Win32s, you will need to manually install both 
-  GSview and AFPL Ghostscript.  The included setup
-  programs will not run under Win32s.  The self extracting
-  archives can be unpacked with Info-ZIP 
-    <a href="http://www.info-zip.org/pub/infozip/">unzip</a>.
-</p>
 
 <h3>
 X11/Unix
@@ -334,7 +310,7 @@ The 'Common Problems' topic is worth reading if GSview doesn't work.
 Compilation
 </h2>
 <p>
-To compile GSview for Windows you need MS Visual C++ 5, 6, 7 or 7.1.
+To compile GSview for Windows you need MS Visual C++ 5, 6, 7, 7.1 or 8.
 Copy srcwin/win.mak to Makefile, edit Makefile to set 
 <tt>VCVER</tt> and <tt>DEVBASE</tt> as required, then type '<tt>nmake</tt>'. 
 To build for Win64 use '<tt>nmake VCVER=71 WIN64=1</tt>'
@@ -351,9 +327,9 @@ Type 'nmake'
 To compile GSview for X11/Unix you need gcc and the GTK+ 1.2 toolkit.
 Unzip the sources as follows to convert the line endings:
 <pre>
-  unzip -aa gsv48src.zip
-  unzip -o gsv48src.zip "gsview-4.8/binary/*"
-  cd gsview-4.8
+  unzip -aa gsv49src.zip
+  unzip -o gsv49src.zip "gsview-4.9/binary/*"
+  cd gsview-4.9
   cp srcunx/unx.mak Makefile
   make
 </pre>
@@ -365,7 +341,7 @@ on X11 GSview.
 For SunOS or SGI IRIX, uncomment the appropriate lines in the makefile.
 You also be able to use
 <pre>
-  rpmbuild -ta gsview-4.8.tar.gz
+  rpmbuild -ta gsview-4.9.tar.gz
 </pre>
 </p>
 
@@ -483,11 +459,11 @@ Ghostscript can be downloaded from the Internet, or obtained on
 <p>
 To download, go to the <a href="http://www.cs.wisc.edu/~ghost/">
 Ghostscript home page</a>
-then follow the link to <b>Obtaining AFPL Ghostscript</b>.
+then follow the link to <b>Obtaining GPL Ghostscript</b>.
 </p>
 
 <p>
-To obtain the latest version of GSview and AFPL Ghostscript
+To obtain the latest version of GSview and GPL Ghostscript
 on CD-ROM, send the <a href="cdorder.txt">order form</a>
 and payment to the address on the order form.
 Payment may be credit card or cheque for USD$60 drawn on a 
@@ -498,10 +474,10 @@ drawn on an Australian bank.
 
 <p>
 The CD-ROM (actually a CD-R) will contain ready to run 
-and ready to install copies of GSview and AFPL Ghostscript for 
+and ready to install copies of GSview and GPL Ghostscript for 
 Windows and OS/2, plus a number of other PostScript utilities.
 The CD-ROM will be dispatched by air-mail.  
-This offer is valid until 31 December 2006.  If this date has
+This offer is valid until 28 February 2008.  If this date has
 passed, send mail to 
 <tt>gsview</tt> <b>at</b> <tt>ghostgum.com.au</tt>. 
 to find out if the offer is still valid.
@@ -524,7 +500,7 @@ This licence is contained in the file
 </p>
 
 <p>
-These licences do not require any payment to the author;
+This licence does not require any payment to the author;
 however the author would welcome any registrations of GSview to cover 
 costs and time involved in developing and maintaining GSview.  
 The registration fee is currently AUD$40.
@@ -550,18 +526,12 @@ The postal address for Ghostgum Software is:
     <br>
     AUSTRALIA
   </blockquote>
+This address will change in March 2008.
 
 <p>
 GSview uses Ghostscript to display the contents of the PostScript
 files.  Ghostscript is a separate program from GSview; it is
-owned by artofcode LLC, not by Ghostgum Software Pty Ltd.
-</p>
-
-<p>
-AFPL Ghostscript comes with a licence that is more restrictive 
-than the GNU Licence; in particular, it restricts the distribution of
-AFPL Ghostscript in commercial contexts.  Please see the file 
-PUBLIC that accompanies AFPL Ghostscript for more details.  
+owned by Artifex Software Inc., not by Ghostgum Software Pty Ltd.
 </p>
 
 <p>
@@ -595,8 +565,8 @@ Source code can be obtained from these sites.
 </p>
 
 <p>
-GSview uses zlib 1.2.2 in an external DLL.  zlib is
-  Copyright (C) 1995-2004 Jean-loup Gailly and Mark Adler.
+GSview uses zlib 1.2.3 in an external DLL.  zlib is
+  Copyright (C) 1995-2005 Jean-loup Gailly and Mark Adler.
   See 
     <a href="http://www.zlib.net/">
     http://www.zlib.net/
@@ -605,7 +575,7 @@ GSview uses zlib 1.2.2 in an external DLL.  zlib is
 
 <p>
 GSview uses bzip2 in an external DLL.  bzip2 is 
- Copyright 1996-2000 by Julian Seward.  
+ Copyright 1996-2006 by Julian Seward.  
  See 
     <a href="http://sources.redhat.com/bzip2/">
     http://sources.redhat.com/bzip2/
@@ -636,7 +606,6 @@ included with GSview.
 <p>
 <a href="epstool.htm">EPSTOOL</a> is a command line tool
 for adding and removing previews from EPS files.  
-An older version is included with GSview.
 </p>
 
 <h2>
