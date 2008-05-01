@@ -19,10 +19,9 @@ class Conf:
     self.batch = False
     self.update = False
     self.verbose = False
-    self.testpath = os.path.join(os.environ['HOME'], 'tests')
+    self.testpath = os.environ['HOME']
     #self.exe = './language_switch/obj/pspcl6'
     self.exe = './bin/gs -q -I$HOME/fonts'
-    self.test = 'comparefiles'
     self.device = 'ppmraw'
     self.dpi = 600
 
@@ -73,15 +72,25 @@ class Conf:
       # guess appropriate defaults based on the executable
       basename = os.path.basename(self.exe.split()[0])
       if basename.find('pcl') >= 0:
-        self.tests += ['pcl/pcl5cfts/fts.*',
-	'pcl/pcl5efts/fts.*', 
-	'pcl/pcl5ccet/*.BIN']
-      if basename.find('ps') >= 0 or basename.find('gs') >= 0:
-	self.tests += ['ps/ps3cet/*.PS']
-        # run the normal comparefiles suite for now
-        self.tests = ['comparefiles/*.ps', 
-		 'comparefiles/*.pdf', 
-		 'comparfiles/*.ai']
+	# public test suite
+	self.tests += ['tests_public/pcl/*']
+	# Quality Logic suites
+        self.tests += ['tests_private/pcl/pcl5cfts/fts.*',
+	'tests_private/pcl/pcl5efts/fts.*', 
+	'tests_private/pcl/pcl5ccet/*.BIN']
+      if basename.find('pspcl') >= 0 or basename.find('gs') >= 0:
+	# public test suite
+	self.tests += ['tests_public/ps/*', 'tests_public/pdf/*']
+	# the normal comparefiles suite
+        self.tests += ['tests_private/comparefiles/*.ps', 
+		'tests_private/comparefiles/*.pdf', 
+		'tests_private/comparfiles/*.ai']
+	# Quality Logic CED suite
+	self.tests += ['tests_private/ps/ps3cet/*.PS']
+      if basename.find('xps') >= 0:
+	# Quality Logic suites
+	self.tests += ['tests_private/xps/xpsfts-a4/*.xps',
+		'tests_private/xps/atx/*.xps']
 
 # global configuration instance
 conf = Conf()

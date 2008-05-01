@@ -157,11 +157,11 @@ def pbsjob(cmd, resources=None, workdir=None,
 	stdout=None, stderr=None, mpi=True):
   if not resources:
     cluster, nodes = choosecluster()
-    while nodes < 1 or cluster == None:
+    while nodes < 2 or cluster == None:
 	log('clusters busy, waiting for an opening')
 	time.sleep(300)
 	cluster, nodes = choosecluster()
-    if nodes > 1 and cluster == 'red' or cluster == 'green':
+    if nodes > 3 and cluster == 'red' or cluster == 'green':
       # request two cpus per node
       nodes /= 2
       ppn = ':ppn=2'
@@ -197,7 +197,12 @@ def pbsjob(cmd, resources=None, workdir=None,
   f.write(cmd)
   f.write('\n')
   f.close()
-  os.system('qsub ' + filename)
+  while True:
+    log('qsub ' + filename)
+    S = os.system('qsub ' + filename)
+    log('qsub returned status: ' + repr(S))
+    if S == 0: break
+    time.sleep(100)
 
 def build(workdir=None, clean=False):
   'compile an executable from the current source'
@@ -257,6 +262,8 @@ def mainloop():
       report = "regression-r" + rev + ".log"
       runrev(workdir, rev, report)
       os.system("cp " + os.path.join(workdir, "reg_baseline.txt ") + " .")
+      # cleanup old directories to keep disk space reasonable (15 days old)
+      os.system("find . -maxdepth 1 -ctime +15 -name 'ghostpcl-r*' -exec rm -fr '{}' \\;")
     else:
       if doing:
         print "-- nothing to do --"

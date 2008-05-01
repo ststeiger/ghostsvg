@@ -139,7 +139,12 @@ def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
   f.write(cmd)
   f.write('\n')
   f.close()
-  os.system('qsub ' + jobname)
+  while True:
+    log('starting: qsub ' + jobname + '\n')
+    S = os.system('qsub ' + jobname)
+    log('qsub retuned status: ' + repr(S) + '\n')
+    if S == 0: break
+    time.sleep(100)
 
 
 # regression setup and reporting
@@ -149,6 +154,14 @@ def update(rev):
   svn = os.system("svn up -r" + rev)
   if svn:
     log("SVN update failed!")
+    return False
+  return True
+
+def update_tests():
+  'update the public test suite from svn'
+  svn = os.system("svn up $HOME/tests_public")
+  if svn:
+    log("SVN update of tests_public failed!")
     return False
   return True
 
@@ -219,7 +232,7 @@ def usage(name=sys.argv[0]):
   print "testing gs svn rev <revision> against the default baseline"
 
 def log(msg):
-  print '[' + time.ctime() + '] ' + msg
+  sys.stderr.write('[' + time.ctime() + '] ' + msg)
 
 def runrev(rev=None, report=None):
   if not rev: rev = getrev()
@@ -228,6 +241,7 @@ def runrev(rev=None, report=None):
   start = time.time()
   # remove the report if it exists since we use this to check completion
   if os.path.exists(report): os.unlink(report)
+  if not update_tests(): irclog("SVN public_tests update failed.")
   if not update(rev): irclog("SVN update failed!", rev)
   elif not build(clean=True): irclog("Build failed!", rev)
   else:
