@@ -110,6 +110,14 @@ def mainloop():
     elif pclrev:
       doing = True
       rev = pclrev
+      print 'updating test suite to current HEAD'
+      cmd = 'svn update tests_private'
+      os.system(cmd)
+      print 'pushing test suite update'
+      cmd = 'rsync -avz --delete'
+      cmd += ' --exclude .svn tests_private/*'
+      cmd += ' ' + ssh_dest + ':tests_private/'
+      os.system(cmd)
       print 'updating ghostpcl-r' + rev
       pclrev, gsrev = rev.split('+')
       print rev, 'splits into gs rev', gsrev, 'and pcl rev', pclrev
@@ -118,7 +126,7 @@ def mainloop():
       # svn external will fail; override with a manual checkout
       cmd = 'svn co http://svn.ghostscript.com:8080/ghostscript/trunk/gs -r ' + gsrev + ' ghostpcl/gs'
       os.system(cmd)
-      print 'pushing update'
+      print 'pushing ghostpcl update'
       cmd = 'rsync -avz'
       cmd += ' --exclude ufst --exclude .svn ghostpcl/*'
       cmd += ' ' + ssh_dest + ':regression/ghostpcl-r' + rev + '/'
