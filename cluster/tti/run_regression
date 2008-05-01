@@ -83,9 +83,15 @@ def build(rev=None, target=None, clean=False):
       # no autoconf on the PCL build
       cmd = "make clean && nice make"
     else:
-      cmd = "make clean && nice ./autogen.sh && nice make"
+      if os.path.exists('Makefile'):
+        cmd = "make clean && nice ./autogen.sh && nice make"
+      else:
+        cmd = "nice ./autogen.sh && make clean && nice make"
   else:
-    cmd = "nice make"
+    if os.path.exists('Makefile'):
+      cmd = "nice make"
+    else:
+      cmd = "./autogen.sh && nice make"
   if False:
     # build on the dispatch host
     make = os.system(cmd)
