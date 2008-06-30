@@ -169,7 +169,9 @@ def pbsjob(cmd, resources=None, workdir=None,
       nodes -= 1
     else:
       ppn = ''
-    resources = 'nodes=%d:%s:run%s,walltime=20:00' % (nodes, cluster, ppn)
+    if nodes > 12:
+      nodes = 12
+    resources = 'nodes=%d:%s:run%s,cput=10000' % (nodes, cluster, ppn)
     if ppn:
       ppnhelp = '(' + ppn[-1] + ' cpus per node)'
     else:
@@ -224,7 +226,7 @@ def build(workdir=None, clean=False):
   # update successful
   return True
 
-def runrev(workdir=None, rev=None, report=None):
+def runrev(workdir=None, rev=None, report=None, exe='main/obj/pcl6'):
   if not rev: rev = getrev()
   if not report: report = "regression-r" + rev + ".log"
   # remove the report if it exists since we use this to check completion
@@ -232,11 +234,15 @@ def runrev(workdir=None, rev=None, report=None):
   start = time.time()
   cmd = 'bwpython ../regress.py'
   cmd += ' --batch --update'
-  cmd += ' --exe main/obj/pcl6'
+  cmd += ' --exe ' + exe
   pbsjob(cmd, resources=None, workdir=workdir, stdout=report)
   # wait for the run to finish
   while not os.path.exists(report):
     time.sleep(20)
+  if os.path.getsize(report) < 1:
+    f = open(report)
+    f.write("[report empty -- regression failed]\n")
+    f.close()
   print "report is ready as '" + report + "'. total time %d seconds" % int(time.time() - start)
   ircfile(report, rev)
   mailfile(report, rev)
@@ -259,8 +265,13 @@ def mainloop():
       if not os.path.exists(os.path.join(workdir, "reg_baseline.txt")):
         os.system("cp reg_baseline.txt " + workdir)
       log("running regression on ghostpcl-r" + rev)
-      report = "regression-r" + rev + ".log"
-      runrev(workdir, rev, report)
+      report = "ghostpcl-r" + rev + ".log"
+      runrev(workdir, rev, report, 'main/obj/pcl6')
+      report = "ghostxps-r" + rev + ".log"
+      runrev(workdir, rev, report, 'xps/obj/gxps')
+      if os.path.exists(os.path.join(workdir, 'svg/obj/gsvg')):
+	report = "ghostsvg-r" + rev + ".log"
+	runrev(workdir, rev, report, 'svg/obj/gsvg')
       os.system("cp " + os.path.join(workdir, "reg_baseline.txt ") + " .")
       # cleanup old directories to keep disk space reasonable (15 days old)
       os.system("find . -maxdepth 1 -ctime +15 -name 'ghostpcl-r*' -exec rm -fr '{}' \\;")
