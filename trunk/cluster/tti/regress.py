@@ -75,22 +75,26 @@ class Conf:
 	# public test suite
 	self.tests += ['tests_public/pcl/*']
 	# Quality Logic suites
-        self.tests += ['tests_private/pcl/pcl5cfts/fts.*',
-	'tests_private/pcl/pcl5efts/fts.*', 
-	'tests_private/pcl/pcl5ccet/*.BIN']
-      if basename.find('pspcl') >= 0 or basename.find('gs') >= 0:
+        self.tests += ['tests_private/pcl/*/*', 'tests_private/xl/*/*']
+      # we can't use find() for 'gs' because it also matches 'gsvg'
+      if basename.find('pspcl') >= 0 or basename == 'gs':
 	# public test suite
 	self.tests += ['tests_public/ps/*', 'tests_public/pdf/*']
 	# the normal comparefiles suite
         self.tests += ['tests_private/comparefiles/*.ps', 
 		'tests_private/comparefiles/*.pdf', 
 		'tests_private/comparfiles/*.ai']
-	# Quality Logic CED suite
+	# Quality Logic CET suite
 	self.tests += ['tests_private/ps/ps3cet/*.PS']
       if basename.find('xps') >= 0:
 	# Quality Logic suites
-	self.tests += ['tests_private/xps/xpsfts-a4/*.xps',
-		'tests_private/xps/atx/*.xps']
+	self.tests += ['tests_private/xps/xpsfts-a4/*.xps']
+	# ATS tests take more cpu time than we can spare
+	#self.tests += ['tests_private/xps/ats/*-Native.xps']
+      if basename.find('svg') >= 0:
+	# W3C test suite
+	self.tests += ['tests_public/svg/svgw3c-1.2-tiny/svg/*.svg',
+		'tests_public/svg/svgw3c-1.1-full/svg/*.svg']
 
 # global configuration instance
 conf = Conf()
@@ -178,8 +182,9 @@ class SelfTestSuite:
   def report(self):
     if not conf.batch:
       print '-'*72
-    print 'ran %d tests in %.3f seconds on %d nodes\n' % \
-	(len(self.tests), self.elapsed, MPI.size)
+    print 'ran %d tests with %s in %.3f seconds on %d nodes\n' % \
+	(len(self.tests), os.path.basename(conf.exe),
+	 self.elapsed, MPI.size)
     if self.fails:
       print 'FAILED %d of %d tests' % \
 	(len(self.fails),len(self.tests))
@@ -247,11 +252,10 @@ class md5Test(SelfTest):
     self.dpi = dpi
     self.exe = conf.exe
     self.opts = "-dQUIET -dSAFER -dNOPAUSE -dBATCH -K1000000"
-    self.opts += " -dSAFER -dBATCH"
-    self.opts += " -Z@"
+    self.opts += " -dSAFER -dBATCH -dMaxBitmap=30000000"
+    self.opts += " -Z:@"
     self.opts += " -sDEVICE=%s -r%d" % (device, dpi)
-    #self.psopts = '-dMaxBitmap=40000000 -dJOBSERVER ./lib/gs_cet.ps'
-    self.psopts = '-dMaxBitmap=30000000 -dNOOUTERSAVE -dJOBSERVER -c false 0 startjob pop -f'
+    self.psopts = '-dJOBSERVER'
 
   def description(self):
     return 'Checking ' + self.file
@@ -260,17 +264,17 @@ class md5Test(SelfTest):
     scratch = os.path.join('/tmp', os.path.basename(self.file) + '.md5')
     # add psopts if it's a postscript file
     if self.file[-3:].lower() == '.ps' or \
-	self.file[-4:].lower() == '.eps' or \
-        self.file[-4:].lower() == '.pdf' or \
-        self.file[-3:].lower() == '.ai':
+	self.file[-4:].lower() == '.eps' :
       cmd = '%s %s -sOutputFile="|md5sum>%s" %s - < %s ' % \
 	(self.exe, self.opts, scratch, self.psopts, self.file)
     else:
       cmd = '%s %s -sOutputFile="|md5sum>%s" %s' % \
 	(self.exe, self.opts, scratch, self.file)
+    sys.stderr.write("Running: %s\n" % cmd)
     run = os.popen(cmd)
     msg = run.readlines()
     code = run.close()
+    sys.stderr.write("Finished: %s\n" % cmd)
     if code:
       self.result = ErrorResult(''.join(msg))
       return
@@ -359,6 +363,7 @@ def run_regression():
     if conf.update:
       if len(suite.fails):
         print 'Updating baselines for the failed tests.'
+	print
       for test in suite.fails:
         db[test.file] = test.result.msg
     db.save()

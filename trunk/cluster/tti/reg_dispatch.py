@@ -111,14 +111,20 @@ def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
   if not resources:
     cluster, nodes = choosecluster()
     if nodes > 1 and cluster == 'red' or cluster == 'green':
-      # red reports two cpus per node
+      # these report two cpus per node
       nodes /= 2
       ppn = ':ppn=2'
       # hack: work around a corner case
       if nodes > 1: nodes = nodes - 1
     else:
       ppn = ''
-    resources = 'nodes=%d:%s:run%s,walltime=20:00' % (nodes, cluster, ppn)
+    # limit runs to 12 nodes (24 cpus)
+    if nodes > 12:
+      nodes = 12
+    # pcput is the CPU time per process. Recent runs complete in about 6000 sec
+    # resources = 'nodes=%d:%s:run%s,cput=10000' % (nodes, cluster, ppn)
+    # perform test on a single node to see what is hanging
+    resources = 'nodes=%d:%s:run%s,cput=10000' % (nodes, cluster, ppn)
     print 'requesting', nodes, 'nodes on', cluster
   if stdout: jobname = stdout + '.pbs'
   else: jobname = 'regress.pbs'
