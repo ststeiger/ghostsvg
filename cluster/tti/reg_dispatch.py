@@ -124,7 +124,7 @@ def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
     # pcput is the CPU time per process. Recent runs complete in about 6000 sec
     # resources = 'nodes=%d:%s:run%s,cput=10000' % (nodes, cluster, ppn)
     # perform test on a single node to see what is hanging
-    resources = 'nodes=%d:%s:run%s,cput=10000' % (nodes, cluster, ppn)
+    resources = 'nodes=%d:%s:run%s,cput=20000' % (nodes, cluster, ppn)
     print 'requesting', nodes, 'nodes on', cluster
   if stdout: jobname = stdout + '.pbs'
   else: jobname = 'regress.pbs'
@@ -252,6 +252,7 @@ def runrev(rev=None, report=None):
   elif not build(clean=True): irclog("Build failed!", rev)
   else:
     cmd = 'bwpython ../regress.py --batch --update'
+    cmd += ' --device=ppmraw --device=pbmraw --device=pkmraw'
     pbsjob(cmd, resources=None, stdout=report)
     # wait for the run to finish
     while not os.path.exists(report):

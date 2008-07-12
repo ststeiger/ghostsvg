@@ -235,12 +235,15 @@ def runrev(workdir=None, rev=None, report=None, exe='main/obj/pcl6'):
   cmd = 'bwpython ../regress.py'
   cmd += ' --batch --update'
   cmd += ' --exe ' + exe
+  cmd += ' --device=ppmraw'
+  if exe == 'main/obj/pcl6':
+    cmd += ' --device=bitcmyk --device=bitrgb'
   pbsjob(cmd, resources=None, workdir=workdir, stdout=report)
   # wait for the run to finish
   while not os.path.exists(report):
     time.sleep(20)
   if os.path.getsize(report) < 1:
-    f = open(report)
+    f = open(report, "w")
     f.write("[report empty -- regression failed]\n")
     f.close()
   print "report is ready as '" + report + "'. total time %d seconds" % int(time.time() - start)

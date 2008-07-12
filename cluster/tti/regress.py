@@ -22,8 +22,7 @@ class Conf:
     self.testpath = os.environ['HOME']
     #self.exe = './language_switch/obj/pspcl6'
     self.exe = './bin/gs -q -I$HOME/fonts'
-    self.device = 'ppmraw'
-    self.dpi = 600
+    # see the end of parse for defaults of accumulative options
 
   def parse(self, args):
     '''Parse the command line for configuration switches
@@ -57,7 +56,7 @@ class Conf:
             val = True
 
         # for select options, accumulate the values
-        if opt in ('test'):
+        if opt in ('test', 'device', 'dpi'):
           opt += 's' # pluralize collections
           if not hasattr(self, opt):
             self.__dict__[opt] = []
@@ -67,6 +66,13 @@ class Conf:
           self.__dict__[opt] = val
  
     # finally, set defaults for unset accumulating options
+    if not hasattr(self, 'devices'):
+      self.devices = ['ppmraw']
+    if not hasattr(self, 'dpis'):
+      self.dpis = [600]
+    else:
+      # the code expects dpi to be and integer
+      self.dpis = map(int, self.dpis)
     if not hasattr(self, 'tests'):
       self.tests = []
       # guess appropriate defaults based on the executable
@@ -158,7 +164,7 @@ class SelfTestSuite:
   def addResult(self, test):
     if test:
       if not conf.batch:
-        print test.description() + ' ... ' + str(test.result)
+        print 'Checking %s ... %s' % (test.description(), test.result)
       self.tests.append(test)
       if isinstance(test.result, ErrorResult):
         self.errors.append(test)
@@ -190,7 +196,7 @@ class SelfTestSuite:
 	(len(self.fails),len(self.tests))
       if conf.batch:
         for test in self.fails:
-          print '  ' + test.file
+          print '  ' + test.description()
         print
     if self.errors:
       print 'ERROR running %d of %d tests' % \
@@ -245,23 +251,37 @@ class md5Test(SelfTest):
   '''Test class for running a file and comparing the output to an
   expected value.'''
 
-  def __init__(self, file, md5sum, dpi=600, device="ppmraw"):
+  def __init__(self, file, db, device='ppmraw', dpi=600):
     SelfTest.__init__(self)
     self.file = file
-    self.md5sum = md5sum
+    self.md5sum = db[db.makekey(file, device=device, dpi=dpi)]
     self.dpi = dpi
+    self.device = device
     self.exe = conf.exe
-    self.opts = "-dQUIET -dSAFER -dNOPAUSE -dBATCH -K1000000"
-    self.opts += " -dSAFER -dBATCH -dMaxBitmap=30000000"
-    self.opts += " -Z:@"
+    self.opts = "-dQUIET -dNOPAUSE -dBATCH"
+    # Some of the ps3cet files will not complete unless run
+    # with the gs_cet.ps prefix and without -dSAFER
+    if not 'ps3cet' in os.path.dirname(file):
+      self.opts += " -dSAFER"
+    self.opts += " -K1000000 -dMaxBitmap=30000000"
+    #self.opts += " -Z:@"
     self.opts += " -sDEVICE=%s -r%d" % (device, dpi)
     self.psopts = '-dJOBSERVER'
+    if 'ps3cet' in os.path.dirname(file):
+      self.psopts += ' lib/gs_cet.ps'
 
   def description(self):
-    return 'Checking ' + self.file
+    # hack out the testpath prefix to shorten the report line
+    if conf.testpath in self.file:
+      file = self.file[len(conf.testpath):]
+      if file[0] == '/': file = file[1:]
+    else:
+      file = self.file
+    return '%s (%s %ddpi)' % (file, self.device, self.dpi)
 
   def run(self):
-    scratch = os.path.join('/tmp', os.path.basename(self.file) + '.md5')
+    scratch = os.path.join('/tmp', os.path.basename(self.file) + \
+        '.'.join( ('', self.device, str(self.dpi), 'md5') ))
     # add psopts if it's a postscript file
     if self.file[-3:].lower() == '.ps' or \
 	self.file[-4:].lower() == '.eps' :
@@ -312,9 +332,9 @@ class DB:
       if line[:1] == '#': continue
       fields = line.split()
       try:
-        file = fields[0].strip()
+        key = fields[0].strip()
         md5sum = fields[1].strip()
-        self.db[file] = md5sum
+        self.db[key] = md5sum
       except IndexError:
         pass
     f.close()
@@ -339,6 +359,12 @@ class DB:
   def __setitem__(self, key, value):
     self.db[key] = value
 
+  # key generation
+  def makekey(self, file, **keywords):
+    result = 'file:' + str(file)
+    for key in sorted(keywords):
+      result += ';' + str(key) + ':' + str(keywords[key])
+    return result
 
 def run_regression():
   'run normal set of regressions'
@@ -352,20 +378,24 @@ def run_regression():
     db.load()
     for test in conf.tests:
       for file in glob(os.path.join(conf.testpath,test)):
-        suite.addTest(md5Test(file, db[file], conf.dpi, conf.device))
+	for device in conf.devices:
+	  for dpi in conf.dpis:
+            suite.addTest(md5Test(file, db, device, dpi))
     if MPI.size > 1 and not conf.batch:
       print 'running tests on %d nodes...' % MPI.size
   suite.run()
   if MPI.rank == 0:
     # update the database with new files and save
     for test in suite.news:
-      db[test.file] = test.result.msg
+      key = db.makekey(test.file, device=test.device, dpi=test.dpi)
+      db[key] = test.result.msg
     if conf.update:
       if len(suite.fails):
         print 'Updating baselines for the failed tests.'
 	print
       for test in suite.fails:
-        db[test.file] = test.result.msg
+        key = db.makekey(test.file, device=test.device, dpi=test.dpi)
+        db[key] = test.result.msg
     db.save()
 
 
