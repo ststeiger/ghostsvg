@@ -85,11 +85,37 @@ class Daemon:
 
 def update(rev):
   'update the executable to revision <rev>'
-  workdir = "gs -r" + rev
-  svn = os.system("cd " + workdir + " && svn up -r" + rev)
-  make = os.system("cd " + workdir +" && make clean && nice make debug")
+  svn1 = os.system("svn up --ignore-externals -r" + rev)
+  svn2 = os.system("svn up -r" + rev + " gs")
+  if svn1 or svn1:
+    log("SVN update failed!")
+    return False
+  return True
 
-def getrev(cachedir="queue.pcl"):
+def build(clean=False):
+  'compile the exectubles from the current source'
+  if clean:
+    cmd = "make clean && make"
+  else:
+    cmd = "make"
+  if False:
+    # build on the dispatch host
+    make = os.system(cmd)
+  else:
+    # build on a compile node
+    resources = 'nodes=1:build32'
+    report = 'update.log'
+    if os.path.exists(report): os.unlink(report)
+    make = pbsjob(cmd, resources, stdout=report, stderr=report, mpi=False)
+    while not os.path.exists(report):
+      time.sleep(5)
+  if make:
+    log('build failed! exit code ' + str(make))
+    return False
+  # update successful
+  return True
+
+def getrev(cachedir="../queue.pdl"):
   'Read the queue directory and select a revision to test'
   if not os.path.exists(cachedir): os.mkdir(cachedir)
   revs = os.listdir(cachedir)
@@ -106,7 +132,7 @@ def mailfile(file, rev=None):
   cmd = 'cat ' + file + ' '
   cmd += '| mail -s "cluster regression'
   if rev:
-    cmd += ' ghostpcl-r' + rev
+    cmd += ' ghostpdl-r' + rev
   cmd += ' (xefitra)" '
   #cmd += 'giles@ghostscript.com'
   cmd += 'gs-regression@ghostscript.com'
@@ -117,7 +143,7 @@ def ircfile(file, rev=None):
   msg = ''.join(open(file).readlines())
   if msg:
     try:
-      ciatest.Message(msg, rev=rev, module='ghostpcl').send()
+      ciatest.Message(msg, rev=rev, module='ghostpdl').send()
     except:
       pass
 
@@ -146,7 +172,7 @@ def choosecluster():
 def usage(name=sys.argv[0]):
   print "Usage: %s <revision>" % name
   print "launch a regression run on tticluster.com"
-  print "testing gs svn rev <revision> against the default baseline"
+  print "testing ghostpdl svn rev <revision> against the default baseline"
 
 def log(msg):
   '''print a timestamped log message. We use this for major tasks,
@@ -207,26 +233,6 @@ def pbsjob(cmd, resources=None, workdir=None,
     if S == 0: break
     time.sleep(100)
 
-def build(workdir=None, clean=False):
-  'compile an executable from the current source'
-  if clean:
-    cmd = "make clean && nice ./autogen.sh && nice make"
-  else:
-    cmd = "nice make"
-  #if workdir:
-  #  cmd = "cd " + workdir + " && " + cmd
-  report = 'update.log'
-  resources = 'nodes=1:build32'
-  cmd += "\nexit"
-  if os.path.exists(report): os.unlink(report)
-  make = pbsjob(cmd, resources, workdir, stdout=report, mpi=False)
-  while not os.path.exists(report): time.sleep(5)
-  if make:
-    log("build failed! exit code " + str(make))
-    return False
-  # update successful
-  return True
-
 def runrev(workdir=None, rev=None, report=None, exe='main/obj/pcl6'):
   if not rev: rev = getrev()
   if not report: report = "regression-r" + rev + ".log"
@@ -237,8 +243,8 @@ def runrev(workdir=None, rev=None, report=None, exe='main/obj/pcl6'):
   cmd += ' --batch --update'
   cmd += ' --exe ' + exe
   cmd += ' --device=ppmraw'
-  if False and exe == 'main/obj/pcl6':
-    cmd += ' --device=bitcmyk --device=bitrgb'
+  if exe == 'main/obj/pcl6':
+    cmd += ' --device=pbmraw --device=bitcmyk'
   pbsjob(cmd, resources=None, workdir=workdir, stdout=report)
   # wait for the run to finish
   while not os.path.exists(report):
@@ -258,27 +264,22 @@ def mainloop():
     rev = getrev()
     if rev:
       doing = True
-      workdir = "ghostpcl-r" + rev
+      workdir = "."
       # create a working copy if necessary
       if not os.path.exists(workdir):
         print "couldn't find requested working copy '%s'\n" % workdir
         continue
+      update(rev)
       log("building " + workdir)
       build(workdir)
       log("build complete")
-      if not os.path.exists(os.path.join(workdir, "reg_baseline.txt")):
-        os.system("cp reg_baseline.txt " + workdir)
-      log("running regression on ghostpcl-r" + rev)
-      report = "ghostpcl-r" + rev + ".log"
-      runrev(workdir, rev, report, 'main/obj/pcl6')
-      report = "ghostxps-r" + rev + ".log"
-      runrev(workdir, rev, report, 'xps/obj/gxps')
-      if os.path.exists(os.path.join(workdir, 'svg/obj/gsvg')):
-	report = "ghostsvg-r" + rev + ".log"
-	runrev(workdir, rev, report, 'svg/obj/gsvg')
-      os.system("cp " + os.path.join(workdir, "reg_baseline.txt ") + " .")
-      # cleanup old directories to keep disk space reasonable (15 days old)
-      os.system("find . -maxdepth 1 -ctime +15 -name 'ghostpcl-r*' -exec rm -fr '{}' \\;")
+      exes = {'ghostpcl':'main/obj/pcl6','ghostxps':'xps/obj/gxps',
+	'ghostsvg':'svg/obj/gsvg'}
+      for key in exes.keys():
+        if os.path.exists(os.path.join(workdir, exes[key])):
+          log("running regression on %s-r%s" % (key, rev))
+          report = key + "-r" + rev + ".log"
+          runrev(workdir, rev, report, exes[key])
     else:
       if doing:
         print "-- nothing to do --"
