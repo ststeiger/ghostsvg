@@ -81,7 +81,8 @@ class Conf:
 	# public test suite
 	self.tests += ['tests_public/pcl/*']
 	# Quality Logic suites
-        self.tests += ['tests_private/pcl/*/*', 'tests_private/xl/*/*']
+        self.tests += ['tests_private/pcl/*/*', \
+		'tests_private/xl/*/*.bin', 'tests_private/xl/*/*.BIN']
       # we can't use find() for 'gs' because it also matches 'gsvg'
       if basename.find('pspcl') >= 0 or basename == 'gs':
 	# public test suite
@@ -268,7 +269,7 @@ class md5Test(SelfTest):
     self.opts += " -sDEVICE=%s -r%d" % (device, dpi)
     self.psopts = '-dJOBSERVER'
     if 'ps3cet' in os.path.dirname(file):
-      self.psopts += ' lib/gs_cet.ps'
+      self.psopts += ' %rom%Resource/Init/gs_cet.ps'
 
   def description(self):
     # hack out the testpath prefix to shorten the report line

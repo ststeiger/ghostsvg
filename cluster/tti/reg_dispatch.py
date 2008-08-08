@@ -118,13 +118,15 @@ def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
       if nodes > 1: nodes = nodes - 1
     else:
       ppn = ''
-    # limit runs to 12 nodes (24 cpus)
-    if nodes > 12:
-      nodes = 12
-    # pcput is the CPU time per process. Recent runs complete in about 6000 sec
+    # limit runs to 16 nodes (32 cpus)
+    if nodes > 16:
+      nodes = 16
+    # pcput is the CPU time per process. Recent runs complete in ~6000 sec
+    # walltime isn't enforced, but gives us priority over longer jobs
     # resources = 'nodes=%d:%s:run%s,cput=10000' % (nodes, cluster, ppn)
     # perform test on a single node to see what is hanging
-    resources = 'nodes=%d:%s:run%s,cput=20000' % (nodes, cluster, ppn)
+    resources = 'nodes=%d:%s:run%s,walltime=1:00:00,cput=20000' % \
+	(nodes, cluster, ppn)
     print 'requesting', nodes, 'nodes on', cluster
   if stdout: jobname = stdout + '.pbs'
   else: jobname = 'regress.pbs'
@@ -257,6 +259,10 @@ def runrev(rev=None, report=None):
     # wait for the run to finish
     while not os.path.exists(report):
       time.sleep(20)
+    if os.path.getsize(report) < 1:
+      f = open(report, 'w')
+      f.write("[report empty -- regression terminated]\n")
+      f.close()
     print "report is ready as '" + report + "'. total time %d seconds" % int(time.time() - start)
     mailfile(report, rev)
     ircfile(report, rev)
