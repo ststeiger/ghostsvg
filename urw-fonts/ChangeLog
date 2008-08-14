@@ -1,3 +1,8 @@
+2007-12-20  Valek Filippov  <frob@df.ru>
+
+    Patch by Robert Scheck <robert@fedoraproject.org>, which
+    removes two broken lines (two invalid glyph names).
+
 2007-08-02  Valek FIlippov  <frob@df.ru>
     Fixed or DELETED some non-russian cyrillics.
 

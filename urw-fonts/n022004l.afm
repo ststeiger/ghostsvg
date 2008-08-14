@@ -542,8 +542,6 @@ C -1 ; WX 600 ; N Obreve ; B 30 -15 571 782 ;
 C -1 ; WX 600 ; N obreve ; B 50 -16 550 642 ;
 C -1 ; WX 600 ; N Scircumflex ; B 70 -15 531 797 ;
 C -1 ; WX 600 ; N scircumflex ; B 80 -16 520 656 ;
-C -1 ; WX 600 ; N NameMe.656 ; B 0 0 0 0 ;
-C -1 ; WX 600 ; N NameMe.657 ; B 0 0 0 0 ;
 C -1 ; WX 600 ; N Tbar ; B 50 0 550 565 ;
 C -1 ; WX 600 ; N tbar ; B 50 -16 550 573 ;
 C -1 ; WX 600 ; N Utilde ; B 18 -15 582 733 ;
