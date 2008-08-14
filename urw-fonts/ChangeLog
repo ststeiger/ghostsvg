@@ -3,14 +3,14 @@
     Patch by Robert Scheck <robert@fedoraproject.org>, which
     removes two broken lines (two invalid glyph names).
 
-2007-08-02  Valek FIlippov  <frob@df.ru>
+2007-08-02  Valek Filippov  <frob@df.ru>
     Fixed or DELETED some non-russian cyrillics.
 
 2007-06-17  Valek Filippov  <frob@df.ru>
 
-    Deleted 2nd occurences of tcommaaccent and Tcommaaccent.
-    Fixed all non-russian cyrillic in Gothic-Book and Ghotic-BookObli.
-    Small fixes in Ghotic-Demi.
+    Deleted 2nd occurrences of tcommaaccent and Tcommaaccent.
+    Fixed all non-russian cyrillic in Gothic-Book and Gothic-BookObli.
+    Small fixes in Gothic-Demi.
     Vietnamese glyphs were removed.
 
 2005-05-30  Valek Filippov  <frob@df.ru>
@@ -150,16 +150,16 @@
     
 2002-11-16  Valek Filippov  <frob@df.ru>
 
-   Fixed some cyrillic (russian) glyphs in NimbusMono.
-   NimbusMono Ascend/Descend were changed to match the visible
-   size of the other font if same point-size is used.
+    Fixed some cyrillic (russian) glyphs in NimbusMono.
+    NimbusMono Ascend/Descend were changed to match the visible
+    size of the other font if same point-size is used.
 
 2002-10-12  Valek Filippov  <frob@df.ru>
 
-   Regenerated coz I screwed up UIDs.
-   Partly applied Owen Tailor tweaks.
-   (Really GWW changed pfaedit autohinter after OT sugggestion,
-   so other OT tweaks are aoutomade by pfaedit)
+    Regenerated coz I screwed up UIDs.
+    Partly applied Owen Taylor tweaks.
+    (Really GWW changed pfaedit autohinter after OT sugggestion,
+    so other OT tweaks are aoutomade by pfaedit)
    
 2002-08-17  Valek Filippov  <frob@df.ru>
 
@@ -172,7 +172,7 @@
     I still haven't enough time for correct serbian glyphs from Danilo
     integration =(
 
-2002-06-29  Owen Taylor
+2002-06-29  Owen Taylor  <otaylor@redhat.com>
 
     The hints on Nimbus Sans Regular have been modified in the
     following ways:
@@ -192,7 +192,7 @@
      - Removed vertical stem hints from horizontal serifs on
        roman characters.
 
-2002-06-25  Owen Taylor
+2002-06-25  Owen Taylor  <otaylor@redhat.com>
 
     The hints on Nimbus Sans Regular have been modified in the
     following ways:
