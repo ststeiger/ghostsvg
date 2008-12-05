@@ -1,6 +1,0 @@
-# svn export http://svn.ghostscript.com:8080/ghostscript/tags/ghostscript-6.64/doc/ 6.64
-svn export http://svn.ghostscript.com:8080/ghostscript/trunk/gs/doc/ current
-
-for f in current/*.htm ; do sed -e munge.sed < $f > o ; mv o $f ; done
-cp gs.css current/
-
