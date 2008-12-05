@@ -4,26 +4,40 @@
 # $Id: parser.awk,v 1.6 2002/12/07 13:46:45 olt Exp $
 ################################################################################
 # Copyright (c) 2002 Oliver Tonnhofer (olt@bogosoft.com)
+# Copyright 2008 Artifex Sofware, Inc.
 # See the file `COPYING' for copyright notice.
 ################################################################################
 #
-# Changed almost everything. --Tor
+# Changed almost everything. -- Tor Andersson
+# Merged header and footer, switched to static pages.  -- Ralph Giles
 #
 
 BEGIN {
+    #    --- default config ---
+    #    img_tag: HTML img tag  for picture in page header.
+    localconf["img_tag"] = "<img src=\"logo.png\" width=\"56\" height=\"64\" align=\"right\">"
+    #    css: Stylesheet to use
+    localconf["css"] = "style.css"
+
     list["ol"] = 0
     list["ul"] = 0
     list["dl"] = 0
-    scriptname = ENVIRON["SCRIPT_NAME"]
     FS = "[ ]"
     
-    cmd = "ls " datadir
+    cmd = "ls *.awki"
     while ((cmd | getline ls_out) >0)
-        if (match(ls_out, /[0-9A-Za-z_.,:-]+/) && substr(ls_out, RSTART + RLENGTH) !~ /,v/) {
-            page = substr(ls_out, RSTART, RLENGTH)
+        if (match(ls_out, /[0-9A-Za-z_.,:-]+\.awki/) && 
+            substr(ls_out, RSTART + RLENGTH) !~ /,v/) {
+            page = substr(ls_out, RSTART, RLENGTH - 5)
             pages[tolower(page)] = page
         }
     close(cmd)
+
+    # for some reason we don't get FILENAME set correctly
+    if (!FILENAME) FILENAME = ARGV[ARGC - 1]
+    page = FILENAME
+    sub(/\..*$/, "", page)
+    header(page)
 }
 
 # register blanklines
@@ -90,11 +104,11 @@ BEGIN {
         if (pages[tolower(filename)])
         {
             filename = pages[tolower(filename)]
-            linkbuf = "<a href=\"" scriptname "/" filename "\">" pagename "</a>"
+            linkbuf = "<a href=\"" filename ".html\">" pagename "</a>"
         }
         else
         {
-            linkbuf = "<a class=nowhere href=\"" scriptname "/" filename "\">" pagename "</a>"
+            linkbuf = "<a class=nowhere href=\"" filename "\">" pagename "</a>"
         }
 
         workbuf = workbuf initbuf linkbuf
@@ -148,7 +162,8 @@ NR == 1 { print "<p>"; }
 
 END {
     $0 = ""
-    close_tags();
+    close_tags()
+    footer(page)
 }
 
 function close_tags(not) {
@@ -224,5 +239,41 @@ function parse_list(this, other1, other2) {
     list[other1] = 0
     list[other2] = 0
     list[this] = tabcount
+}
+
+# print header
+function header(page) {
+        pagename = page
+        gsub(/_/, " ", pagename)
+
+    print "<html>\n<head>\n<title>Ghostscript: " pagename "</title>"
+    if (localconf["css"])
+        print "<link rel=\"stylesheet\" href=\"" localconf["css"] "\">"
+    if (query["page"] ~ "Search")
+        # protect robots from recursion
+        print "<meta name=\"robots\" content=\"noindex,nofollow\" />"
+    print "</head>\n<body>"
+    print "<div class=head><h1>"
+    if (localconf["img_tag"])
+        print localconf["img_tag"]
+    print pagename
+    print "</h1></div><div class=page>"
+}
+
+# print footer
+function footer(page) {
+    print "</div>"
+    print "<div class=foot>"
+    print "<table class=foot width=100%><tr><td class=footleft>"
+    print "<a href=\"/\">Home</a>"
+    print "<a href=\"Index\">Index</a>"
+    print "<td class=footright>"
+    print "<form action=\"/Search\" method=\"GET\" align=\"right\">"
+    print "Search: "
+    print "<input type=\"text\" name=\"string\">"
+    # print "<input type=\"submit\" value=\"Search\">"
+    print "</form>\n"
+    print "</table>"
+    print "</div></body>\n</html>"
 }
 
