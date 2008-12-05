@@ -1,0 +1,42 @@
+head	1.2;
+access;
+symbols;
+locks
+	www-data:1.2; strict;
+comment	@# @;
+
+
+1.2
+date	2008.06.12.00.26.14;	author www-data;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2007.12.03.19.01.03;	author www-data;	state Exp;
+branches;
+next	;
+
+
+desc
+@Ghostxps
+@
+
+
+1.2
+log
+@66.183.19.247;;2008-06-11 17:26:14;;link to to ghostpcl page for download info
+@
+text
+@Ghostxps is an implementation of the Microsoft XPS document format built on top of Ghostscript.
+
+See the [Ghostpcl] page for more info.
+@
+
+
+1.1
+log
+@66.183.19.247;;2007-12-03 11:01:03;;renaming from GhostXPS
+@
+text
+@d2 2
+@

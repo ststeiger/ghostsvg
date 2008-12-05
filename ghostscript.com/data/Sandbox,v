@@ -1,0 +1,64 @@
+head	1.1;
+access;
+symbols;
+locks
+	www-data:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2008.07.31.00.03.21;	author www-data;	state Exp;
+branches;
+next	;
+
+
+desc
+@Sandbox
+@
+
+
+1.1
+log
+@66.183.19.247;;2008-07-30 17:03:21;;remove the sandbox page
+@
+text
+@Whoaaaa?
+
+Am I <b>bold</b> or <i>slanted</i>?
+
+Nope, I am <tt>code</tt>.
+
+This is a WikiLink, and this is a [Page link].
+The latest release is [afpl ghostscript 8.54].
+Let's try out some example code:
+
+ int main(int argc, char **argv)
+ {
+     printf("Hello, world!\n");
+     argv[0] = "foo";
+ }
+
+The logo: http://bright-beauty.local/~tor/gslogo.gif is here. Go to the ghostscript [http://ghostscript.com/ home page]. or raw: http://ghostscript.com/ foo.
+
+= Lists and lists
+
+A list of things:
+* one
+* two
+** subone
+** subtwo
+* three
+
+: subjekt: brukar vara ett substantiv.
+: predikat: det som händer.
+
+----
+
+ordered
+1 asdf
+1 zxcv
+11 ooo
+1 qwer
+
+Slutet är här.
+@
