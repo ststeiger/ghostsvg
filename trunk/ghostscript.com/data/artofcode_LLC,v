@@ -1,0 +1,46 @@
+head	1.2;
+access;
+symbols;
+locks
+	www-data:1.2; strict;
+comment	@# @;
+
+
+1.2
+date	2008.07.31.00.06.57;	author www-data;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2007.02.15.09.42.17;	author www-data;	state Exp;
+branches;
+next	;
+
+
+desc
+@artofcode_LLC
+@
+
+
+1.2
+log
+@66.183.19.247;;2008-07-30 17:06:57;;artofcode is not longer the copyright holder.
+@
+text
+@http://www.levien.com/artofcode/logo.gif
+
+artofcode, LLC. was for some years the copyright holder for Ghostscript. In 2007, ownership was transferred to Artifex Software, Inc.
+
+http://artofcode.com/
+@
+
+
+1.1
+log
+@64.180.111.22;;2007-02-15 01:42:17;;link the the official domain, not the path through raphs personal domain
+@
+text
+@d3 1
+a3 1
+artofcode, LLC. is the copyright holder for Ghostscript.
+@

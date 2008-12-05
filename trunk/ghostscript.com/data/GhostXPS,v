@@ -1,0 +1,42 @@
+head	1.2;
+access;
+symbols;
+locks
+	www-data:1.2; strict;
+comment	@# @;
+
+
+1.2
+date	2007.12.03.19.00.36;	author www-data;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2007.03.13.23.15.42;	author www-data;	state Exp;
+branches;
+next	;
+
+
+desc
+@GhostXPS
+@
+
+
+1.2
+log
+@66.183.19.247;;2007-12-03 11:00:36;;correct product capitalization
+@
+text
+@Ghostxps is an implementation of the Microsoft XPS document format built on top of Ghostscript.
+@
+
+
+1.1
+log
+@64.180.109.195;;2007-03-13 16:15:42;;put something here
+@
+text
+@d1 1
+a1 1
+GhostXPS is an implementation of the Microsoft XPS document format built on top of Ghostscript.
+@

@@ -1,0 +1,36 @@
+Welcome to [Ghostscript], an interpreter for the PostScript language, PDF
+and various other page description languages.
+
+= Releases
+
+The leading edge of Ghostscript development is under GPL license,
+as is the latest release, Ghostscript 8.64.
+
+Ghostscript can be downloaded [http://ghostscript.com/releases/ here], and from
+[http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/current/ cs.wisc.edu] and
+[http://sourceforge.net/project/showfiles.php?group_id=1897&package_id=108733 sourceforge.net].
+
+= More information
+
+* [http://ghostscript.com/doc/current/Readme.htm Documentation]
+* [http://www.ghostscript.com/mailman/listinfo/ Mailing lists]
+* [http://bugs.ghostscript.com/ Bug tracker]
+* [http://svn.ghostscript.com/ Source repository]
+
+= Bug bounty program
+
+Artifex Software offers bounties for accepted fixes on some of the issues in our [http://bugs.ghostscript.com/ tracker]. These are marked with the [http://bugs.ghostscript.com/buglist.cgi?keywords=bountiable&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED 'bountiable'] keyword.
+
+[http://bugs.ghostscript.com/buglist.cgi?keywords=bountiable&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&priority=P1&priority=P2 Bugs at P1 and P2] pay a bounty of US$1000 each. Bugs at [http://bugs.ghostscript.com/buglist.cgi?keywords=bountiable&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&priority=P3&priority=P4&priority=P5 lower priority] pay US$500.
+
+This is a great way to get involved in Ghostscript development and make a little cash at the same time. If you start working on a bug, just let us know by posting a comment on the bug. Fixes are first come, first served, within reason. Final arbitration is up to Artifex.
+
+Have at!
+
+= GSview
+
+GSview is a graphical interface for Ghostscript. Ghostscript is an interpreter for the PostScript page description language used by laser printers. For documents following the Adobe PostScript Document Structuring Conventions, GSview allows selected pages to be viewed or printed. GSview requires  Ghostscript. GSview is available for Windows, OS/2 and Linux.
+
+[http://pages.cs.wisc.edu/~ghost/gsview/index.htm See here for more information]
+
+GSview was written by Russell Lang at Ghostgum Software Pty Ltd.

@@ -1,0 +1,35 @@
+Welcome to [Ghostscript], an interpreter for the PostScript language and for PDF.
+
+= [Releases] and [News]
+
+The leading edge of Ghostscript development is under GPL license, as is the latest release, Ghostscript 8.63.
+
+Ghostscript can be downloaded [http://ghostscript.com/releases/ here], and from
+[http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/current/ cs.wisc.edu] and
+[http://sourceforge.net/project/showfiles.php?group_id=1897&package_id=108733 sourceforge.net].
+
+= Documention
+
+We keep online documentation for the 
+[http://ghostscript.com/doc/current/Readme.htm development tree]
+and many previous releases in the [documentation] archive.
+
+= Developers
+
+* [http://www.ghostscript.com/mailman/listinfo/ Mailing lists]
+* [http://bugs.ghostscript.com/ Bugzilla]
+* [http://svn.ghostscript.com/ Source repository]
+* [Bug bounty program]
+
+= Related projects
+
+Other page description languages:
+
+* [Ghostpcl]
+* [Ghostpdf]
+* [Ghostxps]
+* [MuPDF]
+
+A user-friendly viewer:
+
+* [GSview]
