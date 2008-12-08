@@ -15,31 +15,19 @@ BEGIN {
     #    img_tag: HTML img tag  for picture in page header.
     localconf["img_tag"] = "<img src=\"/awki.png\" width=\"48\" height=\"39\" align=\"left\">"
     #    datadir: Directory for raw pagedata (must be writeable for the script).
-    localconf["datadir"] = "./data/"
-    #    parser: Parsing script.
     localconf["parser"] = "./awkihtml.awk"
-    #   special_parser: Parser for special_* functions.
-    localconf["special_parser"] = "./special_parser.awk"
-    #    default_page: Name of the default_page.
-    localconf["default_page"] = "FrontPage"
-    #    show_changes: Number of changes listed by RecentChanges
-    localconf["show_changes"] = 10
     #    max_post: Bytes accept by POST requests (to avoid DOS).
     localconf["max_post"] = 100000
     #    write_protection: Regex for write protected files
     #       e.g.: "*", "PageOne|PageTwo|^.*NonEditable" 
     #        HINT: to edit these protected pages, upload a .htaccess 
     #              protected awki.cgi script with write_protection = ""
-    localconf["write_protection"] = ""
-    #   css: HTTP URL for external CSS file.
     localconf["css"] = ""
     #   always_convert_spaces: If true, convert runs of 8 spaces to tab automatical.
     localconf["always_convert_spaces"] = 0
     #    date_cmd: Command for current date.
     localconf["date_cmd"] = "date '+%e %b. %G %R:%S %Z'"
     #    rcs: If true, rcs is used for revisioning.
-    localconf["rcs"] = 0
-    #    path: add path to PATH environment
     localconf["path"] = ""
     #            --- default options ---
 
