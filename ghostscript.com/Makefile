@@ -1,15 +1,21 @@
 # GNU makefile for generating static pages from wiki source.
 
-PAGES = $(wildcard *.awki)
-HTML = $(PAGES:.awki=.html)
-SCRIPT = parser.awk
+PAGES   := $(wildcard *.awki)
+SPECIAL := contents.html
+SCRIPT  := parser.awk
 
-all: $(HTML)
+HTML    := $(PAGES:.awki=.html)
+
+all: $(HTML) $(SPECIAL)
 
 %.html: %.awki $(SCRIPT)
-	awk -f parser.awk $< > $@
+	awk -f $(SCRIPT) $< > $@
+
+contents.awki: $(SCRIPT) listawki.awk
+	ls *.awki | awk -f listawki.awk -v head="Available pages:" > $@
 
 clean:
 	$(RM) $(HTML)
+	$(RM) $(SPECIAL) $(SPECIAL:.html=.awki)
 
 .PHONEY: all clean
