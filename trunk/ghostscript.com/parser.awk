@@ -232,7 +232,7 @@ function parse_list(this, other1, other2) {
             $0 = " <dt>" $0
         }
         else {
-            $0 = " <li>" $0
+            $0 = " <li>" $0 "</li>"
         }
     }
 
@@ -243,9 +243,11 @@ function parse_list(this, other1, other2) {
 
 # print header
 function header(page) {
-        pagename = page
-        gsub(/_/, " ", pagename)
-
+    pagename = page
+    gsub(/_/, " ", pagename)
+    if (pagename ~ "index")
+        pagename = "Ghostscript"
+    
     print "<html>\n<head>\n<title>Ghostscript: " pagename "</title>"
     if (localconf["css"])
         print "<link rel=\"stylesheet\" href=\"" localconf["css"] "\">"
@@ -266,12 +268,12 @@ function footer(page) {
     print "<div class=foot>"
     print "<table class=foot width=100%><tr><td class=footleft>"
     print "<a href=\"/\">Home</a>"
-    print "<a href=\"Index\">Index</a>"
+    print "<a href=\"contents.html\">Contents</a>"
     print "<td class=footright>"
-    print "<form action=\"/Search\" method=\"GET\" align=\"right\">"
+    print "<form action=\"/search\" method=\"GET\" align=\"right\">"
     print "Search: "
     print "<input type=\"text\" name=\"string\">"
-    # print "<input type=\"submit\" value=\"Search\">"
+    # print "<input type=\"submit\" value=\"search\">"
     print "</form>\n"
     print "</table>"
     print "</div></body>\n</html>"
