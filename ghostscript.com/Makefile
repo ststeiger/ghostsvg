@@ -2,7 +2,7 @@
 
 PAGES   := $(wildcard *.awki)
 SPECIAL := contents.html
-SCRIPT  := parser.awk
+SCRIPT  := awkihtml.awk
 
 HTML    := $(PAGES:.awki=.html)
 
