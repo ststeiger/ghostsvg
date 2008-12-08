@@ -17,7 +17,7 @@ BEGIN {
     #    datadir: Directory for raw pagedata (must be writeable for the script).
     localconf["datadir"] = "./data/"
     #    parser: Parsing script.
-    localconf["parser"] = "./parser.awk"
+    localconf["parser"] = "./awkihtml.awk"
     #   special_parser: Parser for special_* functions.
     localconf["special_parser"] = "./special_parser.awk"
     #    default_page: Name of the default_page.
@@ -113,7 +113,7 @@ function listpage(page, cmd, title) {
         page = page $_ "\n"
     }
     close(cmd)
-    system("echo '" page "' | awk -f parser.awk -v FILENAME='" title "'")
+    system("echo '" page "' | awk -f awkihtml.awk -v FILENAME='" title "'")
 }
 
 # remove '"` characters from string
