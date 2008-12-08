@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f
 ################################################################################
 # awkiawki - wikiwiki clone written in (n|g|m)awk
-# $Id: awki.cgi,v 1.45 2004/07/13 16:34:45 olt Exp $
+# $Id$
 ################################################################################
 # Copyright (c) 2002 Oliver Tonnhofer (olt@bogosoft.com)
 # Copyright 2008 Artifex Software, Inc.

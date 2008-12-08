@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f
 ################################################################################
 # parser.awk - parsing script for awkiawki
-# $Id: parser.awk,v 1.6 2002/12/07 13:46:45 olt Exp $
+# $Id$
 ################################################################################
 # Copyright (c) 2002 Oliver Tonnhofer (olt@bogosoft.com)
 # Copyright 2008 Artifex Sofware, Inc.
