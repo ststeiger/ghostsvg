@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /awki/Search?
-Disallow: /edit.cgi/
+Disallow: /search
