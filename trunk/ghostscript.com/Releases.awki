@@ -1,6 +1,6 @@
 = GPL Ghostscript
 
-The latest GPL release is [GPL Ghostscript 8.63] (2008-08-01).
+The latest GPL release is [GPL Ghostscript 8.64] (2009-02-03).
 
 = Other releases
 
@@ -30,6 +30,10 @@ The current development tree is available from [http://svn.ghostscript.com/ our 
 
 The files are available from these locations:
 
-http://sourceforge.net/projects/ghostscript/
+* http://ghostscript.com/releases/
 
-ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/current
+* http://sourceforge.net/projects/ghostscript/
+
+* ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/current
+
+* http://code.google.com/p/ghostscript/downloads/list
