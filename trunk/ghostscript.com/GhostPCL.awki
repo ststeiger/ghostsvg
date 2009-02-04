@@ -5,9 +5,9 @@ If you have obtained a commercial OEM license agreement from Artifex, the file s
 
 = Latest release
 
-GhostPDL 1.53 is the current stable release.
+GhostPDL 1.54 is the current stable release.
 
-* [http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/ghostpdl/ghostpdl-1.53.tar.bz2 ghostpdl-1.53.tar.bz2]
+* [http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/ghostpdl/ghostpdl-1.54.tar.bz2 ghostpdl-1.54.tar.bz2]
 
 This is the current release of GhostPCL and GhostXPS. To be useful, GhostPCL also requires a font set. An archive of the standard 80 TrueType fonts from URW is available below, distributed under the [Aladdin Free Public License]. GhostXPS works fine without the extra font set.
 
@@ -30,6 +30,9 @@ The same set of 80 standard fonts from URW are also available in Type 1 versions
 Some development snapshots are available here: http://ghostscript.com/snapshots/
 
 = Old releases
+
+GhostPDL 1.53 is an older stable release.
+* [http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/ghostpdl/ghostpdl-1.53.tar.bz2 ghostpdl-1.53.tar.bz2]
 
 GhostPDL 1.52 is an older stable release.
 * [http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/ghostpdl/ghostpdl-1.52.tar.bz2 ghostpcl-1.52.tar.bz2]
