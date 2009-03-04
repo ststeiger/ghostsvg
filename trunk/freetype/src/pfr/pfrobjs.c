@@ -315,11 +315,8 @@
     if ( gindex > 0 )
       gindex--;
 
-    if ( !face || gindex >= face->phy_font.num_chars )
-    {
-      error = PFR_Err_Invalid_Argument;
-      goto Exit;
-    }
+    /* check that the glyph index is correct */
+    FT_ASSERT( gindex < face->phy_font.num_chars );
 
     /* try to load an embedded bitmap */
     if ( ( load_flags & ( FT_LOAD_NO_SCALE | FT_LOAD_NO_BITMAP ) ) == 0 )
