@@ -644,17 +644,16 @@ THE SOFTWARE.
                   FT_UInt       glyph_index,
                   FT_Int32      load_flags )
   {
-    BDF_Face     bdf    = (BDF_Face)FT_SIZE_FACE( size );
-    FT_Face      face   = FT_FACE( bdf );
+    BDF_Face     face   = (BDF_Face)FT_SIZE_FACE( size );
     FT_Error     error  = BDF_Err_Ok;
     FT_Bitmap*   bitmap = &slot->bitmap;
     bdf_glyph_t  glyph;
-    int          bpp    = bdf->bdffont->bpp;
+    int          bpp    = face->bdffont->bpp;
 
     FT_UNUSED( load_flags );
 
 
-    if ( !face || glyph_index >= (FT_UInt)face->num_glyphs )
+    if ( !face )
     {
       error = BDF_Err_Invalid_Argument;
       goto Exit;
@@ -662,12 +661,12 @@ THE SOFTWARE.
 
     /* index 0 is the undefined glyph */
     if ( glyph_index == 0 )
-      glyph_index = bdf->default_glyph;
+      glyph_index = face->default_glyph;
     else
       glyph_index--;
 
     /* slot, bitmap => freetype, glyph => bdflib */
-    glyph = bdf->bdffont->glyphs[glyph_index];
+    glyph = face->bdffont->glyphs[glyph_index];
 
     bitmap->rows  = glyph.bbx.height;
     bitmap->width = glyph.bbx.width;
@@ -709,7 +708,7 @@ THE SOFTWARE.
      * used here, provided such fonts do exist.
      */
     ft_synthesize_vertical_metrics( &slot->metrics,
-                                    bdf->bdffont->bbx.height << 6 );
+                                    face->bdffont->bbx.height << 6 );
 
   Exit:
     return error;

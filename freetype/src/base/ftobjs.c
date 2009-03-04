@@ -560,8 +560,8 @@
     if ( !face || !face->size || !face->glyph )
       return FT_Err_Invalid_Face_Handle;
 
-    /* The validity test for `glyph_index' is performed by the */
-    /* font drivers.                                           */
+    if ( glyph_index >= (FT_UInt)face->num_glyphs )
+      return FT_Err_Invalid_Argument;
 
     slot = face->glyph;
     ft_glyphslot_clear( slot );

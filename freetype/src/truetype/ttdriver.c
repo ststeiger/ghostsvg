@@ -288,7 +288,6 @@
   {
     TT_GlyphSlot  slot = (TT_GlyphSlot)ttslot;
     TT_Size       size = (TT_Size)ttsize;
-    FT_Face       face = ttslot->face;
     FT_Error      error;
 
 
@@ -298,7 +297,7 @@
     if ( !size )
       return TT_Err_Invalid_Size_Handle;
 
-    if ( !face || glyph_index >= (FT_UInt)face->num_glyphs )
+    if ( !face )
       return TT_Err_Invalid_Argument;
 
     if ( load_flags & FT_LOAD_NO_HINTING )
