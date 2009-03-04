@@ -1245,12 +1245,19 @@
 
     if ( loader->byte_len > 0 )
     {
-      if ( !loader->glyf_offset )
+	/* Following code removed because the test seems bogus. Why should the 
+	 * glyf_offset not be 0, if its the first glyph ? 
+	 * Files "0000728-simpleNG.pdf" and "067a_unc-stroke.pdf" fail with this
+	 * test in place, work correctly with it removed.
+	 */
+#if 0
+	if ( !loader->glyf_offset )
       {
         FT_TRACE2(( "no `glyf' table but non-zero `loca' entry!\n" ));
         error = TT_Err_Invalid_Table;
         goto Exit;
       }
+#endif
 
       error = face->access_glyph_frame( loader, glyph_index,
                                         loader->glyf_offset + offset,
