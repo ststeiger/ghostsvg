@@ -283,12 +283,13 @@
     FT_Bool                 glyph_data_loaded = 0;
 #endif
 
-
+#ifndef FT_CONFIG_OPTION_INCREMENTAL
     if ( glyph_index >= (FT_UInt)face->root.num_glyphs )
     {
       error = T1_Err_Invalid_Argument;
       goto Exit;
     }
+#endif
 
     FT_ASSERT( ( face->len_buildchar == 0 ) == ( face->buildchar == NULL ) );
 
