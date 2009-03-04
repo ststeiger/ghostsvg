@@ -297,28 +297,17 @@
     if ( !size )
       return TT_Err_Invalid_Size_Handle;
 
-    if ( !face )
-      return TT_Err_Invalid_Argument;
-
     if ( load_flags & FT_LOAD_NO_HINTING )
     {
       /* both FT_LOAD_NO_HINTING and FT_LOAD_NO_AUTOHINT   */
       /* are necessary to disable hinting for tricky fonts */          
-
-      if ( FT_IS_TRICKY( face ) )
-        load_flags &= ~FT_LOAD_NO_HINTING;
 
       if ( load_flags & FT_LOAD_NO_AUTOHINT )
         load_flags |= FT_LOAD_NO_HINTING;
     }
 
     if ( load_flags & ( FT_LOAD_NO_RECURSE | FT_LOAD_NO_SCALE ) )
-    {
       load_flags |= FT_LOAD_NO_BITMAP | FT_LOAD_NO_SCALE;
-
-      if ( !FT_IS_TRICKY( face ) )
-        load_flags |= FT_LOAD_NO_HINTING;
-    }
 
     /* now load the glyph outline if necessary */
     error = TT_Load_Glyph( size, slot, glyph_index, load_flags );
