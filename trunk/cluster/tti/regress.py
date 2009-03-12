@@ -90,7 +90,7 @@ class Conf:
 	# the normal comparefiles suite
         self.tests += ['tests_private/comparefiles/*.ps', 
 		'tests_private/comparefiles/*.pdf', 
-		'tests_private/comparfiles/*.ai']
+		'tests_private/comparefiles/*.ai']
 	# Quality Logic CET suite
 	self.tests += ['tests_private/ps/ps3cet/*.PS']
       if basename.find('xps') >= 0:
