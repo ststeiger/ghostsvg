@@ -6,11 +6,14 @@ import sys
 
 try:
   from mpi4py import MPI
+  if not hasattr(MPI, 'size'): MPI.size = MPI.COMM_WORLD.size
+  if not hasattr(MPI, 'rank'): MPI.rank = MPI.COMM_WORLD.rank
 except ImportError:
   class DummyMPI:
     '''A dummy MPI class for running serial jobs.'''
     size = 1
     rank = 0
+  print 'Falling back to serial execution.'
   MPI = DummyMPI()
 
 class Conf:
