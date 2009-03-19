@@ -193,7 +193,7 @@ class SelfTestSuite:
     if not conf.batch:
       print '-'*72
     print 'ran %d tests with %s in %.3f seconds on %d nodes\n' % \
-	(len(self.tests), os.path.basename(conf.exe),
+	(len(self.tests), os.path.basename(conf.exe.split()[0]),
 	 self.elapsed, MPI.size)
     if self.fails:
       print 'FAILED %d of %d tests' % \
