@@ -197,6 +197,7 @@
     /* seac weirdness */
     adx += decoder->builder.left_bearing.x;
 
+#ifndef FT_CONFIG_OPTION_INCREMENTAL
     /* `glyph_names' is set to 0 for CID fonts which do not */
     /* include an encoding.  How can we deal with these?    */
     if ( decoder->glyph_names == 0 )
@@ -208,6 +209,10 @@
 
     bchar_index = t1_lookup_glyph_by_stdcharcode( decoder, bchar );
     achar_index = t1_lookup_glyph_by_stdcharcode( decoder, achar );
+#else
+    bchar_index = bchar;
+    achar_index = achar;
+#endif
 
     if ( bchar_index < 0 || achar_index < 0 )
     {
