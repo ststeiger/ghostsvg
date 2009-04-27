@@ -6,8 +6,13 @@ import sys
 
 try:
   from mpi4py import MPI
+  # add size and rank attributes lost after mpi4py 0.4.0
   if not hasattr(MPI, 'size'): MPI.size = MPI.COMM_WORLD.size
   if not hasattr(MPI, 'rank'): MPI.rank = MPI.COMM_WORLD.rank
+  # add python object send/recv adding in mpi4py 1.0.0
+  world = MPI.COMM_WORLD
+  if not hasattr(world, 'send'): world.send = world.Send
+  if not hasattr(world, 'recv'): world.recv = world.Recv
 except ImportError:
   class DummyMPI:
     '''A dummy MPI class for running serial jobs.'''
@@ -245,8 +250,8 @@ class MPITestSuite(SelfTestSuite):
       # daughter nodes run requested tests
       test = None
       while True:
-        MPI.COMM_WORLD.Send(test, dest=0)
-        test = MPI.COMM_WORLD.Recv(source=0)
+        MPI.COMM_WORLD.send(test, dest=0)
+        test = MPI.COMM_WORLD.recv(source=0)
         if not test:
           break
         test.run()
@@ -256,14 +261,14 @@ class MPITestSuite(SelfTestSuite):
       self.tests = []
       while tests:
         status = MPI.Status()
-        test = MPI.COMM_WORLD.Recv(source=MPI.ANY_SOURCE, status=status)
+        test = MPI.COMM_WORLD.recv(source=MPI.ANY_SOURCE, status=status)
         self.addResult(test)
-        MPI.COMM_WORLD.Send(tests.pop(0), dest=status.source)
+        MPI.COMM_WORLD.send(tests.pop(0), dest=status.source)
       # retrieve outstanding results and tell the nodes we're finished
       for node in xrange(1, MPI.size):
-        test = MPI.COMM_WORLD.Recv(source=MPI.ANY_SOURCE)
+        test = MPI.COMM_WORLD.recv(source=MPI.ANY_SOURCE)
 	self.addResult(test)
-        MPI.COMM_WORLD.Send(None, dest=node)
+        MPI.COMM_WORLD.send(None, dest=node)
     stoptime = time.time()
     self.elapsed = stoptime - starttime
     if MPI.rank == 0:
