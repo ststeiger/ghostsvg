@@ -86,6 +86,8 @@ class Conf:
 	# Quality Logic suites
         self.tests += ['tests_private/pcl/*/*', \
 		'tests_private/xl/*/*.bin', 'tests_private/xl/*/*.BIN']
+        # Wild files from customers
+        self.tests += ['tests_private/customer_tests/*']
       # we can't use find() for 'gs' because it also matches 'gsvg'
       if basename.find('pspcl') >= 0 or basename == 'gs':
 	# public test suite
@@ -96,6 +98,9 @@ class Conf:
 		'tests_private/comparefiles/*.ai']
 	# Quality Logic CET suite
 	self.tests += ['tests_private/ps/ps3cet/*.PS']
+	# Quality Logic PDF suite
+	self.tests += ['tests_private/pdf/PDFIA1.7_SUBSET/*.pdf',
+		'tests_private/pdf/PDFIA1.7_SUBSET/*.PDF']
       if basename.find('xps') >= 0:
 	# Quality Logic suites
 	self.tests += ['tests_private/xps/xpsfts-a4/*.xps']
@@ -103,8 +108,8 @@ class Conf:
 	#self.tests += ['tests_private/xps/ats/*-Native.xps']
       if basename.find('svg') >= 0:
 	# W3C test suite
-	self.tests += ['tests_public/svg/svgw3c-1.2-tiny/svg/*.svg',
-		'tests_public/svg/svgw3c-1.1-full/svg/*.svg']
+	#self.tests += ['tests_public/svg/svgw3c-1.2-tiny/svg/*.svg']
+	self.tests += ['tests_public/svg/svgw3c-1.1-full/svg/*.svg']
 
 # global configuration instance
 conf = Conf()
@@ -124,6 +129,11 @@ class OKResult(TestResult):
   'result class for successful tests'
   def __str__(self):
     return 'ok'
+
+class DiffResult(TestResult):
+  'result class for tests showing differences'
+  def __str__(self):
+    return 'DIFF'
 
 class FailResult(TestResult):
   'result class for failed tests'
@@ -157,6 +167,7 @@ class SelfTestSuite:
   def __init__(self, stream=sys.stderr):
     self.stream = stream
     self.tests = []
+    self.diffs = []
     self.fails = []
     self.errors = []
     self.news = []
@@ -174,6 +185,8 @@ class SelfTestSuite:
         self.errors.append(test)
       elif isinstance(test.result, NewResult):
         self.news.append(test)
+      elif isinstance(test.result, DiffResult):
+        self.diffs.append(test)
       elif not isinstance(test.result, OKResult):
         # treat everything else as a failure
         self.fails.append(test)
@@ -195,6 +208,13 @@ class SelfTestSuite:
     print 'ran %d tests with %s in %.3f seconds on %d nodes\n' % \
 	(len(self.tests), os.path.basename(conf.exe.split()[0]),
 	 self.elapsed, MPI.size)
+    if self.diffs:
+      print 'DIFFERENCES in %d of %d tests' % \
+        (len(self.diffs),len(self.tests))
+      if conf.batch:
+        for test in self.diffs:
+          print '  ' + test.description()
+        print
     if self.fails:
       print 'FAILED %d of %d tests' % \
 	(len(self.fails),len(self.tests))
@@ -210,7 +230,7 @@ class SelfTestSuite:
           print '  ' + test.description()
           print test.result.msg
         print
-    if not self.fails and not self.errors and not self.news:
+    if not self.diffs and not self.fails and not self.errors and not self.news:
       print 'PASSED all %d tests' % len(self.tests)
     if self.news:
       print '%d NEW files with no previous result' % len(self.news)
@@ -268,7 +288,7 @@ class md5Test(SelfTest):
     if not 'ps3cet' in os.path.dirname(file):
       self.opts += " -dSAFER"
     self.opts += " -K1000000 -dMaxBitmap=30000000"
-    #self.opts += " -Z:@"
+    self.opts += " -Z:@"
     self.opts += " -sDEVICE=%s -r%d" % (device, dpi)
     self.psopts = '-dJOBSERVER'
     if 'ps3cet' in os.path.dirname(file):
@@ -294,11 +314,13 @@ class md5Test(SelfTest):
     else:
       cmd = '%s %s -sOutputFile="|md5sum>%s" %s' % \
 	(self.exe, self.opts, scratch, self.file)
-    sys.stderr.write("Running: %s\n" % cmd)
+    if conf.verbose:
+      sys.stderr.write("Running: %s\n" % cmd)
     run = os.popen(cmd)
     msg = run.readlines()
     code = run.close()
-    sys.stderr.write("Finished: %s\n" % cmd)
+    if conf.verbose:
+      sys.stderr.write("Finished: %s\n" % cmd)
     if code:
       self.result = ErrorResult(''.join(msg))
       return
@@ -316,7 +338,7 @@ class md5Test(SelfTest):
     if self.md5sum == md5sum:
       self.result = OKResult(md5sum)
     else:
-      self.result = FailResult(md5sum)
+      self.result = DiffResult(md5sum)
 
 class DB:
   '''class representing an md5 sum database'''
@@ -394,10 +416,10 @@ def run_regression():
       key = db.makekey(test.file, device=test.device, dpi=test.dpi)
       db[key] = test.result.msg
     if conf.update:
-      if len(suite.fails):
-        print 'Updating baselines for the failed tests.'
+      if len(suite.diffs):
+        print 'Updating baselines with test differences.'
 	print
-      for test in suite.fails:
+      for test in suite.diffs:
         key = db.makekey(test.file, device=test.device, dpi=test.dpi)
         db[key] = test.result.msg
     db.save()
