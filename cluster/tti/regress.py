@@ -89,8 +89,7 @@ class Conf:
 	# public test suite
 	self.tests += ['tests_public/pcl/*']
 	# Quality Logic suites
-        self.tests += ['tests_private/pcl/*/*', \
-		'tests_private/xl/*/*.bin', 'tests_private/xl/*/*.BIN']
+        self.tests += ['tests_private/pcl/*/*', 'tests_private/xl/*/*']
         # Wild files from customers
         self.tests += ['tests_private/customer_tests/*']
       # we can't use find() for 'gs' because it also matches 'gsvg'
