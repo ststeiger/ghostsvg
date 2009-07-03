@@ -25,7 +25,7 @@ def choosecluster():
       procs = int(m.group("procs"))
       free = int(m.group("free"))
       # remember the cluster with the most free nodes
-      if free > nodes and name != 'orange' and name != 'total': 
+      if free > nodes and not name in ('green', 'orange', 'total'): 
         nodes = free
         cluster = name
       clusters.append((name,procs,free))
@@ -34,13 +34,16 @@ def choosecluster():
 def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
   if not resources:
     cluster, nodes = choosecluster()
-    if nodes > 1 and cluster == 'red' or cluster == 'green':
+    # 'green' nodes are now 64-bit. We build for 32-bit
+    if nodes > 1 and cluster == 'red':		# or cluster == 'green':
       # red reports two cpus per node
       nodes /= 2
       ppn = ':ppn=2'
     else:
       ppn = ''
-    resources = 'nodes=%d:%s:run%s,walltime=20:00' % (nodes, cluster, ppn)
+    if nodes > 20: nodes = 20
+    # walltime doesn't limit job usage, cput does. Recent runs were about 6000 sec
+    resources = 'nodes=%d:%s:run%s,cput=40000' % (nodes, cluster, ppn)
     print 'requesting', nodes, 'nodes on', cluster
   if stdout: jobname = stdout + '.pbs'
   else: jobname = 'regress.pbs'
@@ -81,17 +84,17 @@ def build(rev=None, target=None, clean=False):
   if clean:
     if target == "pcl":
       # no autoconf on the PCL build
-      cmd = "make clean && nice make"
+      cmd = "make clean && make"
     else:
       if os.path.exists('Makefile'):
-        cmd = "make clean && nice ./autogen.sh && nice make"
+        cmd = "make clean && ./autogen.sh && make"
       else:
-        cmd = "nice ./autogen.sh && make clean && nice make"
+        cmd = "./autogen.sh && make clean && make"
   else:
     if os.path.exists('Makefile'):
-      cmd = "nice make"
+      cmd = "make"
     else:
-      cmd = "./autogen.sh && nice make"
+      cmd = "./autogen.sh && make"
   if False:
     # build on the dispatch host
     make = os.system(cmd)
@@ -122,6 +125,7 @@ def log(msg):
 def gettarget():
   '''Guess whether we're doing Ghostscript for GhostPCL'''
   if os.path.exists("main/pcl6_gcc.mak"): return "pcl"
+  elif os.path.exists("psi/gs.c"): return "gs"
   elif os.path.exists("src/gs.c"): return "gs"
   else: return None
 
@@ -142,6 +146,9 @@ def runrev(rev=None, report=None, target=None):
     cmd = 'bwpython ~/regression/regress.py --batch --update'
     if target == "pcl":
       cmd += ' --exe main/obj/pcl6'
+      cmd += ' --device=ppmraw --device=pbmraw --device=wtsimdi --device=bitrgb'
+    else:
+      cmd += ' --device=ppmraw --device=pbmraw --device=pkmraw'
     pbsjob(cmd, resources=None, stdout=report)
     # wait for the run to finish
     while not os.path.exists(report):

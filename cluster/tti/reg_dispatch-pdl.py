@@ -163,7 +163,7 @@ def choosecluster():
       procs = int(m.group("procs"))
       free = int(m.group("free"))
       # remember the cluster with the most free nodes
-      if free > nodes and name != 'orange' and name != 'total': 
+      if free > nodes and not name in ('orange', 'green', 'total'): 
         nodes = free
         cluster = name
       clusters.append((name,procs,free))
@@ -195,8 +195,8 @@ def pbsjob(cmd, resources=None, workdir=None,
       nodes -= 1
     else:
       ppn = ''
-    if nodes > 16:
-      nodes = 16
+    if nodes > 24:
+      nodes = 24
     resources = 'nodes=%d:%s:run%s,walltime=1:00:00,cput=25000' % \
 	(nodes, cluster, ppn)
     if ppn:
@@ -242,9 +242,9 @@ def runrev(workdir=None, rev=None, report=None, exe='main/obj/pcl6'):
   cmd = 'bwpython ../regress.py'
   cmd += ' --batch --update'
   cmd += ' --exe ' + exe
-  cmd += ' --device=ppmraw'
-  if exe == 'main/obj/pcl6':
-    cmd += ' --device=pbmraw --device=bitcmyk'
+  cmd += ' --device=ppmraw --device=pbmraw'
+  if os.path.basename(exe) in ('pcl6', 'gxps'):
+    cmd += ' --device=wtsimdi --device=bitrgb'
   pbsjob(cmd, resources=None, workdir=workdir, stdout=report)
   # wait for the run to finish
   while not os.path.exists(report):
