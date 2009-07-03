@@ -101,7 +101,7 @@ def choosecluster():
       procs = int(m.group("procs"))
       free = int(m.group("free"))
       # remember the cluster with the most free nodes
-      if free > nodes and name != 'orange' and name != 'total': 
+      if free > nodes and not name in ('green', 'orange', 'total'): 
         nodes = free
         cluster = name
       clusters.append((name,procs,free))
@@ -118,14 +118,13 @@ def pbsjob(cmd, resources=None, stdout=None, stderr=None, mpi=True):
       if nodes > 1: nodes = nodes - 1
     else:
       ppn = ''
-    # limit runs to 16 nodes (32 cpus)
-    if nodes > 16:
-      nodes = 16
-    # pcput is the CPU time per process. Recent runs complete in ~6000 sec
+    # limit runs to a reasonable number of nodes
+    if nodes > 24: nodes = 24
+    # cput is the CPU time per process.
     # walltime isn't enforced, but gives us priority over longer jobs
     # resources = 'nodes=%d:%s:run%s,cput=10000' % (nodes, cluster, ppn)
-    # perform test on a single node to see what is hanging
-    resources = 'nodes=%d:%s:run%s,walltime=1:00:00,cput=20000' % \
+    # if cput it reached, test on a single node to find the hang
+    resources = 'nodes=%d:%s:run%s,walltime=1:00:00,cput=40000' % \
 	(nodes, cluster, ppn)
     print 'requesting', nodes, 'nodes on', cluster
   if stdout: jobname = stdout + '.pbs'
