@@ -3,10 +3,11 @@ as well as the current development version.
 
 The documentation pages include some links to the Ghostscript source directories <tt>src</tt> and <tt>toolbin</tt>. These links will only work if you are viewing the Ghostscript documentation from the source distribution and not this website.
 
-* [http://ghostscript.com/doc/current/ Development Tree]
+* [http://svn.ghostscript.com/ghostscript/trunk/gs/doc/Readme.htm Development Tree]
 
 = Released Ghostscript Versions
 
+* [http://ghostscript.com/doc/8.63/News.htm GPL Ghostscript 8.63]
 * [http://ghostscript.com/doc/8.54/News.htm GPL Ghostscript 8.54]
 * [http://ghostscript.com/doc/7.07/News.htm GPL Ghostscript 7.07]
 * [http://ghostscript.com/doc/6.53/News.htm GPL Ghostscript 6.53]
@@ -14,4 +15,5 @@ The documentation pages include some links to the Ghostscript source directories
 * [http://ghostscript.com/doc/4.03/ AFPL Ghostscript 4.03]
 * [http://ghostscript.com/doc/3.33/ GNU Ghostscript 3.33]
 
-Some [http://ghostscript.com/doc/API.htm ghostscript API programming examples] are available for C, Delphi and Visual Basic.
+Some [http://svn.ghostscript.com/ghostscript/trunk/gs/doc/API.htm 
+ghostscript API programming examples] are also available.
