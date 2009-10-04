@@ -1,12 +1,11 @@
 Artifex Software is committed to producing code with as few bugs as 
-possible. As such, we have a [http://bugs.ghostscript.com/ public bug 
-tracker] where anyone is welcome to view open issues, report new ones, 
-and contribute analysis and fixes.
- 
+possible. As such, we have a [http://bugs.ghostscript.com/ public bug tracker]
+where anyone is welcome to view open issues, report new ones, and 
+contribute analysis and fixes.
+
 When we have bugs that we'd like to get fixed, but don't have time to 
 work on immediately ourselves, we throw them open to the public and 
-offer bounties for accepted fixes.
-These are marked with the 
+offer bounties for accepted fixes. These are marked with the 
 [http://bugs.ghostscript.com/buglist.cgi?keywords=bountiable&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED 'bountiable'] 
 keyword in the tracker.
 
