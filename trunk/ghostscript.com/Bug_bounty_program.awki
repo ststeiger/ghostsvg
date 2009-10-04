@@ -1,7 +1,30 @@
-Artifex Software offers bounties for accepted fixes on some of the issues in our [http://bugs.ghostscript.com/ tracker]. These are marked with the [http://bugs.ghostscript.com/buglist.cgi?keywords=bountiable&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED 'bountiable'] keyword.
+Artifex Software is committed to producing code with as few bugs as 
+possible. As such, we have a [http://bugs.ghostscript.com/ public bug 
+tracker] where anyone is welcome to view open issues, report new ones, 
+and contribute analysis and fixes.
+ 
+When we have bugs that we'd like to get fixed, but don't have time to 
+work on immediately ourselves, we throw them open to the public and 
+offer bounties for accepted fixes.
+These are marked with the 
+[http://bugs.ghostscript.com/buglist.cgi?keywords=bountiable&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED 'bountiable'] 
+keyword in the tracker.
 
-Bugs at P1 and P2 pay a bounty of US$1000 each. Bugs at lower priority pay US$500.
+Accepted fixes for bugs at P1 and P2 pay a bounty of US$1000 each. Bugs 
+at lower priority pay US$500 per bug.
 
-This is a great way to get involved in Ghostscript development and make a little cash at the same time. If you start working on a bug, just let us know by posting a comment on the bug. Fixes are first come, first served, within reason. Final arbitration is up to Artifex.
+This is a great way to get involved in Ghostscript development and make
+a little cash at the same time. If you start working on a bug, just let 
+us know by posting a comment on the bug. Fixes are first come, first 
+served, within reason. Final arbitration is up to Artifex.
 
-Have at!
+Some of the bugs reference specific files to reproduce the problem; 
+these are generally given as attachments on the bugs themselves, the
+a fix must resolve the issue for the file in question. In cases where 
+these files are commercially sensitive, we cannot make them publicly 
+available. If you'd like to try tackling such a bug, contact us, and we
+can arrange for you to sign an NDA, after which you can access the 
+private attachments and other confidential files.
+
+Our ultimate goal is to get more people involved in the project and 
+improve the quality of the program. Have at!
