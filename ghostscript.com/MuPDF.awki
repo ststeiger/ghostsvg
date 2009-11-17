@@ -1,9 +1,0 @@
-MuPDF is a new C-based PDF parsing library.
-
-MuPDF is based on Fitz, a new and modern graphics library. At the core of Fitz is the display tree: a scene graph of vector graphics, images and text making up the contents of a page.
-
-MuPDF also has an API to modify internal objects in the PDF files and write PDF files. For instance, it is possible to use the MuPDF library to encrypt existing PDF files, or to rearrange the pages.
-
-For more information about Fitz and MuPDF, see this page:
-
-http://ccxvii.net/mupdf/

@@ -1,7 +1,0 @@
-GhostPDF is Artifex Software's implementation of the PDF page 
-description language.
-
-Support for PDF is available as an optional part of the [Ghostscript] 
-package. Please check there for more information.
-
-See [MuPDF] for an alternate PDF implementation.
