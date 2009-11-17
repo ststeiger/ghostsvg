@@ -1,8 +1,0 @@
-<page><title>Recent diary entries</title>
-
-<p> <b>Recent diary entries:</b> <br/>
-<spacer type="vertical" size="3"/>
-<recentlog nmax="50"/>
-</p>
-
-</page>

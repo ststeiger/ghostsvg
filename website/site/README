@@ -1,8 +1,0 @@
-These are mod_vigule template files defining the dynamic pages on the
-ghostscript.com site. A request for index.html will cause the virgule
-engine to process the index.xml template, expanding and filtering as
-indicated.
-
-If there is no corresponding xml file, it will look for a static html
-file in a seperate directory, or failing that return control to apache
-so it can try other methods to map the url.
