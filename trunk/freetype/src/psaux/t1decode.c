@@ -1365,7 +1365,8 @@
           /*   conjunction with results from OtherSubrs procedures. */
 
           /* known_othersubr_result_cnt != 0 is already handled above */
-          if ( decoder->flex_state != 1 )
+#ifdef CHECK_SETCURRENTPOINT_USAGE
+	  if ( decoder->flex_state != 1 )
           {
             FT_ERROR(( "t1_decoder_parse_charstrings: " ));
             FT_ERROR(( "unexpected `setcurrentpoint'\n" ));
@@ -1374,6 +1375,7 @@
           }
           else
             decoder->flex_state = 0;
+#endif
           break;
 
         case op_unknown15:
