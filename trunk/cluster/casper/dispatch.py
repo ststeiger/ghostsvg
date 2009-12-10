@@ -102,8 +102,11 @@ def mainloop():
       doing = True
       print 'submitting gs-r' + rev
       cmd = 'ssh -i ' + ssh_id + ' ' + ssh_dest + ' '
-      #cmd += 'touch regression/rev.queue/' + rev
       cmd += 'touch ' + os.path.join('regression/queue.gs/', rev)
+      os.system(cmd)
+      print 'submitting ghostpdl-r' + rev
+      cmd = 'ssh -i ' + ssh_id + ' ' + ssh_dest + ' '
+      cmd += 'touch ' + os.path.join('regression/queue.pdl/', rev)
       os.system(cmd)
       os.unlink(os.path.join(queuedir,rev))
       continue
@@ -117,23 +120,6 @@ def mainloop():
       cmd = 'rsync -avz --delete'
       cmd += ' --exclude .svn tests_private/*'
       cmd += ' ' + ssh_dest + ':tests_private/'
-      os.system(cmd)
-      print 'updating ghostpcl-r' + rev
-      pclrev, gsrev = rev.split('+')
-      print rev, 'splits into gs rev', gsrev, 'and pcl rev', pclrev
-      cmd = 'svn update -r ' + pclrev + ' ghostpcl'
-      os.system(cmd)
-      # svn external will fail; override with a manual checkout
-      cmd = 'svn co http://svn.ghostscript.com:8080/ghostscript/trunk/gs -r ' + gsrev + ' ghostpcl/gs'
-      os.system(cmd)
-      print 'pushing ghostpcl update'
-      cmd = 'rsync -avz'
-      cmd += ' --exclude ufst --exclude .svn ghostpcl/*'
-      cmd += ' ' + ssh_dest + ':regression/ghostpcl-r' + rev + '/'
-      os.system(cmd)
-      print 'submitting ghostpcl-r' + rev
-      cmd = 'ssh -i ' + ssh_id + ' ' + ssh_dest + ' '
-      cmd += 'touch ' + os.path.join('regression/queue.pcl/', rev)
       os.system(cmd)
       os.unlink(os.path.join(pclqueuedir,rev))
     else:
