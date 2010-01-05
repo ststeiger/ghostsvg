@@ -231,6 +231,10 @@ FT_BEGIN_HEADER
   /*    vertAdvance ::                                                     */
   /*      Advance height for vertical layout.                              */
   /*                                                                       */
+  /* <Note>                                                                */
+  /*    If not disabled with @FT_LOAD_NO_HINTING, the values represent     */
+  /*    dimensions of the hinted glyph (in case hinting is applicable).    */
+  /*                                                                       */
   typedef struct  FT_Glyph_Metrics_
   {
     FT_Pos  width;
@@ -519,10 +523,7 @@ FT_BEGIN_HEADER
   /* <Note>                                                                */
   /*    Despite the name, this enumeration lists specific character        */
   /*    repertories (i.e., charsets), and not text encoding methods (e.g., */
-  /*    UTF-8, UTF-16, GB2312_EUC, etc.).                                  */
-  /*                                                                       */
-  /*    Because of 32-bit charcodes defined in Unicode (i.e., surrogates), */
-  /*    all character codes must be expressed as FT_Longs.                 */
+  /*    UTF-8, UTF-16, etc.).                                              */
   /*                                                                       */
   /*    Other encodings might be defined in the future.                    */
   /*                                                                       */
@@ -535,6 +536,10 @@ FT_BEGIN_HEADER
   /*      all versions of the Unicode repertoire, including ASCII and      */
   /*      Latin-1.  Most fonts include a Unicode charmap, but not all      */
   /*      of them.                                                         */
+  /*                                                                       */
+  /*      For example, if you want to access Unicode value U+1F028 (and    */
+  /*      the font contains it), use value 0x1F028 as the input value for  */
+  /*      @FT_Get_Char_Index.                                              */
   /*                                                                       */
   /*    FT_ENCODING_MS_SYMBOL ::                                           */
   /*      Corresponds to the Microsoft Symbol encoding, used to encode     */
@@ -1476,8 +1481,13 @@ FT_BEGIN_HEADER
   /*                         important to perform correct WYSIWYG layout.  */
   /*                         Only relevant for outline glyphs.             */
   /*                                                                       */
-  /*    advance           :: This is the transformed advance width for the */
-  /*                         glyph (in 26.6 fractional pixel format).      */
+  /*    advance           :: This shorthand is, depending on               */
+  /*                         @FT_LOAD_IGNORE_TRANSFORM, the transformed    */
+  /*                         advance width for the glyph (in 26.6          */
+  /*                         fractional pixel format).  As specified with  */
+  /*                         @FT_LOAD_VERTICAL_LAYOUT, it uses either the  */
+  /*                         `horiAdvance' or the `vertAdvance' value of   */
+  /*                         `metrics' field.                              */
   /*                                                                       */
   /*    format            :: This field indicates the format of the image  */
   /*                         contained in the glyph slot.  Typically       */
@@ -1650,6 +1660,11 @@ FT_BEGIN_HEADER
   /*                                                                       */
   /* <Return>                                                              */
   /*    FreeType error code.  0~means success.                             */
+  /*                                                                       */
+  /* <Note>                                                                */
+  /*    In case you want to provide your own memory allocating routines,   */
+  /*    use @FT_New_Library instead, followed by a call to                 */
+  /*    @FT_Add_Default_Modules (or a series of calls to @FT_Add_Module).  */
   /*                                                                       */
   FT_EXPORT( FT_Error )
   FT_Init_FreeType( FT_Library  *alibrary );
@@ -3757,7 +3772,7 @@ FT_BEGIN_HEADER
    */
 #define FREETYPE_MAJOR  2
 #define FREETYPE_MINOR  3
-#define FREETYPE_PATCH  9
+#define FREETYPE_PATCH  11
 
 
   /*************************************************************************/
