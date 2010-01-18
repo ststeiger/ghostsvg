@@ -2428,7 +2428,10 @@
 
     metrics->vertBearingX = metrics->horiBearingX - metrics->horiAdvance / 2;
     metrics->vertBearingY = ( advance - height ) / 2;
-    metrics->vertAdvance  = advance;
+    /* This line corrupts the vertical advance we have carefully interpreted 
+     * from the type 1 font CharString. We really don't want to do that....
+     */
+/*    metrics->vertAdvance  = advance;*/
   }
 
 
