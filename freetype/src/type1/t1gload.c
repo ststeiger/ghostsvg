@@ -105,6 +105,7 @@
       metrics.bearing_x = FIXED_TO_INT( decoder->builder.left_bearing.x );
       metrics.bearing_y = FIXED_TO_INT( decoder->builder.left_bearing.y );
       metrics.advance   = FIXED_TO_INT( decoder->builder.advance.x );
+      metrics.vert_advance   = FIXED_TO_INT( decoder->builder.advance.y );
 
       error = inc->funcs->get_glyph_metrics( inc->object,
                                              glyph_index, FALSE, &metrics );
@@ -112,7 +113,7 @@
       decoder->builder.left_bearing.x = INT_TO_FIXED( metrics.bearing_x );
       decoder->builder.left_bearing.y = INT_TO_FIXED( metrics.bearing_y );
       decoder->builder.advance.x      = INT_TO_FIXED( metrics.advance );
-      decoder->builder.advance.y      = 0;
+      decoder->builder.advance.y      = INT_TO_FIXED( metrics.vert_advance );
     }
 
 #endif /* FT_CONFIG_OPTION_INCREMENTAL */
@@ -401,10 +402,17 @@
           FIXED_TO_INT( decoder.builder.advance.x );
         glyph->root.internal->glyph_transformed = 0;
 
-        /* make up vertical ones */
+#if 0
+	/* make up vertical ones */
         metrics->vertAdvance = ( face->type1.font_bbox.yMax -
                                  face->type1.font_bbox.yMin ) >> 16;
         glyph->root.linearVertAdvance = metrics->vertAdvance;
+#else
+        metrics->vertAdvance =
+          FIXED_TO_INT( decoder.builder.advance.y );
+        glyph->root.linearVertAdvance =
+          FIXED_TO_INT( decoder.builder.advance.y );
+#endif
 
         glyph->root.format = FT_GLYPH_FORMAT_OUTLINE;
 

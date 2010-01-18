@@ -175,6 +175,7 @@
       metrics.bearing_x = left_bearing;
       metrics.bearing_y = 0;
       metrics.advance   = advance_width;
+      metrics.vert_advance   = 0;
 
       error = face->root.internal->incremental_interface->funcs->get_glyph_metrics(
                 face->root.internal->incremental_interface->object,
