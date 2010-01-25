@@ -114,7 +114,6 @@ FT_BEGIN_HEADER
     FT_Long  bearing_x;
     FT_Long  bearing_y;
     FT_Long  advance;
-    FT_Long  vert_advance;
 
   } FT_Incremental_MetricsRec;
 

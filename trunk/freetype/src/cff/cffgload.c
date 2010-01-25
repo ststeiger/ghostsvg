@@ -2771,16 +2771,25 @@
 
 
       metrics.bearing_x = decoder.builder.left_bearing.x;
-      metrics.bearing_y = decoder.builder.left_bearing.y;
+      metrics.bearing_y = 0;
       metrics.advance   = decoder.builder.advance.x;
-      metrics.vert_advance   = decoder.builder.advance.y;
       error = face->root.internal->incremental_interface->funcs->get_glyph_metrics(
                 face->root.internal->incremental_interface->object,
                 glyph_index, FALSE, &metrics );
       decoder.builder.left_bearing.x = metrics.bearing_x;
-      decoder.builder.left_bearing.y = metrics.bearing_y;
       decoder.builder.advance.x      = metrics.advance;
-      decoder.builder.advance.y     = metrics.vert_advance;
+
+      if ( !error )
+      {
+	metrics.bearing_x = 0;
+	metrics.bearing_y = decoder.builder.left_bearing.y;
+	metrics.advance   = decoder.builder.advance.y;
+	error = face->root.internal->incremental_interface->funcs->get_glyph_metrics(
+                face->root.internal->incremental_interface->object,
+                glyph_index, FALSE, &metrics );
+	decoder.builder.left_bearing.y = metrics.bearing_y;
+	decoder.builder.advance.y     = metrics.advance;
+      }
     }
 
 #endif /* FT_CONFIG_OPTION_INCREMENTAL */
