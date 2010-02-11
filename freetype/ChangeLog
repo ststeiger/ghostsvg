@@ -1,3 +1,150 @@
+2010-02-10  Ken Sharp  <ken.sharp@artifex.com>
+
+	Really fix Savannah bug #28678 (part 2).
+
+	Since we consider `sbw' for the horizontal direction only, we still have
+	to synthesize vertical metrics if the user wants to use the vertical
+	writing direction.
+
+	* src/cff/cffgload.c (cff_slot_load), src/cid/cidgload.c
+	(cid_slot_load_glyph), src/type1/t1gload.c (T1_Load_Glyph):
+	Synthesize vertical metrics (only) if FT_LOAD_VERTICAL_LAYOUT is
+	set.
+
+2010-02-10  Ken Sharp  <ken.sharp@artifex.com>
+
+	Really fix Savannah bug #28678 (part 1).
+
+	After long discussion, we now consider the character width vector
+	(wx,wy) returned by the `sbw' Type 1 operator as being part of *one*
+	direction only.  For example, if you are using the horizontal
+	writing direction, you get the horizontal and vertical components of
+	the advance width for this direction.  Note that OpenType and CFF fonts
+	don't have such a vertical component; instead, the GPOS table can be
+	used to generate two-dimensional advance widths (but this isn't
+	handled by FreeType).
+
+	* include/freetype/ftincrem.h (FT_Incremental_MetricsRec): Add
+	`advance_v' field to hold the vertical component of the advance
+	value.
+
+	* src/truetype/ttgload.c (tt_get_metrics), src/cff/cffgload.c
+	(cff_slot_load), src/type1/t1gload.c
+	(T1_Parse_Glyph_And_Get_Char_String), src/cid/cidgload.c
+	(cid_load_glyph): Use it.
+
+2010-02-08  Werner Lemberg  <wl@gnu.org>
+
+	* devel/ftoption.h [FT_CONFIG_OPTION_PIC]: Define.
+
+2010-02-04  suzuki toshiya  <mpsuzuki@hiroshima-u.ac.jp>
+
+	Prevent NULL pointer dereference passed to FT_Module_Requester.
+
+	* src/sfnt/sfdriver.c (sfnt_get_interface): Don't use `module'.
+	* src/psnames/psmodule.c (psnames_get_interface): Ditto.
+
+	* src/cff/cffdrivr.c (cff_get_interface): Check NULL `driver'.
+	* src/truetype/ttdriver.c (tt_get_interface): Ditto.
+
+2010-01-29  suzuki toshiya  <mpsuzuki@hiroshima-u.ac.jp>
+
+	Fix memory leaks in previous patch.
+
+	* src/sfnt/sfobjs.c (sfnt_load_face): Don't overwrite the strings
+	allocated for face->root.family_name and style_name.
+
+2010-01-29  suzuki toshiya  <mpsuzuki@hiroshima-u.ac.jp>
+
+	New parameters for FT_Open_Face() to ignore preferred family names.
+
+	Preferred family names should be used for legacy systems that
+	can hold only a few faces (<= 4) for a family name. Suggested by
+	Andreas Heinrich.
+	http://lists.gnu.org/archive/html/freetype/2010-01/msg00001.html
+
+	* include/freetype/ftsnames.h (FT_PARAM_TAG_IGNORE_PREFERRED_FAMILY,
+	FT_PARAM_TAG_IGNORE_PREFERRED_SUBFAMILY): Define.
+
+	* src/sfnt/sfobjs.h (sfnt_load_face): Check the arguments and
+	ignore preferred family and subfamily names if requested.
+
+2010-01-27  Ken Sharp  <ken.sharp@artifex.com>
+
+	Fix Savannah bug #28678.
+
+	* src/cff/cffgload.c (cff_slot_load), src/cid/cidgload.c
+	(cid_load_glyph): Handle vertical metrics correctly.
+
+	* src/type1/t1gload.c (T1_Parse_Glyph_And_Get_Char_String): Handle
+	vertical metrics correctly.
+	(T1_Load_Glyph): Don't synthesize vertical metrics.
+
+2010-01-14  Werner Lemberg  <wl@gnu.org>
+
+	Make FT_Set_Transform work if no renderer is available.
+
+	* src/base/ftobjs.c (FT_Load_Glyph): Apply `standard' transformation
+	if no renderer is compiled into the library.
+
+2010-01-14  Werner Lemberg  <wl@gnu.org>
+
+	Fix compilation warning.
+
+	* src/base/ftbase.h: s/LOCAL_DEF/LOCAL/.
+	* src/base/ftobjc.s: Include ftbase.h conditionally.
+
+2010-01-11  Kwang Yul Seo  <skyul@company100.net>
+
+	Provide inline assembly code for RVCT compiler.
+	This is Savannah patch #7059.
+
+	* include/freetype/config/ftconfig.h (FT_MULFIX_ASSEMBLER,
+	FT_MulFix_arm) [__CC_ARM || __ARM_CC]: Define.
+
+2010-01-08  Ken Sharp  <ken.sharp@artifex.com>
+
+	Fix Savannah bug #28521.
+
+	Issue #28226 involved a work-around for a font which used the
+	`setcurrentpoint' operator in an invalid way; this operator is only
+	supposed to be used with the result of OtherSubrs, and the font used
+	it directly.  The supplied patch removed the block of code which
+	checked this usage entirely.
+
+	This turns out to be a Bad Thing.  If `setcurrentpoint' is being
+	used correctly it should reset the flex flag in the decoder.  If we
+	don't do this then the flag never gets reset and we omit any further
+	contours from the glyph (at least until we close the path or
+	similar).
+
+	* src/psaux/t1decode.c (t1_decoder_parse_charstrings)
+	<op_setcurrentpoint>: Handle `flex_state' correctly.
+
+2010-01-05  Werner Lemberg  <wl@gnu.org>
+
+	Apply reports from clang static analyzer.
+
+	* src/lzw/ftlzw.c (ft_lzw_file_init), src/base/ftstroke.c
+	(FT_Stroker_ParseOutline), src/base/ftsynth.c
+	(FT_GlyphSlot_Embolden): Remove dead code.
+
+	* src/base/ftpatent.c (_tt_check_patents_in_table): Initialize
+	`offset_i' and `length_i'.
+
+2010-01-05  Ralph Giles  <giles@ghostscript.com>
+
+	Enable the incremental font interface by default.
+
+	Ghostscript requires the incremental font interface for handling
+	some Postscript documents.  It is moving to using FreeType as its
+	primary renderer; supporting this in the default build makes it
+	Ghostscript to be linked against the system FreeType when one is
+	available.
+
+	* include/freetype/config/ftoption.h (FT_CONFIG_OPTION_INCREMENTAL):
+	Uncomment.
+
 2010-01-05  Werner Lemberg  <wl@gnu.org>
 
 	Fix Savannah bug #28395.
@@ -109,6 +256,9 @@
 	the point after a `Subr' call, but these fonts use it to set the
 	initial point to (0,0).  Unnecessarily so, as they correctly use an
 	`hsbw' operation which implicitly sets the initial point.
+
+	* src/psaux/t1decode.c (t1_decoder_parse_charstrings)
+	<op_setcurrentpoint>: Comment out code.
 
 2009-12-14  Bram Tassyns  <bramt@enfocus.be>
 

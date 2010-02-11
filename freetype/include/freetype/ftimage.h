@@ -99,6 +99,20 @@ FT_BEGIN_HEADER
   /*                                                                       */
   /*    yMax :: The vertical maximum (top-most).                           */
   /*                                                                       */
+  /* <Note>                                                                */
+  /*    The bounding box is specified with the coordinates of the lower    */
+  /*    left and the upper right corner.  In PostScript, those values are  */
+  /*    often called (llx,lly) and (urx,ury), respectively.                */
+  /*                                                                       */
+  /*    If `yMin' is negative, this value gives the glyph's descender.     */
+  /*    Otherwise, the glyph doesn't descend below the baseline.           */
+  /*    Similarly, if `ymax' is positive, this value gives the glyph's     */
+  /*    ascender.                                                          */
+  /*                                                                       */
+  /*    `xMin' gives the horizontal distance from the glyph's origin to    */
+  /*    the left edge of the glyph's bounding box.  If `xMin' is negative, */
+  /*    the glyph extends to the left of the origin.                       */
+  /*                                                                       */
   typedef struct  FT_BBox_
   {
     FT_Pos  xMin, yMin;
@@ -253,6 +267,9 @@ FT_BEGIN_HEADER
   /*                    a `down' flow, and negative when it has an `up'    */
   /*                    flow.  In all cases, the pitch is an offset to add */
   /*                    to a bitmap pointer in order to go down one row.   */
+  /*                                                                       */
+  /*                    For the B/W rasterizer, `pitch' is always an even  */
+  /*                    number.                                            */
   /*                                                                       */
   /*    buffer       :: A typeless pointer to the bitmap buffer.  This     */
   /*                    value should be aligned on 32-bit boundaries in    */
